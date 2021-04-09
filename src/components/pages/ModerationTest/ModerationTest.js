@@ -209,7 +209,6 @@ const ModerationTest = props => {
             THIS ROUTE IS DEPRECIATED. PLEASE USE/WORK ON{' '}
             <Link to="/admin">`/admin`</Link> INSTEAD OF `/moderation`
           </h1>
-          <h1></h1>
           <Form form={form} className="inline-form">
             <Button type="default" onClick={homePageHandler}>
               Back to Home Page
