@@ -109,7 +109,6 @@ const RenderMatchUp = props => {
         <Button className="back-button" onClick={back2Dash}>
           Back
         </Button>
-
         <Button
           className={'vote-button ' + (props.canVote ? '' : 'disabled')}
           onClick={handleVote}

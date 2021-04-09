@@ -97,7 +97,6 @@ const RenderMissionControl = props => {
               onChange={handleChecked}
               isCompleted={hasRead}
             />
-
             <Col className="image-and-text-container">
               <img src={read_icon} alt="reading icon" />
               <p className="mission-control-text">Read</p>
@@ -130,7 +129,6 @@ const RenderMissionControl = props => {
                 onChange={handleChecked}
                 isCompleted={hasWritten}
               />
-
               <Col className="image-and-text-container">
                 <img
                   className="WritingandDrawingIcon"

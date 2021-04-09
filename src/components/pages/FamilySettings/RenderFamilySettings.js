@@ -43,7 +43,6 @@ const FamilySettings = props => {
             />
           ))}
         </Layout>
-
         <Layout className="settings-form">
           <h2 className="h2-family-settings">Change Email or Password</h2>
           <Form

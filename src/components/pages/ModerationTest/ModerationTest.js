@@ -200,7 +200,6 @@ const ModerationTest = props => {
         {/* <Sider>
         Would links to fast scroll to specific sections be useful?
         </Sider> */}
-
         <Content>
           <h1>
             <Alert

@@ -133,7 +133,6 @@ const ProfileRenderModal = props => {
                   size="large"
                 />
               </Form.Item>
-
               <Button
                 className="back"
                 type="text"
