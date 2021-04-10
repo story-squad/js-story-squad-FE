@@ -101,46 +101,68 @@ const ModerationTools = props => {
     <div>
       <h1>Admin Dashboard</h1>
       <Form form={form} className="inline-form">
-        <h2 className="moderator-title">Moderator Tools</h2>
-        <Collapse style={{ width: '45%' }} className="moderator-notes">
-          <Collapse.Panel header="Notes & Instructions" key="1">
-            <p>
-              Actions an adult moderator should be able to take to run the game
-              and approve/flag stories. (This is a work in progress. also not
-              sure how "Reset Seeds" updates database & if it needs updating or
-              is finished.)
-            </p>
-          </Collapse.Panel>
-        </Collapse>
-        <br />
-        <Form.Item>
-          <Button type="default" onClick={handleFaceoffs}>
-            Go to Faceoffs/Matchups
-          </Button>
-        </Form.Item>
-        <Form.Item className="moderator-form">
-          <Button style={{ margin: '8px' }} type="reset" onClick={reset}>
-            Reset Seeds
-          </Button>
-          <Button style={{ margin: '8px' }} type="primary">
-            Load Submissions(TBD)
-          </Button>
-          <Button style={{ margin: '8px' }} type="default">
-            Remove(TBD)
-          </Button>
-          <Button style={{ margin: '8px' }} type="default" onClick={cluster}>
-            Generate Cluster
-          </Button>
-          <Button style={{ margin: '8px' }} type="default" onClick={faceoff}>
-            Generate Faceoffs
-          </Button>
-          <Button style={{ margin: '8px' }} type="default" onClick={voteSeq}>
-            Generate Vote Sequence
-          </Button>
-          <Button style={{ margin: '8px' }} type="default" onClick={results}>
-            Generate Results
-          </Button>
-        </Form.Item>
+        {/* Developer game control panel */}
+        {process.env.REACT_APP_ENV === 'development' && (
+          <>
+            <h2 className="moderator-title">Game Control (Development Only)</h2>
+            <Collapse style={{ width: '45%' }} className="moderator-notes">
+              <Collapse.Panel header="Notes & Instructions" key="1">
+                <p>
+                  Actions an adult moderator should be able to take to run the
+                  game and approve/flag stories. (This is a work in progress.
+                  also not sure how "Reset Seeds" updates database & if it needs
+                  updating or is finished.)
+                </p>
+              </Collapse.Panel>
+            </Collapse>
+            <br />
+            <Form.Item>
+              <Button type="default" onClick={handleFaceoffs}>
+                Go to Faceoffs/Matchups
+              </Button>
+            </Form.Item>
+            <Form.Item className="moderator-form">
+              <Button style={{ margin: '8px' }} type="reset" onClick={reset}>
+                Reset Seeds
+              </Button>
+              <Button style={{ margin: '8px' }} type="primary">
+                Load Submissions(TBD)
+              </Button>
+              <Button style={{ margin: '8px' }} type="default">
+                Remove(TBD)
+              </Button>
+              <Button
+                style={{ margin: '8px' }}
+                type="default"
+                onClick={cluster}
+              >
+                Generate Cluster
+              </Button>
+              <Button
+                style={{ margin: '8px' }}
+                type="default"
+                onClick={faceoff}
+              >
+                Generate Faceoffs
+              </Button>
+              <Button
+                style={{ margin: '8px' }}
+                type="default"
+                onClick={voteSeq}
+              >
+                Generate Vote Sequence
+              </Button>
+              <Button
+                style={{ margin: '8px' }}
+                type="default"
+                onClick={results}
+              >
+                Generate Results
+              </Button>
+            </Form.Item>
+          </>
+        )}
+        {/* END Developer game control panel */}
         <h2 className="posts-title">Posts for Moderation</h2>
         <Collapse style={{ width: '45%' }}>
           <Collapse.Panel header="Instructions" key="2">
