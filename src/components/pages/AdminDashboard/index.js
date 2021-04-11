@@ -26,10 +26,6 @@ const AdminDashboard = props => {
       <Layout>
         <Content>
           <ModerationTools component={ModerationTools} />
-          <DevToolsNew
-            className="dev-tools-component"
-            component={DevToolsNew}
-          />
         </Content>
       </Layout>
     </Layout>
