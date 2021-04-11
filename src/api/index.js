@@ -489,7 +489,7 @@ const getChildGraph = async (authState, ChildID) => {
 };
 
 const reset = async authState => {
-  console.log('It should work');
+  console.log('Removing squads and matchups');
   return apiAuthPut(`/reset/reset/`, null);
 };
 
