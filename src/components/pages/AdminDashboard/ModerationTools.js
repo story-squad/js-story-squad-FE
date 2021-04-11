@@ -93,10 +93,6 @@ const ModerationTools = props => {
     });
   };
 
-  const handleFaceoffs = e => {
-    push('/child/match-up');
-  };
-
   return (
     <div>
       <h1>Admin Dashboard</h1>
@@ -116,27 +112,16 @@ const ModerationTools = props => {
               </Collapse.Panel>
             </Collapse>
             <br />
-            <Form.Item>
-              <Button type="default" onClick={handleFaceoffs}>
-                Go to Faceoffs/Matchups
-              </Button>
-            </Form.Item>
             <Form.Item className="moderator-form">
               <Button style={{ margin: '8px' }} type="reset" onClick={reset}>
-                Reset Seeds
-              </Button>
-              <Button style={{ margin: '8px' }} type="primary">
-                Load Submissions(TBD)
-              </Button>
-              <Button style={{ margin: '8px' }} type="default">
-                Remove(TBD)
+                Remove Squads & Matchups
               </Button>
               <Button
                 style={{ margin: '8px' }}
                 type="default"
                 onClick={cluster}
               >
-                Generate Cluster
+                Generate Squads
               </Button>
               <Button
                 style={{ margin: '8px' }}
