@@ -48,7 +48,6 @@ const RenderJoinTheSquad = props => {
               src={Squadup}
               alt="Blast Character Background"
             />
-
             <img
               className="child1-avatar"
               src={props.team.child1.AvatarURL}

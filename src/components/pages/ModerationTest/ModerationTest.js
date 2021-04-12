@@ -200,7 +200,6 @@ const ModerationTest = props => {
         {/* <Sider>
         Would links to fast scroll to specific sections be useful?
         </Sider> */}
-
         <Content>
           <h1>
             <Alert
@@ -210,7 +209,6 @@ const ModerationTest = props => {
             THIS ROUTE IS DEPRECIATED. PLEASE USE/WORK ON{' '}
             <Link to="/admin">`/admin`</Link> INSTEAD OF `/moderation`
           </h1>
-          <h1></h1>
           <Form form={form} className="inline-form">
             <Button type="default" onClick={homePageHandler}>
               Back to Home Page

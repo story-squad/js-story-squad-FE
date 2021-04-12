@@ -12,26 +12,20 @@ import { markAsRead } from '../../../api';
 import { tasks } from '../../../state/actions';
 
 const RenderStoryViewer = props => {
+  const { authState } = useOktaAuth();
+  const { push } = useHistory();
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [hasViewedAllPages, setViewed] = useState(false);
 
-  const { authState } = useOktaAuth();
-  const { push } = useHistory();
-
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-
-  useEffect(() => {
-    if (pageNumber === numPages) {
-      setViewed(true);
-    }
-  }, [pageNumber, numPages]);
 
   const previousPage = () => {
     if (pageNumber > 1) {
       changePage(-1);
     }
   };
+
   const nextPage = () => {
     if (pageNumber < numPages) {
       changePage(1);
@@ -51,17 +45,11 @@ const RenderStoryViewer = props => {
     [previousPage, nextPage, numPages]
   );
 
-  useEffect(() => {
-    document.addEventListener('keydown', keydownListener);
-    return () => {
-      document.removeEventListener('keydown', keydownListener);
-    };
-  }, [keydownListener]);
-
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
     setPageNumber(1);
   };
+
   const changePage = offset => {
     setPageNumber(prevPageNumber => prevPageNumber + offset);
   };
@@ -69,9 +57,21 @@ const RenderStoryViewer = props => {
   const onFinish = e => {
     markAsRead(authState, props.tasks.id);
     push('/child/mission-control');
-
     props.setHasRead();
   };
+
+  useEffect(() => {
+    if (pageNumber === numPages) {
+      setViewed(true);
+    }
+  }, [pageNumber, numPages]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', keydownListener);
+    return () => {
+      document.removeEventListener('keydown', keydownListener);
+    };
+  }, [keydownListener]);
 
   return (
     <>
@@ -96,7 +96,6 @@ const RenderStoryViewer = props => {
             </Document>
           )}
         </SizeMe>
-
         <Button
           className="prev-button"
           type="primary"
@@ -104,7 +103,7 @@ const RenderStoryViewer = props => {
           onClick={previousPage}
           icon={<ArrowLeftOutlined />}
           size="large"
-        ></Button>
+        />
         <Button
           className="next-button"
           type="primary"
@@ -112,7 +111,7 @@ const RenderStoryViewer = props => {
           onClick={nextPage}
           icon={<ArrowRightOutlined />}
           size="large"
-        ></Button>
+        />
         <div className="finished-container">
           <Button
             className="finished-reading"

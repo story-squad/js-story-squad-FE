@@ -128,7 +128,6 @@ export const UploadDocs = ({
         >
           <Button className={uploadButtonClassname}>{uploadButtonText}</Button>
         </Upload>
-
         <div className="bottom">
           <Modal
             visible={preview.visible}

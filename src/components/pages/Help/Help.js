@@ -10,7 +10,6 @@ const Help = props => {
     <>
       <Layout className="parent-dashboard">
         <ParentNavSider selected="help" />
-
         <Layout>
           <div className="Contact">
             <Title

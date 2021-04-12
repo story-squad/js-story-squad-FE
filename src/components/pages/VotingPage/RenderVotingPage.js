@@ -9,7 +9,6 @@ const RenderVotingPage = props => {
   return (
     <>
       <Header title="VOTE FOR YOUR FAVORITE STORY" displayMenu={true} />
-
       <div className="voting-container">
         <Row className="main-row">
           <Col className="left-half" xs={24} sm={12}>
@@ -23,7 +22,6 @@ const RenderVotingPage = props => {
               <EmojiPicker getChildState={setSubEmojis1} />
             </div>
           </Col>
-
           <Col className="right-half" xs={24} sm={12}>
             <div className="image-and-check-container">
               <img

@@ -13,8 +13,8 @@ const RenderTrophyRoom = props => {
     false
   );
   const [isInventoryModalVisible, setIsInventoryModalVisible] = useState(false);
-  const [inventoryState, setInventoryState] = useState('');
-  const [achievementState, setAchievementState] = useState('');
+  const [, setInventoryState] = useState('');
+  const [, setAchievementState] = useState('');
 
   const dashboard = () => {
     push('/child/dashboard');
