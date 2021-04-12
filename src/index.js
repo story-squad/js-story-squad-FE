@@ -61,10 +61,7 @@ import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_T
 import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
 import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
 
-// import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
-
 ReactDOM.render(
-  //
   <Router>
     <React.StrictMode>
       <Provider store={store}>
@@ -74,13 +71,12 @@ ReactDOM.render(
       </Provider>
     </React.StrictMode>
   </Router>,
-
   document.getElementById('root')
 );
 
 function App() {
-  // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
-  // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
+  // Declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
+  // useHistory at this level to ensure we have security around our routes.
   const history = useHistory();
 
   const authHandler = () => {
@@ -107,16 +103,13 @@ function App() {
             <StoryPrompt LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
         <SecureRoute
           path="/child/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
         <SecureRoute path="/scoreboard" component={FaceoffReveal} />
-
         <SecureRoute
           path="/child/mission-control"
           component={() => (
