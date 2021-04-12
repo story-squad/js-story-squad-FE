@@ -11,7 +11,10 @@ import {
   setVoteSeq,
 } from '../../../api/moderation';
 
-import { resetTestUserSubs } from '../../../api/moderation';
+import {
+  resetTestUserSubs,
+  generateTestUserSubs,
+} from '../../../api/moderation';
 
 import { Button, Select, Form, Row, Card, Col, Collapse } from 'antd';
 
@@ -142,7 +145,14 @@ const ModerationTools = props => {
                 type="default"
                 onClick={() => resetTestUserSubs(1)}
               >
-                Remove Submissions for Test User
+                Remove Submissions
+              </Button>
+              <Button
+                style={{ margin: '8px' }}
+                type="default"
+                onClick={() => generateTestUserSubs(1)}
+              >
+                Generate Submissions
               </Button>
               <h3>Game Control</h3>
               <Button

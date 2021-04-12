@@ -83,3 +83,14 @@ export const resetTestUserSubs = childId => {
     return { err };
   }
 };
+
+export const generateTestUserSubs = childId => {
+  try {
+    return apiAuthPut(`/mod/generate/submission/${childId}`).then(res => {
+      return res;
+    });
+  } catch (err) {
+    console.log(err);
+    return { err };
+  }
+};
