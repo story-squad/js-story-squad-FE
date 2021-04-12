@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import {
   getCohorts,
@@ -100,22 +100,25 @@ const ModerationTools = props => {
         {/* Developer game control panel */}
         {process.env.REACT_APP_ENV === 'development' && (
           <>
-            <h2 className="moderator-title">Game Control (Development Only)</h2>
+            <h2 className="moderator-title">
+              Game Control (Development and User Testing)
+            </h2>
             <Collapse style={{ width: '45%' }} className="moderator-notes">
               <Collapse.Panel header="Notes & Instructions" key="1">
                 <p>
-                  Actions an adult moderator should be able to take to run the
-                  game and approve/flag stories. (This is a work in progress.
-                  also not sure how "Reset Seeds" updates database & if it needs
-                  updating or is finished.)
+                  Control for game flow and submission data for the test user
+                  child account, labeled with (TEST USER) under the parent
+                  account "llama001@maildrop.cc" Data for testing purposes is
+                  included in knex seed files. Seed data should only need to be
+                  run once in the development environment to allow for user
+                  testing.
                 </p>
               </Collapse.Panel>
             </Collapse>
             <br />
             <Form.Item className="moderator-form">
-              <Button style={{ margin: '8px' }} type="default">
-                Remove Submissions for Test User
-              </Button>
+              {/* 
+              Remove these components and related functions if other solutions work
               <Button style={{ margin: '8px' }} type="reset" onClick={reset}>
                 Remove Squads & Matchups
               </Button>
@@ -131,14 +134,19 @@ const ModerationTools = props => {
                 type="default"
                 onClick={faceoff}
               >
-                Generate Faceoffs
+                Generate Matchups
+              </Button> */}
+              <h3>User Control</h3>
+              <Button style={{ margin: '8px' }} type="default">
+                Remove Submissions for Test User
               </Button>
+              <h3>Game Control</h3>
               <Button
                 style={{ margin: '8px' }}
                 type="default"
                 onClick={voteSeq}
               >
-                Generate Vote Sequence
+                Generate Votes
               </Button>
               <Button
                 style={{ margin: '8px' }}
@@ -148,6 +156,36 @@ const ModerationTools = props => {
                 Generate Results
               </Button>
             </Form.Item>
+            <h3>Navigation</h3>
+            <nav>
+              <Link
+                to="/child/dashboard"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dashboard
+              </Link>
+              <br />
+              <Link
+                to="/child/mission-control"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Mission Control (Read/Write/Draw)
+              </Link>
+              <br />
+              <Link to="/child/join" target="_blank" rel="noopener noreferrer">
+                Squad
+              </Link>
+              <br />
+              <Link
+                to="/child/match-up"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Matchup
+              </Link>
+            </nav>
           </>
         )}
         {/* END Developer game control panel */}
