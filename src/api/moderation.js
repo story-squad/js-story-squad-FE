@@ -72,3 +72,14 @@ export const setResults = () => {
     return { err };
   }
 };
+
+export const resetTestUserSubs = childId => {
+  try {
+    return apiAuthPut(`/mod/reset/submission/${childId}`).then(res => {
+      return res;
+    });
+  } catch (err) {
+    console.log(err);
+    return { err };
+  }
+};
