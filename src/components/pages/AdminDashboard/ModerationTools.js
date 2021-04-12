@@ -113,6 +113,9 @@ const ModerationTools = props => {
             </Collapse>
             <br />
             <Form.Item className="moderator-form">
+              <Button style={{ margin: '8px' }} type="default">
+                Remove Submissions for Test User
+              </Button>
               <Button style={{ margin: '8px' }} type="reset" onClick={reset}>
                 Remove Squads & Matchups
               </Button>
