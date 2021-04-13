@@ -186,13 +186,8 @@ function App() {
             <TrophyRoom LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <Route exact path="/moderation" component={ModerationTest} />
-        <Route exact path="/admin" component={AdminDashboard} />
-        <Route exact path="/dev/day/1-3" component={SatMon} />
-        <Route exact path="/dev/day/4" component={Tues} />
-        <Route exact path="/dev/day/5" component={Wed} />
-        <Route exact path="/dev/day/6" component={Thurs} />
-        <Route exact path="/dev/day/7" component={Fri} />
+        <SecureRoute exact path="/moderation" component={ModerationTest} />
+        <SecureRoute exact path="/admin" component={AdminDashboard} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
