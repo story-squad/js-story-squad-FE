@@ -1,5 +1,5 @@
 // istanbul ignore file
-import { apiAuthGet, apiAuthPut } from './';
+import { apiAuthDelete, apiAuthGet, apiAuthPut } from './';
 
 export const getCohorts = () => {
   try {
@@ -98,6 +98,17 @@ export const generateTestUserSubs = childId => {
 export const getTableInfo = childId => {
   try {
     return apiAuthGet(`/mod/get-info/${childId}`).then(res => {
+      return res;
+    });
+  } catch (err) {
+    console.log(err);
+    return { err };
+  }
+};
+
+export const removeTestUserPoints = childId => {
+  try {
+    return apiAuthDelete(`/mod/reset/points/${childId}`).then(res => {
       return res;
     });
   } catch (err) {

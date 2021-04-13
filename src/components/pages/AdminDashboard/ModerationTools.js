@@ -13,6 +13,7 @@ import {
   resetTestUserSubs,
   generateTestUserSubs,
   getTableInfo,
+  removeTestUserPoints,
 } from '../../../api/moderation';
 
 import { Button, Select, Form, Row, Card, Col, Collapse } from 'antd';
@@ -98,6 +99,13 @@ const ModerationTools = () => {
   // Remove read/write/draw submissions for test user
   const handleResetTestUserSubs = () => {
     resetTestUserSubs(1).then(res => {
+      console.log(res.data);
+    });
+  };
+
+  // Remove read/write/draw submissions for test user
+  const handleRemoveTestUserPoints = () => {
+    removeTestUserPoints(1).then(res => {
       console.log(res.data);
     });
   };
@@ -215,6 +223,13 @@ const ModerationTools = () => {
                 onClick={handleGenerateTestUserSubs}
               >
                 Generate Submissions
+              </Button>
+              <Button
+                style={{ margin: '8px' }}
+                type="default"
+                onClick={handleRemoveTestUserPoints}
+              >
+                Remove Points
               </Button>
               <h3>Game Control</h3>
               <Button
