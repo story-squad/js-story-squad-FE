@@ -112,17 +112,13 @@ const ModerationTools = () => {
             </Collapse>
             <br />
             <Form.Item className="moderator-form">
-              <h3>Game Data</h3>
-              <table id="admin-table">
+              <h3>Test User Data</h3>
+              <table className="admin-table">
                 <tr>
                   <th>Read?</th>
                   <th>Drawn?</th>
                   <th>Written?</th>
-                  <th>Drawings</th>
-                  <th>Writings (pages)</th>
-                  <th>Faceoffs</th>
-                  <th>Teams</th>
-                  <th>Votes</th>
+                  <th>Submitted Points?</th>
                 </tr>
                 <tr>
                   <td>
@@ -140,6 +136,23 @@ const ModerationTools = () => {
                       ? String(tableInfo.hasWritten)
                       : '?'}
                   </td>
+                  <td>
+                    {tableInfo.numPoints !== undefined
+                      ? String(tableInfo.numPoints > 0)
+                      : '?'}
+                  </td>
+                </tr>
+              </table>
+              <h3>Game Data</h3>
+              <table className="admin-table">
+                <tr>
+                  <th>Drawings</th>
+                  <th>Writings (pages)</th>
+                  <th>Faceoffs</th>
+                  <th>Teams</th>
+                  <th>Votes</th>
+                </tr>
+                <tr>
                   <td>
                     {tableInfo.numDrawings !== undefined
                       ? tableInfo.numDrawings
