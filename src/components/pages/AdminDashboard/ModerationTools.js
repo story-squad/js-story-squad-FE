@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import {
   getCohorts,
@@ -81,9 +81,23 @@ const ModerationTools = () => {
   };
 
   // Get information about API tables
-  const handleGetTableInfo = childId => {
-    getTableInfo(childId).then(res => {
+  const handleGetTableInfo = () => {
+    getTableInfo(1).then(res => {
       setTableInfo(res.data);
+      console.log(res.data);
+    });
+  };
+
+  // Add read/write/draw submissions for test user
+  const handleGenerateTestUserSubs = () => {
+    generateTestUserSubs(1).then(res => {
+      console.log(res.data);
+    });
+  };
+
+  // Remove read/write/draw submissions for test user
+  const handleResetTestUserSubs = () => {
+    resetTestUserSubs(1).then(res => {
       console.log(res.data);
     });
   };
@@ -183,7 +197,7 @@ const ModerationTools = () => {
               <Button
                 style={{ margin: '8px' }}
                 type="default"
-                onClick={() => handleGetTableInfo(1)}
+                onClick={handleGetTableInfo}
               >
                 Refresh Data
               </Button>
@@ -191,14 +205,14 @@ const ModerationTools = () => {
               <Button
                 style={{ margin: '8px' }}
                 type="default"
-                onClick={() => resetTestUserSubs(1)}
+                onClick={handleResetTestUserSubs}
               >
                 Remove Submissions
               </Button>
               <Button
                 style={{ margin: '8px' }}
                 type="default"
-                onClick={() => generateTestUserSubs(1)}
+                onClick={handleGenerateTestUserSubs}
               >
                 Generate Submissions
               </Button>
