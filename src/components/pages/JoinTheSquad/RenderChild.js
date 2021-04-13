@@ -6,25 +6,15 @@ import wordBubbleright from '../../../assets/images/match_up_images/wordBubbleri
 import { useHistory } from 'react-router-dom';
 
 const useStyles = childNum => {
-  return childNum === 1
-    ? {
-        joinSquad: 'joinSquad1',
-        imgContain: 'imgContain1',
-        text: 'text',
-        wordBubble: 'wordBubble',
-        star: 'star',
-        childAvatar: 'child1-avatar',
-        button: 'back-button',
-      }
-    : {
-        joinSquad: 'joinSquad2',
-        imgContain: 'imgContain2',
-        text: 'text',
-        wordBubble: 'wordBubble',
-        star: 'star',
-        childAvatar: 'child2-avatar',
-        button: 'button',
-      };
+  return {
+    joinSquad: childNum === 1 ? 'joinSquad1' : 'joinSquad2',
+    imgContain: childNum === 1 ? 'imgContain1' : 'imgContain2',
+    text: 'text',
+    wordBubble: childNum === 1 ? 'wordBubble' : 'wordBubble',
+    star: 'star',
+    childAvatar: childNum === 1 ? 'child1-avatar' : 'child2-avatar',
+    button: 'back-button',
+  };
 };
 
 const RenderChild = ({ child, bubbleStyle, childNum }) => {
