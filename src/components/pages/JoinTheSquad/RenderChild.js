@@ -5,34 +5,78 @@ import wordBubble from '../../../assets/images/match_up_images/wordbubble.svg';
 import wordBubbleright from '../../../assets/images/match_up_images/wordBubbleright.svg';
 import { useHistory } from 'react-router-dom';
 
+const useStyles = childNum => {
+  return childNum === 1
+    ? {
+        joinSquad: 'joinSquad1',
+        imgContain: 'imgContain1',
+        text: 'text',
+        wordBubble: 'wordBubble',
+        star: 'star',
+        childAvatar: 'child1-avatar',
+        button: 'back-button',
+      }
+    : {
+        joinSquad: 'joinSquad2',
+        imgContain: 'imgContain2',
+        text: 'text',
+        wordBubble: 'wordBubble',
+        star: 'star',
+        childAvatar: 'child2-avatar',
+        button: 'button',
+      };
+};
+
 const RenderChild = ({ child, bubbleStyle, childNum }) => {
   const { push } = useHistory();
+  const classes = useStyles(childNum);
 
   const home = e => {
     push('/child/dashboard');
   };
+  const teamVote = e => {
+    push('/child/point-share');
+  };
+
   return (
-    <Col className="joinSquad1" xs={24} sm={12}>
-      <div className="imgContain1">
-        <p className="text">
+    <Col className={classes.joinSquad} xs={24} sm={12}>
+      <div className={classes.imgContain}>
+        <p className={classes.text}>
           Hi! <br></br>My name is {child.ChildName}!
         </p>
         <img
-          className="wordBubble"
+          className={classes.wordBubble}
           src={bubbleStyle === 'right' ? wordBubbleright : wordBubble}
           alt="word bubble"
         />
-        <img className="star" src={Squadup} alt="Blast Character Background" />
         <img
-          className="child1-avatar"
+          className={classes.star}
+          src={Squadup}
+          alt="Blast Character Background"
+        />
+        <img
+          className={classes.childAvatar}
           src={child.AvatarURL}
           alt="Child 1 Avatar"
         />
       </div>
-      {}
-      <Button className="back-button" onClick={home}>
-        Back
-      </Button>
+      <div className="button">
+        {childNum === 1 ? (
+          <Button className={classes.button} onClick={home}>
+            Back
+          </Button>
+        ) : (
+          <Button
+            selection="#eb7d5bbb"
+            className="sharePoints"
+            type="primary"
+            size="large"
+            onClick={teamVote}
+          >
+            Share Points
+          </Button>
+        )}
+      </div>
     </Col>
   );
 };
