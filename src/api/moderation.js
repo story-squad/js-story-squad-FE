@@ -116,3 +116,14 @@ export const removeTestUserPoints = childId => {
     return { err };
   }
 };
+
+export const generateTestUserPoints = childId => {
+  try {
+    return apiAuthPut(`/mod/generate/points/${childId}`).then(res => {
+      return res;
+    });
+  } catch (err) {
+    console.log(err);
+    return { err };
+  }
+};
