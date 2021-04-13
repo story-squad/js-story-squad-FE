@@ -47,6 +47,11 @@ const apiAuthPut = (endpoint, body, authHeader) => {
     headers: authHeader,
   });
 };
+const apiAuthDelete = (endpoint, body, authHeader) => {
+  return axios.delete(`${process.env.REACT_APP_API_URI}${endpoint}`, body, {
+    headers: authHeader,
+  });
+};
 
 const getProfileData = authState => {
   try {
@@ -523,4 +528,5 @@ export {
   getGameVotes,
   getChildGraph,
   reset,
+  apiAuthDelete,
 };
