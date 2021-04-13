@@ -20,11 +20,10 @@ import { Button, Select, Form, Row, Card, Col, Collapse } from 'antd';
 
 const { Option } = Select;
 
-const ModerationTools = props => {
+const ModerationTools = () => {
   const [cohorts, setCohorts] = useState([]);
   const [posts, setPosts] = useState({});
   const [form] = Form.useForm();
-  const { push } = useHistory();
 
   useEffect(() => {
     getCohorts().then(res => {
@@ -67,21 +66,6 @@ const ModerationTools = props => {
     });
   };
 
-  // Moderator can begin the clustering process for joining teams
-  const cluster = () => {
-    setClusters().then(res => {
-      console.log(res);
-    });
-  };
-
-  // Moderator can begin the faceoff stage
-  // ERRLOG: no data in response
-  const faceoff = () => {
-    setFaceoffs().then(res => {
-      console.log(res);
-    });
-  };
-
   //ERRLOG: no data in response
   const voteSeq = () => {
     setVoteSeq().then(res => {
@@ -120,25 +104,6 @@ const ModerationTools = props => {
             </Collapse>
             <br />
             <Form.Item className="moderator-form">
-              {/* 
-              Remove these components and related functions if other solutions work
-              <Button style={{ margin: '8px' }} type="reset" onClick={reset}>
-                Remove Squads & Matchups
-              </Button>
-              <Button
-                style={{ margin: '8px' }}
-                type="default"
-                onClick={cluster}
-              >
-                Generate Squads
-              </Button>
-              <Button
-                style={{ margin: '8px' }}
-                type="default"
-                onClick={faceoff}
-              >
-                Generate Matchups
-              </Button> */}
               <h3>User Control</h3>
               <Button
                 style={{ margin: '8px' }}
