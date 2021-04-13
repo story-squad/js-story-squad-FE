@@ -94,3 +94,14 @@ export const generateTestUserSubs = childId => {
     return { err };
   }
 };
+
+export const getTableInfo = childId => {
+  try {
+    return apiAuthGet(`/mod/get-info/${childId}`).then(res => {
+      return res;
+    });
+  } catch (err) {
+    console.log(err);
+    return { err };
+  }
+};

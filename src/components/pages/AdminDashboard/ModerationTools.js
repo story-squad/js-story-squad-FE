@@ -5,8 +5,6 @@ import {
   getCohorts,
   getPostsForModeration,
   setSubmitStatus,
-  setClusters,
-  setFaceoffs,
   setResults,
   setVoteSeq,
 } from '../../../api/moderation';
@@ -14,6 +12,7 @@ import {
 import {
   resetTestUserSubs,
   generateTestUserSubs,
+  getTableInfo,
 } from '../../../api/moderation';
 
 import { Button, Select, Form, Row, Card, Col, Collapse } from 'antd';
@@ -24,6 +23,7 @@ const ModerationTools = () => {
   const [cohorts, setCohorts] = useState([]);
   const [posts, setPosts] = useState({});
   const [form] = Form.useForm();
+  const [tableInfo, setTableInfo] = useState({});
 
   useEffect(() => {
     getCohorts().then(res => {
@@ -80,6 +80,14 @@ const ModerationTools = () => {
     });
   };
 
+  // Get information about API tables
+  const handleGetTableInfo = childId => {
+    getTableInfo(childId).then(res => {
+      setTableInfo(res.data);
+      console.log(res.data);
+    });
+  };
+
   return (
     <div>
       <h1>Admin Dashboard</h1>
@@ -104,6 +112,68 @@ const ModerationTools = () => {
             </Collapse>
             <br />
             <Form.Item className="moderator-form">
+              <h3>Game Data</h3>
+              <table id="admin-table">
+                <tr>
+                  <th>Read?</th>
+                  <th>Drawn?</th>
+                  <th>Written?</th>
+                  <th>Drawings</th>
+                  <th>Writings (pages)</th>
+                  <th>Faceoffs</th>
+                  <th>Teams</th>
+                  <th>Votes</th>
+                </tr>
+                <tr>
+                  <td>
+                    {tableInfo.hasRead !== undefined
+                      ? String(tableInfo.hasRead)
+                      : '?'}
+                  </td>
+                  <td>
+                    {tableInfo.hasDrawn !== undefined
+                      ? String(tableInfo.hasDrawn)
+                      : '?'}
+                  </td>
+                  <td>
+                    {tableInfo.hasWritten !== undefined
+                      ? String(tableInfo.hasWritten)
+                      : '?'}
+                  </td>
+                  <td>
+                    {tableInfo.numDrawings !== undefined
+                      ? tableInfo.numDrawings
+                      : '?'}
+                  </td>
+                  <td>
+                    {tableInfo.numWritings !== undefined
+                      ? tableInfo.numWritings
+                      : '?'}
+                  </td>
+                  <td>
+                    {tableInfo.numFaceoffs !== undefined
+                      ? tableInfo.numFaceoffs
+                      : '?'}
+                  </td>
+                  <td>
+                    {tableInfo.numTeams !== undefined
+                      ? tableInfo.numTeams
+                      : '?'}
+                  </td>
+                  <td>
+                    {tableInfo.numVotes !== undefined
+                      ? tableInfo.numVotes
+                      : '?'}
+                  </td>
+                </tr>
+              </table>
+              <Button
+                style={{ margin: '8px' }}
+                type="default"
+                onClick={() => handleGetTableInfo(1)}
+              >
+                Refresh Data
+              </Button>
               <h3>User Control</h3>
               <Button
                 style={{ margin: '8px' }}
