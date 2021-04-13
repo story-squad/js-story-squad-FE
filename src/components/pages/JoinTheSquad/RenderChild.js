@@ -10,7 +10,7 @@ const useStyles = childNum => {
     joinSquad: childNum === 1 ? 'joinSquad1' : 'joinSquad2',
     imgContain: childNum === 1 ? 'imgContain1' : 'imgContain2',
     text: 'text',
-    wordBubble: childNum === 1 ? 'wordBubble' : 'wordBubble',
+    wordBubble: childNum === 1 ? 'wordBubble' : 'wordBubble2',
     star: 'star',
     childAvatar: childNum === 1 ? 'child1-avatar' : 'child2-avatar',
     button: 'back-button',
