@@ -9,12 +9,6 @@ import {
   setVoteSeq,
 } from '../../../api/moderation';
 
-import {
-  resetTestUserSubs,
-  generateTestUserSubs,
-  getTableInfo,
-} from '../../../api/moderation';
-
 import { Button, Select, Form, Row, Card, Col, Collapse } from 'antd';
 
 const { Option } = Select;
@@ -80,14 +74,6 @@ const ModerationTools = () => {
     });
   };
 
-  // Get information about API tables
-  const handleGetTableInfo = childId => {
-    getTableInfo(childId).then(res => {
-      setTableInfo(res.data);
-      console.log(res.data);
-    });
-  };
-
   return (
     <div>
       <h1>Admin Dashboard</h1>
@@ -98,113 +84,6 @@ const ModerationTools = () => {
             <h2 className="moderator-title">
               Game Control (Development and User Testing)
             </h2>
-            <Collapse style={{ width: '45%' }} className="moderator-notes">
-              <Collapse.Panel header="Notes & Instructions" key="1">
-                <p>
-                  Control for game flow and submission data for the test user
-                  child account, labeled with (TEST USER) under the parent
-                  account "llama001@maildrop.cc" Data for testing purposes is
-                  included in knex seed files. Seed data should only need to be
-                  run once in the development environment to allow for user
-                  testing.
-                </p>
-              </Collapse.Panel>
-            </Collapse>
-            <br />
-            <Form.Item className="moderator-form">
-              <h3>Game Data</h3>
-              <table id="admin-table">
-                <tr>
-                  <th>Read?</th>
-                  <th>Drawn?</th>
-                  <th>Written?</th>
-                  <th>Drawings</th>
-                  <th>Writings (pages)</th>
-                  <th>Faceoffs</th>
-                  <th>Teams</th>
-                  <th>Votes</th>
-                </tr>
-                <tr>
-                  <td>
-                    {tableInfo.hasRead !== undefined
-                      ? String(tableInfo.hasRead)
-                      : '?'}
-                  </td>
-                  <td>
-                    {tableInfo.hasDrawn !== undefined
-                      ? String(tableInfo.hasDrawn)
-                      : '?'}
-                  </td>
-                  <td>
-                    {tableInfo.hasWritten !== undefined
-                      ? String(tableInfo.hasWritten)
-                      : '?'}
-                  </td>
-                  <td>
-                    {tableInfo.numDrawings !== undefined
-                      ? tableInfo.numDrawings
-                      : '?'}
-                  </td>
-                  <td>
-                    {tableInfo.numWritings !== undefined
-                      ? tableInfo.numWritings
-                      : '?'}
-                  </td>
-                  <td>
-                    {tableInfo.numFaceoffs !== undefined
-                      ? tableInfo.numFaceoffs
-                      : '?'}
-                  </td>
-                  <td>
-                    {tableInfo.numTeams !== undefined
-                      ? tableInfo.numTeams
-                      : '?'}
-                  </td>
-                  <td>
-                    {tableInfo.numVotes !== undefined
-                      ? tableInfo.numVotes
-                      : '?'}
-                  </td>
-                </tr>
-              </table>
-              <Button
-                style={{ margin: '8px' }}
-                type="default"
-                onClick={() => handleGetTableInfo(1)}
-              >
-                Refresh Data
-              </Button>
-              <h3>User Control</h3>
-              <Button
-                style={{ margin: '8px' }}
-                type="default"
-                onClick={() => resetTestUserSubs(1)}
-              >
-                Remove Submissions
-              </Button>
-              <Button
-                style={{ margin: '8px' }}
-                type="default"
-                onClick={() => generateTestUserSubs(1)}
-              >
-                Generate Submissions
-              </Button>
-              <h3>Game Control</h3>
-              <Button
-                style={{ margin: '8px' }}
-                type="default"
-                onClick={voteSeq}
-              >
-                Generate Votes
-              </Button>
-              <Button
-                style={{ margin: '8px' }}
-                type="default"
-                onClick={results}
-              >
-                Generate Results
-              </Button>
-            </Form.Item>
             <h3>Navigation</h3>
             <nav>
               <Link
