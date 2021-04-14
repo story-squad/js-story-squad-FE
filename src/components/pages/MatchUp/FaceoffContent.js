@@ -127,8 +127,10 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
         <div className="submission-preview">
           {!locked ? (
             <img
+              className="cursor-pointer"
               src={type === 'DRAWING' ? sub.ImgURL : sub.Pages[0].PageURL}
               alt="text"
+              role="button"
               onClick={() =>
                 openModal(
                   type === 'DRAWING' ? [{ ImgURL: sub.ImgURL }] : sub.Pages
