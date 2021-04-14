@@ -7,6 +7,7 @@ import {
   mockNewDrawingSub,
   mockNewWritingSub,
   mockGetChildTeam,
+  mockSubmitPoints,
 } from './mockApiData';
 
 const sleep = time =>
@@ -375,20 +376,25 @@ const getChildTeam = async (authState, childId) => {
  * @returns {Array} with id reference to the vote
  */
 const submitPoints = async (authState, teamPoints) => {
-  try {
-    return apiAuthPost(
-      `/game/points`,
-      teamPoints,
-      getAuthHeader(authState)
-    ).then(response => {
-      console.log('submitPoints', response.data);
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    console.log(mockSubmitPoints);
+    return mockSubmitPoints;
+  } else {
+    try {
+      return apiAuthPost(
+        `/game/points`,
+        teamPoints,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('submitPoints', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 

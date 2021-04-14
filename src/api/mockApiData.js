@@ -68,9 +68,12 @@ const mockGetChildTeam = {
   name: 'Team 1',
 };
 
+const mockSubmitPoints = [21, 22];
+
 module.exports = {
   mockGetChildTasks,
   mockNewWritingSub,
   mockNewDrawingSub,
   mockGetChildTeam,
+  mockSubmitPoints,
 };
