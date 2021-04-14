@@ -17,7 +17,6 @@ const ModerationTools = () => {
   const [cohorts, setCohorts] = useState([]);
   const [posts, setPosts] = useState({});
   const [form] = Form.useForm();
-  const [tableInfo, setTableInfo] = useState({});
 
   useEffect(() => {
     getCohorts().then(res => {
