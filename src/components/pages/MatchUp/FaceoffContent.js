@@ -130,6 +130,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
               className="cursor-pointer"
               src={type === 'DRAWING' ? sub.ImgURL : sub.Pages[0].PageURL}
               alt="text"
+              role="button"
               onClick={() =>
                 openModal(
                   type === 'DRAWING' ? [{ ImgURL: sub.ImgURL }] : sub.Pages
