@@ -1,6 +1,8 @@
 // istanbul ignore file
 import axios from 'axios';
 
+import { mockGetChildTasks } from './mockApiData';
+
 const sleep = time =>
   new Promise(resolve => {
     setTimeout(resolve, time);
@@ -37,11 +39,13 @@ const apiAuthGet = (endpoint, authHeader) => {
     headers: authHeader,
   });
 };
+
 const apiAuthPost = (endpoint, body, authHeader) => {
   return axios.post(`${process.env.REACT_APP_API_URI}${endpoint}`, body, {
     headers: authHeader,
   });
 };
+
 const apiAuthPut = (endpoint, body, authHeader) => {
   return axios.put(`${process.env.REACT_APP_API_URI}${endpoint}`, body, {
     headers: authHeader,
@@ -236,18 +240,22 @@ const postNewDrawingSub = async (authState, body, subId) => {
  * @returns {Object} Object of tasks and relevant id's
  */
 const getChildTasks = async (authState, childid, storyid) => {
-  try {
-    return apiAuthGet(
-      `/submission?childId=${childid}&storyId=${storyid}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
-  } catch (err) {
-    return new Promise(() => {
-      console.log(err);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockGetChildTasks;
+  } else {
+    try {
+      return apiAuthGet(
+        `/submission?childId=${childid}&storyId=${storyid}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        return response.data;
+      });
+    } catch (err) {
+      return new Promise(() => {
+        console.log(err);
+        return [];
+      });
+    }
   }
 };
 
