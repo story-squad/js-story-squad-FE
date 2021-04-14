@@ -28,8 +28,49 @@ const mockNewWritingSub = [
   },
 ];
 
+const mockGetChildTeam = {
+  1: {
+    ChildID: 1,
+    MemberID: 1,
+    SubmissionID: 1,
+    ImgURL: 'https://picsum.photos/id/201/400',
+    ChildName: 'Bettie',
+    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-9.svg',
+    Pages: [
+      {
+        PageURL: 'https://picsum.photos/id/1/400',
+        PageNum: 1,
+      },
+      {
+        PageURL: 'https://picsum.photos/id/101/400',
+        PageNum: 2,
+      },
+    ],
+  },
+  2: {
+    ChildID: 2,
+    MemberID: 2,
+    SubmissionID: 2,
+    ImgURL: 'https://picsum.photos/id/202/400',
+    ChildName: 'Krystel',
+    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
+    Pages: [
+      {
+        PageURL: 'https://picsum.photos/id/2/400',
+        PageNum: 1,
+      },
+      {
+        PageURL: 'https://picsum.photos/id/102/400',
+        PageNum: 2,
+      },
+    ],
+  },
+  name: 'Team 1',
+};
+
 module.exports = {
   mockGetChildTasks,
   mockNewWritingSub,
   mockNewDrawingSub,
+  mockGetChildTeam,
 };

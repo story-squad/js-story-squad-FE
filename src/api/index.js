@@ -6,6 +6,7 @@ import {
   mockGetChildTasks,
   mockNewDrawingSub,
   mockNewWritingSub,
+  mockGetChildTeam,
 } from './mockApiData';
 
 const sleep = time =>
@@ -348,19 +349,23 @@ const setAllTasks = (
  * @returns {Object} containing information on the child and their teammate
  */
 const getChildTeam = async (authState, childId) => {
-  try {
-    return apiAuthGet(
-      `/game/team?childId=${childId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      console.log('getChildTeam', response.data);
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [error];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockGetChildTeam;
+  } else {
+    try {
+      return apiAuthGet(
+        `/game/team?childId=${childId}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('getChildTeam', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [error];
+      });
+    }
   }
 };
 
