@@ -8,6 +8,8 @@ import {
   mockNewWritingSub,
   mockGetChildTeam,
   mockSubmitPoints,
+  mockGetChildSquad,
+  mockGetFaceoffsForMatchup,
 } from './mockApiData';
 
 const sleep = time =>
@@ -404,19 +406,23 @@ const submitPoints = async (authState, teamPoints) => {
  * @returns {number} squadId is returned
  */
 const getChildSquad = async (authState, childId) => {
-  try {
-    return apiAuthGet(
-      `/game/squad?childId=${childId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      console.log('getChildSquad', response.data);
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockGetChildSquad;
+  } else {
+    try {
+      return apiAuthGet(
+        `/game/squad?childId=${childId}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('getChildSquad', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 
@@ -426,19 +432,23 @@ const getChildSquad = async (authState, childId) => {
  * @returns {Array} array of 4 objects (one for each child) containing information about their submissions
  */
 const getFaceoffsForMatchup = async (authState, squadId, childId) => {
-  try {
-    return apiAuthGet(
-      `/game/faceoffs/squads?squadId=${squadId}&childId=${childId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      console.log('getFaceoffsForMatchup', response.data);
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockGetFaceoffsForMatchup;
+  } else {
+    try {
+      return apiAuthGet(
+        `/game/faceoffs/squads?squadId=${squadId}&childId=${childId}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('getFaceoffsForMatchup', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 
