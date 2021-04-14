@@ -5,15 +5,8 @@ import {
   getCohorts,
   getPostsForModeration,
   setSubmitStatus,
-  setClusters,
-  setFaceoffs,
   setResults,
   setVoteSeq,
-} from '../../../api/moderation';
-
-import {
-  resetTestUserSubs,
-  generateTestUserSubs,
 } from '../../../api/moderation';
 
 import { Button, Select, Form, Row, Card, Col, Collapse } from 'antd';
@@ -90,51 +83,6 @@ const ModerationTools = () => {
             <h2 className="moderator-title">
               Game Control (Development and User Testing)
             </h2>
-            <Collapse style={{ width: '45%' }} className="moderator-notes">
-              <Collapse.Panel header="Notes & Instructions" key="1">
-                <p>
-                  Control for game flow and submission data for the test user
-                  child account, labeled with (TEST USER) under the parent
-                  account "llama001@maildrop.cc" Data for testing purposes is
-                  included in knex seed files. Seed data should only need to be
-                  run once in the development environment to allow for user
-                  testing.
-                </p>
-              </Collapse.Panel>
-            </Collapse>
-            <br />
-            <Form.Item className="moderator-form">
-              <h3>User Control</h3>
-              <Button
-                style={{ margin: '8px' }}
-                type="default"
-                onClick={() => resetTestUserSubs(1)}
-              >
-                Remove Submissions
-              </Button>
-              <Button
-                style={{ margin: '8px' }}
-                type="default"
-                onClick={() => generateTestUserSubs(1)}
-              >
-                Generate Submissions
-              </Button>
-              <h3>Game Control</h3>
-              <Button
-                style={{ margin: '8px' }}
-                type="default"
-                onClick={voteSeq}
-              >
-                Generate Votes
-              </Button>
-              <Button
-                style={{ margin: '8px' }}
-                type="default"
-                onClick={results}
-              >
-                Generate Results
-              </Button>
-            </Form.Item>
             <h3>Navigation</h3>
             <nav>
               <Link
