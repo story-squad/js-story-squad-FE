@@ -256,6 +256,60 @@ const mockGetFaceoffsForMatchup = [
   },
 ];
 
+const mockGetChild = {
+  data: {
+    ID: 1,
+    Name: 'Bettie (Cohort1)',
+    PIN: '$2a$06$5CMkaSM1wvW7Bggy4DXwFurGaCibIWqNaYY6lxGviGWzIvyHFBagO',
+    IsDyslexic: false,
+    ParentID: 1,
+    CohortID: 1,
+    AvatarID: 9,
+    Total_Points: 544,
+    Wins: 0,
+    Losses: 4,
+    Ballots: [
+      [6, 2],
+      [7, 2],
+      [8, 2],
+      [5, 2],
+      [6, 2],
+      [8, 2],
+      [7, 2],
+      [5, 2],
+      [6, 2],
+      [5, 2],
+    ],
+    VotesRemaining: 10,
+    Achievements: [],
+    GradeLevel: '4',
+    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-9.svg',
+  },
+  status: 200,
+  statusText: 'OK',
+  headers: {
+    'content-length': '397',
+    'content-type': 'application/json; charset=utf-8',
+  },
+  config: {
+    url: 'http://localhost:8000/child/1',
+    method: 'get',
+    headers: {
+      Accept: 'application/json, text/plain, */*',
+      Authorization:
+        'Bearer eyJraWQiOiJpS1JDUXJwdk1OS2JRbmV2N2huNUhuWi1URThGM1dKcjZESzhra2tsdnJJIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwMHVsdGhhcGJFclZVd1ZKeTR4NiIsIm5hbWUiOiJUZXN0MDAxIFVzZXIiLCJlbWFpbCI6ImxsYW1hMDAxQG1haWxkcm9wLmNjIiwidmVyIjoxLCJpc3MiOiJodHRwczovL2F1dGgubGFtYmRhbGFicy5kZXYvb2F1dGgyL2RlZmF1bHQiLCJhdWQiOiIwb2F2c29tejAxR3p1R2lrWTR4NiIsImlhdCI6MTYxODUxODM4MiwiZXhwIjoxNjE4NTIxOTgyLCJqdGkiOiJJRC4zTWxuOGFjUXBwOFB2QU1DRTRjc2VIanptX0xFMi1DMkY0SUxfX2UyNjVZIiwiYW1yIjpbInB3ZCJdLCJpZHAiOiIwMG9rdml6cGJPbUI3WTczWjR4NiIsIm5vbmNlIjoiTmNxVkFYaEpYT2lNdVZqRWVWaHBHQmtvR2k5aWRlSU52ZFZyaENyYTg5c2ZWN2xnWWJFMG9VNkdSOURPaTQ3ciIsInByZWZlcnJlZF91c2VybmFtZSI6ImxsYW1hMDAxQG1haWxkcm9wLmNjIiwiYXV0aF90aW1lIjoxNjE4NTAzNDkzLCJhdF9oYXNoIjoiZDV0VVpzUVpsNl90bld3NUZzRGowQSJ9.AJw5MmLTk3aka1mLSb-Ws1ag3GkGozX-sA8xe-yabKQcCaFBKMTOBzkg0gHgyKzB-pI-VF874t6HYjaQN4J7zNNfcTNgnSHZgc43BlW53qaIQZujYNIyDJ6tSSygMsWIbpkvtCENlJDaJxceZ8RAbue2ZJfsh88BsivLtKCyO9-TWX2gKdwFnCsRytLBrTbzHrHT-K_lRGLp8aqeyLaenF8OjsHFNaSYOAfT92Zu3U3N7EXCEWCoTm_gmL6GqYURZOCQ6T9eklc3StGrqa3cBDJqr4DoaH9INyGQQfUNUaJP6-IwQlv-WAliIojtkS9Mq5fMzWYCBZHGU27ozbJ_iA',
+    },
+    transformRequest: [null],
+    transformResponse: [null],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+  },
+  request: {},
+};
+
 module.exports = {
   mockGetChildTasks,
   mockNewWritingSub,
@@ -264,4 +318,5 @@ module.exports = {
   mockSubmitPoints,
   mockGetChildSquad,
   mockGetFaceoffsForMatchup,
+  mockGetChild,
 };

@@ -10,6 +10,7 @@ import {
   mockSubmitPoints,
   mockGetChildSquad,
   mockGetFaceoffsForMatchup,
+  mockGetChild,
 } from './mockApiData';
 
 const sleep = time =>
@@ -100,17 +101,21 @@ const getLeaderboard = authState => {
  * @return {Object} child information containing Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
  */
 const getChild = (authState, childId) => {
-  try {
-    return apiAuthGet(`/child/${childId}`, getAuthHeader(authState)).then(
-      response => {
-        console.log('getChild', response);
-        return response.data;
-      }
-    );
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return new Promise(() => mockGetChild);
+  } else {
+    try {
+      return apiAuthGet(`/child/${childId}`, getAuthHeader(authState)).then(
+        response => {
+          console.log('getChild', response);
+          return response.data;
+        }
+      );
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+      });
+    }
   }
 };
 
