@@ -257,45 +257,222 @@ const mockGetFaceoffsForMatchup = [
 ];
 
 const mockGetChild = {
-  data: {
-    ID: 1,
-    Name: 'Bettie (Cohort1)',
-    PIN: '$2a$06$5CMkaSM1wvW7Bggy4DXwFurGaCibIWqNaYY6lxGviGWzIvyHFBagO',
-    IsDyslexic: false,
-    ParentID: 1,
-    CohortID: 1,
-    AvatarID: 9,
-    Total_Points: 544,
-    Wins: 0,
-    Losses: 4,
-    Ballots: [
-      [6, 2],
-      [7, 2],
-      [8, 2],
-      [5, 2],
-      [6, 2],
-      [8, 2],
-      [7, 2],
-      [5, 2],
-      [6, 2],
-      [5, 2],
-    ],
-    VotesRemaining: 10,
-    Achievements: [],
-    GradeLevel: '4',
-    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-9.svg',
+  ID: 1,
+  Name: 'Bettie (Cohort1)',
+  PIN: '$2a$06$5CMkaSM1wvW7Bggy4DXwFurGaCibIWqNaYY6lxGviGWzIvyHFBagO',
+  IsDyslexic: false,
+  ParentID: 1,
+  CohortID: 1,
+  AvatarID: 9,
+  Total_Points: 544,
+  Wins: 0,
+  Losses: 4,
+  Ballots: [
+    [6, 2],
+    [7, 2],
+    [8, 2],
+    [5, 2],
+    [6, 2],
+    [8, 2],
+    [7, 2],
+    [5, 2],
+    [6, 2],
+    [5, 2],
+  ],
+  VotesRemaining: 3,
+  Achievements: [],
+  GradeLevel: '4',
+  AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-9.svg',
+};
+
+const mockGetFaceoffsForVoting = [
+  {
+    ID: 5,
+    Points: 170,
+    Type: 'WRITING',
+    SubmissionID1: 5,
+    SubmissionID2: 7,
+    SquadID: 2,
+    Winner: null,
+    Date: '2021-04-12T19:01:46.884Z',
+    VotesCasted: 0,
+    Submission1: {
+      ID: 5,
+      Name: 'Bryana (Cohort1)',
+      ImgURL: 'https://picsum.photos/id/205/400',
+      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
+      Pages: [
+        {
+          PageNum: 1,
+          PageURL: 'https://picsum.photos/id/5/400',
+        },
+        {
+          PageNum: 2,
+          PageURL: 'https://picsum.photos/id/105/400',
+        },
+      ],
+    },
+    Submission2: {
+      ID: 7,
+      Name: 'Hailee (Cohort1)',
+      ImgURL: 'https://picsum.photos/id/207/400',
+      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-6.svg',
+      Pages: [
+        {
+          PageNum: 1,
+          PageURL: 'https://picsum.photos/id/7/400',
+        },
+        {
+          PageNum: 2,
+          PageURL: 'https://picsum.photos/id/107/400',
+        },
+      ],
+    },
   },
-  status: 200,
-  statusText: 'OK',
-  headers: {
-    'content-length': '397',
-    'content-type': 'application/json; charset=utf-8',
+  {
+    ID: 7,
+    Points: 85,
+    Type: 'DRAWING',
+    SubmissionID1: 5,
+    SubmissionID2: 7,
+    SquadID: 2,
+    Winner: null,
+    Date: '2021-04-12T19:01:46.884Z',
+    VotesCasted: 0,
+    Submission1: {
+      ID: 5,
+      Name: 'Bryana (Cohort1)',
+      ImgURL: 'https://picsum.photos/id/205/400',
+      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
+      Pages: [
+        {
+          PageNum: 1,
+          PageURL: 'https://picsum.photos/id/5/400',
+        },
+        {
+          PageNum: 2,
+          PageURL: 'https://picsum.photos/id/105/400',
+        },
+      ],
+    },
+    Submission2: {
+      ID: 7,
+      Name: 'Hailee (Cohort1)',
+      ImgURL: 'https://picsum.photos/id/207/400',
+      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-6.svg',
+      Pages: [
+        {
+          PageNum: 1,
+          PageURL: 'https://picsum.photos/id/7/400',
+        },
+        {
+          PageNum: 2,
+          PageURL: 'https://picsum.photos/id/107/400',
+        },
+      ],
+    },
   },
+  {
+    ID: 8,
+    Points: 80,
+    Type: 'DRAWING',
+    SubmissionID1: 6,
+    SubmissionID2: 8,
+    SquadID: 2,
+    Winner: null,
+    Date: '2021-04-12T19:01:46.884Z',
+    VotesCasted: 0,
+    Submission1: {
+      ID: 6,
+      Name: 'Chance (Cohort1)',
+      ImgURL: 'https://picsum.photos/id/206/400',
+      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-3.svg',
+      Pages: [
+        {
+          PageNum: 1,
+          PageURL: 'https://picsum.photos/id/6/400',
+        },
+        {
+          PageNum: 2,
+          PageURL: 'https://picsum.photos/id/106/400',
+        },
+      ],
+    },
+    Submission2: {
+      ID: 8,
+      Name: 'Catalina (Cohort1)',
+      ImgURL: 'https://picsum.photos/id/208/400',
+      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-4.svg',
+      Pages: [
+        {
+          PageNum: 1,
+          PageURL: 'https://picsum.photos/id/8/400',
+        },
+        {
+          PageNum: 2,
+          PageURL: 'https://picsum.photos/id/108/400',
+        },
+      ],
+    },
+  },
+  {
+    ID: 6,
+    Points: 65,
+    Type: 'WRITING',
+    SubmissionID1: 6,
+    SubmissionID2: 8,
+    SquadID: 2,
+    Winner: null,
+    Date: '2021-04-12T19:01:46.884Z',
+    VotesCasted: 0,
+    Submission1: {
+      ID: 6,
+      Name: 'Chance (Cohort1)',
+      ImgURL: 'https://picsum.photos/id/206/400',
+      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-3.svg',
+      Pages: [
+        {
+          PageNum: 1,
+          PageURL: 'https://picsum.photos/id/6/400',
+        },
+        {
+          PageNum: 2,
+          PageURL: 'https://picsum.photos/id/106/400',
+        },
+      ],
+    },
+    Submission2: {
+      ID: 8,
+      Name: 'Catalina (Cohort1)',
+      ImgURL: 'https://picsum.photos/id/208/400',
+      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-4.svg',
+      Pages: [
+        {
+          PageNum: 1,
+          PageURL: 'https://picsum.photos/id/8/400',
+        },
+        {
+          PageNum: 2,
+          PageURL: 'https://picsum.photos/id/108/400',
+        },
+      ],
+    },
+  },
+];
+
+const mockUpdateChildData = {
+  data: '',
+  status: 204,
+  statusText: 'No Content',
+  headers: {},
   config: {
     url: 'http://localhost:8000/child/1',
-    method: 'get',
+    method: 'put',
+    data:
+      '{"Name":"Bettie (Cohort1)","ParentID":1,"CohortID":1,"GradeLevel":"4","VotesRemaining":9}',
     headers: {
       Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json;charset=utf-8',
       Authorization:
         'Bearer eyJraWQiOiJpS1JDUXJwdk1OS2JRbmV2N2huNUhuWi1URThGM1dKcjZESzhra2tsdnJJIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwMHVsdGhhcGJFclZVd1ZKeTR4NiIsIm5hbWUiOiJUZXN0MDAxIFVzZXIiLCJlbWFpbCI6ImxsYW1hMDAxQG1haWxkcm9wLmNjIiwidmVyIjoxLCJpc3MiOiJodHRwczovL2F1dGgubGFtYmRhbGFicy5kZXYvb2F1dGgyL2RlZmF1bHQiLCJhdWQiOiIwb2F2c29tejAxR3p1R2lrWTR4NiIsImlhdCI6MTYxODUxODM4MiwiZXhwIjoxNjE4NTIxOTgyLCJqdGkiOiJJRC4zTWxuOGFjUXBwOFB2QU1DRTRjc2VIanptX0xFMi1DMkY0SUxfX2UyNjVZIiwiYW1yIjpbInB3ZCJdLCJpZHAiOiIwMG9rdml6cGJPbUI3WTczWjR4NiIsIm5vbmNlIjoiTmNxVkFYaEpYT2lNdVZqRWVWaHBHQmtvR2k5aWRlSU52ZFZyaENyYTg5c2ZWN2xnWWJFMG9VNkdSOURPaTQ3ciIsInByZWZlcnJlZF91c2VybmFtZSI6ImxsYW1hMDAxQG1haWxkcm9wLmNjIiwiYXV0aF90aW1lIjoxNjE4NTAzNDkzLCJhdF9oYXNoIjoiZDV0VVpzUVpsNl90bld3NUZzRGowQSJ9.AJw5MmLTk3aka1mLSb-Ws1ag3GkGozX-sA8xe-yabKQcCaFBKMTOBzkg0gHgyKzB-pI-VF874t6HYjaQN4J7zNNfcTNgnSHZgc43BlW53qaIQZujYNIyDJ6tSSygMsWIbpkvtCENlJDaJxceZ8RAbue2ZJfsh88BsivLtKCyO9-TWX2gKdwFnCsRytLBrTbzHrHT-K_lRGLp8aqeyLaenF8OjsHFNaSYOAfT92Zu3U3N7EXCEWCoTm_gmL6GqYURZOCQ6T9eklc3StGrqa3cBDJqr4DoaH9INyGQQfUNUaJP6-IwQlv-WAliIojtkS9Mq5fMzWYCBZHGU27ozbJ_iA',
     },
@@ -310,6 +487,8 @@ const mockGetChild = {
   request: {},
 };
 
+const mockPostVotes = null;
+
 module.exports = {
   mockGetChildTasks,
   mockNewWritingSub,
@@ -319,4 +498,7 @@ module.exports = {
   mockGetChildSquad,
   mockGetFaceoffsForMatchup,
   mockGetChild,
+  mockGetFaceoffsForVoting,
+  mockUpdateChildData,
+  mockPostVotes,
 };

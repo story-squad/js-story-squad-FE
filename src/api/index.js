@@ -11,6 +11,9 @@ import {
   mockGetChildSquad,
   mockGetFaceoffsForMatchup,
   mockGetChild,
+  mockGetFaceoffsForVoting,
+  mockUpdateChildData,
+  mockPostVotes,
 } from './mockApiData';
 
 const sleep = time =>
@@ -102,12 +105,12 @@ const getLeaderboard = authState => {
  */
 const getChild = (authState, childId) => {
   if (process.env.REACT_APP_ENV === 'development') {
-    return new Promise(() => mockGetChild);
+    return Promise.resolve(mockGetChild);
   } else {
     try {
       return apiAuthGet(`/child/${childId}`, getAuthHeader(authState)).then(
         response => {
-          console.log('getChild', response);
+          console.log('getChild', response.data);
           return response.data;
         }
       );
@@ -127,17 +130,23 @@ const getChild = (authState, childId) => {
  */
 const updateChildData = (authState, body, childId) => {
   console.log(body);
-  try {
-    return apiAuthPut(`/child/${childId}`, body, getAuthHeader(authState)).then(
-      response => {
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockUpdateChildData;
+  } else {
+    try {
+      return apiAuthPut(
+        `/child/${childId}`,
+        body,
+        getAuthHeader(authState)
+      ).then(response => {
         console.log('updateChildData', response);
         return response;
-      }
-    );
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-    });
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+      });
+    }
   }
 };
 
@@ -463,19 +472,23 @@ const getFaceoffsForMatchup = async (authState, squadId, childId) => {
  * @returns {Array} array of 4 objects (one for each child) containing information about their submissions
  */
 const getFaceoffsForVoting = async (authState, squadId) => {
-  try {
-    return apiAuthGet(
-      `/game/faceoffs/squads/?squadId=${squadId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      console.log('getFaceoffsForVoting', response.data);
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockGetFaceoffsForVoting;
+  } else {
+    try {
+      return apiAuthGet(
+        `/game/faceoffs/squads/?squadId=${squadId}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('getFaceoffsForVoting', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 
@@ -485,18 +498,24 @@ const getFaceoffsForVoting = async (authState, squadId) => {
  * @returns {Array} with id reference to the vote
  */
 const postVotes = async (authState, voteInfo) => {
-  try {
-    return apiAuthPost(`/game/votes`, voteInfo, getAuthHeader(authState)).then(
-      response => {
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockPostVotes;
+  } else {
+    try {
+      return apiAuthPost(
+        `/game/votes`,
+        voteInfo,
+        getAuthHeader(authState)
+      ).then(response => {
         console.log('postVotes', response.data);
         return response.data;
-      }
-    );
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 
