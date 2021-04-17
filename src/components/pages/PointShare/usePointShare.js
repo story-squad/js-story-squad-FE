@@ -13,19 +13,9 @@ const usePointShare = () => {
   // state handler, set up so children can be passed generalized props (i.e. childNum) and use them to update nested state
   const handleUpdatePoints = (childNum, type, payload) => {
     const diff = payload - points[childNum][type];
-    console.log({ payload });
-    console.log(isNaN(payload));
-    if (
-      calculatePointsLeft() < diff ||
-      isNaN(payload) ||
-      // empty string is NaN apparently, hence the following conditional
-      payload === '' ||
-      payload === null ||
-      payload > 70 ||
-      payload < 10
-    ) {
-      console.log('happened');
-      // throw new;
+
+    // Antd InputNumber doesn't type check manual inputs to match min/max, etc, hence the following code.
+    if (calculatePointsLeft() < diff || payload > 70 || payload < 10) {
       return;
     }
     setPoints({
