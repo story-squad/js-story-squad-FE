@@ -22,7 +22,7 @@ const PointShare = props => {
   const [showModal, setShowModal] = useState(false);
   const [modalVisible, setModalVisible] = useState(true);
 
-  // TODO The previous component used a useEffect that would send the submit API call if authState changed, should we implement this? Unsure if it's necessary or bloat
+  // TODO The previous component used a useEffect that would send the submit API call if authState changed, I'm unsure if it's needed -- I haven't re-implemented it yet
   const { authState } = useOktaAuth();
 
   const openModal = content => {
@@ -37,22 +37,24 @@ const PointShare = props => {
   const handleSubmit = e => {
     e.preventDefault();
     e.stopPropagation();
-    // TODO cover edge cases where child doesn't submit all 100 points -- we should likely just prevent submission if pointsLeft !== 0
-    const formattedTeamPoints = [
-      {
-        WritingPoints: portfolioPoints.childOne.story,
-        DrawingPoints: portfolioPoints.childOne.illustration,
-        MemberID: props.child.memberId,
-        SubmissionID: props.team.child1.SubmissionID,
-      },
-      {
-        WritingPoints: portfolioPoints.childTwo.story,
-        DrawingPoints: portfolioPoints.childTwo.illustration,
-        MemberID: props.child.memberId,
-        SubmissionID: props.team.child2.SubmissionID,
-      },
-    ];
-    submitPoints(authState, formattedTeamPoints);
+    if (pointsLeft === 0) {
+      const formattedTeamPoints = [
+        {
+          WritingPoints: portfolioPoints.childOne.story,
+          DrawingPoints: portfolioPoints.childOne.illustration,
+          MemberID: props.child.memberId,
+          SubmissionID: props.team.child1.SubmissionID,
+        },
+        {
+          WritingPoints: portfolioPoints.childTwo.story,
+          DrawingPoints: portfolioPoints.childTwo.illustration,
+          MemberID: props.child.memberId,
+          SubmissionID: props.team.child2.SubmissionID,
+        },
+      ];
+      // TODO throws a 403 error if 'duplicate,' this error needs handling on the FE
+      submitPoints(authState, formattedTeamPoints);
+    }
   };
 
   return (
