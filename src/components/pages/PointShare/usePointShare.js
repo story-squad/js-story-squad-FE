@@ -12,6 +12,22 @@ const usePointShare = () => {
 
   // state handler, set up so children can be passed generalized props (i.e. childNum) and use them to update nested state
   const handleUpdatePoints = (childNum, type, payload) => {
+    const diff = payload - points[childNum][type];
+    console.log({ payload });
+    console.log(isNaN(payload));
+    if (
+      calculatePointsLeft() < diff ||
+      isNaN(payload) ||
+      // empty string is NaN apparently, hence the following conditional
+      payload === '' ||
+      payload === null ||
+      payload > 70 ||
+      payload < 10
+    ) {
+      console.log('happened');
+      // throw new;
+      return;
+    }
     setPoints({
       ...points,
       [childNum]: { ...points[childNum], [type]: payload },
@@ -34,10 +50,6 @@ const usePointShare = () => {
   };
 
   const pointsLeft = useMemo(() => calculatePointsLeft(), [points]);
-
-  // useEffect(() => {
-  //   calculatePointsLeft();
-  // }, [points]);
 
   return [pointsLeft, points, handleUpdatePoints];
 };
