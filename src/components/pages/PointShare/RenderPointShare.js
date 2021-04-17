@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
-import { Header } from '../../common';
 import { Button } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
 
-import { SubmissionViewerModal } from '../../common';
-import { InstructionsModal } from '../../common';
+import { Header, SubmissionViewerModal, InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
 
 import ChildRow from './ChildRow';
@@ -18,6 +16,7 @@ const PointShare = props => {
   const { push } = useHistory();
 
   const [pointsLeft, portfolioPoints, handleUpdatePoints] = usePointShare();
+  // TODO could probably abstract this into a useModal hook
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [modalVisible, setModalVisible] = useState(true);
