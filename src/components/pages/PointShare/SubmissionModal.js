@@ -19,6 +19,7 @@ const SubmissionModal = ({
       />
       <InputNumber
         value={points[childNum][submissionType]}
+        type={'number'}
         max={70}
         min={10}
         step={5}
