@@ -18,6 +18,9 @@ const PointShare = props => {
   const { push } = useHistory();
 
   const [pointsLeft, portfolioPoints, handleUpdatePoints] = usePointShare();
+  const [modalContent, setModalContent] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
 
   const { authState } = useOktaAuth();
 
@@ -32,13 +35,13 @@ const PointShare = props => {
   return (
     <>
       {/* Header requires countDown={true}  */}
-      {/* {state.showModal && (
+      {showModal && (
         <SubmissionViewerModal
-          showModal={state.showModal}
-          content={state.modalContent}
-          closeModal={() => dispatch({ type: SET_SHOW_MODAL, payload: false })}
+          showModal={showModal}
+          content={modalContent}
+          closeModal={() => setShowModal(false)}
         />
-      )} */}
+      )}
       <Header
         title="SHARE POINTS"
         displayMenu={true}
@@ -48,18 +51,12 @@ const PointShare = props => {
       />
       <QuestionCircleOutlined
         className="question-icon"
-        onClick={() => {
-          // dispatch({ type: SET_MODAL_VISIBLE, payload: true });
-        }}
+        onClick={() => setModalVisible(true)}
       />
       <InstructionsModal
-        // modalVisible={state.modalVisible}
-        handleCancel={() => {
-          // dispatch({ type: SET_MODAL_VISIBLE, payload: false });
-        }}
-        handleOk={() => {
-          // dispatch({ type: SET_MODAL_VISIBLE, payload: false });
-        }}
+        modalVisible={modalVisible}
+        handleCancel={() => setModalVisible(false)}
+        handleOk={() => setModalVisible(false)}
         instructions={modalInstructions.sharePoints}
       />
       <div className="point-share-container">
@@ -78,14 +75,14 @@ const PointShare = props => {
           bgVariable={'bright-sun'}
         />
         <Button
-          className="point-share-orange-btn abs-right"
+          className="point-share-orange-btn abs-left"
           onClick={backToJoin}
         >
           Back
         </Button>
         <Button
           selection="#eb7d5bbb"
-          className="point-share-orange-btn abs-left"
+          className="point-share-orange-btn abs-right"
           type="primary"
           size="large"
           onClick={handleSubmit}
