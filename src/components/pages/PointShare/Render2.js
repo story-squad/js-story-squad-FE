@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { Header } from '../../common';
@@ -22,7 +22,13 @@ const PointShare = props => {
   const [showModal, setShowModal] = useState(false);
   const [modalVisible, setModalVisible] = useState(true);
 
+  // TODO The previous component used a useEffect that would send the submit API call if authState changed, should we implement this? Unsure if it's necessary or bloat
   const { authState } = useOktaAuth();
+
+  const openModal = content => {
+    setModalContent(content);
+    setShowModal(true);
+  };
 
   const backToJoin = e => {
     push('/child/join');
@@ -30,10 +36,34 @@ const PointShare = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    e.stopPropagation();
+    // TODO cover edge cases where child doesn't submit all 100 points -- we should likely just prevent submission if pointsLeft !== 0
+    if (pointsLeft < 0) {
+      notification.error({
+        message: 'You may only allocate 100 points!',
+      });
+      return;
+    }
+    const formattedTeamPoints = [
+      {
+        WritingPoints: portfolioPoints.childOne.story,
+        DrawingPoints: portfolioPoints.childOne.illustration,
+        MemberID: props.child.memberId,
+        SubmissionID: props.team.child1.SubmissionID,
+      },
+      {
+        WritingPoints: portfolioPoints.childTwo.story,
+        DrawingPoints: portfolioPoints.childTwo.illustration,
+        MemberID: props.child.memberId,
+        SubmissionID: props.team.child2.SubmissionID,
+      },
+    ];
+    submitPoints(authState, formattedTeamPoints);
   };
 
   return (
     <>
+      {/*  TODO decide whether the countdown is necessary or not, and scrap or implement the functionality accordingly */}
       {/* Header requires countDown={true}  */}
       {showModal && (
         <SubmissionViewerModal
@@ -66,6 +96,7 @@ const PointShare = props => {
           points={portfolioPoints}
           updatePoints={handleUpdatePoints}
           bgVariable={'burnt-sienna'}
+          openModal={openModal}
         />
         <ChildRow
           child={props.team.child2}
@@ -73,6 +104,7 @@ const PointShare = props => {
           points={portfolioPoints}
           updatePoints={handleUpdatePoints}
           bgVariable={'bright-sun'}
+          openModal={openModal}
         />
         <Button
           className="point-share-orange-btn abs-left"

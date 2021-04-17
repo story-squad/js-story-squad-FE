@@ -2,21 +2,20 @@ import React from 'react';
 import { InputNumber } from 'antd';
 
 const SubmissionModal = ({
+  openModal,
   imgUrl,
   points,
   updatePoints,
   childNum,
   submissionType,
 }) => {
-  console.log(imgUrl);
-  console.log({ points });
   return (
     <div className="submission-modal d-flex flex-col no-wrap align-center">
       <img
         className="submission cursor-pointer"
         src={imgUrl}
         alt="Submission"
-        // onClick={() => openModal([{ ImgURL: imgUrl }])}
+        onClick={() => openModal([{ ImgURL: imgUrl }])}
       />
       <InputNumber
         value={points[childNum][submissionType]}

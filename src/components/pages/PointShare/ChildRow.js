@@ -3,7 +3,14 @@ import { Row, Col } from 'antd';
 import Avatar from './Avatar';
 import SubmissionModal from './SubmissionModal';
 
-const ChildRow = ({ child, childNum, points, updatePoints, bgVariable }) => {
+const ChildRow = ({
+  child,
+  childNum,
+  points,
+  updatePoints,
+  bgVariable,
+  openModal,
+}) => {
   return (
     <Row className="portfolio-row d-flex h-100">
       <Col
@@ -20,7 +27,7 @@ const ChildRow = ({ child, childNum, points, updatePoints, bgVariable }) => {
           updatePoints={updatePoints}
           imgUrl={child.ImgURL}
           points={points}
-          // openModal={openModal}
+          openModal={openModal}
           submissionType={'illustration'}
           childNum={childNum}
         />
@@ -28,7 +35,7 @@ const ChildRow = ({ child, childNum, points, updatePoints, bgVariable }) => {
           updatePoints={updatePoints}
           imgUrl={child.Pages[0].PageURL}
           points={points}
-          // openModal={openModal}
+          openModal={openModal}
           submissionType={'story'}
           childNum={childNum}
         />
