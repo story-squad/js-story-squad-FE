@@ -104,6 +104,7 @@ const PointShare = props => {
         <Button
           className="point-share-orange-btn abs-left"
           onClick={backToJoin}
+          type="primary"
         >
           Back
         </Button>
