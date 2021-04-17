@@ -4,14 +4,22 @@
 .portfolio-row {
   display: flex;
   align-items: center;
-  height: 35vh;
+  min-height: 35vh;
   @media @mobile {
     height: 40vh;
   }
+  .gutter {
+    margin: 5px;
+    padding: 5px;
+  }
   .avatar-container {
     background: @conifer;
-    border: 5px solid @header-nero;
-    height: 100%;
+    min-height: 35vh;
+    border: 3px solid @header-nero;
+  }
+  .submissions-row {
+    min-height: 35vh;
+    border: 3px solid @header-nero;
   }
   .submission {
     width: 250px;
@@ -20,6 +28,8 @@
   .teammate-avatar {
     width: 150px;
   }
+
+  // Submission modal styling
   .submission-modal {
     .submission {
       border-radius: 20px 20px 0 0;
@@ -44,14 +54,14 @@
 }
 
 /**
-* The next three classes are for the buttons
+* The next four classes are for the buttons
 */
 .point-share-orange-btn {
   .orangeButtonStyle();
   position: fixed;
   bottom: 2vh;
   right: 2vh;
-  width: 9%;
+  width: 160px;
   font-weight: 700;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   border: 3px solid @header-nero;

@@ -12,33 +12,50 @@ const ChildRow = ({
   openModal,
 }) => {
   return (
-    <Row className="portfolio-row d-flex h-100">
+    <Row className="portfolio-row h-100 w-100 d-flex">
       <Col
-        className="avatar-container d-flex justify-center align-center"
-        span={4}
+        className="avatar-container w-100 h-100 d-flex justify-center align-center"
+        xl={4}
+        lg={4}
+        md={24}
+        sm={24}
+        xs={24}
       >
         <Avatar avatarUrl={child.AvatarURL} />
       </Col>
       <Col
-        className={`d-flex justify-space-evenly align-center background-${bgVariable} thick-outline h-100`}
-        span={20}
+        lg={20}
+        md={24}
+        className={`background-${bgVariable} submissions-row d-flex justify-center align-center w-100`}
       >
-        <SubmissionModal
-          updatePoints={updatePoints}
-          imgUrl={child.ImgURL}
-          points={points}
-          openModal={openModal}
-          submissionType={'illustration'}
-          childNum={childNum}
-        />
-        <SubmissionModal
-          updatePoints={updatePoints}
-          imgUrl={child.Pages[0].PageURL}
-          points={points}
-          openModal={openModal}
-          submissionType={'story'}
-          childNum={childNum}
-        />
+        <Row className="d-flex justify-space-around align-center w-100">
+          <Col
+            lg={12}
+            md={12}
+            sm={24}
+            xs={24}
+            className="d-flex justify-center align-centers"
+          >
+            <SubmissionModal
+              updatePoints={updatePoints}
+              imgUrl={child.ImgURL}
+              points={points}
+              openModal={openModal}
+              submissionType={'illustration'}
+              childNum={childNum}
+            />
+          </Col>
+          <Col lg={12} md={12} sm={24} xs={24}>
+            <SubmissionModal
+              updatePoints={updatePoints}
+              imgUrl={child.Pages[0].PageURL}
+              points={points}
+              openModal={openModal}
+              submissionType={'story'}
+              childNum={childNum}
+            />
+          </Col>
+        </Row>
       </Col>
     </Row>
   );

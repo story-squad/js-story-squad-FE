@@ -10,7 +10,7 @@ const SubmissionModal = ({
   submissionType,
 }) => {
   return (
-    <div className="submission-modal d-flex flex-col no-wrap align-center">
+    <div className="submission-modal d-flex flex-col no-wrap align-center gutter">
       <img
         className="submission cursor-pointer"
         src={imgUrl}

@@ -84,7 +84,7 @@ const PointShare = props => {
         handleOk={() => setModalVisible(false)}
         instructions={modalInstructions.sharePoints}
       />
-      <div className="point-share-container">
+      <div className="point-share-container d-flex flex-col justify-center align-center w-100 h-100">
         <ChildRow
           child={props.team.child1}
           childNum={'childOne'}
