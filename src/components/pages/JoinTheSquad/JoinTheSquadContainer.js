@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react'; 
+import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 
-import RenderJoinTheSquad from './RenderJoinTheSquad';
-import {team} from '../../../state/actions';
+import { team, child } from '../../../state/actions';
+import { getChildTeam } from '../../../api';
 
-const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
+import RenderJoinTheSquad from './RenderJoinTheSquad';
+
+const JoinTheSquadContainer = ({ LoadingComponent, setMemberId, setTeamSubmissions, ...props }) => {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -27,6 +29,17 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
       });
     return () => (isSubscribed = false);
   }, [memoAuthService]);
+
+  /**
+   *  Initializes state before rendering RenderJoinTheSquad component,
+   *  this means images, necessary state, etc will all be pre-loaded
+   */
+  useEffect(() => {
+    getChildTeam(authState, props.child.id).then(res => {
+      setMemberId(res[props.child.id]);
+      setTeamSubmissions(res);
+    });
+  }, [authState, setMemberId, setTeamSubmissions, props.child.id]);
 
   return (
     <>
@@ -51,5 +64,6 @@ export default connect(
   }),
   {
     setTeamSubmissions: team.setTeamSubmissions,
+    setMemberId: child.setMemberId,
   }
 )(JoinTheSquadContainer);
