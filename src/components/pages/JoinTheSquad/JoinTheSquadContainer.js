@@ -7,7 +7,7 @@ import { getChildTeam } from '../../../api';
 
 import RenderJoinTheSquad from './RenderJoinTheSquad';
 
-const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
+const JoinTheSquadContainer = ({ LoadingComponent, setMemberId, setTeamSubmissions, ...props }) => {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -36,11 +36,11 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
    */
   useEffect(() => {
     getChildTeam(authState, props.child.id).then(res => {
-      props.setMemberId(res[props.child.id]);
-      props.setTeamSubmissions(res);
+      setMemberId(res[props.child.id]);
+      setTeamSubmissions(res);
+      console.log('happened');
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authState]);
+  }, [authState, setMemberId, setTeamSubmissions, props.child.id]);
 
   return (
     <>
