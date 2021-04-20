@@ -18,7 +18,6 @@ const PointShareContainer = ({ LoadingComponent, ...props }) => {
       .getUser()
       .then(info => {
         if (isSubscribed) {
-          console.log({ info });
           setUserInfo(info);
         }
       })

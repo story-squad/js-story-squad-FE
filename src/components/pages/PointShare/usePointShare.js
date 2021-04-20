@@ -25,8 +25,6 @@ const usePointShare = () => {
   };
 
   const pointsUsed = () => {
-    console.log(points.childOne.illustration);
-    console.log(points);
     return (
       points.childOne.illustration +
       points.childOne.story +
