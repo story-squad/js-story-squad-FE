@@ -38,7 +38,6 @@ const JoinTheSquadContainer = ({ LoadingComponent, setMemberId, setTeamSubmissio
     getChildTeam(authState, props.child.id).then(res => {
       setMemberId(res[props.child.id]);
       setTeamSubmissions(res);
-      console.log('happened');
     });
   }, [authState, setMemberId, setTeamSubmissions, props.child.id]);
 
