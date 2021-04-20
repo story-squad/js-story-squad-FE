@@ -15,6 +15,7 @@ import {
   mockUpdateChildData,
   mockPostVotes,
   mockGetProfileData,
+  mockGetStory,
 } from './mockApiData';
 
 const sleep = time =>
@@ -186,19 +187,23 @@ const postNewChild = (authState, child) => {
  * @returns {Promise} a promise that resolves to an object containing {DrawingPrompt, ID, Title, URL, and WritingPrompt}
  */
 const getStory = (authState, cohortId) => {
-  try {
-    return apiAuthGet(
-      `/story?cohortId=${cohortId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      console.log('getStory', response.data);
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return Promise.resolve(mockGetStory);
+  } else {
+    try {
+      return apiAuthGet(
+        `/story?cohortId=${cohortId}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('getStory', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 

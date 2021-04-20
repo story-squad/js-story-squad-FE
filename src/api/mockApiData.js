@@ -587,6 +587,16 @@ const mockGetProfileData = [
   },
 ];
 
+const mockGetStory = {
+  ID: 4,
+  Title: 'Zoom & Boom (Week4, Chapters 7 & 8)',
+  URL: 'https://test-image-bucket-14579.s3.amazonaws.com/pdf.pdf',
+  WritingPrompt:
+    'Finn and Gilberts mom was a secret spy. What was her last adventure?',
+  DrawingPrompt:
+    'Finn and Gilberts mom was a secret spy. What was her last adventure?',
+};
+
 module.exports = {
   mockGetChildTasks,
   mockNewWritingSub,
@@ -600,4 +610,5 @@ module.exports = {
   mockUpdateChildData,
   mockPostVotes,
   mockGetProfileData,
+  mockGetStory,
 };
