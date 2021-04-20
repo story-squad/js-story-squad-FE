@@ -6,7 +6,7 @@
   align-items: center;
   min-height: 35vh;
   @media @mobile {
-    height: 40vh;
+    min-height: 40vh;
   }
   .gutter {
     margin: 5px;
@@ -65,6 +65,9 @@
   font-weight: 700;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   border: 3px solid @header-nero;
+  @media @tablet {
+    position: static;
+  }
 }
 .point-share-orange-btn:hover,
 .point-share-orange-btn:active,

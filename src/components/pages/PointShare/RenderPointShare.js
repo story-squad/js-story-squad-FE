@@ -21,7 +21,6 @@ const PointShare = props => {
   const [showModal, setShowModal] = useState(false);
   const [modalVisible, setModalVisible] = useState(true);
 
-  // TODO The previous component used a useEffect that would send the submit API call if authState changed, I'm unsure if it's needed -- I haven't re-implemented it yet
   const { authState } = useOktaAuth();
 
   const openModal = content => {
