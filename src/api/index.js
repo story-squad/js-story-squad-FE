@@ -14,6 +14,7 @@ import {
   mockGetFaceoffsForVoting,
   mockUpdateChildData,
   mockPostVotes,
+  mockGetProfileData,
 } from './mockApiData';
 
 const sleep = time =>
@@ -66,20 +67,26 @@ const apiAuthPut = (endpoint, body, authHeader) => {
 };
 
 const getProfileData = authState => {
-  try {
-    return apiAuthGet('/profiles', getAuthHeader(authState)).then(response => {
-      console.log('getProfileData', response);
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return Promise.resolve(mockGetProfileData);
+  } else {
+    try {
+      return apiAuthGet('/profiles', getAuthHeader(authState)).then(
+        response => {
+          console.log('getProfileData', response.data);
+          return response.data;
+        }
+      );
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
-// Getting data for leaderboard
 
+// Get data for leaderboard
 const getLeaderboard = authState => {
   try {
     return apiAuthGet('/leaderboard', getAuthHeader(authState)).then(
