@@ -498,7 +498,7 @@ const mockGetProfileData = [
     type: 'Parent',
   },
   {
-    ID: 9,
+    ID: 1,
     PIN: '$2a$06$tnwi15iC5abTG8pxbUrFsuv2Qn/IxIVZ2iGGRUXl.T6JT9lJjFwLG',
     Name: 'April (Cohort2)',
     IsDyslexic: true,
@@ -509,7 +509,7 @@ const mockGetProfileData = [
     type: 'Child',
   },
   {
-    ID: 13,
+    ID: 1,
     PIN: '$2a$06$Sg2T7pxrGMbrOf/aBXrSbOkKCzKmZVChFJtGiN2o1nTTrbxeFB7.2',
     Name: 'Bettye (Cohort2)',
     IsDyslexic: false,
@@ -520,7 +520,7 @@ const mockGetProfileData = [
     type: 'Child',
   },
   {
-    ID: 17,
+    ID: 1,
     PIN: '$2a$06$tFm9IcFHJl555K1uIrFjEOWOU3ARpy/ITunjjq20aIZiiGM7OHsEq',
     Name: 'Ellis (Cohort3)',
     IsDyslexic: true,
@@ -531,7 +531,7 @@ const mockGetProfileData = [
     type: 'Child',
   },
   {
-    ID: 21,
+    ID: 1,
     PIN: '$2a$06$Zy3X7KfwpNIHMGuC5rfz7.9rYFOZp962X/wZMBh4kvmK8XIhR4hEK',
     Name: 'Paula (Cohort3)',
     IsDyslexic: false,
@@ -542,7 +542,7 @@ const mockGetProfileData = [
     type: 'Child',
   },
   {
-    ID: 25,
+    ID: 1,
     PIN: '$2a$06$iD9NjMoR9BBA08djfOAapuX8qRrrk.eyeITdoDtFJ7I0pZBiJzb3i',
     Name: 'Kayleigh (Cohort4 = new kid in week1)',
     IsDyslexic: false,
@@ -553,7 +553,7 @@ const mockGetProfileData = [
     type: 'Child',
   },
   {
-    ID: 29,
+    ID: 1,
     PIN: '$2a$06$700N3jQQGvNbAvejh8ECceyqb/O5caf./w1an1ZlNhm1vRgxyByhu',
     Name: 'Johnathon (Cohort4 = new kid in week1)',
     IsDyslexic: false,
@@ -564,7 +564,7 @@ const mockGetProfileData = [
     type: 'Child',
   },
   {
-    ID: 5,
+    ID: 1,
     PIN: '$2a$06$Qcx5wEWphgH9Xf72uxdPd.npQIJE49DAkBXFhjjXksD2NzKnfM3PO',
     Name: 'Leopold (Cohort1)',
     IsDyslexic: true,

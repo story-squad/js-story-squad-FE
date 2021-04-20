@@ -379,7 +379,7 @@ const setAllTasks = (
  */
 const getChildTeam = async (authState, childId) => {
   if (process.env.REACT_APP_ENV === 'development') {
-    return mockGetChildTeam;
+    return Promise.resolve(mockGetChildTeam);
   } else {
     try {
       return apiAuthGet(
