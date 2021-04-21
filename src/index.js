@@ -54,12 +54,6 @@ import { VotingPage } from './components/pages/VotingPage';
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
 import AdminDashboard from './components/pages/AdminDashboard';
-import SatMon from './components/pages/AdminDashboard/DevTools/DayComponents/01_Sat-Mon';
-import Tues from './components/pages/AdminDashboard/DevTools/DayComponents/04_Tues';
-import Wed from './components/pages/AdminDashboard/DevTools/DayComponents/05_Wed';
-import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_Thurs';
-import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
-import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
 
 ReactDOM.render(
   <Router>
@@ -87,7 +81,6 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
-      <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />

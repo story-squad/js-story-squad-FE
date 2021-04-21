@@ -20,12 +20,6 @@ const FaceoffContent = props => {
     });
   };
 
-  console.log(
-    'colors in faceoffcontent',
-    props.backgroundColor,
-    props.backTest
-  );
-
   return (
     <div className="faceoff">
       {props.content && (
