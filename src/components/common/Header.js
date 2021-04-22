@@ -49,7 +49,7 @@ const Header = ({
   // const targetTime = new Date().getTime() + 300;
   // CountDown component requires 'target' property, currently not functional
   return (
-    <div className="hero">
+    <header>
       {backButton && <BackButton destination={'/child/mission-control'} />}
       {countDown && <CountDown className="countdown" />}
       {displayMenu && (
@@ -74,7 +74,7 @@ const Header = ({
       {pointsToWin && (
         <h3 className="points-to-win">201 POINTS NEEDED TO WIN!</h3>
       )}
-    </div>
+    </header>
   );
 };
 export default connect(state => ({ team: state.team }), {
