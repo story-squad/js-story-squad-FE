@@ -6,7 +6,7 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
 
-import { Header, SubmissionViewerModal, InstructionsModal } from '../../common';
+import { SubmissionViewerModal, InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
 
 import ChildRow from './ChildRow';
@@ -66,13 +66,6 @@ const PointShare = props => {
           closeModal={() => setShowModal(false)}
         />
       )}
-      <Header
-        title="SHARE POINTS"
-        displayMenu={true}
-        pointsRemaining={true}
-        points={pointsLeft}
-        teamName={true}
-      />
       <QuestionCircleOutlined
         className="question-icon"
         onClick={() => setModalVisible(true)}

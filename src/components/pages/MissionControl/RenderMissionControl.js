@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -75,7 +74,6 @@ const RenderMissionControl = props => {
 
   return (
     <>
-      <Header title="MISSION" displayMenu={true} />
       <InstructionsModal
         modalVisible={modalVisible}
         handleCancel={() => {

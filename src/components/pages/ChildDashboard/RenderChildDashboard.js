@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
@@ -31,7 +30,6 @@ const RenderChildDashboard = props => {
 
   return (
     <>
-      <Header displayMenu={true} />
       <InstructionsModal //This is the pop up that happens on the child dashboard stop at one pop up
         modalVisible={modalVisible}
         handleCancel={() => {

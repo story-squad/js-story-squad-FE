@@ -1,11 +1,9 @@
 import React from 'react';
-import { Header } from '../../common';
 import RenderChild from './RenderChild';
 
 const RenderJoinTheSquad = props => {
   return (
     <>
-      <Header title="JOIN THE SQUAD" displayMenu={true} />
       <div className="JoinSquadContainer">
         <RenderChild
           child={props.team.child1}

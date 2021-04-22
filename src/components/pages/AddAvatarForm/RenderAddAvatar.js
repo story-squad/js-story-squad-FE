@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
 import { postNewAvatar } from '../../../api';
 import { getBase64 } from '../../../utils/helpers';
-
-import { Header } from '../../common';
 
 import { Form, Upload, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
@@ -79,7 +77,6 @@ const RenderAddAvatar = props => {
 
   return (
     <>
-      <Header />
       <Form form={form} onFinish={onFinish}>
         <Upload
           listType="picture-card"

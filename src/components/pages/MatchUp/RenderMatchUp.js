@@ -3,7 +3,6 @@ import { Row, Col, Button } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 
-import { Header } from '../../common';
 import FaceoffContent from './FaceoffContent';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
@@ -30,13 +29,6 @@ const RenderMatchUp = props => {
 
   return (
     <>
-      <Header
-        displayMenu={true}
-        title="The Matchup"
-        versus={true}
-        pointsToWin={true}
-        votesRemaining={true}
-      />
       <QuestionCircleOutlined
         className="question-icon"
         onClick={() => {

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Header } from '../../common';
 import Leaderboard from './Leaderboard';
 
 import { connect } from 'react-redux';
@@ -48,7 +47,6 @@ const RenderTrophyRoom = props => {
 
   return (
     <>
-      <Header displayMenu={true} title="Trophy Room" />
       <Button style={{ margin: '1rem' }} onClick={dashboard}>
         Back to Child Dashboard
       </Button>

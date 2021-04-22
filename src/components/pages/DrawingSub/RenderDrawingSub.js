@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Row } from 'antd';
 import { connect } from 'react-redux';
-import { Header } from '../../common';
 import { UploadDocs } from '../../common/';
 import { postNewDrawingSub } from '../../../api/index';
 import { InstructionsModal } from '../../common/index';
@@ -22,7 +21,6 @@ export const RenderDrawingSub = props => {
   };
   return (
     <>
-      <Header title="READY, SET ...DRAW!" />
       <InstructionsModal
         modalVisible={modalVisible}
         handleCancel={() => {

@@ -3,7 +3,6 @@ import { Row } from 'antd';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { Header } from '../../common';
 import { UploadDocs } from '../../common/';
 import { postNewWritingSub } from '../../../api/index';
 import { InstructionsModal } from '../../common/index';
@@ -24,7 +23,6 @@ export const RenderWritingSub = props => {
 
   return (
     <>
-      <Header title="PENCILS READY?" />
       <InstructionsModal
         modalVisible={modalVisible}
         handleCancel={() => {

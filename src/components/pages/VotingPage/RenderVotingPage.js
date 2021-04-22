@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Header, VotingForm, EmojiPicker } from '../../common';
+import { VotingForm, EmojiPicker } from '../../common';
 import { Row, Col } from 'antd';
 
 const RenderVotingPage = props => {
@@ -8,7 +8,6 @@ const RenderVotingPage = props => {
 
   return (
     <>
-      <Header title="VOTE FOR YOUR FAVORITE STORY" displayMenu={true} />
       <div className="voting-container">
         <Row className="main-row">
           <Col className="left-half" xs={24} sm={12}>

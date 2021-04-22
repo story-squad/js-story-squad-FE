@@ -27,6 +27,7 @@ import SecureRoute from './components/common/SecureRoute';
 import {
   ChildLoadingComponent,
   ParentLoadingComponent,
+  Header,
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
@@ -80,6 +81,7 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
+      <Header />
       <Switch>
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />

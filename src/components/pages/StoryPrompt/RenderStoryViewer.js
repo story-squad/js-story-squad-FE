@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { Header } from '../../common';
 import { useOktaAuth } from '@okta/okta-react';
 import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
@@ -75,7 +74,6 @@ const RenderStoryViewer = props => {
 
   return (
     <>
-      <Header backButton={true} />
       <div className="viewer-container">
         <SizeMe>
           {({ size }) => (
