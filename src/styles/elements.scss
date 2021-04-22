@@ -1,1 +1,17 @@
 // element-level styles
+
+h1 {
+	margin: 5rem 0 0;
+	text-align: center;
+	font-size: 6rem;
+	color: $white;
+	@include display-font;
+}
+
+h2 {
+	font-size: 4rem;
+}
+
+h1, h2, h3 {
+	@include display-font;
+}

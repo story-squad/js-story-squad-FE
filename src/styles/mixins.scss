@@ -1,0 +1,8 @@
+@mixin border($color) {
+  border: 7px solid $color;
+}
+
+@mixin display-font {
+	font-family: $font-display;
+	letter-spacing: 0.5rem;
+}

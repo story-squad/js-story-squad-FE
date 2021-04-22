@@ -4,7 +4,7 @@ header {
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: bottom;
-  border: 5px solid #333;
-  background-color: blue;
+  background-color: $aqua;
   position: relative;
+  @include border($black-brand);
 }
