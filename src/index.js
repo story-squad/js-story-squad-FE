@@ -17,8 +17,7 @@ import {
 
 import { Security } from '@okta/okta-react';
 
-import 'antd/dist/antd.less';
-import './styles/less/index.less';
+import './styles/index.scss';
 
 // Helpers
 import { config } from './utils/oktaConfig';
