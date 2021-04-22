@@ -3,15 +3,28 @@
 h1 {
 	margin: 5rem 0 0;
 	text-align: center;
-	font-size: 6rem;
+	font-size: 7.2rem;
 	color: $white;
-	@include display-font;
+	-webkit-text-stroke: 0.2rem $black-brand;
+	text-shadow: 0.4rem 0.4rem $black-brand;
 }
 
 h2 {
 	font-size: 4rem;
 }
 
+h3 {
+	font-size: 3rem;
+}
+
 h1, h2, h3 {
 	@include display-font;
+}
+
+p, span, li, button, label, input, a {
+	font-size: 3rem;
+}
+
+h2, h3, p, span, li, button, label, input, a {
+	color: $black-text;
 }
