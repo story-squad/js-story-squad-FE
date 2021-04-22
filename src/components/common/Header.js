@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link, useHistory } from 'react-router-dom';
-import { Button, Dropdown, Menu } from 'antd';
+import { Button, Dropdown } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
@@ -17,36 +17,48 @@ const ChildMenu = props => {
   };
 
   return (
-    <Menu {...props}>
-      <Menu.Item key="1">
-        <Link to="/child/dashboard">Home</Link>
-      </Menu.Item>
-      <Menu.Item key="2" disabled={true}>
-        Help
-      </Menu.Item>
-      <Menu.Item key="3" onClick={switchUsers}>
-        Change User
-      </Menu.Item>
-      <Menu.Item key="4" onClick={() => authService.logout()}>
-        Log Out
-      </Menu.Item>
-    </Menu>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/child/dashboard">Home</Link>
+        </li>
+        <li>Help</li>
+        <li>
+          <button onClick={switchUsers}>Change User</button>
+        </li>
+        <li>
+          <button onClick={() => authService.logout()}>Log Out</button>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
 const Header = ({ clearUsers }) => {
-  // const targetTime = new Date().getTime() + 300;
-  // CountDown component requires 'target' property, currently not functional
+  const history = useHistory();
+
+  // hide navigation menu on certain pages
+  const showNav = () => {
+    switch (history.location.pathname) {
+      case '':
+      case '/login':
+        return false;
+      default:
+        return true;
+    }
+  };
+
   return (
     <header>
       <h1>STORY SQUAD</h1>
-      <Dropdown
-        overlay={<ChildMenu clearUsers={clearUsers} />}
-        trigger={['click']}
-        className="menu-button"
-      >
-        <Button className="menu" icon={<MenuOutlined />} type="default" />
-      </Dropdown>
+      {showNav() && (
+        <Dropdown
+          overlay={<ChildMenu clearUsers={clearUsers} />}
+          trigger={['click']}
+        >
+          <Button className="menu" icon={<MenuOutlined />} type="default" />
+        </Dropdown>
+      )}
     </header>
   );
 };
