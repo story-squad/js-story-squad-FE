@@ -25,15 +25,15 @@ const RenderChildDashboard = props => {
       />
       <nav>
         <button
-          className="content-box h2 bg-green"
+          className="content-box border h2 bg-green"
           onClick={handleAcceptMission}
         >
           Accept
           <br />
           the mission
         </button>
-        <button className="content-box h2 bg-orange">Leaderboard</button>
-        <button className="content-box h2 bg-yellow">
+        <button className="content-box border h2 bg-orange">Leaderboard</button>
+        <button className="content-box border h2 bg-yellow">
           Story and Drawing
           <br />
           Gallery
