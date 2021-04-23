@@ -24,22 +24,19 @@ const RenderChildDashboard = props => {
         instructions={modalInstructions.childDash}
       />
       <nav>
-        <button className="content-box bg-green" onClick={handleAcceptMission}>
-          <h2>
-            Accept
-            <br />
-            the mission
-          </h2>
+        <button
+          className="content-box h2 bg-green"
+          onClick={handleAcceptMission}
+        >
+          Accept
+          <br />
+          the mission
         </button>
-        <button className="content-box bg-orange">
-          <h2>Leaderboard</h2>
-        </button>
-        <button className="content-box bg-yellow">
-          <h2>
-            Story and Drawing
-            <br />
-            Gallery
-          </h2>
+        <button className="content-box h2 bg-orange">Leaderboard</button>
+        <button className="content-box h2 bg-yellow">
+          Story and Drawing
+          <br />
+          Gallery
         </button>
       </nav>
     </>
