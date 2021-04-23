@@ -1,16 +1,18 @@
 // element-level styles
 
 h1 {
-	margin: 5rem 0 0;
+	margin: 2rem 0 0;
 	text-align: center;
 	font-size: 7.2rem;
 	color: $white;
 	-webkit-text-stroke: 0.2rem $black-brand;
 	text-shadow: 0.4rem 0.4rem $black-brand;
+	letter-spacing: 0.5rem;
 }
 
 h2 {
-	font-size: 4rem;
+	font-size: 3.8rem;
+	letter-spacing: 0.3rem;
 }
 
 h3 {
@@ -18,7 +20,7 @@ h3 {
 }
 
 h1, h2, h3 {
-	@include display-font;
+	font-family: $font-display;
 }
 
 p, span, li, button, label, input, a {
@@ -27,4 +29,8 @@ p, span, li, button, label, input, a {
 
 h2, h3, p, span, li, button, label, input, a {
 	color: $black-text;
+}
+
+a, button {
+	cursor: pointer;
 }
