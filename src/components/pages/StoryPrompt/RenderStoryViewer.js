@@ -84,6 +84,7 @@ const RenderStoryViewer = props => {
             >
               <div className="page-container">
                 <Page
+                  className="page-component"
                   width={size.width ? size.width : 1}
                   pageNumber={pageNumber}
                 />
