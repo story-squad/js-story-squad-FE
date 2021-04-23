@@ -87,22 +87,30 @@ const RenderMissionControl = props => {
         showOkButton={showButton}
       />
       <div className="mission-container">
-        <div className="content-box shaped dark">
-          <h2>Your Mission</h2>
-          <ol className="mission-steps">
-            <li className="mission-step">
-              <p className="step-number">1</p>
-              <p className="step-text">Read</p>
-            </li>
-            <li className="mission-step">
-              <p className="step-number">2</p>
-              <p className="step-text">Draw</p>
-            </li>
-            <li className="mission-step">
-              <p className="step-number">3</p>
-              <p className="step-text">Write</p>
-            </li>
-          </ol>
+        <div className="shaped-shadow-container">
+          <div className="content-box shaped dark">
+            <h2>Your Mission</h2>
+            <ol className="mission-steps">
+              <li>
+                <div className="step-number bg-green">
+                  <p>1</p>
+                </div>
+                <p className="step-text">Read</p>
+              </li>
+              <li>
+                <div className="step-number bg-orange">
+                  <p>2</p>
+                </div>
+                <p className="step-text">Draw</p>
+              </li>
+              <li>
+                <div className="step-number bg-yellow">
+                  <p>3</p>
+                </div>
+                <p className="step-text">Write</p>
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
     </>
