@@ -17,6 +17,11 @@
   }
 }
 
+// wrap a .content-box.shaped with this to give it a shadow
+.shaped-shadow-container {
+  filter: drop-shadow($size-shadow-large $gray);
+}
+
 .border {
   @include border($black-border);
 }

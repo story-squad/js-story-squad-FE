@@ -6,11 +6,12 @@ h1 {
 	font-size: 7.2rem;
 	color: $white;
 	-webkit-text-stroke: 0.2rem $black-brand;
-	text-shadow: 0.4rem 0.4rem $black-brand;
 	letter-spacing: 0.5rem;
+  @include text-shadow;
 }
 
 h2, .h2 {
+  margin: 4.4rem 0;
   text-align: center;
 	font-size: 4.2rem;
 	letter-spacing: 0.22rem;
@@ -28,6 +29,8 @@ h1, h2, .h2, h3, .h3 {
 p, span, li, button, label, input, a {
 	font-size: 2.6rem;
 	font-family: $font-text;
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 h2, h3, p, span, li, button, label, input, a {

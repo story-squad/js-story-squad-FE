@@ -1,4 +1,21 @@
 .mission-steps {
   display: flex;
   justify-content: space-around;
+  text-align: center;
+  & * {
+    font-size: 3.6rem;
+  }
+  .step-number {
+    margin: 0 auto;
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      color: $black-text;
+      margin: 0;
+    }
+  }
 }
