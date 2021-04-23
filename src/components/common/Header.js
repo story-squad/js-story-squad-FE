@@ -29,6 +29,17 @@ const ChildMenu = props => {
         <li>
           <button onClick={() => authService.logout()}>Log Out</button>
         </li>
+        {/* Temporary navigation for user testing */}
+        {process.env.REACT_APP_ENV === 'development' && (
+          <>
+            <li>
+              <Link to="/child/join">Squad</Link>
+            </li>
+            <li>
+              <Link to="/child/match-up">Matchup</Link>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );
