@@ -45,27 +45,19 @@ const RenderMissionControl = props => {
     setShowButton(!hasRead || (hasWritten && hasDrawn));
   }, [hasRead, hasWritten, hasDrawn]);
 
-  // Will be for when we are checking whether or not the child has completed a task
-  function handleChecked(e) {
-    return `checked=${e.target.checked}`;
-  }
-
-  // directs user to go in order; Read/Draw/Write
-  const handleReadStory = e => {
-    e.stopPropagation();
-    push('/child/story');
-  };
-  const handleDraw = e => {
-    e.stopPropagation();
-    if (!hasDrawn && hasRead) {
-      push('/child/drawing-sub');
+  // dim/highlight each step number using className
+  const stepLiClassName = () => {
+    let className = { read: 'off', draw: 'off', write: 'off' };
+    if (!hasRead) {
+      className.read = '';
     }
-  };
-  const handleWrite = e => {
-    e.stopPropagation();
-    if (!hasWritten && hasRead && hasDrawn) {
-      push('/child/writing-sub');
+    if (hasRead && !hasDrawn) {
+      className.draw = '';
     }
+    if (hasRead && hasDrawn && !hasWritten) {
+      className.write = '';
+    }
+    return className;
   };
 
   return (
@@ -74,19 +66,19 @@ const RenderMissionControl = props => {
         <div className="content-box shaped dark">
           <h2>Your Mission</h2>
           <ol className="mission-steps">
-            <li>
+            <li className={stepLiClassName().read}>
               <div className="step-number bg-green">
                 <p>1</p>
               </div>
               <p className="step-text">Read</p>
             </li>
-            <li>
+            <li className={stepLiClassName().draw}>
               <div className="step-number bg-orange">
                 <p>2</p>
               </div>
               <p className="step-text">Draw</p>
             </li>
-            <li>
+            <li className={stepLiClassName().write}>
               <div className="step-number bg-yellow">
                 <p>3</p>
               </div>
