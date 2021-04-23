@@ -10,21 +10,23 @@ h1 {
 	letter-spacing: 0.5rem;
 }
 
-h2 {
-	font-size: 3.8rem;
-	letter-spacing: 0.3rem;
+h2, .h2 {
+	font-size: 4.2rem;
+	letter-spacing: 0.22rem;
 }
 
 h3 {
 	font-size: 3rem;
 }
 
-h1, h2, h3 {
+h1, h2, .h2, h3, .h3 {
 	font-family: $font-display;
+	font-weight: 400;
 }
 
 p, span, li, button, label, input, a {
-	font-size: 3rem;
+	font-size: 3.2rem;
+	font-family: $font-text;
 }
 
 h2, h3, p, span, li, button, label, input, a {
