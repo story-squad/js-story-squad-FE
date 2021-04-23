@@ -1,1 +1,26 @@
 // styles for classes and modifiers
+.content-box {
+  display: block;
+  margin: 0 auto 4rem;
+  padding: 2rem;
+  max-width: 71.6rem;
+  min-height: 30rem;
+  width: 100%;
+  @include border($black-border);
+}
+
+.bg-green {
+	background: $green;
+}
+
+.bg-blue {
+	background: $blue;
+}
+
+.bg-orange {
+	background: $orange;
+}
+
+.bg-yellow {
+	background: $yellow;
+}
