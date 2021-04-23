@@ -87,57 +87,23 @@ const RenderMissionControl = props => {
         showOkButton={showButton}
       />
       <div className="mission-container">
-        <Row className="main-row">
-          <Col className="read" xs={24} sm={12} onClick={handleReadStory}>
-            <Checkbox
-              className="checking-box"
-              defaultChecked={false}
-              onChange={handleChecked}
-              isCompleted={hasRead}
-            />
-            <Col className="image-and-text-container">
-              <img src={read_icon} alt="reading icon" />
-              <p className="mission-control-text">Read</p>
-            </Col>
-          </Col>
-          <Col className="write-and-draw" xs={24} sm={12}>
-            <Row className={hasRead ? 'draw' : 'draw-not'} onClick={handleDraw}>
-              <Checkbox
-                className="checking-box"
-                defaultChecked={false}
-                onChange={handleChecked}
-                isCompleted={hasDrawn}
-              />
-              <Col className="image-and-text-container">
-                <img
-                  className="WritingandDrawingIcon"
-                  src={draw_icon}
-                  alt="drawing icon"
-                />
-                <p className="mission-control-text">Draw</p>
-              </Col>
-            </Row>
-            <Row
-              className={hasDrawn ? 'write' : 'write-not'}
-              onClick={handleWrite}
-            >
-              <Checkbox
-                className="checking-box"
-                defaultChecked={false}
-                onChange={handleChecked}
-                isCompleted={hasWritten}
-              />
-              <Col className="image-and-text-container">
-                <img
-                  className="WritingandDrawingIcon"
-                  src={write_icon}
-                  alt="writing icon"
-                />
-                <p className="mission-control-text">Write</p>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+        <div className="content-box shaped dark">
+          <h2>Your Mission</h2>
+          <ol className="mission-steps">
+            <li className="mission-step">
+              <p className="step-number">1</p>
+              <p className="step-text">Read</p>
+            </li>
+            <li className="mission-step">
+              <p className="step-number">2</p>
+              <p className="step-text">Draw</p>
+            </li>
+            <li className="mission-step">
+              <p className="step-number">3</p>
+              <p className="step-text">Write</p>
+            </li>
+          </ol>
+        </div>
       </div>
     </>
   );
