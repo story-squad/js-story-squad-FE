@@ -3,9 +3,9 @@
 }
 
 @mixin shadow($color: $black-brand) {
-  box-shadow: 0.4rem 0.4rem $color;
+  box-shadow: $size-shadow $color;
 }
 
 @mixin text-shadow($color: $black-brand) {
-  text-shadow: 0.4rem 0.4rem $color;
+  text-shadow: $size-shadow $color;
 }
