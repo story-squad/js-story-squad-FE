@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { InstructionsModal } from '../../common';
-import { getMissionControlText } from '../../../utils/helpers';
-import draw_icon from '../../../assets/icons/draw_icon.svg';
-import read_icon from '../../../assets/icons/read_icon.svg';
-import write_icon from '../../../assets/icons/write_icon.svg';
-import Checkbox from './Checkbox';
-
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+
+import { getMissionControlText } from '../../../utils/helpers';
 import { getChildTasks, getStory } from '../../../api';
 import { tasks } from '../../../state/actions';
+
+import StoryViewer from '../../pages/StoryPrompt/RenderStoryViewer';
 
 const RenderMissionControl = props => {
   //modal state
@@ -73,47 +69,39 @@ const RenderMissionControl = props => {
   };
 
   return (
-    <>
-      <InstructionsModal
-        modalVisible={modalVisible}
-        handleCancel={() => {
-          setModalVisible(false);
-        }}
-        handleOk={() => {
-          setModalVisible(false);
-        }}
-        instructions={instructionText}
-        style={{ fontSize: '2rem' }}
-        showOkButton={showButton}
-      />
-      <div className="mission-container">
-        <div className="shaped-shadow-container">
-          <div className="content-box shaped dark">
-            <h2>Your Mission</h2>
-            <ol className="mission-steps">
-              <li>
-                <div className="step-number bg-green">
-                  <p>1</p>
-                </div>
-                <p className="step-text">Read</p>
-              </li>
-              <li>
-                <div className="step-number bg-orange">
-                  <p>2</p>
-                </div>
-                <p className="step-text">Draw</p>
-              </li>
-              <li>
-                <div className="step-number bg-yellow">
-                  <p>3</p>
-                </div>
-                <p className="step-text">Write</p>
-              </li>
-            </ol>
-          </div>
+    <div className="mission-container">
+      <div className="shaped-shadow-container">
+        <div className="content-box shaped dark">
+          <h2>Your Mission</h2>
+          <ol className="mission-steps">
+            <li>
+              <div className="step-number bg-green">
+                <p>1</p>
+              </div>
+              <p className="step-text">Read</p>
+            </li>
+            <li>
+              <div className="step-number bg-orange">
+                <p>2</p>
+              </div>
+              <p className="step-text">Draw</p>
+            </li>
+            <li>
+              <div className="step-number bg-yellow">
+                <p>3</p>
+              </div>
+              <p className="step-text">Write</p>
+            </li>
+          </ol>
         </div>
       </div>
-    </>
+      {!hasRead && (
+        <StoryViewer
+          userInfo={props.userInfo}
+          authService={props.authService}
+        />
+      )}
+    </div>
   );
 };
 
