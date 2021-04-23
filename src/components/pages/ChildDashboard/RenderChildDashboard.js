@@ -40,44 +40,25 @@ const RenderChildDashboard = props => {
         }}
         instructions={modalInstructions.childDash}
       />
-      <div className="dash-container">
-        <Row className="toprow">
-          <Col
-            className="accept-mission"
-            xs={24}
-            sm={13}
-            onClick={handleAcceptMission}
-          >
-            <p className="accept-mission-text">ACCEPT THE MISSION!</p>
-          </Col>
-          <Col className="change-avatar" xs={24} sm={11}>
-            <img
-              className="child-dash-img"
-              src={change_your_avatar}
-              alt="Change Your Avatar Button"
-              onClick={handleAdminPage}
-            />
-          </Col>
-        </Row>
-        <Row className="bottomrow">
-          <Col className="adventure-passport" xs={24} sm={11}>
-            <img
-              className="child-dash-img"
-              src={adventure_passport}
-              alt="Adventure Passport Button"
-              onClick={handleJoinSquad}
-            />
-          </Col>
-          <Col className="trophy-room" xs={24} sm={13}>
-            <img
-              className="child-dash-img"
-              src={trophy_room}
-              alt="Trophy Room Button"
-              onClick={handleTrophyRoom}
-            />
-          </Col>
-        </Row>
-      </div>
+      <nav>
+        <button className="content-box bg-green" onClick={handleAcceptMission}>
+          <h2>
+            Accept
+            <br />
+            the mission
+          </h2>
+        </button>
+        <button className="content-box bg-orange">
+          <h2>Leaderboard</h2>
+        </button>
+        <button className="content-box bg-yellow">
+          <h2>
+            Story and Drawing
+            <br />
+            Gallery
+          </h2>
+        </button>
+      </nav>
     </>
   );
 };
