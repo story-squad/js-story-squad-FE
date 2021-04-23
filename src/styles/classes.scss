@@ -6,21 +6,33 @@
   max-width: 71.6rem;
   min-height: 30rem;
   width: 100%;
+  &.dark {
+    background: $black-text;
+    & * {
+      color: $white;
+    }
+  }
+  &.shaped {
+    clip-path: polygon(0.5% 0%, 95% 2%, 100% 94%, 0% 100%);
+  }
+}
+
+.border {
   @include border($black-border);
 }
 
 .bg-green {
-	background: $green;
+  background: $green;
 }
 
 .bg-blue {
-	background: $blue;
+  background: $blue;
 }
 
 .bg-orange {
-	background: $orange;
+  background: $orange;
 }
 
 .bg-yellow {
-	background: $yellow;
+  background: $yellow;
 }
