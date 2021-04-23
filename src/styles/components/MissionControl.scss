@@ -5,6 +5,9 @@
   & * {
     font-size: 3.6rem;
   }
+  .off {
+    filter: opacity(.5);
+  }
   .step-number {
     margin: 0 auto;
     width: 4.2rem;
@@ -15,7 +18,7 @@
     align-items: center;
     p {
       color: $black-text;
-      margin: 0;
+      margin: 0 0 -0.2rem;
     }
   }
 }
