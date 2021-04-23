@@ -45,19 +45,26 @@ const RenderMissionControl = props => {
     setShowButton(!hasRead || (hasWritten && hasDrawn));
   }, [hasRead, hasWritten, hasDrawn]);
 
-  // dim/highlight each step number using className
-  const stepLiClassName = () => {
-    let className = { read: 'off', draw: 'off', write: 'off' };
+  // calculate current phase
+  const currentPhase = () => {
     if (!hasRead) {
-      className.read = '';
+      return 'read';
     }
     if (hasRead && !hasDrawn) {
-      className.draw = '';
+      return 'draw';
     }
     if (hasRead && hasDrawn && !hasWritten) {
-      className.write = '';
+      return 'write';
     }
-    return className;
+  };
+
+  // dim/highlight each step number using className
+  const stepLiClassName = () => {
+    return {
+      read: currentPhase() === 'read' ? '' : 'off',
+      draw: currentPhase() === 'draw' ? '' : 'off',
+      write: currentPhase() === 'write' ? '' : 'off',
+    };
   };
 
   return (
@@ -87,7 +94,7 @@ const RenderMissionControl = props => {
           </ol>
         </div>
       </div>
-      {!hasRead && (
+      {currentPhase() === 'read' && (
         <StoryViewer
           userInfo={props.userInfo}
           authService={props.authService}
