@@ -19,6 +19,7 @@ h2, .h2 {
 
 h3, .h3 {
 	font-size: 3.4rem;
+	letter-spacing: 0.18rem;
 }
 
 h1, h2, .h2, h3, .h3 {
@@ -43,7 +44,7 @@ a, button {
 
 button {
 	height: 5rem;
-	padding: 0 1rem;
+	padding: 0 2rem;
 	border: 0.2rem solid $black-border;
 	border-radius: 0.8rem;
 	background: $aqua;
