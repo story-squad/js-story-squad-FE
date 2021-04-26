@@ -11,12 +11,9 @@ import StoryViewer from '../../pages/StoryPrompt/RenderStoryViewer';
 
 const RenderMissionControl = props => {
   //modal state
-  const [instructionText, setInstructionText] = useState('');
-  const [modalVisible, setModalVisible] = useState(true);
-  const [showButton, setShowButton] = useState(false);
+  const [, setInstructionText] = useState('');
+  const [, setShowButton] = useState(false);
   const { hasRead, hasWritten, hasDrawn } = props;
-
-  const { push } = useHistory();
   const { authState } = useOktaAuth();
 
   /**
