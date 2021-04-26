@@ -20,7 +20,6 @@ export const RenderDrawingSub = props => {
           {props.tasks.story.drawingPrompt}
         </p>
         <UploadDocs
-          submitButtonClassname="orange-submit-button"
           uploadButtonText="Upload Drawing"
           uploadButtonClassname="uploadButton"
           fileName="drawing"
