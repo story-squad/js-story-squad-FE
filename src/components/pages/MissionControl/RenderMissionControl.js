@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 
@@ -8,6 +7,8 @@ import { getChildTasks, getStory } from '../../../api';
 import { tasks } from '../../../state/actions';
 
 import StoryViewer from '../../pages/StoryPrompt/RenderStoryViewer';
+import DrawingSub from '../../pages/DrawingSub/RenderDrawingSub';
+import WritingSub from '../../pages/WritingSub/RenderWritingSub';
 
 const RenderMissionControl = props => {
   //modal state
@@ -68,7 +69,7 @@ const RenderMissionControl = props => {
     <div className="mission-container">
       <div className="shaped-shadow-container">
         <div className="content-box shaped dark">
-          <h2>Your Mission</h2>
+          <h2 style={{ marginBottom: '4.4rem' }}>Your Mission</h2>
           <ol className="mission-steps">
             <li className={stepLiClassName().read}>
               <div className="step-number bg-green">
@@ -96,6 +97,12 @@ const RenderMissionControl = props => {
           userInfo={props.userInfo}
           authService={props.authService}
         />
+      )}
+      {currentPhase() === 'draw' && (
+        <DrawingSub userInfo={props.userInfo} authService={props.authService} />
+      )}
+      {currentPhase() === 'write' && (
+        <WritingSub userInfo={props.userInfo} authService={props.authService} />
       )}
     </div>
   );
