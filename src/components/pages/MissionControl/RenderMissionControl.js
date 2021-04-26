@@ -6,16 +6,30 @@ import { getMissionControlText } from '../../../utils/helpers';
 import { getChildTasks, getStory } from '../../../api';
 import { tasks } from '../../../state/actions';
 
+import InstructionsModal from '../../common/InstructionsModal';
 import StoryViewer from '../../pages/StoryPrompt/RenderStoryViewer';
 import DrawingSub from '../../pages/DrawingSub/RenderDrawingSub';
 import WritingSub from '../../pages/WritingSub/RenderWritingSub';
 
 const RenderMissionControl = props => {
   //modal state
-  const [, setInstructionText] = useState('');
-  const [, setShowButton] = useState(false);
+  const [instructionText, setInstructionText] = useState('');
+  const [showModal, setShowModal] = useState(true);
   const { hasRead, hasWritten, hasDrawn } = props;
   const { authState } = useOktaAuth();
+
+  // calculate current phase
+  const currentPhase = () => {
+    if (!hasRead) {
+      return 'read';
+    }
+    if (hasRead && !hasDrawn) {
+      return 'draw';
+    }
+    if (hasRead && hasDrawn && !hasWritten) {
+      return 'write';
+    }
+  };
 
   /**
    * On initial render, checks to see if tasks in state (id, hasRead, hasWritten, etc)
@@ -38,23 +52,11 @@ const RenderMissionControl = props => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // show instructions and modal for each phase
   useEffect(() => {
-    setInstructionText(getMissionControlText(hasRead, hasDrawn, hasWritten));
-    setShowButton(!hasRead || (hasWritten && hasDrawn));
+    setInstructionText(getMissionControlText(currentPhase()));
+    setShowModal(true);
   }, [hasRead, hasWritten, hasDrawn]);
-
-  // calculate current phase
-  const currentPhase = () => {
-    if (!hasRead) {
-      return 'read';
-    }
-    if (hasRead && !hasDrawn) {
-      return 'draw';
-    }
-    if (hasRead && hasDrawn && !hasWritten) {
-      return 'write';
-    }
-  };
 
   // dim/highlight each step number using className
   const stepLiClassName = () => {
@@ -67,6 +69,12 @@ const RenderMissionControl = props => {
 
   return (
     <div className="mission-container">
+      <InstructionsModal
+        header={instructionText?.header}
+        instructions={instructionText?.text}
+        visible={showModal && instructionText?.header && instructionText?.text}
+        handleOk={() => setShowModal(false)}
+      />
       <div className="shaped-shadow-container">
         <div className="content-box shaped dark">
           <h2 style={{ marginBottom: '4.4rem' }}>Your Mission</h2>
