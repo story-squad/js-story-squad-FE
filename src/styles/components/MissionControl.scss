@@ -32,11 +32,18 @@
   min-height: 53rem;
   margin-top: -20rem;
   padding-top: 20rem;
-  padding: 20rem 2rem 2rem;
+  padding: 20rem 2rem 0;
   margin-bottom: 10rem;
   display: grid;
   grid-template-columns: 50% 50%;
   div {
     max-width: 40rem;
+  }
+  .grid-left {
+    justify-self: end;
+    align-self: end;
+  }
+  .grid-right {
+    padding-bottom: 2rem;
   }
 }
