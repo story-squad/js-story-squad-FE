@@ -11,7 +11,7 @@ h1 {
 }
 
 h2, .h2 {
-  margin: 4.4rem 0;
+  margin: 4.4rem 0 2.2rem;
   text-align: center;
 	font-size: 4.2rem;
 	letter-spacing: 0.22rem;
@@ -46,11 +46,15 @@ button {
 	padding: 0 1rem;
 	border: 0.2rem solid $black-border;
 	border-radius: 0.8rem;
-	font-size: 2rem;
 	background: $aqua;
-	&:disabled {
+	font-size: 2rem;
+	span {
+		font-size: 2rem;
+	}
+	&:disabled, &:disabled span {
 		background: $gray;
 		color: $gray-dark;
+		cursor: not-allowed;
 	}
 	* {
 		margin: 0;
