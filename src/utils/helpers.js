@@ -10,16 +10,25 @@ export function getBase64(file) {
 export const modalInstructions = {
   childDash:
     'Welcome to Story Squad. Accept your mission to start an adventure!',
-  missionControl1:
-    'Welcome to Story Squad! To begin your journey click the "READ" icon to start the story! Are you ready to accept the challenge?',
-  missionControl2:
-    "Great job! It's time to get creative. Click on one of the prompts.",
+  missionControl1: {
+    header: 'Great job!',
+    text:
+      'Now it’s time to get creative. When you’re done drawing, please take a picture of all your pages and upload them. After all pages are uploaded, click submit.',
+  },
+  missionControl2: {
+    header: 'Your drawing has been submitted, great job!',
+    text:
+      'Now it’s time to get creative. When you’re done writing your story, please take a picture of all your pages and upload them. After all pages are uploaded, click submit.',
+  },
+  missionControl3: {
+    header: 'Your story has been submitted, great job!',
+    text: 'It’s time to join your Squad!',
+  },
   writingSub:
     'Once you finish writing your story, please take a picture of all your pages and upload them.\nTips: Take one photo per page. Find good Lighting and check your photo turns out clear. Make sure each page is straight and not cropped. After all pages are uploaded, click submit.',
   drawingSub:
     'Once you finish your drawing, please take a picture of all your pages and upload them.\nTips: Take one photo per page. Find good Lighting and check your photo turns out clear. Make sure each page is straight and not cropped. After all pages are uploaded, click submit.',
   submissionComplete: 'Your Story has been submitted',
-  missionControl3: "It's time to join your squad! Click next to continue",
   sharePoints:
     "Ready Squad! Read your partner's story, view their drawing and share some points.",
   matchUp:
@@ -27,12 +36,12 @@ export const modalInstructions = {
 };
 
 export const getMissionControlText = phase => {
-  if (phase === 'read') {
+  if (phase === 'draw') {
     return modalInstructions.missionControl1;
-  } else if (phase === 'draw') {
+  } else if (phase === 'write') {
     return modalInstructions.missionControl2;
   } else {
-    return modalInstructions.missionControl3;
+    return null;
   }
 };
 
