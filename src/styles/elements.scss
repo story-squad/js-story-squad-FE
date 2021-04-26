@@ -54,6 +54,7 @@ button {
 	&:disabled, &:disabled span {
 		background: $gray;
 		color: $gray-dark;
+		border-color: $gray-dark;
 		cursor: not-allowed;
 	}
 	* {
