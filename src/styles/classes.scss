@@ -23,7 +23,7 @@
 }
 
 .border {
-  @include border($black-border);
+  @include border-large-square($black-border);
 }
 
 .bg-green {
@@ -40,4 +40,12 @@
 
 .bg-yellow {
   background: $yellow;
+}
+
+.center-content {
+  text-align: center;
+  * {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

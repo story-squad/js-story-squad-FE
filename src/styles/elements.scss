@@ -40,3 +40,19 @@ h2, h3, p, span, li, button, label, input, a {
 a, button {
 	cursor: pointer;
 }
+
+button {
+	height: 5rem;
+	padding: 0 1rem;
+	border: 0.2rem solid $black-border;
+	border-radius: 0.8rem;
+	font-size: 2rem;
+	background: $aqua;
+	&:disabled {
+		background: $gray;
+		color: $gray-dark;
+	}
+	* {
+		margin: 0;
+	}
+}

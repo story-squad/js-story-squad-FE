@@ -7,5 +7,5 @@ header {
   background-color: $aqua;
   position: relative;
   margin-bottom: 6rem;
-  @include border($black-brand);
+  @include border-large-square($black-brand);
 }

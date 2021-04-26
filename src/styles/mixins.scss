@@ -1,5 +1,6 @@
-@mixin border($color) {
+@mixin border-large-square($color) {
   border: 7px solid $color;
+  border-radius: 0;
 }
 
 @mixin shadow($color: $black-brand) {
