@@ -15,10 +15,7 @@ export const RenderDrawingSub = props => {
       {/* right */}
       <div>
         <h2 className="text-align-left">Pencils Ready!</h2>
-        <p className="small">
-          <span>Prompt: </span>
-          {props.tasks.story.drawingPrompt}
-        </p>
+        <p className="small">Draw your favorite part of the story.</p>
         <UploadDocs
           uploadButtonText="Upload Drawing"
           uploadButtonClassname="uploadButton"
