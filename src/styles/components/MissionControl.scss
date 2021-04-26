@@ -7,7 +7,7 @@
     font-weight: 600;
   }
   .off {
-    filter: opacity(.5);
+    filter: opacity(0.5);
   }
   .step-number {
     margin: 0 auto;
@@ -21,5 +21,19 @@
       color: $black-text;
       margin: 0 0 -0.2rem;
     }
+  }
+}
+
+.content-box-mission {
+  width: 100%;
+  min-height: 53rem;
+  margin-top: -20rem;
+  padding-top: 20rem;
+  padding: 20rem 2rem 2rem;
+  margin-bottom: 10rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  div {
+    max-width: 40rem;
   }
 }
