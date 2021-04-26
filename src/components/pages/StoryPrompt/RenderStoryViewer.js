@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { useOktaAuth } from '@okta/okta-react';
-import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { SizeMe } from 'react-sizeme';
 import { connect } from 'react-redux';
@@ -88,38 +87,41 @@ const RenderStoryViewer = props => {
                   width={size.width ? size.width : 1}
                   pageNumber={pageNumber}
                 />
-                <p>
-                  Page {pageNumber} of {numPages}
-                </p>
               </div>
             </Document>
           )}
         </SizeMe>
-        <Button
-          className="prev-button"
-          type="primary"
-          disabled={pageNumber <= 1}
-          onClick={previousPage}
-          icon={<ArrowLeftOutlined />}
-          size="large"
-        />
-        <Button
-          className="next-button"
-          type="primary"
-          disabled={pageNumber >= numPages}
-          onClick={nextPage}
-          icon={<ArrowRightOutlined />}
-          size="large"
-        />
-        <div className="finished-container">
-          <Button
+        <div className="content-box center-content">
+          <p>
+            Page {pageNumber} of {numPages}
+          </p>
+          <button
+            className="prev-button"
+            type="primary"
+            disabled={pageNumber <= 1}
+            onClick={previousPage}
+            size="large"
+          >
+            <ArrowLeftOutlined />
+          </button>
+          <button
+            className="next-button"
+            type="primary"
+            disabled={pageNumber >= numPages}
+            onClick={nextPage}
+            size="large"
+          >
+            <ArrowRightOutlined />
+          </button>
+          <br />
+          <button
             className="finished-reading"
             type="button"
             disabled={!hasViewedAllPages}
             onClick={onFinish}
           >
-            Finished Reading?
-          </Button>
+            I'm awesome, I'm done reading!
+          </button>
         </div>
       </div>
     </>
