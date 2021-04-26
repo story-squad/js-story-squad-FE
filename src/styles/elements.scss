@@ -11,7 +11,7 @@ h1 {
 }
 
 h2, .h2 {
-  margin: 4.4rem 0 2.2rem;
+  margin: 4.4rem 0 1.2rem;
   text-align: center;
 	font-size: 4.2rem;
 	letter-spacing: 0.22rem;
@@ -32,6 +32,10 @@ p, span, li, button, label, input, a {
 	font-family: $font-text;
   margin-top: 0;
   margin-bottom: 2rem;
+}
+
+p {
+	margin-bottom: 3.4rem;
 }
 
 h2, h3, p, span, li, button, label, input, a {
