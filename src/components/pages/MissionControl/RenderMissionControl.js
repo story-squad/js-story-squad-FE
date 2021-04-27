@@ -14,12 +14,12 @@ import WritingSub from '../../pages/WritingSub/RenderWritingSub';
 const RenderMissionControl = props => {
   //modal state
   const [instructionText, setInstructionText] = useState('');
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const { hasRead, hasWritten, hasDrawn } = props;
   const { authState } = useOktaAuth();
 
-  // calculate current phase
-  const currentPhase = () => {
+  // calculate current step
+  const currentStep = () => {
     if (!hasRead) {
       return 'read';
     }
@@ -28,6 +28,9 @@ const RenderMissionControl = props => {
     }
     if (hasRead && hasDrawn && !hasWritten) {
       return 'write';
+    }
+    if (hasRead && hasDrawn && hasWritten) {
+      return 'done';
     }
   };
 
@@ -54,16 +57,16 @@ const RenderMissionControl = props => {
 
   // show instructions and modal for each phase
   useEffect(() => {
-    setInstructionText(getMissionControlText(currentPhase()));
+    setInstructionText(getMissionControlText(currentStep()));
     setShowModal(true);
   }, [hasRead, hasWritten, hasDrawn]);
 
   // dim/highlight each step number using className
   const stepLiClassName = () => {
     return {
-      read: currentPhase() === 'read' ? '' : 'off',
-      draw: currentPhase() === 'draw' ? '' : 'off',
-      write: currentPhase() === 'write' ? '' : 'off',
+      read: currentStep() === 'read' ? '' : 'off',
+      draw: currentStep() === 'draw' ? '' : 'off',
+      write: currentStep() === 'write' ? '' : 'off',
     };
   };
 
@@ -100,16 +103,16 @@ const RenderMissionControl = props => {
           </ol>
         </div>
       </div>
-      {currentPhase() === 'read' && (
+      {currentStep() === 'read' && (
         <StoryViewer
           userInfo={props.userInfo}
           authService={props.authService}
         />
       )}
-      {currentPhase() === 'draw' && (
+      {currentStep() === 'draw' && (
         <DrawingSub userInfo={props.userInfo} authService={props.authService} />
       )}
-      {currentPhase() === 'write' && (
+      {currentStep() === 'write' && (
         <WritingSub userInfo={props.userInfo} authService={props.authService} />
       )}
     </div>
