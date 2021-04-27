@@ -35,13 +35,15 @@ export const modalInstructions = {
     "Welcome to this week's matchup. Please vote 3 times to unlock matchup scores. You may continue voting up to 10 times.",
 };
 
-export const getMissionControlText = phase => {
-  if (phase === 'draw') {
+export const getMissionControlText = step => {
+  if (step === 'draw') {
     return modalInstructions.missionControl1;
-  } else if (phase === 'write') {
+  } else if (step === 'write') {
     return modalInstructions.missionControl2;
+  } else if (step === 'done') {
+    return modalInstructions.missionControl3;
   } else {
-    return null;
+    return { header: '', text: '' };
   }
 };
 
