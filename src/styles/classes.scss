@@ -26,6 +26,10 @@
   @include border-large-square($black-border);
 }
 
+.border-light {
+  @include border-large-square($gray);
+}
+
 .bg-green {
   background: $green;
 }
@@ -46,6 +50,10 @@
   background: $aqua;
 }
 
+.bg-dark {
+  background: $black-text;
+}
+
 .center-content {
   text-align: center;
   * {
@@ -56,6 +64,12 @@
 
 .text-align-left {
   text-align: left;
+}
+
+.full-page {
+  margin-top: -4rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 p.small {
