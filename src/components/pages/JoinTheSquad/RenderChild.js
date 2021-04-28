@@ -29,4 +29,5 @@ const RenderChild = ({ child, bubbleStyle, childNum }) => {
     </div>
   );
 };
+
 export default RenderChild;
