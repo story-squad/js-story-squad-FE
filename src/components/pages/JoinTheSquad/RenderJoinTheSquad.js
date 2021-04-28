@@ -9,16 +9,8 @@ const RenderJoinTheSquad = props => {
     <div className="bg-dark full-page">
       <div className="content-box dark border-light">
         <h2>Your Squad</h2>
-        <RenderChild
-          child={props.team.child1}
-          childNum={1}
-          bubbleStyle={'right'}
-        />
-        <RenderChild
-          child={props.team.child2}
-          childNum={2}
-          bubbleStyle={'left'}
-        />
+        <RenderChild child={props.team.child1} childNum={1} />
+        <RenderChild child={props.team.child2} childNum={2} />
       </div>
       <div className="center-content">
         <button onClick={() => push('/child/point-share')}>Let's play!</button>
