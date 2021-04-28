@@ -32,7 +32,9 @@ const RenderChild = ({ child, childNum }) => {
           alt="child avatar"
         />
       </div>
-      {childNum === 1 && <p className="user-indicator text-light">(You)</p>}
+      {childNum === 1 && (
+        <p className="user-indicator text-light font-display">(You)</p>
+      )}
     </div>
   );
 };
