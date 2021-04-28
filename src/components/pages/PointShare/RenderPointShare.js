@@ -57,8 +57,6 @@ const PointShare = props => {
 
   return (
     <>
-      {/*  TODO decide whether the countdown is necessary or not, and scrap or implement the functionality accordingly */}
-      {/* Header requires countDown={true}  */}
       {showModal && (
         <SubmissionViewerModal
           showModal={showModal}
@@ -66,17 +64,19 @@ const PointShare = props => {
           closeModal={() => setShowModal(false)}
         />
       )}
-      <QuestionCircleOutlined
-        className="question-icon"
-        onClick={() => setModalVisible(true)}
-      />
       <InstructionsModal
         modalVisible={modalVisible}
         handleCancel={() => setModalVisible(false)}
         handleOk={() => setModalVisible(false)}
         instructions={modalInstructions.sharePoints}
       />
-      <div className="point-share-container d-flex flex-col justify-center align-center w-100 h-100">
+      <div className="point-share">
+        <div className="shaped-shadow-container">
+          <div className="content-box shaped dark">
+            <h2>Points Sharing</h2>
+            <p>This part should explain how it works</p>
+          </div>
+        </div>
         <ChildRow
           child={props.team.child1}
           childNum={'childOne'}
@@ -93,22 +93,9 @@ const PointShare = props => {
           bgVariable={'bright-sun'}
           openModal={openModal}
         />
-        <Button
-          className="point-share-orange-btn abs-left"
-          onClick={backToJoin}
-          type="primary"
-        >
-          Back
-        </Button>
-        <Button
-          selection="#eb7d5bbb"
-          className="point-share-orange-btn abs-right"
-          type="primary"
-          size="large"
-          onClick={handleSubmit}
-        >
-          Match Up!
-        </Button>
+        <div className="center-content">
+          <button onClick={handleSubmit}>Submit Points</button>
+        </div>
       </div>
     </>
   );
