@@ -80,7 +80,7 @@ const RenderMissionControl = props => {
       />
       <div className="shaped-shadow-container">
         <div className="content-box shaped dark">
-          <h2 style={{ marginBottom: '4.4rem' }}>Your Mission</h2>
+          <h2 className="mission-header">Your Mission</h2>
           <ol className="mission-steps">
             <li className={stepLiClassName().read}>
               <div className="step-number bg-green">
