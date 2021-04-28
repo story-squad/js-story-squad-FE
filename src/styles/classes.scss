@@ -62,6 +62,10 @@
   color: $white;
 }
 
+.font-display {
+  font-family: $font-display;
+}
+
 .center-content {
   text-align: center;
   * {
@@ -85,6 +89,11 @@
   padding-bottom: 4rem;
 }
 
-p.small {
-  font-size: 1.8rem;
+p {
+  &.small {
+    font-size: 1.8rem;
+  }
+  &.font-display {
+    letter-spacing: 0.1rem;
+  }
 }
