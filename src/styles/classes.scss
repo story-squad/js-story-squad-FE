@@ -8,7 +8,7 @@
   width: 100%;
   &.dark {
     background: $black-text;
-    p, h2, .h2, h3, .h3 {
+    & > * {
       color: $white;
     }
   }
@@ -56,6 +56,10 @@
 
 .text-dark {
   color: $black-text;
+}
+
+.text-light {
+  color: $white;
 }
 
 .center-content {
