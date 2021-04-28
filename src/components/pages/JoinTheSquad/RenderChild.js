@@ -1,31 +1,37 @@
 import React from 'react';
-import Squadup from '../../../assets/images/Squadup.svg';
-import wordBubble from '../../../assets/images/match_up_images/wordbubble.svg';
-import wordBubbleright from '../../../assets/images/match_up_images/wordBubbleright.svg';
+import avatarStar from '../../../assets/images/match_up_images/avatar-star.png';
+import talkBubble1 from '../../../assets/images/match_up_images/talk-bubble-1.svg';
+import talkBubble2 from '../../../assets/images/match_up_images/talk-bubble-2.svg';
 
-const RenderChild = ({ child, bubbleStyle, childNum }) => {
+const RenderChild = ({ child, childNum }) => {
   return (
-    <div className="join-squad-child">
-      <p>
+    <div className={`join-squad-child`}>
+      <p className={`child-${childNum}`}>
         Hi, I'm {child.ChildName}!
         <br />
         Nice to meet you!
       </p>
       <img
-        className={`word-bubble-${childNum}`}
-        src={bubbleStyle === 'right' ? wordBubbleright : wordBubble}
+        className={`talk-bubble child-${childNum}`}
+        src={childNum === 1 ? talkBubble1 : talkBubble2}
         alt="word bubble"
       />
-      <img
-        className={`star-bg-${childNum}`}
-        src={Squadup}
-        alt="blast character background"
-      />
-      <img
-        className={`child-avatar-${childNum}`}
-        src={child.AvatarURL}
-        alt="child avatar"
-      />
+      <div className={`star-bg-container flex-container child-${childNum}`}>
+        <img
+          className={`star-bg`}
+          src={avatarStar}
+          alt="star blast background"
+        />
+      </div>
+      <div
+        className={`child-avatar-container flex-container child-${childNum}`}
+      >
+        <img
+          className={`child-avatar`}
+          src={child.AvatarURL}
+          alt="child avatar"
+        />
+      </div>
     </div>
   );
 };
