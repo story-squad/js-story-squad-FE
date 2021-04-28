@@ -86,19 +86,19 @@ const RenderMissionControl = props => {
               <div className="step-number bg-green">
                 <p>1</p>
               </div>
-              <p className="step-text">Read</p>
+              <p className="step-text text-light">Read</p>
             </li>
             <li className={stepLiClassName().draw}>
               <div className="step-number bg-orange">
                 <p>2</p>
               </div>
-              <p className="step-text">Draw</p>
+              <p className="step-text text-light">Draw</p>
             </li>
             <li className={stepLiClassName().write}>
               <div className="step-number bg-yellow">
                 <p>3</p>
               </div>
-              <p className="step-text">Write</p>
+              <p className="step-text text-light">Write</p>
             </li>
           </ol>
         </div>
