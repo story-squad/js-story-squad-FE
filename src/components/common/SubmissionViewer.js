@@ -5,16 +5,15 @@ const SubmissionViewer = ({ src }) => {
   const [showModal, setShowModal] = useState(true);
 
   return (
-    <div className="submission-viewer">
-      <button
-        className="submission-button"
-        onClick={() => setShowModal(true)}
+    <button className="submission-viewer" onClick={() => setShowModal(true)}>
+      <div
+        className="submission-img"
         style={{ backgroundImage: `url(${src})` }}
-      ></button>
+      ></div>
       <div className="magnify-icon bg-aqua">
         <img src={zoomIcon} alt="magnifying glass icon" />
       </div>
-    </div>
+    </button>
   );
 };
 
