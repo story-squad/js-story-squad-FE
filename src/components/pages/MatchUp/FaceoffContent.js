@@ -26,7 +26,7 @@ const FaceoffContent = props => {
   };
 
   return (
-    <div className="faceoff content-box dark border padding-0">
+    <div className="faceoff content-box dark border-dark padding-0">
       <div className={`grid grid-3-col bg-${props.backgroundColor}`}>
         {props.content && (
           <FaceoffSubDisplay
@@ -38,7 +38,12 @@ const FaceoffContent = props => {
             mySquad="mySquad"
           />
         )}
-        <img src={matchup_bolt} alt="lightning bolt" onClick={revealWinner} />
+        <img
+          className="bolt-img"
+          src={matchup_bolt}
+          alt="lightning bolt"
+          onClick={revealWinner}
+        />
         {props.content && (
           <FaceoffSubDisplay
             custom_date={props.custom_date}
