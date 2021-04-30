@@ -1,0 +1,17 @@
+.faceoff {
+  margin-bottom: 5.2rem;
+  min-height: unset;
+  .points {
+    height: 6rem;
+    p {
+      margin-bottom: 0;
+      font-weight: 600;
+    }
+  }
+}
+.faceoff-sub {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
