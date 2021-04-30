@@ -47,6 +47,10 @@
   @include border-large-square($gray);
 }
 
+.border-dark {
+  @include border-large-square($black-text);
+}
+
 .bg-green {
   background: $green;
 }
