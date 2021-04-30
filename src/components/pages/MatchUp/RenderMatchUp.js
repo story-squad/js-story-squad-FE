@@ -49,7 +49,7 @@ const RenderMatchUp = props => {
       )}
       <div className="matchup-container">
         {faceoffs.length === 4 && (
-          <>
+          <div className="grid-2-col">
             <FaceoffContent
               custom_date={props.custom_date}
               content={faceoffs[0]}
@@ -80,7 +80,7 @@ const RenderMatchUp = props => {
               votesRemaining={props.votesRemaining}
               votesNeededToUnlock={9}
             />
-          </>
+          </div>
         )}
         <Button className="back-button" onClick={back2Dash}>
           Back
