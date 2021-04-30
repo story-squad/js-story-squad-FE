@@ -49,7 +49,7 @@ const RenderMatchUp = props => {
       )}
       <div className="matchup-container">
         {faceoffs.length === 4 && (
-          <div className="grid-2-col">
+          <div className="grid grid-2-col">
             <FaceoffContent
               custom_date={props.custom_date}
               content={faceoffs[0]}
