@@ -24,11 +24,15 @@
 
 .grid {
   display: grid;
-  max-width: 71.6rem;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
+  & > * {
+    max-width: 100%;
+  }
   &.grid-2-col {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40rem 40rem;
+    column-gap: 4rem;
   }
   &.grid-3-col {
     grid-template-columns: 33% auto 33%;
@@ -85,6 +89,12 @@
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.center-content-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .center-self {
