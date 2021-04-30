@@ -22,12 +22,17 @@
   filter: drop-shadow($size-shadow-large $gray);
 }
 
-.grid-2-col {
+.grid {
   display: grid;
-  grid-template-columns: 50% 50%;
   max-width: 71.6rem;
   margin-left: auto;
   margin-right: auto;
+  &.grid-2-col {
+    grid-template-columns: 50% 50%;
+  }
+  &.grid-3-col {
+    grid-template-columns: 33% auto 33%;
+  }
 }
 
 .border {
@@ -95,6 +100,10 @@
   margin-top: -4rem;
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+.padding-0 {
+  padding: 0;
 }
 
 p {
