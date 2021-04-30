@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Button } from 'antd';
+import { Button } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 
@@ -48,56 +48,40 @@ const RenderMatchUp = props => {
         />
       )}
       <div className="matchup-container">
-        <Row className="toprow">
-          <Col className="green-box" xs={24} sm={13}>
-            {faceoffs[0] && (
-              <FaceoffContent
-                custom_date={props.custom_date}
-                content={faceoffs[0]}
-                backgroundColor={'#C9E952'}
-                votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={7}
-                dayNeededToUnlock={5}
-                hourNeededToUnlock={18}
-              />
-            )}
-          </Col>
-          <Col className="red-box" xs={24} sm={11}>
-            {faceoffs[1] && (
-              <FaceoffContent
-                custom_date={props.custom_date}
-                content={faceoffs[1]}
-                backgroundColor={'#e97451'}
-                votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={7}
-              />
-            )}
-          </Col>
-        </Row>
-        <Row className="bottomrow">
-          <Col className="yellow-box" xs={24} sm={11}>
-            {faceoffs[2] && (
-              <FaceoffContent
-                custom_date={props.custom_date}
-                content={faceoffs[2]}
-                backgroundColor={'#ffde3b'}
-                votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={8}
-              />
-            )}
-          </Col>
-          <Col className="blue-box" xs={24} sm={13}>
-            {faceoffs[3] && (
-              <FaceoffContent
-                custom_date={props.custom_date}
-                content={faceoffs[3]}
-                backgroundColor={'#438eac'}
-                votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={9}
-              />
-            )}
-          </Col>
-        </Row>
+        {faceoffs.length === 4 && (
+          <>
+            <FaceoffContent
+              custom_date={props.custom_date}
+              content={faceoffs[0]}
+              backgroundColor={'#C9E952'}
+              votesRemaining={props.votesRemaining}
+              votesNeededToUnlock={7}
+              dayNeededToUnlock={5}
+              hourNeededToUnlock={18}
+            />
+            <FaceoffContent
+              custom_date={props.custom_date}
+              content={faceoffs[1]}
+              backgroundColor={'#e97451'}
+              votesRemaining={props.votesRemaining}
+              votesNeededToUnlock={7}
+            />
+            <FaceoffContent
+              custom_date={props.custom_date}
+              content={faceoffs[2]}
+              backgroundColor={'#ffde3b'}
+              votesRemaining={props.votesRemaining}
+              votesNeededToUnlock={8}
+            />
+            <FaceoffContent
+              custom_date={props.custom_date}
+              content={faceoffs[3]}
+              backgroundColor={'#438eac'}
+              votesRemaining={props.votesRemaining}
+              votesNeededToUnlock={9}
+            />
+          </>
+        )}
         <Button className="back-button" onClick={back2Dash}>
           Back
         </Button>
