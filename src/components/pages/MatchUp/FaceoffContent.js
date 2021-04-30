@@ -6,6 +6,7 @@ import {
   SubmissionViewerModal,
   EmojiFeedback,
   SubmissionViewer,
+  ChildAvatar,
 } from '../../common';
 import FaceoffReveal from '../Animations/FaceoffReveal';
 
@@ -51,7 +52,11 @@ const FaceoffContent = props => {
           />
         )}
       </div>
-      {props.content && <div className="points">{props.content.Points}</div>}
+      <div className="center-content center-content-flex points">
+        {props.content && (
+          <p className="text-light">{props.content.Points} points at stake</p>
+        )}
+      </div>
       {toggle ? (
         <FaceoffReveal
           animationDynamicContent={props.content}
@@ -107,36 +112,16 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
           closeModal={() => setShowModal(false)}
         />
       )}
-      <div className="sub">
-        <div className="child-info">
-          {feedback && feedback.Emoji && (
-            <EmojiFeedback emojis={feedback.Emoji} />
-          )}
-          <img src={sub.AvatarURL} alt="text" />
-          <span className="name">{sub.Name}</span>
-        </div>
+      <div className="faceoff-sub">
+        {feedback && feedback.Emoji && (
+          <EmojiFeedback emojis={feedback.Emoji} />
+        )}
+        <ChildAvatar src={sub.AvatarURL} name={sub.Name} />
         <SubmissionViewer
           src={type === 'DRAWING' ? sub.ImgURL : sub.Pages[0].PageURL}
           type={type}
           compact={true}
         />
-        {/* <div className="submission-preview">
-          {!locked ? (
-            <img
-              className="cursor-pointer"
-              src={type === 'DRAWING' ? sub.ImgURL : sub.Pages[0].PageURL}
-              alt="text"
-              role="button"
-              onClick={() =>
-                openModal(
-                  type === 'DRAWING' ? [{ ImgURL: sub.ImgURL }] : sub.Pages
-                )
-              }
-            />
-          ) : (
-            <img src={lock} alt="locked" />
-          )}
-        </div> */}
       </div>
     </>
   );
