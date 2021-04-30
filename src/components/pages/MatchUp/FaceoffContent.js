@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.svg';
 
-import { SubmissionViewerModal, EmojiFeedback } from '../../common';
+import {
+  SubmissionViewerModal,
+  EmojiFeedback,
+  SubmissionViewer,
+} from '../../common';
 import FaceoffReveal from '../Animations/FaceoffReveal';
 
 const lock = 'https://labs28-b-storysquad.s3.amazonaws.com/lock.svg';
@@ -21,30 +25,32 @@ const FaceoffContent = props => {
   };
 
   return (
-    <div className="faceoff">
-      {props.content && (
-        <FaceoffSubDisplay
-          custom_date={props.custom_date}
-          sub={props.content.Submission1}
-          type={props.content.Type}
-          feedback={props.content.Emojis1}
-          votesNeededToUnlock={props.votesNeededToUnlock}
-          mySquad="mySquad"
-        />
-      )}
-      <img src={matchup_bolt} alt="lightning bolt" onClick={revealWinner} />
-      {props.content && (
-        <FaceoffSubDisplay
-          custom_date={props.custom_date}
-          sub={props.content.Submission2}
-          type={props.content.Type}
-          feedback={props.content.Emojis2}
-          votesNeededToUnlock={props.votesNeededToUnlock}
-          votesRemaining={props.votesRemaining}
-          dayNeededToUnlock={props.dayNeededToUnlock}
-          hourNeededToUnlock={props.hourNeededToUnlock}
-        />
-      )}
+    <div className="faceoff content-box dark border padding-0">
+      <div className={`grid grid-3-col bg-${props.backgroundColor}`}>
+        {props.content && (
+          <FaceoffSubDisplay
+            custom_date={props.custom_date}
+            sub={props.content.Submission1}
+            type={props.content.Type}
+            feedback={props.content.Emojis1}
+            votesNeededToUnlock={props.votesNeededToUnlock}
+            mySquad="mySquad"
+          />
+        )}
+        <img src={matchup_bolt} alt="lightning bolt" onClick={revealWinner} />
+        {props.content && (
+          <FaceoffSubDisplay
+            custom_date={props.custom_date}
+            sub={props.content.Submission2}
+            type={props.content.Type}
+            feedback={props.content.Emojis2}
+            votesNeededToUnlock={props.votesNeededToUnlock}
+            votesRemaining={props.votesRemaining}
+            dayNeededToUnlock={props.dayNeededToUnlock}
+            hourNeededToUnlock={props.hourNeededToUnlock}
+          />
+        )}
+      </div>
       {props.content && <div className="points">{props.content.Points}</div>}
       {toggle ? (
         <FaceoffReveal
@@ -55,12 +61,6 @@ const FaceoffContent = props => {
     </div>
   );
 };
-
-//ERRLOG CURRENT Labs31:
-//             - emojis1 only exist for the 4 users you have seeded in cohort 1
-//                     - This makes sense. You want to see your own feedback
-//             - emojis2 doesn't exist as keys on content object
-//                     - This also makes sense. You don't need to see other people's feedback - check with stakeholders                     - emojis1 / emojis2 doesn't exist as keys on content object
 
 const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
   const [modalContent, setModalContent] = useState(null);
@@ -80,7 +80,6 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
     if (props.mySquad) {
       setLocked(false);
     }
-
     if (
       props.votesNeededToUnlock &&
       props.votesNeededToUnlock >= props.votesRemaining &&
@@ -88,7 +87,6 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
     ) {
       setLocked(false);
     }
-
     if (
       props.votesNeededToUnlock &&
       props.votesNeededToUnlock >= props.votesRemaining &&
@@ -97,7 +95,6 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
     ) {
       setLocked(false);
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -118,7 +115,12 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
           <img src={sub.AvatarURL} alt="text" />
           <span className="name">{sub.Name}</span>
         </div>
-        <div className="submission-preview">
+        <SubmissionViewer
+          src={type === 'DRAWING' ? sub.ImgURL : sub.Pages[0].PageURL}
+          type={type}
+          compact={true}
+        />
+        {/* <div className="submission-preview">
           {!locked ? (
             <img
               className="cursor-pointer"
@@ -134,7 +136,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
           ) : (
             <img src={lock} alt="locked" />
           )}
-        </div>
+        </div> */}
       </div>
     </>
   );
