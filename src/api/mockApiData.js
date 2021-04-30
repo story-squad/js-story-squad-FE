@@ -91,7 +91,7 @@ const mockGetFaceoffsForMatchup = [
     },
     Submission1: {
       ID: 1,
-      Name: 'Bettie (Cohort1)',
+      Name: 'Bettie',
       ImgURL: 'https://picsum.photos/id/201/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-9.svg',
       Pages: [
@@ -107,7 +107,7 @@ const mockGetFaceoffsForMatchup = [
     },
     Submission2: {
       ID: 3,
-      Name: 'Tavares (Cohort1)',
+      Name: 'Tavares',
       ImgURL: 'https://picsum.photos/id/203/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-1.svg',
       Pages: [
@@ -137,7 +137,7 @@ const mockGetFaceoffsForMatchup = [
     },
     Submission1: {
       ID: 1,
-      Name: 'Bettie (Cohort1)',
+      Name: 'Bettie',
       ImgURL: 'https://picsum.photos/id/201/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-9.svg',
       Pages: [
@@ -153,7 +153,7 @@ const mockGetFaceoffsForMatchup = [
     },
     Submission2: {
       ID: 3,
-      Name: 'Tavares (Cohort1)',
+      Name: 'Tavares',
       ImgURL: 'https://picsum.photos/id/203/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-1.svg',
       Pages: [
@@ -180,7 +180,7 @@ const mockGetFaceoffsForMatchup = [
     VotesCasted: 0,
     Submission1: {
       ID: 2,
-      Name: 'Krystel (Cohort1)',
+      Name: 'Krystel',
       ImgURL: 'https://picsum.photos/id/202/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
       Pages: [
@@ -196,7 +196,7 @@ const mockGetFaceoffsForMatchup = [
     },
     Submission2: {
       ID: 4,
-      Name: 'Myrna (Cohort1)',
+      Name: 'Myrna',
       ImgURL: 'https://picsum.photos/id/204/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-8.svg',
       Pages: [
@@ -223,7 +223,7 @@ const mockGetFaceoffsForMatchup = [
     VotesCasted: 0,
     Submission1: {
       ID: 2,
-      Name: 'Krystel (Cohort1)',
+      Name: 'Krystel',
       ImgURL: 'https://picsum.photos/id/202/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
       Pages: [
@@ -239,7 +239,7 @@ const mockGetFaceoffsForMatchup = [
     },
     Submission2: {
       ID: 4,
-      Name: 'Myrna (Cohort1)',
+      Name: 'Myrna',
       ImgURL: 'https://picsum.photos/id/204/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-8.svg',
       Pages: [
