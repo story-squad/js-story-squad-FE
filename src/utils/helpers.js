@@ -67,3 +67,16 @@ export const progressInfo = {
   ending:
     "We provide you with these visualizations so you can be involved and engaged in your child's Story Squad experience. Feel free to check this page regularly, because we'll update it weekly with every new submission!",
 };
+
+export const toCapitalized = string => {
+  return string
+    .split('')
+    .map((char, i) => {
+      if (i === 0) {
+        return char.toUpperCase();
+      } else {
+        return char.toLowerCase();
+      }
+    })
+    .join('');
+};
