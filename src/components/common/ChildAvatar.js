@@ -8,7 +8,7 @@ const ChildAvatar = ({ src, name, fontColor = 'dark' }) => {
   return (
     <div className="child-avatar">
       <div className="child-img-container">
-        <div className="child-img" style={{ backgroundImage: `url(${src})` }} />
+        <img className="child-img" src={src} alt={`${name}'s avatar`} />
       </div>
       <p className={`outlined font-display ${textClassName(fontColor)}`}>
         {name}
