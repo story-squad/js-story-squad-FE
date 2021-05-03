@@ -18,6 +18,11 @@ const SubmissionViewer = ({
     }
   };
 
+  // remove cursor: not-allowed on background button when canVote === true
+  const styleCursor = () => {
+    return canVote ? { cursor: 'default' } : null;
+  };
+
   return (
     <div className="submission-viewer-button-container">
       {locked && canVote && (
@@ -28,6 +33,7 @@ const SubmissionViewer = ({
       )}
       <button
         className={`submission-viewer-button ${compact ? 'compact' : ''}`}
+        style={styleCursor()}
         onClick={handleOnClick}
         disabled={locked}
       >
