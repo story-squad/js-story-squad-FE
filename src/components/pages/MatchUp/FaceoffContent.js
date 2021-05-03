@@ -76,6 +76,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [locked, setLocked] = useState(true);
+  const [canVote, setCanVote] = useState(false);
 
   const currentDate = props.custom_date ? props.custom_date : new Date();
   const currentDayOfTheWeek = currentDate.getDay();
@@ -108,6 +109,15 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // determine if the current opponent submission should be clicked to start vote
+  useEffect(() => {
+    if (props.votesNeededToUnlock + 1 === props.votesRemaining) {
+      setCanVote(true);
+    } else {
+      setCanVote(false);
+    }
+  }, [props.votesRemaining, props.votesNeededToUnlock]);
+
   return (
     <>
       {showModal && (
@@ -126,6 +136,8 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
           src={type === 'DRAWING' ? sub.ImgURL : sub.Pages[0].PageURL}
           type={type}
           compact={true}
+          locked={locked}
+          canVote={canVote}
         />
       </div>
     </>
