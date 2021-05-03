@@ -80,3 +80,25 @@ export const toCapitalized = string => {
     })
     .join('');
 };
+
+// get names and avatarURLs of users on each team
+export const getTeamsFromFaceoffs = faceoffs => {
+  const teams = { 1: [], 2: [] };
+  faceoffs.forEach(faceoff => {
+    if (!teams[1].some(team => team.Name === faceoff.Submission1.Name)) {
+      teams[1].push({
+        Name: faceoff.Submission1.Name,
+        AvatarURL: faceoff.Submission1.AvatarURL,
+      });
+    }
+  });
+  faceoffs.forEach(faceoff => {
+    if (!teams[2].some(team => team.Name === faceoff.Submission2.Name)) {
+      teams[2].push({
+        Name: faceoff.Submission2.Name,
+        AvatarURL: faceoff.Submission2.AvatarURL,
+      });
+    }
+  });
+  return teams;
+};
