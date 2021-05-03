@@ -53,35 +53,37 @@ const RenderMatchUp = props => {
         />
       )}
       <div className="matchup-container">
-        <div className="content-box dark shaped center-content">
-          <h2>The Match Up</h2>
-          <p>201 points to win</p>
-          <div className="flex space-between align-center margin-bottom-2">
-            {faceoffs.length === 4 && (
-              <>
-                <ChildAvatar
-                  src={teams[1][0].AvatarURL}
-                  name={teams[1][0].Name}
-                  fontColor={'light'}
-                />
-                <ChildAvatar
-                  src={teams[1][1].AvatarURL}
-                  name={teams[1][1].Name}
-                  fontColor={'light'}
-                />
-                <p className="h2 text-light">VS</p>
-                <ChildAvatar
-                  src={teams[2][0].AvatarURL}
-                  name={teams[2][0].Name}
-                  fontColor={'light'}
-                />
-                <ChildAvatar
-                  src={teams[2][1].AvatarURL}
-                  name={teams[2][1].Name}
-                  fontColor={'light'}
-                />
-              </>
-            )}
+        <div className="shaped-shadow-container">
+          <div className="content-box dark shaped center-content">
+            <h2>The Match Up</h2>
+            <p>201 points to win</p>
+            <div className="flex space-between align-center margin-bottom-2">
+              {faceoffs.length === 4 && (
+                <>
+                  <ChildAvatar
+                    src={teams[1][0].AvatarURL}
+                    name={teams[1][0].Name}
+                    fontColor={'light'}
+                  />
+                  <ChildAvatar
+                    src={teams[1][1].AvatarURL}
+                    name={teams[1][1].Name}
+                    fontColor={'light'}
+                  />
+                  <p className="h2 text-light">VS</p>
+                  <ChildAvatar
+                    src={teams[2][0].AvatarURL}
+                    name={teams[2][0].Name}
+                    fontColor={'light'}
+                  />
+                  <ChildAvatar
+                    src={teams[2][1].AvatarURL}
+                    name={teams[2][1].Name}
+                    fontColor={'light'}
+                  />
+                </>
+              )}
+            </div>
           </div>
         </div>
         {faceoffs.length === 4 && (
@@ -91,7 +93,7 @@ const RenderMatchUp = props => {
               content={faceoffs[0]}
               backgroundColor={'green'}
               votesRemaining={props.votesRemaining}
-              votesNeededToUnlock={7}
+              votesNeededToUnlock={-1}
               dayNeededToUnlock={5}
               hourNeededToUnlock={18}
             />
@@ -100,21 +102,21 @@ const RenderMatchUp = props => {
               content={faceoffs[1]}
               backgroundColor={'orange'}
               votesRemaining={props.votesRemaining}
-              votesNeededToUnlock={7}
+              votesNeededToUnlock={0}
             />
             <FaceoffContent
               custom_date={props.custom_date}
               content={faceoffs[2]}
               backgroundColor={'yellow'}
               votesRemaining={props.votesRemaining}
-              votesNeededToUnlock={8}
+              votesNeededToUnlock={1}
             />
             <FaceoffContent
               custom_date={props.custom_date}
               content={faceoffs[3]}
               backgroundColor={'blue'}
               votesRemaining={props.votesRemaining}
-              votesNeededToUnlock={9}
+              votesNeededToUnlock={2}
             />
           </div>
         )}
