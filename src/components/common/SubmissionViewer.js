@@ -25,6 +25,9 @@ const SubmissionViewer = ({
 
   return (
     <div className="submission-viewer-button-container">
+      {locked && !canVote && (
+        <img className="disabled-lock-icon" src={lockIcon} alt="lock icon" />
+      )}
       {locked && canVote && (
         <button className="submission-viewer-vote">
           <img className="vote-lock-icon" src={lockIcon} alt="lock icon" />
