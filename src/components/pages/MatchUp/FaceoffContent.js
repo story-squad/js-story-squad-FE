@@ -7,6 +7,7 @@ import {
   EmojiFeedback,
   SubmissionViewer,
   ChildAvatar,
+  InfoButton,
 } from '../../common';
 import FaceoffReveal from '../Animations/FaceoffReveal';
 
@@ -59,7 +60,10 @@ const FaceoffContent = props => {
       </div>
       <div className="center-content center-content-flex points">
         {props.content && (
-          <p className="text-light">{props.content.Points} points at stake</p>
+          <p className="text-light">
+            {props.content.Points} points at stake
+            <InfoButton setInfoModalVisible={props.setInfoModalVisible} />
+          </p>
         )}
       </div>
       {toggle ? (
