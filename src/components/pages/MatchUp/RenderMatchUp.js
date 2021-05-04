@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 
 import FaceoffContent from './FaceoffContent';
@@ -34,18 +33,9 @@ const RenderMatchUp = props => {
 
   return (
     <>
-      {/* <QuestionCircleOutlined
-        className="question-icon"
-        onClick={() => {
-          setModalVisible(true);
-        }}
-      /> */}
       {modalVisible && (
         <InstructionsModal
-          modalVisible={modalVisible}
-          handleCancel={() => {
-            setModalVisible(false);
-          }}
+          visible={modalVisible}
           handleOk={() => {
             setModalVisible(false);
           }}
@@ -96,6 +86,7 @@ const RenderMatchUp = props => {
               votesNeededToUnlock={-1}
               dayNeededToUnlock={5}
               hourNeededToUnlock={18}
+              setInfoModalVisible={setModalVisible}
             />
             <FaceoffContent
               custom_date={props.custom_date}
@@ -103,6 +94,7 @@ const RenderMatchUp = props => {
               backgroundColor={'orange'}
               votesRemaining={props.votesRemaining}
               votesNeededToUnlock={0}
+              setInfoModalVisible={setModalVisible}
             />
             <FaceoffContent
               custom_date={props.custom_date}
@@ -110,6 +102,7 @@ const RenderMatchUp = props => {
               backgroundColor={'yellow'}
               votesRemaining={props.votesRemaining}
               votesNeededToUnlock={1}
+              setInfoModalVisible={setModalVisible}
             />
             <FaceoffContent
               custom_date={props.custom_date}
@@ -117,6 +110,7 @@ const RenderMatchUp = props => {
               backgroundColor={'blue'}
               votesRemaining={props.votesRemaining}
               votesNeededToUnlock={2}
+              setInfoModalVisible={setModalVisible}
             />
           </div>
         )}
