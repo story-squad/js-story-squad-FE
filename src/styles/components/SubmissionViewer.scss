@@ -60,6 +60,13 @@
       }
     }
   }
+  .disabled-lock-icon {
+    position: absolute;
+    left: 0.6rem;
+    top: 0.2rem;
+    z-index: 1;
+    pointer-events: none;
+  }
   .submission-viewer-vote {
     position: absolute;
     display: flex;
