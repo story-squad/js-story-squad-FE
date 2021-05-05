@@ -37,6 +37,7 @@ const FaceoffContent = props => {
             feedback={props.content.Emojis1}
             votesNeededToUnlock={props.votesNeededToUnlock}
             mySquad="mySquad"
+            handleVote={props.handleVote}
           />
         )}
         <img
@@ -55,6 +56,7 @@ const FaceoffContent = props => {
             votesRemaining={props.votesRemaining}
             dayNeededToUnlock={props.dayNeededToUnlock}
             hourNeededToUnlock={props.hourNeededToUnlock}
+            handleVote={props.handleVote}
           />
         )}
       </div>
@@ -76,7 +78,7 @@ const FaceoffContent = props => {
   );
 };
 
-const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
+const FaceoffSubDisplay = ({ sub, type, feedback, handleVote, ...props }) => {
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [locked, setLocked] = useState(true);
@@ -123,28 +125,18 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
   }, [props.votesRemaining, props.votesNeededToUnlock]);
 
   return (
-    <>
-      {showModal && (
-        <SubmissionViewerModal
-          content={modalContent}
-          showModal={showModal}
-          closeModal={() => setShowModal(false)}
-        />
-      )}
-      <div className="faceoff-sub">
-        {feedback && feedback.Emoji && (
-          <EmojiFeedback emojis={feedback.Emoji} />
-        )}
-        <ChildAvatar src={sub.AvatarURL} name={sub.Name} />
-        <SubmissionViewer
-          src={type === 'DRAWING' ? sub.ImgURL : sub.Pages[0].PageURL}
-          type={type}
-          compact={true}
-          locked={locked}
-          canVote={canVote}
-        />
-      </div>
-    </>
+    <div className="faceoff-sub">
+      {feedback && feedback.Emoji && <EmojiFeedback emojis={feedback.Emoji} />}
+      <ChildAvatar src={sub.AvatarURL} name={sub.Name} />
+      <SubmissionViewer
+        src={type === 'DRAWING' ? sub.ImgURL : sub.Pages[0].PageURL}
+        submissionType={type}
+        compact={true}
+        locked={locked}
+        canVote={canVote}
+        handleVote={handleVote}
+      />
+    </div>
   );
 };
 
