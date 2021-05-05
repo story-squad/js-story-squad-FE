@@ -3,12 +3,28 @@ import zoomIcon from '../../assets/icons/zoom-icon.svg';
 import lockIcon from '../../assets/icons/lock.svg';
 import { toCapitalized } from '../../utils/helpers';
 
+/* The SubmissionViewer component displays a preview of the submission image in a
+ ** button that can be clicked to open a modal. The component has two views: normal
+ ** and compact. The normal view can be used anywhere, whereas the compact view is meant
+ ** to be used on the match-up page, and has extra styling and functionality
+ **
+ ** Props:
+ ** src (string) - the img src
+ ** compact (boolean) - display the component in compact view
+ ** Compact view requires the following props:
+ ** submissionType (string) - the text displayed of the submission type
+ ** locked (boolean) - whether the submission is locked for viewing
+ ** canVote (boolean) - whether the button 'Vote to unlock' is rendered and can be clicked
+ ** handleVote (function) - the callback function used to start the voting process
+ */
+
 const SubmissionViewer = ({
   src,
-  type,
   compact = false,
+  submissionType,
   locked = false,
   canVote = false,
+  handleVote,
 }) => {
   const [showModal, setShowModal] = useState(true);
 
@@ -25,28 +41,34 @@ const SubmissionViewer = ({
 
   return (
     <div className="submission-viewer-button-container">
+      {/* large lock icon when user can't view or vote (compact view) */}
       {locked && !canVote && (
         <img className="disabled-lock-icon" src={lockIcon} alt="lock icon" />
       )}
+      {/* vote button (compact view) */}
       {locked && canVote && (
-        <button className="submission-viewer-vote">
+        <button className="submission-viewer-vote" onClick={handleVote}>
           <img className="vote-lock-icon" src={lockIcon} alt="lock icon" />
           <span>Vote to unlock</span>
         </button>
       )}
+      {/* submission viewer button (all views) */}
       <button
         className={`submission-viewer-button ${compact ? 'compact' : ''}`}
         style={styleCursor()}
         onClick={handleOnClick}
         disabled={locked}
       >
+        {/* submission preview img (all views) */}
         <div
           className="submission-img"
           style={{ backgroundImage: `url(${src})` }}
         ></div>
+        {/* magnify icon (all views) */}
         <div className="magnify-icon bg-aqua">
           <img src={zoomIcon} alt="magnifying glass icon" />
-          {compact && <p>{toCapitalized(type)}</p>}
+          {/* submission type text (compact view) */}
+          {compact && <p>{toCapitalized(submissionType)}</p>}
         </div>
       </button>
     </div>
