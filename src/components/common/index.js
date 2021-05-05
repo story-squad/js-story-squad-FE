@@ -8,7 +8,6 @@ import Header from './Header';
 import UploadDocs from './UploadDocs';
 import InstructionsModal from './InstructionsModal';
 import VotingForm from './VotingForm';
-import SubmissionViewerModal from './SubmissionViewerModal';
 import EmojiFeedback from './EmojiFeedback';
 import EmojiPicker from './EmojiPicker';
 import SubmissionViewer from './SubmissionViewer';
@@ -28,7 +27,6 @@ export {
   UploadDocs,
   InstructionsModal,
   VotingForm,
-  SubmissionViewerModal,
   EmojiFeedback,
   EmojiPicker,
   SubmissionViewer,
