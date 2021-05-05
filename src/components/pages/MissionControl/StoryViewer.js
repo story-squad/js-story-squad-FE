@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 import { markAsRead } from '../../../api';
 import { tasks } from '../../../state/actions';
 
-const RenderStoryViewer = props => {
+const StoryViewer = props => {
   const { authState } = useOktaAuth();
   const { push } = useHistory();
   const [numPages, setNumPages] = useState(null);
@@ -137,4 +137,4 @@ export default connect(
     setHasRead: tasks.setHasRead,
     setSubmissionInformation: tasks.setSubmissionInformation,
   }
-)(RenderStoryViewer);
+)(StoryViewer);

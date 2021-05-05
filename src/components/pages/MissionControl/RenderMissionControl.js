@@ -7,9 +7,9 @@ import { getChildTasks, getStory } from '../../../api';
 import { tasks } from '../../../state/actions';
 
 import InstructionsModal from '../../common/InstructionsModal';
-import StoryViewer from '../../pages/StoryPrompt/RenderStoryViewer';
-import DrawingSub from '../../pages/DrawingSub/RenderDrawingSub';
-import WritingSub from '../../pages/WritingSub/RenderWritingSub';
+import StoryViewer from './StoryViewer';
+import DrawingSub from './DrawingSub';
+import WritingSub from './WritingSub';
 
 const RenderMissionControl = props => {
   //modal state

@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { UploadDocs } from '../../common/';
+import { UploadDocs } from '../../common';
 import { postNewWritingSub } from '../../../api/index';
 import { tasks } from '../../../state/actions';
 import writeHero from '../../../assets/images/mission_control_images/write-hero.png';
 
-export const RenderWritingSub = props => {
+export const WritingSub = props => {
   // TODO add event to occur after submit if needed, or remove
   const handleSubmit = () => null;
 
@@ -45,4 +45,4 @@ export default connect(
   {
     setHasWritten: tasks.setHasWritten,
   }
-)(RenderWritingSub);
+)(WritingSub);

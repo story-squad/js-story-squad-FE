@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { UploadDocs } from '../../common/';
+import { UploadDocs } from '../../common';
 import { postNewDrawingSub } from '../../../api/index';
 import { tasks } from '../../../state/actions';
 import drawHero from '../../../assets/images/mission_control_images/draw-hero.png';
 
-export const RenderDrawingSub = props => {
+export const DrawingSub = props => {
   // TODO add event to occur after submit if needed, or remove
   const handleSubmit = () => null;
 
@@ -45,4 +45,4 @@ export default connect(
   {
     setHasDrawn: tasks.setHasDrawn,
   }
-)(RenderDrawingSub);
+)(DrawingSub);
