@@ -87,6 +87,7 @@ const RenderMatchUp = props => {
               dayNeededToUnlock={5}
               hourNeededToUnlock={18}
               setInfoModalVisible={setModalVisible}
+              handleVote={handleVote}
             />
             <FaceoffContent
               custom_date={props.custom_date}
@@ -95,6 +96,7 @@ const RenderMatchUp = props => {
               votesRemaining={props.votesRemaining}
               votesNeededToUnlock={0}
               setInfoModalVisible={setModalVisible}
+              handleVote={handleVote}
             />
             <FaceoffContent
               custom_date={props.custom_date}
@@ -103,6 +105,7 @@ const RenderMatchUp = props => {
               votesRemaining={props.votesRemaining}
               votesNeededToUnlock={1}
               setInfoModalVisible={setModalVisible}
+              handleVote={handleVote}
             />
             <FaceoffContent
               custom_date={props.custom_date}
@@ -111,6 +114,7 @@ const RenderMatchUp = props => {
               votesRemaining={props.votesRemaining}
               votesNeededToUnlock={2}
               setInfoModalVisible={setModalVisible}
+              handleVote={handleVote}
             />
           </div>
         )}
