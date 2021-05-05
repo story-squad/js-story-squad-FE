@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 
 import FaceoffContent from './FaceoffContent';
@@ -25,10 +24,6 @@ const RenderMatchUp = props => {
   const handleVote = e => {
     e.preventDefault();
     push('/child/match-up/squad-vote');
-  };
-  const back2Dash = e => {
-    e.preventDefault();
-    push('/child/dashboard');
   };
 
   return (
@@ -118,18 +113,6 @@ const RenderMatchUp = props => {
             />
           </div>
         )}
-        <Button className="back-button" onClick={back2Dash}>
-          Back
-        </Button>
-        <Button
-          className={'vote-button ' + (props.canVote ? '' : 'disabled')}
-          onClick={handleVote}
-          disabled={props.canVote ? false : true}
-        >
-          Vote!
-          <br />
-          {props.child.VotesRemaining} votes left
-        </Button>
       </div>
     </>
   );
