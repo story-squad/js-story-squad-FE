@@ -57,13 +57,6 @@ const PointShare = props => {
 
   return (
     <>
-      {showModal && (
-        <SubmissionViewerModal
-          showModal={showModal}
-          content={modalContent}
-          closeModal={() => setShowModal(false)}
-        />
-      )}
       <InstructionsModal
         modalVisible={modalVisible}
         handleCancel={() => setModalVisible(false)}
