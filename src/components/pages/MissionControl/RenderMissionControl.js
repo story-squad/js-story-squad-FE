@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 
-import { getMissionControlText } from '../../../utils/helpers';
+import { getMissionControlText, modalPush } from '../../../utils/helpers';
 import { getChildTasks, getStory } from '../../../api';
 import { tasks } from '../../../state/actions';
 
@@ -17,6 +18,7 @@ const RenderMissionControl = props => {
   const [showModal, setShowModal] = useState(false);
   const { hasRead, hasWritten, hasDrawn } = props;
   const { authState } = useOktaAuth();
+  const { push } = useHistory();
 
   // calculate current step
   const currentStep = () => {
@@ -70,13 +72,17 @@ const RenderMissionControl = props => {
     };
   };
 
+  const closeModal = () => {
+    modalPush(push, '/child/join');
+  };
+
   return (
     <div className="mission-container">
       <InstructionsModal
         header={instructionText?.header}
         instructions={instructionText?.text}
         visible={showModal && instructionText?.header && instructionText?.text}
-        handleOk={() => setShowModal(false)}
+        handleOk={closeModal}
       />
       <div className="shaped-shadow-container">
         <div className="content-box shaped dark">
