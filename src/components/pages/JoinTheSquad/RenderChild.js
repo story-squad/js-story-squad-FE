@@ -1,73 +1,42 @@
 import React from 'react';
-import { Col, Button } from 'antd';
-import Squadup from '../../../assets/images/Squadup.svg';
-import wordBubble from '../../../assets/images/match_up_images/wordbubble.svg';
-import wordBubbleright from '../../../assets/images/match_up_images/wordBubbleright.svg';
-import { useHistory } from 'react-router-dom';
+import avatarStar from '../../../assets/images/match_up_images/avatar-star.png';
+import talkBubble1 from '../../../assets/images/match_up_images/talk-bubble-1.svg';
+import talkBubble2 from '../../../assets/images/match_up_images/talk-bubble-2.svg';
 
-const useStyles = childNum => {
-  return {
-    joinSquad: childNum === 1 ? 'joinSquad1' : 'joinSquad2',
-    imgContain: childNum === 1 ? 'imgContain1' : 'imgContain2',
-    text: 'text',
-    wordBubble: childNum === 1 ? 'wordBubble' : 'wordBubble2',
-    star: 'star',
-    childAvatar: childNum === 1 ? 'child1-avatar' : 'child2-avatar',
-    button: 'back-button',
-  };
-};
-
-const RenderChild = ({ child, bubbleStyle, childNum }) => {
-  const { push } = useHistory();
-  const classes = useStyles(childNum);
-
-  const home = e => {
-    push('/child/dashboard');
-  };
-  const teamVote = e => {
-    push('/child/point-share');
-  };
-
+const RenderChild = ({ child, childNum }) => {
   return (
-    <Col className={classes.joinSquad} xs={24} sm={12}>
-      <div className={classes.imgContain}>
-        <p className={classes.text}>
-          Hi! <br></br>My name is {child.ChildName}!
-        </p>
+    <div className={`join-squad-child`}>
+      <p className={`child-${childNum}`}>
+        Hi, I'm {child.ChildName}!
+        <br />
+        Nice to meet you!
+      </p>
+      <img
+        className={`talk-bubble child-${childNum}`}
+        src={childNum === 1 ? talkBubble1 : talkBubble2}
+        alt="word bubble"
+      />
+      <div className={`star-bg-container flex-container child-${childNum}`}>
         <img
-          className={classes.wordBubble}
-          src={bubbleStyle === 'right' ? wordBubbleright : wordBubble}
-          alt="word bubble"
+          className={`star-bg`}
+          src={avatarStar}
+          alt="star blast background"
         />
+      </div>
+      <div
+        className={`child-avatar-container flex-container child-${childNum}`}
+      >
         <img
-          className={classes.star}
-          src={Squadup}
-          alt="Blast Character Background"
-        />
-        <img
-          className={classes.childAvatar}
+          className={`child-avatar`}
           src={child.AvatarURL}
-          alt="Child 1 Avatar"
+          alt="child avatar"
         />
       </div>
-      <div className="button">
-        {childNum === 1 ? (
-          <Button className={classes.button} onClick={home}>
-            Back
-          </Button>
-        ) : (
-          <Button
-            selection="#eb7d5bbb"
-            className="sharePoints"
-            type="primary"
-            size="large"
-            onClick={teamVote}
-          >
-            Share Points
-          </Button>
-        )}
-      </div>
-    </Col>
+      {childNum === 1 && (
+        <p className="user-indicator text-light font-display">(You)</p>
+      )}
+    </div>
   );
 };
+
 export default RenderChild;

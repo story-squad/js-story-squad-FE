@@ -17,8 +17,7 @@ import {
 
 import { Security } from '@okta/okta-react';
 
-import 'antd/dist/antd.less';
-import './styles/less/index.less';
+import './styles/index.scss';
 
 // Helpers
 import { config } from './utils/oktaConfig';
@@ -28,10 +27,10 @@ import SecureRoute from './components/common/SecureRoute';
 import {
   ChildLoadingComponent,
   ParentLoadingComponent,
+  Header,
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
-import { DrawingSub } from './components/pages/DrawingSub';
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
 import { MissionControl } from './components/pages/MissionControl';
@@ -39,8 +38,6 @@ import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentSettings } from './components/pages/FamilySettings';
-import { StoryPrompt } from './components/pages/StoryPrompt';
-import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { TrophyRoom } from './components/pages/TrophyRoom';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
@@ -81,6 +78,7 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
+      <Header />
       <Switch>
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
@@ -89,12 +87,6 @@ function App() {
           path="/"
           exact
           component={() => <Modal LoadingComponent={ChildLoadingComponent} />}
-        />
-        <SecureRoute
-          path="/child/story"
-          component={() => (
-            <StoryPrompt LoadingComponent={ChildLoadingComponent} />
-          )}
         />
         <SecureRoute
           path="/child/dashboard"
@@ -107,18 +99,6 @@ function App() {
           path="/child/mission-control"
           component={() => (
             <MissionControl LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <SecureRoute
-          path="/child/drawing-sub"
-          component={() => (
-            <DrawingSub LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <SecureRoute
-          path="/child/writing-sub"
-          component={() => (
-            <WritingSub LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <SecureRoute

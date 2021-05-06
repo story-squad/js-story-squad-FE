@@ -1,0 +1,148 @@
+// styles for classes and modifiers
+.content-box {
+  display: block;
+  margin: 0 auto 4rem;
+  padding: 2rem;
+  max-width: 71.6rem;
+  min-height: 30rem;
+  width: 100%;
+  &.dark {
+    background: $black-text;
+    & > * {
+      color: $white;
+    }
+  }
+  &.shaped {
+    clip-path: polygon(0.5% 0%, 95% 2%, 100% 94%, 0% 100%);
+  }
+}
+
+// wrap a .content-box.shaped with this to give it a shadow
+.shaped-shadow-container {
+  filter: drop-shadow($size-shadow-large $gray);
+}
+
+.grid {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  & > * {
+    max-width: 100%;
+  }
+  &.grid-2-col {
+    grid-template-columns: 40rem 40rem;
+    column-gap: 4rem;
+  }
+  &.grid-3-col {
+    grid-template-columns: 33% auto 33%;
+  }
+}
+
+.flex {
+  display: flex;
+  &.space-between {
+    justify-content: space-between;
+  }
+  &.align-center {
+    align-items: center;
+  }
+}
+
+.border {
+  @include border-large-square($black-border);
+}
+
+.border-light {
+  @include border-large-square($gray);
+}
+
+.border-dark {
+  @include border-large-square($black-text);
+}
+
+.bg-green {
+  background: $green;
+}
+
+.bg-blue {
+  background: $blue;
+}
+
+.bg-orange {
+  background: $orange;
+}
+
+.bg-yellow {
+  background: $yellow;
+}
+
+.bg-aqua {
+  background: $aqua;
+}
+
+.bg-dark {
+  background: $black-text;
+}
+
+.text-dark {
+  color: $black-text;
+}
+
+.text-light {
+  color: $white;
+}
+
+.font-display {
+  font-family: $font-display;
+}
+
+.center-content {
+  text-align: center;
+  * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.center-content-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-self {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.full-page {
+  margin-top: -4rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.margin-bottom-2 {
+  margin-bottom: 2rem;
+}
+
+.margin-bottom-4 {
+  margin-bottom: 4rem;
+}
+
+p {
+  &.small {
+    font-size: 1.8rem;
+  }
+  &.font-display {
+    letter-spacing: 0.1rem;
+  }
+}

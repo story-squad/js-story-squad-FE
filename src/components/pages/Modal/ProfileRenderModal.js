@@ -8,7 +8,6 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 import { getProfileData } from '../../../api';
 
 import { Modal, Button, Form, Input } from 'antd';
-import Header from '../../common/Header';
 
 const titleText = 'Please select your name';
 
@@ -74,7 +73,6 @@ const ProfileRenderModal = props => {
 
   return (
     <>
-      <Header displayMenu={false} />
       {
         <Modal
           className="profile-modal"

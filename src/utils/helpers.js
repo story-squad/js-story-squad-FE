@@ -10,29 +10,40 @@ export function getBase64(file) {
 export const modalInstructions = {
   childDash:
     'Welcome to Story Squad. Accept your mission to start an adventure!',
-  missionControl1:
-    'Welcome to Story Squad! To begin your journey click the "READ" icon to start the story! Are you ready to accept the challenge?',
-  missionControl2:
-    "Great job! It's time to get creative. Click on one of the prompts.",
+  missionControl1: {
+    header: 'Great job!',
+    text:
+      'Now it’s time to get creative. When you’re done drawing, please take a picture of all your pages and upload them. After all pages are uploaded, click submit.',
+  },
+  missionControl2: {
+    header: 'Your drawing has been submitted, great job!',
+    text:
+      'Now it’s time to get creative. When you’re done writing your story, please take a picture of all your pages and upload them. After all pages are uploaded, click submit.',
+  },
+  missionControl3: {
+    header: 'Your story has been submitted, great job!',
+    text: 'It’s time to join your Squad!',
+  },
   writingSub:
     'Once you finish writing your story, please take a picture of all your pages and upload them.\nTips: Take one photo per page. Find good Lighting and check your photo turns out clear. Make sure each page is straight and not cropped. After all pages are uploaded, click submit.',
   drawingSub:
     'Once you finish your drawing, please take a picture of all your pages and upload them.\nTips: Take one photo per page. Find good Lighting and check your photo turns out clear. Make sure each page is straight and not cropped. After all pages are uploaded, click submit.',
   submissionComplete: 'Your Story has been submitted',
-  missionControl3: "It's time to join your squad! Click next to continue",
   sharePoints:
     "Ready Squad! Read your partner's story, view their drawing and share some points.",
   matchUp:
     "Welcome to this week's matchup. Please vote 3 times to unlock matchup scores. You may continue voting up to 10 times.",
 };
 
-export const getMissionControlText = (hasRead, hasDrawn, hasWritten) => {
-  if (!hasRead) {
+export const getMissionControlText = step => {
+  if (step === 'draw') {
     return modalInstructions.missionControl1;
-  } else if (hasRead && (!hasDrawn || !hasWritten)) {
+  } else if (step === 'write') {
     return modalInstructions.missionControl2;
-  } else {
+  } else if (step === 'done') {
     return modalInstructions.missionControl3;
+  } else {
+    return { header: '', text: '' };
   }
 };
 
@@ -55,4 +66,39 @@ export const progressInfo = {
   ],
   ending:
     "We provide you with these visualizations so you can be involved and engaged in your child's Story Squad experience. Feel free to check this page regularly, because we'll update it weekly with every new submission!",
+};
+
+export const toCapitalized = string => {
+  return string
+    .split('')
+    .map((char, i) => {
+      if (i === 0) {
+        return char.toUpperCase();
+      } else {
+        return char.toLowerCase();
+      }
+    })
+    .join('');
+};
+
+// get names and avatarURLs of users on each team
+export const getTeamsFromFaceoffs = faceoffs => {
+  const teams = { 1: [], 2: [] };
+  faceoffs.forEach(faceoff => {
+    if (!teams[1].some(team => team.Name === faceoff.Submission1.Name)) {
+      teams[1].push({
+        Name: faceoff.Submission1.Name,
+        AvatarURL: faceoff.Submission1.AvatarURL,
+      });
+    }
+  });
+  faceoffs.forEach(faceoff => {
+    if (!teams[2].some(team => team.Name === faceoff.Submission2.Name)) {
+      teams[2].push({
+        Name: faceoff.Submission2.Name,
+        AvatarURL: faceoff.Submission2.AvatarURL,
+      });
+    }
+  });
+  return teams;
 };

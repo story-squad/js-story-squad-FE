@@ -1,13 +1,11 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import { LoginContainer } from '../Login';
-import { Header } from '../../common';
 import LandingAnimation from '../Animations/LandingAnimation';
 
 const LandingPage = () => {
   return (
     <>
-      <Header displayMenu={false} />
       <Row id="head-row">
         <Col span={16}>
           <LandingAnimation />

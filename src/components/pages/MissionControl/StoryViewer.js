@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { Header } from '../../common';
 import { useOktaAuth } from '@okta/okta-react';
-import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { SizeMe } from 'react-sizeme';
 import { connect } from 'react-redux';
@@ -11,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 import { markAsRead } from '../../../api';
 import { tasks } from '../../../state/actions';
 
-const RenderStoryViewer = props => {
+const StoryViewer = props => {
   const { authState } = useOktaAuth();
   const { push } = useHistory();
   const [numPages, setNumPages] = useState(null);
@@ -75,7 +73,6 @@ const RenderStoryViewer = props => {
 
   return (
     <>
-      <Header backButton={true} />
       <div className="viewer-container">
         <SizeMe>
           {({ size }) => (
@@ -86,41 +83,45 @@ const RenderStoryViewer = props => {
             >
               <div className="page-container">
                 <Page
+                  className="page-component"
                   width={size.width ? size.width : 1}
                   pageNumber={pageNumber}
                 />
-                <p>
-                  Page {pageNumber} of {numPages}
-                </p>
               </div>
             </Document>
           )}
         </SizeMe>
-        <Button
-          className="prev-button"
-          type="primary"
-          disabled={pageNumber <= 1}
-          onClick={previousPage}
-          icon={<ArrowLeftOutlined />}
-          size="large"
-        />
-        <Button
-          className="next-button"
-          type="primary"
-          disabled={pageNumber >= numPages}
-          onClick={nextPage}
-          icon={<ArrowRightOutlined />}
-          size="large"
-        />
-        <div className="finished-container">
-          <Button
+        <div className="content-box center-content">
+          <p>
+            Page {pageNumber} of {numPages}
+          </p>
+          <button
+            className="prev-button"
+            type="primary"
+            disabled={pageNumber <= 1}
+            onClick={previousPage}
+            size="large"
+          >
+            <ArrowLeftOutlined />
+          </button>
+          <button
+            className="next-button"
+            type="primary"
+            disabled={pageNumber >= numPages}
+            onClick={nextPage}
+            size="large"
+          >
+            <ArrowRightOutlined />
+          </button>
+          <br />
+          <button
             className="finished-reading"
             type="button"
             disabled={!hasViewedAllPages}
             onClick={onFinish}
           >
-            Finished Reading?
-          </Button>
+            I'm awesome, I'm done reading!
+          </button>
         </div>
       </div>
     </>
@@ -136,4 +137,4 @@ export default connect(
     setHasRead: tasks.setHasRead,
     setSubmissionInformation: tasks.setSubmissionInformation,
   }
-)(RenderStoryViewer);
+)(StoryViewer);
