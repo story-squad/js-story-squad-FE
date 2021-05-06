@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
 
 import { InstructionsModal } from '../../common';
-import { modalInstructions } from '../../../utils/helpers';
+import { modalInstructions, modalPush } from '../../../utils/helpers';
 
 import ChildRow from './ChildRow';
 import usePointShare from './usePointShare';
@@ -20,7 +20,7 @@ const PointShare = props => {
 
   const closeModal = () => {
     setModalVisible(false);
-    push('/child/dashboard');
+    modalPush(push, '/child/match-up');
   };
 
   const handleSubmit = e => {
