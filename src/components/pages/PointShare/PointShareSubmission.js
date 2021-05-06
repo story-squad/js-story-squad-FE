@@ -8,7 +8,6 @@ const submissionTypeText = submissionType => {
 };
 
 const PointShareSubmission = ({
-  openModal,
   imgUrl,
   points,
   updatePoints,
