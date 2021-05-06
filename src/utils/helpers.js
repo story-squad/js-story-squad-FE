@@ -104,3 +104,11 @@ export const getTeamsFromFaceoffs = faceoffs => {
   });
   return teams;
 };
+
+export const modalPush = (push, url) => {
+  if (process.env.REACT_APP_ENV === 'development') {
+    push(url);
+  } else {
+    push('/child/dashboard');
+  }
+};
