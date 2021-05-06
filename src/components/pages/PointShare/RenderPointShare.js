@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
-import { Button } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
 
-import { SubmissionViewerModal, InstructionsModal } from '../../common';
+import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
 
 import ChildRow from './ChildRow';
@@ -16,20 +14,13 @@ const PointShare = props => {
   const { push } = useHistory();
 
   const [pointsLeft, portfolioPoints, handleUpdatePoints] = usePointShare();
-  // TODO could probably abstract this into a useModal hook
-  const [modalContent, setModalContent] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const { authState } = useOktaAuth();
 
-  const openModal = content => {
-    setModalContent(content);
-    setShowModal(true);
-  };
-
-  const backToJoin = e => {
-    push('/child/join');
+  const closeModal = () => {
+    setModalVisible(false);
+    push('/child/dashboard');
   };
 
   const handleSubmit = e => {
@@ -52,16 +43,17 @@ const PointShare = props => {
       ];
       // TODO throws a 403 error if 'duplicate,' this error needs handling on the FE
       submitPoints(authState, formattedTeamPoints);
+      setModalVisible(true);
     }
   };
 
   return (
     <>
       <InstructionsModal
-        modalVisible={modalVisible}
-        handleCancel={() => setModalVisible(false)}
-        handleOk={() => setModalVisible(false)}
-        instructions={modalInstructions.sharePoints}
+        visible={modalVisible}
+        handleOk={closeModal}
+        header={modalInstructions.sharePointsSubmission.header}
+        instructions={modalInstructions.sharePointsSubmission.text}
       />
       <div className="point-share">
         <div className="shaped-shadow-container">
@@ -75,16 +67,12 @@ const PointShare = props => {
           childNum={'childOne'}
           points={portfolioPoints}
           updatePoints={handleUpdatePoints}
-          bgVariable={'burnt-sienna'}
-          openModal={openModal}
         />
         <ChildRow
           child={props.team.child2}
           childNum={'childTwo'}
           points={portfolioPoints}
           updatePoints={handleUpdatePoints}
-          bgVariable={'bright-sun'}
-          openModal={openModal}
         />
         <div className="center-content">
           <button onClick={handleSubmit}>Submit Points</button>
