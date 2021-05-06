@@ -29,8 +29,10 @@ export const modalInstructions = {
   drawingSub:
     'Once you finish your drawing, please take a picture of all your pages and upload them.\nTips: Take one photo per page. Find good Lighting and check your photo turns out clear. Make sure each page is straight and not cropped. After all pages are uploaded, click submit.',
   submissionComplete: 'Your Story has been submitted',
-  sharePoints:
-    "Ready Squad! Read your partner's story, view their drawing and share some points.",
+  sharePointsSubmission: {
+    header: 'Submitted Points',
+    text: 'You submitted points. This text should be updated.',
+  },
   matchUp:
     "Welcome to this week's matchup. Please vote 3 times to unlock matchup scores. You may continue voting up to 10 times.",
 };
