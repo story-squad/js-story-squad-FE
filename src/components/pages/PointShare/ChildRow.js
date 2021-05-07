@@ -2,14 +2,7 @@ import React from 'react';
 import Avatar from './Avatar';
 import PointShareSubmission from './PointShareSubmission';
 
-const ChildRow = ({
-  child,
-  childNum,
-  points,
-  updatePoints,
-  bgVariable,
-  openModal,
-}) => {
+const ChildRow = ({ child, childNum, points, updatePoints }) => {
   return (
     <div className="point-share-child-row content-box dark">
       <div className="avatar-container">
@@ -20,7 +13,6 @@ const ChildRow = ({
         updatePoints={updatePoints}
         imgUrl={child.ImgURL}
         points={points}
-        openModal={openModal}
         submissionType={'illustration'}
         childNum={childNum}
       />
@@ -28,7 +20,6 @@ const ChildRow = ({
         updatePoints={updatePoints}
         imgUrl={child.Pages[0].PageURL}
         points={points}
-        openModal={openModal}
         submissionType={'story'}
         childNum={childNum}
       />
