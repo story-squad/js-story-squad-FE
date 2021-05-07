@@ -33,6 +33,10 @@
   &.grid-2-col {
     grid-template-columns: 40rem 40rem;
     column-gap: 4rem;
+    &.grid-small {
+      grid-template-columns: 34.6rem 34.6rem;
+      column-gap: 2rem;
+    }
   }
   &.grid-3-col {
     grid-template-columns: 33% auto 33%;
