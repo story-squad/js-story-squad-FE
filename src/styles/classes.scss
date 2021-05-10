@@ -161,4 +161,7 @@ button {
     background: $white;
     border-color: $aqua-light;
   }
+  &.full-width {
+    width: 100%;
+  }
 }
