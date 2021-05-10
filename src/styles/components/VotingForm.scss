@@ -1,0 +1,14 @@
+.submissions {
+  .submission {
+    border-radius: 0.8rem;
+  }
+  .submission.selected {
+    background: $aqua-light;
+    p {
+      color: $black-text;
+    }
+    button {
+      background: none;
+    }
+  }
+}
