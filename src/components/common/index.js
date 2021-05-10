@@ -7,7 +7,6 @@ import Button from './Button';
 import Header from './Header';
 import UploadDocs from './UploadDocs';
 import InstructionsModal from './InstructionsModal';
-import VotingForm from './VotingForm';
 import EmojiFeedback from './EmojiFeedback';
 import EmojiPicker from './EmojiPicker';
 import SubmissionViewer from './SubmissionViewer';
@@ -26,7 +25,6 @@ export {
   Header,
   UploadDocs,
   InstructionsModal,
-  VotingForm,
   EmojiFeedback,
   EmojiPicker,
   SubmissionViewer,

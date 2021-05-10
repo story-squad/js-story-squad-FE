@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Form, Radio } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
 
-import { postVotes, updateChildData } from '../../api';
-import SubmissionViewer from './SubmissionViewer';
-import VotingSubmission from '../pages/VotingPage/VotingSubmission';
+import { postVotes, updateChildData } from '../../../api';
+import VotingSubmission from './VotingSubmission';
 
 const VotingForm = props => {
   const { push } = useHistory();
