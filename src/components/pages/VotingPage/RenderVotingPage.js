@@ -18,16 +18,6 @@ const RenderVotingPage = props => {
           </p>
         </div>
       </div>
-      <div className="submissions grid grid-2-col grid-small">
-        <div className="submission content-box center-content dark">
-          <p className="font-display">{props.votes.Type} 1</p>
-          <SubmissionViewer src={props.votes.Submission1.ImgURL} />
-        </div>
-        <div className="submission content-box center-content dark">
-          <p className="font-display">{props.votes.Type} 2</p>
-          <SubmissionViewer src={props.votes.Submission2.ImgURL} />
-        </div>
-      </div>
       <VotingForm
         faceoffToVote={props.votes}
         child={props.child}
