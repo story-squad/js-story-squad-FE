@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { SubmissionViewer } from '../../common';
+import thumbIcon from '../../../assets/icons/thumbsup.svg';
 
 const VotingSubmission = ({
+  number,
   submissionId,
   selectedValue,
   setSelectedValue,
@@ -16,20 +18,29 @@ const VotingSubmission = ({
 
   return (
     <div
-      className={`submission content-box center-content dark ${
-        isSelected && 'selected'
+      className={`submission content-box center-content ${
+        isSelected ? 'selected border-dark' : 'dark'
       }`}
     >
-      <p className="font-display">{submissionType} 2</p>
+      <p className="margin-bottom-2 font-display">
+        {submissionType} {number}
+      </p>
       <SubmissionViewer src={imgSrc} />
-      <button
-        className={`secondary full-width text-dark ${
-          isSelected && 'font-display'
-        }`}
-        onClick={() => setSelectedValue(submissionId)}
-      >
-        {isSelected ? '✓ Selected' : 'Select'}
-      </button>
+      <div className="select-container">
+        {isSelected ? (
+          <div className="center-content-flex">
+            <img className="thumb-up" src={thumbIcon} alt="thumbs up icon" />
+            <p className="font-display margin-0">Good Choice!</p>
+          </div>
+        ) : (
+          <button
+            className="secondary full-width text-dark font-display"
+            onClick={() => setSelectedValue(submissionId)}
+          >
+            Select
+          </button>
+        )}
+      </div>
     </div>
   );
 };
