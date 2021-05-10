@@ -90,11 +90,11 @@
 }
 
 .text-dark {
-  color: $black-text;
+  color: $black-text !important;
 }
 
 .text-light {
-  color: $white;
+  color: $white !important;
 }
 
 .font-display {
@@ -146,7 +146,19 @@ p {
   &.small {
     font-size: 1.8rem;
   }
+}
+
+p,
+button {
   &.font-display {
     letter-spacing: 0.1rem;
+  }
+}
+
+button {
+  &.secondary {
+    color: $black-text;
+    background: $white;
+    border-color: $aqua-light;
   }
 }
