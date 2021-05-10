@@ -23,7 +23,9 @@ const VotingSubmission = ({
       <p className="font-display">{submissionType} 2</p>
       <SubmissionViewer src={imgSrc} />
       <button
-        className={`secondary text-dark ${isSelected && 'font-display'}`}
+        className={`secondary full-width text-dark ${
+          isSelected && 'font-display'
+        }`}
         onClick={() => setSelectedValue(submissionId)}
       >
         {isSelected ? '✓ Selected' : 'Select'}
