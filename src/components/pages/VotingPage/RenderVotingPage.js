@@ -23,8 +23,6 @@ const RenderVotingPage = props => {
         child={props.child}
         subEmojis={{ subEmojis1, subEmojis2 }}
       />
-      {/* <EmojiPicker getChildState={setSubEmojis1} />
-      <EmojiPicker getChildState={setSubEmojis2} /> */}
     </div>
   );
 };
