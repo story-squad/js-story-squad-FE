@@ -39,6 +39,7 @@ const VotingForm = props => {
     <>
       <div className="submissions grid grid-2-col grid-small">
         <VotingSubmission
+          number={1}
           submissionId={props.faceoffToVote.SubmissionID1}
           selectedValue={value}
           setSelectedValue={setValue}
@@ -46,6 +47,7 @@ const VotingForm = props => {
           submissionType={props.faceoffToVote.Type}
         />
         <VotingSubmission
+          number={2}
           submissionId={props.faceoffToVote.SubmissionID2}
           selectedValue={value}
           setSelectedValue={setValue}
