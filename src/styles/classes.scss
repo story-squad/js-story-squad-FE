@@ -164,4 +164,7 @@ button {
   &.full-width {
     width: 100%;
   }
+  &.min-width {
+    min-width: 20rem;
+  }
 }
