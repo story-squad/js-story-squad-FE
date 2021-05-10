@@ -13,4 +13,19 @@
       }
     }
   }
+  // voting page-specific styles for SubmissionViewer
+  .submission-viewer-button-container {
+    margin-bottom: 3rem;
+    .submission-viewer-button {
+      width: 20rem;
+      height: 20rem;
+    }
+    .magnify-icon {
+      width: 6.6rem;
+      height: 6.6rem;
+      img {
+        width: 4rem;
+      }
+    }
+  }
 }
