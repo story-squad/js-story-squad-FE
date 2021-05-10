@@ -4,6 +4,8 @@ import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
 
 import { postVotes, updateChildData } from '../../api';
+import SubmissionViewer from './SubmissionViewer';
+import VotingSubmission from '../pages/VotingPage/VotingSubmission';
 
 const VotingForm = props => {
   const { push } = useHistory();
@@ -47,35 +49,51 @@ const VotingForm = props => {
   };
 
   return (
-    <Form
-      onValuesChange={onValuesChange}
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
-      <Form.Item name="vote" valuePropName="checked">
-        <Radio.Group onChange={onChange} value={value}>
-          <Radio
-            className="left-radio"
-            value={props.faceoffToVote.SubmissionID1}
-          />
-          <Radio
-            className="right-radio"
-            value={props.faceoffToVote.SubmissionID2}
-          />
-        </Radio.Group>
-      </Form.Item>
-      <Form.Item>
-        <Button
-          className="votingSubmit-button"
-          htmlType="submit"
-          disabled={buttonDisabled}
-        >
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+    // <Form
+    //   onValuesChange={onValuesChange}
+    //   name="basic"
+    //   initialValues={{ remember: true }}
+    //   onFinish={onFinish}
+    //   onFinishFailed={onFinishFailed}
+    // >
+    //   <Form.Item name="vote" valuePropName="checked">
+    //     <Radio.Group onChange={onChange} value={value}>
+    //       <Radio
+    //         className="left-radio"
+    //         value={props.faceoffToVote.SubmissionID1}
+    //       />
+    //       <Radio
+    //         className="right-radio"
+    //         value={props.faceoffToVote.SubmissionID2}
+    //       />
+    //     </Radio.Group>
+    //   </Form.Item>
+    //   <Form.Item>
+    //     <Button
+    //       className="votingSubmit-button"
+    //       htmlType="submit"
+    //       disabled={buttonDisabled}
+    //     >
+    //       Submit
+    //     </Button>
+    //   </Form.Item>
+    // </Form>
+    <div className="submissions grid grid-2-col grid-small">
+      <VotingSubmission
+        submissionId={props.faceoffToVote.SubmissionID1}
+        selectedValue={value}
+        setSelectedValue={setValue}
+        imgSrc={props.faceoffToVote.Submission1.ImgURL}
+        submissionType={props.faceoffToVote.Type}
+      />
+      <VotingSubmission
+        submissionId={props.faceoffToVote.SubmissionID2}
+        selectedValue={value}
+        setSelectedValue={setValue}
+        imgSrc={props.faceoffToVote.Submission2.ImgURL}
+        submissionType={props.faceoffToVote.Type}
+      />
+    </div>
   );
 };
 
