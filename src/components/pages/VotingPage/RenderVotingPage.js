@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { VotingForm, EmojiPicker, SubmissionViewer } from '../../common';
+import VotingForm from './VotingForm';
 
 const RenderVotingPage = props => {
   const [subEmojis1, setSubEmojis1] = useState('');
