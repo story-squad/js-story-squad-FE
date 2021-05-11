@@ -26,9 +26,9 @@ body {
   color: black;
 }
 
-// h1 {
-//   font-size: 1.5rem;
-// }
+h3 {
+  font-size: 2rem;
+}
 
 /* main div for animations */
 .fixed-box {
@@ -64,7 +64,6 @@ body {
   position: relative;
   width: 80%;
   height: 18%;
-  //   margin-top: 50vh;
   padding: 0%;
 }
 
@@ -78,9 +77,6 @@ body {
 
 /* this is nested in 'bottom-fixed */
 .points {
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
   position: relative;
   padding: 0;
   line-height: 100%;
@@ -97,18 +93,14 @@ body {
   bottom: 0%;
 }
 
-// .winner-headline {
-//   font-size: 3rem;
-// }
-
 .resultsType {
   z-index: 4;
   height: 10vh;
 }
 
-// .go-back-button {
-//   z-index: 5;
-// }
+.go-back-button {
+  z-index: 5;
+}
 
 @media only screen and(max-width: 400px) {
   .bottom-fixed {
