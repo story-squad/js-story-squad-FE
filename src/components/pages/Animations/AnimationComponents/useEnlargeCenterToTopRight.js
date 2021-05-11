@@ -11,7 +11,7 @@ const useEnlargeCenterToTopRight = ref => {
     from: {
       position: 'absolute',
       opacity: 0,
-      transform: 'translate3d(0%, 600%, 0px) scale(1)',
+      transform: 'translate3d(0%, 0%, 0px) scale(1)',
     },
     to: [
       {
@@ -20,7 +20,7 @@ const useEnlargeCenterToTopRight = ref => {
           ? 'translate3d(0%, 600%, 0px) scale(2)'
           : tabletScreen
           ? 'translate3d(0%, 400%, 0px) scale(3)'
-          : 'translate3d(0%, 600%, 0px) scale(4)',
+          : 'translate3d(0%, 0%, 0px) scale(4)',
       },
       {
         opacity: 1,
@@ -28,10 +28,7 @@ const useEnlargeCenterToTopRight = ref => {
           ? 'translate3d(300%, 200%, 0px) scale(1.5)'
           : tabletScreen
           ? 'translate3d(475%, 200%, 0px) scale(1.5)'
-          : 'translate3d(1000%, 250%, 0px) scale(2)',
-      },
-      {
-        opacity: 0,
+          : 'translate3d(850%, -400%, 0px) scale(2)',
       },
     ],
     ref: ref,

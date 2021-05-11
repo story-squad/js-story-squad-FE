@@ -9,7 +9,7 @@ const useEnlargeCenterToTopLeft = ref => {
     config: { mass: 10, tension: 500, friction: 150 },
     from: {
       opacity: 0,
-      transform: 'translate3d(0%, 600%, 0px) scale(1)',
+      transform: 'translate3d(0%, 0%, 0px) scale(1)',
       position: 'absolute',
     },
     to: [
@@ -19,7 +19,7 @@ const useEnlargeCenterToTopLeft = ref => {
           ? 'translate3d(0%, 600%, 0px) scale(2)'
           : tabletScreen
           ? 'translate3d(0%, 400%, 0px) scale(3)'
-          : 'translate3d(0%, 600%, 0px) scale(4)',
+          : 'translate3d(0%, 0%, 0px) scale(4)',
       },
       {
         opacity: 1,
@@ -27,14 +27,11 @@ const useEnlargeCenterToTopLeft = ref => {
           ? 'translate3d(-300%, 200%, 0px) scale(1.5)'
           : tabletScreen
           ? 'translate3d(-475%, 200%, 0px) scale(1.5)'
-          : 'translate3d(-1000%, 250%, 0px) scale(2)',
+          : 'translate3d(-850%, -400%, 0px) scale(2)',
       },
       {
         config: { duration: 2800 },
         opacity: 1,
-      },
-      {
-        opacity: 0,
       },
     ],
     ref: ref,
