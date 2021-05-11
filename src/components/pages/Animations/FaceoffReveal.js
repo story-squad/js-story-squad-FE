@@ -24,6 +24,8 @@ const FaceoffReveal = props => {
   );
   const dynamicInfo = props.history.location.state.dynamicInfo;
 
+  console.log('dynamicInfo:', dynamicInfo);
+
   const history = useHistory();
   // determine screen size to adjust image height
   let screenWidth = window.screen.width;
@@ -38,6 +40,9 @@ const FaceoffReveal = props => {
   let userAvatar = dynamicInfo.Submission1.AvatarURL;
   let opponentAvatar = dynamicInfo.Submission2.AvatarURL;
   // winnerUserName will be determined by "dynamicInfo.Winner"
+  let userName = dynamicInfo.Submission1.Name;
+  let opponentName = dynamicInfo.Submission2.Name;
+  console.log('userName', userName, opponentName);
   let winnerUserName = 'CAT-LADY';
   let pointsAwarded = dynamicInfo.Points;
   // dynamicBackgroundColor will be determined by which matchup is being animated--
@@ -207,9 +212,9 @@ const FaceoffReveal = props => {
           {useCountdownStyle1.number}
         </animated.h1>
         {/* type of matchup (drawing/story) */}
-        <animated.h1 style={shiftUpStyle} className="resultsType">
-          {matchupType} Results...
-        </animated.h1>
+        <animated.div style={shiftUpStyle} className="resultsType">
+          <h1>{matchupType} Results...</h1>
+        </animated.div>
         {/* drawing back avatars to left & right: */}
         <animated.img
           className="crash-location"
@@ -248,18 +253,20 @@ const FaceoffReveal = props => {
         />
       </div>
       {/* intial avatar images to display at top: */}
-      <animated.img
+      <animated.div
         className="move-left-move-right"
         style={enlargeMoveLeftStyle}
-        src={userAvatar}
-        height={topAvatarHeight}
-      />
-      <animated.img
+      >
+        <img src={userAvatar} height={topAvatarHeight} />
+        <h3>{userName}</h3>
+      </animated.div>
+      <animated.div
         className="move-left-move-right"
         style={enlargeMoveRightStyle}
-        src={opponentAvatar}
-        height={topAvatarHeight}
-      />
+      >
+        <img src={opponentAvatar} height={topAvatarHeight} />
+        <h3>{opponentName}</h3>
+      </animated.div>
       <animated.h2
         style={goBackButtonStyle}
         onClick={goBacktoMatchup}
