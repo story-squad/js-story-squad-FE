@@ -1,3 +1,7 @@
+// maximum number of emojis a user can pick in EmojiPicker
+export const emojiLimit = 6;
+
+// emojis user can pick in EmojiPicker
 export const emojiList = [
   '😀',
   '😁',
