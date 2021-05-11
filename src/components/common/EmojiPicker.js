@@ -5,6 +5,8 @@ import emojiIcon from '../../assets/icons/emoji.svg';
 const EmojiPicker = props => {
   const { getChildState } = props;
   const [selectedEmojis, setSelectedEmojis] = useState([]);
+  const [keyboardVisible, setKeyboardVisible] = useState(false);
+
   //If parent component wants to get this state, pass cb into props. Converts Array to String of emojis to match backend data type.
   useEffect(() => {
     const selectedEmojisString = selectedEmojis.join('') + ',';
@@ -12,30 +14,44 @@ const EmojiPicker = props => {
       getChildState(selectedEmojisString);
     }
   }, [selectedEmojis, getChildState]);
+
   const handleAddEmoji = emoji => {
     if (selectedEmojis.length < emojiLimit && !selectedEmojis.includes(emoji)) {
       setSelectedEmojis([...selectedEmojis, emoji]);
     }
   };
+
   const handleRemoveEmoji = emoji => {
     setSelectedEmojis(
       selectedEmojis.filter(selectedEmoji => selectedEmoji !== emoji)
     );
   };
+
+  const handleKeyboardVisible = () => {
+    setKeyboardVisible(!keyboardVisible);
+  };
+
   return (
-    <div className="emoji-picker center-self">
+    <div className="emoji-picker">
+      {keyboardVisible && (
+        <div className="emoji-keyboard">
+          {emojiList.map(emoji => (
+            <Emoji emoji={emoji} handleClick={handleAddEmoji} />
+          ))}
+        </div>
+      )}
       <div className="selected-emojis">
         {selectedEmojis.map(emoji => (
           <Emoji emoji={emoji} handleClick={handleRemoveEmoji} />
         ))}
-        <button className="emoji-keyboard-button">
+        <button
+          className="emoji-keyboard-button"
+          onClick={handleKeyboardVisible}
+        >
           <img src={emojiIcon} alt="emoji keyboard icon" />
           <span>keyboard</span>
         </button>
       </div>
-      {emojiList.map(emoji => (
-        <Emoji emoji={emoji} handleClick={handleAddEmoji} />
-      ))}
     </div>
   );
 };
