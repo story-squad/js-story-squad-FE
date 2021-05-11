@@ -41,12 +41,14 @@ const EmojiPicker = props => {
                 <Emoji emoji={emoji} handleClick={handleAddEmoji} />
               ))}
             </div>
-            <button
-              className="done-button font-size-32"
-              onClick={handleKeyboardVisible}
-            >
-              Done
-            </button>
+            <div className="done-button-container">
+              <button
+                className="done-button font-size-32"
+                onClick={handleKeyboardVisible}
+              >
+                Done
+              </button>
+            </div>
           </div>
         </div>
       )}
