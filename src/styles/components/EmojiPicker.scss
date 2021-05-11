@@ -59,10 +59,14 @@
     grid-template-columns: repeat(8, 5rem);
     grid-template-rows: repeat(8, 5rem);
   }
+  .done-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
   .done-button {
     width: 26rem;
     height: 7rem;
-    margin-left: auto;
   }
 }
 
