@@ -34,10 +34,20 @@ const EmojiPicker = props => {
   return (
     <div className="emoji-picker">
       {keyboardVisible && (
-        <div className="emoji-keyboard">
-          {emojiList.map(emoji => (
-            <Emoji emoji={emoji} handleClick={handleAddEmoji} />
-          ))}
+        <div className="emoji-keyboard-position">
+          <div className="emoji-keyboard-container">
+            <div className="emoji-keyboard">
+              {emojiList.map(emoji => (
+                <Emoji emoji={emoji} handleClick={handleAddEmoji} />
+              ))}
+            </div>
+            <button
+              className="done-button font-size-32"
+              onClick={handleKeyboardVisible}
+            >
+              Done
+            </button>
+          </div>
         </div>
       )}
       <div className="selected-emojis">
