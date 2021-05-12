@@ -73,7 +73,11 @@ const RenderMissionControl = props => {
   };
 
   const closeModal = () => {
-    modalPush(push, '/child/join');
+    if (currentStep() === 'done') {
+      modalPush(push, '/child/join');
+    } else {
+      setShowModal(false);
+    }
   };
 
   return (
