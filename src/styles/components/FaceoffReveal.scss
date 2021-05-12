@@ -82,7 +82,9 @@ h3 {
   line-height: 100%;
   margin-top: 0%;
 }
-
+.padding {
+  padding: 0 1%;
+}
 /* this is nested in 'bottom-fixed */
 .winner {
   width: 100%;
@@ -100,6 +102,19 @@ h3 {
 
 .go-back-button {
   z-index: 5;
+}
+
+p {
+  margin-top: -1.3rem;
+  margin-bottom: 0;
+  font-size: 3rem;
+  text-align: center;
+  &.text-light {
+    @include text-stroke($black-text);
+  }
+  &.text-dark {
+    @include text-stroke($white);
+  }
 }
 
 @media only screen and(max-width: 400px) {
