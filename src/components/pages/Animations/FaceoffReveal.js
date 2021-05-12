@@ -15,6 +15,7 @@ import useNameWinner from './AnimationComponents/useNameWinner';
 import useDivAppear from './AnimationComponents/useDivAppear';
 import useCounter from './AnimationComponents/useCounter';
 import useGoBackButton from './AnimationComponents/useGoBackButton';
+import { ChildAvatar } from '../../common';
 
 const FaceoffReveal = props => {
   // we need to bring in faceoff data from FaceoffContent / FaceoffSubDisplay
@@ -145,7 +146,7 @@ const FaceoffReveal = props => {
   const countPointsStyle = useCounter(countPointsRef, pointsAwarded);
   // POINT DIV APPEAR HOOKS
   const divAppearStyle1 = useDivAppear(plusAppearRef, '+');
-  const divAppearStyle2 = useDivAppear(textAppearRef, 'points!');
+  const divAppearStyle2 = useDivAppear(textAppearRef, ` points!`);
   // NAME WINNER HOOK
   const nameWinnerStyle = useNameWinner(nameWinnerRef);
   // GO BACK BUTTON HOOK
@@ -197,9 +198,9 @@ const FaceoffReveal = props => {
   };
 
   return (
-    <div
-      className="FaceoffReveal"
-      style={{ backgroundColor: dynamicBackgroundColor }}
+    <section
+      id="big-reveal"
+      className={`FaceoffReveal bg-${dynamicBackgroundColor}`}
     >
       <div className="fixed-box">
         <animated.h1 className="crash-location" style={useCountdownStyle3}>
@@ -239,7 +240,8 @@ const FaceoffReveal = props => {
         {/* winner's image: */}
         <animated.img
           className="crash-location"
-          src="/animation/Hero8.png"
+          // !!! THIS MUST BE CHANGED TO WINNER DYNAMIC INFO !!! (need to find out shape of that object)
+          src={userAvatar}
           alt="me"
           height={winnerImageSize}
           style={upFromBottomStyle}
@@ -257,23 +259,21 @@ const FaceoffReveal = props => {
         className="move-left-move-right"
         style={enlargeMoveLeftStyle}
       >
-        <img src={userAvatar} height={topAvatarHeight} />
-        <h3>{userName}</h3>
+        <ChildAvatar src={userAvatar} name={userName} />
       </animated.div>
       <animated.div
         className="move-left-move-right"
         style={enlargeMoveRightStyle}
       >
-        <img src={opponentAvatar} height={topAvatarHeight} />
-        <h3>{opponentName}</h3>
+        <ChildAvatar src={opponentAvatar} name={opponentName} />
       </animated.div>
-      <animated.h2
+      <animated.p
         style={goBackButtonStyle}
         onClick={goBacktoMatchup}
-        className="go-back-button"
+        className="go-back-button outlined font-display text-dark"
       >
         go back
-      </animated.h2>
+      </animated.p>
 
       {/* winner's name and points won: */}
       <div className="bottom-fixed">
@@ -284,7 +284,7 @@ const FaceoffReveal = props => {
           <animated.h1 className="points" style={countPointsStyle}>
             {countPointsStyle.number.interpolate(val => Math.floor(val))}
           </animated.h1>
-          <animated.h1 className="points" style={divAppearStyle2}>
+          <animated.h1 className="points padding" style={divAppearStyle2}>
             {divAppearStyle2.text}
           </animated.h1>
         </div>
@@ -294,11 +294,12 @@ const FaceoffReveal = props => {
             style={nameWinnerStyle}
             onClick={goBacktoMatchup}
           >
-            {winnerUserName}
+            {/* !!! THIS MUST BE CHANGED TO WINNER DYNAMIC INFO !!! (need to find out shape of that object) */}
+            {userName}
           </animated.h1>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
