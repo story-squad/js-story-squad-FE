@@ -65,7 +65,7 @@ const SubmissionViewer = ({
           style={{ backgroundImage: `url(${src})` }}
         ></div>
         {/* magnify icon (all views) */}
-        <div className="magnify-icon bg-aqua">
+        <div className="magnify-icon">
           <img src={zoomIcon} alt="magnifying glass icon" />
           {/* submission type text (compact view) */}
           {compact && <p>{toCapitalized(submissionType)}</p>}
