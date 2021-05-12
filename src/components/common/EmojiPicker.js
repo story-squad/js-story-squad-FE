@@ -15,9 +15,11 @@ const EmojiPicker = props => {
     }
   }, [selectedEmojis, getChildState]);
 
-  const handleAddEmoji = emoji => {
+  const handleToggleEmoji = emoji => {
     if (selectedEmojis.length < emojiLimit && !selectedEmojis.includes(emoji)) {
       setSelectedEmojis([...selectedEmojis, emoji]);
+    } else if (selectedEmojis.includes(emoji)) {
+      handleRemoveEmoji(emoji);
     }
   };
 
@@ -38,7 +40,11 @@ const EmojiPicker = props => {
           <div className="emoji-keyboard-container">
             <div className="emoji-keyboard">
               {emojiList.map(emoji => (
-                <Emoji emoji={emoji} handleClick={handleAddEmoji} />
+                <Emoji
+                  emoji={emoji}
+                  selectedEmojis={selectedEmojis}
+                  handleClick={handleToggleEmoji}
+                />
               ))}
             </div>
             <div className="done-button-container">
@@ -69,9 +75,20 @@ const EmojiPicker = props => {
 };
 
 const Emoji = props => {
-  const { emoji, handleClick } = props;
+  const { emoji, handleClick, selectedEmojis } = props;
+  const [isSelected, setIsSelected] = useState(false);
+
+  useEffect(() => {
+    if (selectedEmojis !== undefined) {
+      setIsSelected(selectedEmojis.includes(emoji));
+    }
+  }, [selectedEmojis, emoji]);
+
   return (
-    <button className="emoji" onClick={() => handleClick(emoji)}>
+    <button
+      className={`emoji ${isSelected ? 'selected' : ''}`}
+      onClick={() => handleClick(emoji)}
+    >
       {emoji}
     </button>
   );
