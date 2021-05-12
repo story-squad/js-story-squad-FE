@@ -33,6 +33,10 @@
   &.grid-2-col {
     grid-template-columns: 40rem 40rem;
     column-gap: 4rem;
+    &.grid-small {
+      grid-template-columns: 34.6rem 34.6rem;
+      column-gap: 2rem;
+    }
   }
   &.grid-3-col {
     grid-template-columns: 33% auto 33%;
@@ -86,11 +90,11 @@
 }
 
 .text-dark {
-  color: $black-text;
+  color: $black-text !important;
 }
 
 .text-light {
-  color: $white;
+  color: $white !important;
 }
 
 .font-display {
@@ -142,11 +146,33 @@
   margin-bottom: 4rem;
 }
 
+.margin-0 {
+  margin: 0;
+}
+
 p {
   &.small {
     font-size: 1.8rem;
   }
+}
+
+p,
+button {
   &.font-display {
     letter-spacing: 0.1rem;
+  }
+}
+
+button {
+  &.secondary {
+    color: $black-text;
+    background: $white;
+    border-color: $aqua-light;
+  }
+  &.full-width {
+    width: 100%;
+  }
+  &.min-width {
+    min-width: 20rem;
   }
 }
