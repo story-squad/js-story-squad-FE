@@ -8,6 +8,7 @@ const useEnlargeCenter = ref => {
 
   const spring = useSpring({
     delay: 13900,
+    config: { mass: 100, tension: 10000, friction: 200 },
     from: {
       opacity: 0,
       transform: phoneScreen
