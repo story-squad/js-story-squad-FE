@@ -71,9 +71,13 @@
 }
 
 .emoji {
-  width: 5rem;
-  height: 5rem;
+  width: 4.7rem;
+  height: 4.7rem;
   text-align: center;
   padding: 0;
   font-size: 2.8rem;
+  border: 0.3rem solid $aqua-light;
+  &.selected {
+    background: $white;
+  }
 }
