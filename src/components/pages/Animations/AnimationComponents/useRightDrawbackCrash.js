@@ -27,7 +27,15 @@ const useRightDrawbackCrash = ref => {
           : 'translate3d(300%, 23%, 0px) scale(1.5)',
       },
       {
-        opacity: 1,
+        opacity: 0,
+        transform: phoneScreen
+          ? 'translate3d(0%, 0%, 0px) scale(1.5)'
+          : tabletScreen
+          ? 'translate3d(0%, 18%, 0px) scale(1.5)'
+          : 'translate3d(0%, 23%, 0px) scale(1.5)',
+      },
+      {
+        opacity: 0,
         transform: phoneScreen
           ? 'translate3d(0%, 0%, 0px) scale(1.5)'
           : tabletScreen
