@@ -28,7 +28,7 @@ const useEnlargeCenterToTopRight = ref => {
           ? 'translate3d(300%, 200%, 0px) scale(1.5)'
           : tabletScreen
           ? 'translate3d(475%, 200%, 0px) scale(1.5)'
-          : 'translate3d(850%, -400%, 0px) scale(2)',
+          : 'translate3d(550%, -250%, 0px) scale(1.5)',
       },
     ],
     ref: ref,
