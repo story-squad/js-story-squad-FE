@@ -1,0 +1,83 @@
+.emoji-picker {
+  position: relative;
+  .selected-emojis {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60rem;
+    height: 5rem;
+    border: 0.3rem solid $aqua-light;
+    border-radius: 0.8rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    .emoji {
+      background: none;
+      border: none;
+    }
+  }
+  .emoji-keyboard-button {
+    position: absolute;
+    padding: 0;
+    right: -0.2rem;
+    top: -0.2rem;
+    height: 4.8rem;
+    width: 6rem;
+    border: none;
+    border-radius: 0 0.8rem 0.8rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+    img {
+      margin: 0.3rem 0 0 0.2rem;
+      width: 2.8rem;
+    }
+    span {
+      font-size: 1.2rem;
+      margin: -0.2rem 0 0 0;
+    }
+  }
+  .emoji-keyboard-position {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    bottom: 6rem;
+  }
+  .emoji-keyboard-container {
+    padding: 6.4rem;
+    width: 71.6rem;
+    height: 77.3rem;
+    background: $black-text;
+    border-radius: 1.6rem;
+  }
+  .emoji-keyboard {
+    margin-bottom: 6.4rem;
+    display: grid;
+    gap: 1.5rem 2.7rem;
+    grid-template-columns: repeat(8, 5rem);
+    grid-template-rows: repeat(8, 5rem);
+  }
+  .done-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .done-button {
+    width: 26rem;
+    height: 7rem;
+  }
+}
+
+.emoji {
+  width: 4.7rem;
+  height: 4.7rem;
+  text-align: center;
+  padding: 0;
+  font-size: 2.8rem;
+  border: 0.3rem solid $aqua-light;
+  &.selected {
+    background: $white;
+  }
+}
