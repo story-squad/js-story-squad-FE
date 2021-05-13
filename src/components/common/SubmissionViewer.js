@@ -26,12 +26,16 @@ const SubmissionViewer = ({
   canVote = false,
   handleVote,
 }) => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const handleOnClick = () => {
     if (!locked) {
       setShowModal(true);
     }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   // remove cursor: not-allowed on background button when canVote === true
@@ -40,7 +44,7 @@ const SubmissionViewer = ({
   };
 
   return (
-    <div className="submission-viewer-button-container">
+    <div className={`submission-viewer-button-container`}>
       {/* large lock icon when user can't view or vote (compact view) */}
       {locked && !canVote && (
         <img className="disabled-lock-icon" src={lockIcon} alt="lock icon" />
@@ -71,6 +75,23 @@ const SubmissionViewer = ({
           {compact && <p>{toCapitalized(submissionType)}</p>}
         </div>
       </button>
+      <SubmissionModal src={src} showModal={showModal} onClose={closeModal} />
+    </div>
+  );
+};
+
+const SubmissionModal = ({ showModal, onClose, src }) => {
+  return (
+    <div className={`modal-wrapper ${showModal && 'showing'}`}>
+      <div className="modal-wrapper__top-bar">
+        <button className="close-btn" onClick={onClose}>
+          Close X
+        </button>
+      </div>
+      {/* <div className="submission-modal__content">
+        <img src={src} alt="submission" />
+      </div> */}
+      <div className="modal-wrapper__bottom-bar"></div>
     </div>
   );
 };
