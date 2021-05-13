@@ -39,8 +39,9 @@ const EmojiPicker = props => {
         <div className="emoji-keyboard-position">
           <div className="emoji-keyboard-container">
             <div className="emoji-keyboard">
-              {emojiList.map(emoji => (
+              {emojiList.map((emoji, i) => (
                 <Emoji
+                  key={i}
                   emoji={emoji}
                   selectedEmojis={selectedEmojis}
                   handleClick={handleToggleEmoji}
@@ -59,8 +60,8 @@ const EmojiPicker = props => {
         </div>
       )}
       <div className="selected-emojis">
-        {selectedEmojis.map(emoji => (
-          <Emoji emoji={emoji} handleClick={handleRemoveEmoji} />
+        {selectedEmojis.map((emoji, i) => (
+          <Emoji key={i} emoji={emoji} handleClick={handleRemoveEmoji} />
         ))}
         <button
           className="emoji-keyboard-button"
