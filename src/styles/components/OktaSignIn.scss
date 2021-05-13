@@ -1,0 +1,35 @@
+// target OktaSignIn-specific class names
+.o-form-fieldset-container,
+.o-form-button-bar {
+  margin: 0 auto;
+  max-width: 42rem;
+}
+
+.o-form-fieldset-container {
+  .custom-checkbox {
+    margin-top: -2rem;
+  }
+}
+
+.o-form-content {
+  margin-top: 10.1rem;
+  h2, .h2 {
+    margin-top: 0;
+  }
+}
+
+.o-form-label {
+  margin-bottom: 0.7rem;
+}
+
+.o-form-button-bar {
+  margin-top: 6.4rem;
+  margin-bottom: 0.9rem;
+  .button {
+    margin-bottom: 0;
+  }
+}
+
+.auth-footer {
+  text-align: center;
+}
