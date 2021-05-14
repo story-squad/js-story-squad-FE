@@ -3,6 +3,7 @@
 @import 'mixins.scss';
 @import 'elements.scss';
 @import 'classes.scss';
+@import 'parent.scss';
 
 // components
 @import './components/Header.scss';
@@ -17,3 +18,4 @@
 @import './components/InfoButton.scss';
 @import './components/EmojiPicker.scss';
 @import './components/VotingForm.scss';
+@import './components/OktaSignIn.scss';

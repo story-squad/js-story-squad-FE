@@ -22,8 +22,9 @@ const LoginContainer = () => {
       // add your custom logo to your signing/register widget here.
       i18n: {
         en: {
-          'primaryauth.title': `Welcome back, sign in to continue`,
-          'primaryauth.username.placeholder': 'Email',
+          'primaryauth.title': `Sign-in to your account`,
+          'primaryauth.username.placeholder': 'Email Address',
+          needhelp: 'Don’t have an account yet? SIGN-UP HERE',
           // change title for your app
         },
       },
