@@ -8,16 +8,16 @@ const Footer = () => {
         <nav>
           <ul>
             <li>
-              <a>Contact</a>
+              <a href="">Contact</a>
             </li>
             <li>
-              <a>FAQs</a>
+              <a href="">FAQs</a>
             </li>
             <li>
-              <a>Privacy</a>
+              <a href="">Privacy</a>
             </li>
             <li>
-              <a>Terms</a>
+              <a href="">Terms</a>
             </li>
           </ul>
         </nav>
