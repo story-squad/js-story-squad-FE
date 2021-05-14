@@ -12,6 +12,7 @@ import EmojiPicker from './EmojiPicker';
 import SubmissionViewer from './SubmissionViewer';
 import ChildAvatar from './ChildAvatar';
 import InfoButton from './InfoButton';
+import Footer from './Footer';
 
 // notice we're building out a 'package' of reusables here and exporting them as an object of component properties.
 // to use this, simply `import {foo, bar, baz} from '~/path/to/common';`
@@ -30,4 +31,5 @@ export {
   SubmissionViewer,
   ChildAvatar,
   InfoButton,
+  Footer,
 };
