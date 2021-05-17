@@ -34,7 +34,7 @@ import { ChildDashboard } from './components/pages/ChildDashboard';
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
 import { MissionControl } from './components/pages/MissionControl';
-import { Modal } from './components/pages/Modal';
+import { ProfileSelect } from './components/pages/ProfileSelect';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentSettings } from './components/pages/FamilySettings';
@@ -86,7 +86,9 @@ function App() {
         <SecureRoute
           path="/"
           exact
-          component={() => <Modal LoadingComponent={ChildLoadingComponent} />}
+          component={() => (
+            <ProfileSelect LoadingComponent={ChildLoadingComponent} />
+          )}
         />
         <SecureRoute
           path="/child/dashboard"

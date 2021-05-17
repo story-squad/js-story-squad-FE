@@ -11,7 +11,7 @@ import { Modal, Button, Form, Input } from 'antd';
 
 const titleText = 'Please select your name';
 
-const ProfileRenderModal = props => {
+const RenderProfileSelect = props => {
   const { authState } = useOktaAuth();
   const [visible, setVisible] = useState(true);
   const [userInfo, setUserInfo] = useState([]);
@@ -145,4 +145,4 @@ const ProfileRenderModal = props => {
   );
 };
 
-export default ProfileRenderModal;
+export default RenderProfileSelect;
