@@ -28,6 +28,7 @@ import {
   ChildLoadingComponent,
   ParentLoadingComponent,
   Header,
+  Footer,
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
@@ -79,92 +80,101 @@ function App() {
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Header />
-      <Switch>
-        <Route path="/login" component={LandingPage} />
-        <Route path="/implicit/callback" component={LoginCallbackLoader} />
-        {/* any of the routes you need secured should be registered as SecureRoutes */}
-        <SecureRoute
-          path="/"
-          exact
-          component={() => (
-            <ProfileSelect LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <SecureRoute
-          path="/child/dashboard"
-          component={() => (
-            <ChildDashboard LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <SecureRoute path="/scoreboard" component={FaceoffReveal} />
-        <SecureRoute
-          path="/child/mission-control"
-          component={() => (
-            <MissionControl LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <SecureRoute
-          path="/parent/add-child"
-          component={() => (
-            <AddChild LoadingComponent={ParentLoadingComponent} />
-          )}
-        />
-        <SecureRoute
-          path="/parent/dashboard"
-          exact
-          component={() => (
-            <ParentDashboard LoadingComponent={ParentLoadingComponent} />
-          )}
-        />
-        <SecureRoute
-          path="/parent/help"
-          exact
-          component={() => <Help LoadingComponent={ParentLoadingComponent} />}
-        />
-        <SecureRoute
-          path="/parent/settings"
-          exact
-          component={() => (
-            <ParentSettings LoadingComponent={ParentLoadingComponent} />
-          )}
-        />
-        <SecureRoute
-          path="/child/join"
-          exact
-          component={() => (
-            <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <SecureRoute
-          path="/child/point-share"
-          exact
-          component={() => (
-            <PointShare LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <SecureRoute
-          path="/child/match-up"
-          exact
-          component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
-        />
-        <SecureRoute
-          path="/child/match-up/squad-vote"
-          exact
-          component={() => (
-            <VotingPage LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <SecureRoute
-          path="/child/trophyroom"
-          exact
-          component={() => (
-            <TrophyRoom LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <SecureRoute exact path="/moderation" component={ModerationTest} />
-        <SecureRoute exact path="/admin" component={AdminDashboard} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <div className="footer-flex">
+        <main role="main">
+          <Switch>
+            <Route path="/login" component={LandingPage} />
+            <Route path="/implicit/callback" component={LoginCallbackLoader} />
+            {/* any of the routes you need secured should be registered as SecureRoutes */}
+            <SecureRoute
+              path="/"
+              exact
+              component={() => (
+                <ProfileSelect LoadingComponent={ChildLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/child/dashboard"
+              component={() => (
+                <ChildDashboard LoadingComponent={ChildLoadingComponent} />
+              )}
+            />
+            <SecureRoute path="/scoreboard" component={FaceoffReveal} />
+            <SecureRoute
+              path="/child/mission-control"
+              component={() => (
+                <MissionControl LoadingComponent={ChildLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/parent/add-child"
+              component={() => (
+                <AddChild LoadingComponent={ParentLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/parent/dashboard"
+              exact
+              component={() => (
+                <ParentDashboard LoadingComponent={ParentLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/parent/help"
+              exact
+              component={() => (
+                <Help LoadingComponent={ParentLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/parent/settings"
+              exact
+              component={() => (
+                <ParentSettings LoadingComponent={ParentLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/child/join"
+              exact
+              component={() => (
+                <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/child/point-share"
+              exact
+              component={() => (
+                <PointShare LoadingComponent={ChildLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/child/match-up"
+              exact
+              component={() => (
+                <MatchUp LoadingComponent={ChildLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/child/match-up/squad-vote"
+              exact
+              component={() => (
+                <VotingPage LoadingComponent={ChildLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/child/trophyroom"
+              exact
+              component={() => (
+                <TrophyRoom LoadingComponent={ChildLoadingComponent} />
+              )}
+            />
+            <SecureRoute exact path="/moderation" component={ModerationTest} />
+            <SecureRoute exact path="/admin" component={AdminDashboard} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </main>
+        <Footer />
+      </div>
     </Security>
   );
 }
