@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import zoomIcon from '../../assets/icons/zoom-icon.svg';
 import lockIcon from '../../assets/icons/lock.svg';
 import { toCapitalized } from '../../utils/helpers';
@@ -18,26 +18,15 @@ import { toCapitalized } from '../../utils/helpers';
  ** handleVote (function) - the callback function used to start the voting process
  */
 
-const SubmissionViewer = ({
+export const SubmissionViewer = ({
   src,
   compact = false,
   submissionType,
   locked = false,
   canVote = false,
   handleVote,
+  onOpenSubmissionModal,
 }) => {
-  const [showModal, setShowModal] = useState(false);
-
-  const handleOnClick = () => {
-    if (!locked) {
-      setShowModal(true);
-    }
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
   // remove cursor: not-allowed on background button when canVote === true
   const styleCursor = () => {
     return canVote ? { cursor: 'default' } : null;
@@ -60,7 +49,7 @@ const SubmissionViewer = ({
       <button
         className={`submission-viewer-button ${compact ? 'compact' : ''}`}
         style={styleCursor()}
-        onClick={handleOnClick}
+        onClick={() => onOpenSubmissionModal(locked, src)}
         disabled={locked}
       >
         {/* submission preview img (all views) */}
@@ -75,25 +64,30 @@ const SubmissionViewer = ({
           {compact && <p>{toCapitalized(submissionType)}</p>}
         </div>
       </button>
-      <SubmissionModal src={src} showModal={showModal} onClose={closeModal} />
     </div>
   );
 };
 
-const SubmissionModal = ({ showModal, onClose, src }) => {
+export const SubmissionModal = ({ isModalVisible, onClose, src }) => {
   return (
-    <div className={`modal-wrapper ${showModal && 'showing'}`}>
-      <div className="modal-wrapper__top-bar">
+    <div className={`submission-modal-wrapper ${isModalVisible && 'showing'}`}>
+      <div className="submission-modal-wrapper__top-bar">
         <button className="close-btn" onClick={onClose}>
           Close X
         </button>
       </div>
-      {/* <div className="submission-modal__content">
+      <div className="submission-modal-wrapper__content">
         <img src={src} alt="submission" />
-      </div> */}
-      <div className="modal-wrapper__bottom-bar"></div>
+      </div>
+      <div className="submission-modal-wrapper__bottom-bar">
+        <div>
+          <h4>How do you feel about this story?</h4>
+          <h4>Express it with emojis!</h4>
+        </div>
+        <div>
+          <button onClick={onClose}>Back to voting</button>
+        </div>
+      </div>
     </div>
   );
 };
-
-export default SubmissionViewer;

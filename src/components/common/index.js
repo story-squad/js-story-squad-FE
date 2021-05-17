@@ -10,7 +10,7 @@ import InstructionsModal from './InstructionsModal';
 import VotingForm from './VotingForm';
 import EmojiFeedback from './EmojiFeedback';
 import EmojiPicker from './EmojiPicker';
-import SubmissionViewer from './SubmissionViewer';
+import { SubmissionViewer, SubmissionModal } from './SubmissionViewer';
 import ChildAvatar from './ChildAvatar';
 import InfoButton from './InfoButton';
 
@@ -30,6 +30,7 @@ export {
   EmojiFeedback,
   EmojiPicker,
   SubmissionViewer,
+  SubmissionModal,
   ChildAvatar,
   InfoButton,
 };

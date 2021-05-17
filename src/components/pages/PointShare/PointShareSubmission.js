@@ -13,13 +13,17 @@ const PointShareSubmission = ({
   updatePoints,
   childNum,
   submissionType,
+  onOpenSubmissionModal,
 }) => {
   return (
     <div className="point-share-submission">
       <p className="font-display text-light">
         {submissionTypeText(submissionType)}
       </p>
-      <SubmissionViewer src={imgUrl} />
+      <SubmissionViewer
+        src={imgUrl}
+        onOpenSubmissionModal={() => onOpenSubmissionModal(imgUrl)}
+      />
       <InputNumber
         value={points[childNum][submissionType]}
         type={'number'}

@@ -38,6 +38,7 @@ const FaceoffContent = props => {
             votesNeededToUnlock={props.votesNeededToUnlock}
             mySquad="mySquad"
             handleVote={props.handleVote}
+            onOpenSubmissionModal={props.onOpenSubmissionModal}
           />
         )}
         <img
@@ -57,6 +58,7 @@ const FaceoffContent = props => {
             dayNeededToUnlock={props.dayNeededToUnlock}
             hourNeededToUnlock={props.hourNeededToUnlock}
             handleVote={props.handleVote}
+            onOpenSubmissionModal={props.onOpenSubmissionModal}
           />
         )}
       </div>
@@ -78,7 +80,14 @@ const FaceoffContent = props => {
   );
 };
 
-const FaceoffSubDisplay = ({ sub, type, feedback, handleVote, ...props }) => {
+const FaceoffSubDisplay = ({
+  sub,
+  type,
+  feedback,
+  handleVote,
+  onOpenSubmissionModal,
+  ...props
+}) => {
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [locked, setLocked] = useState(true);
@@ -135,6 +144,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, handleVote, ...props }) => {
         locked={locked}
         canVote={canVote}
         handleVote={handleVote}
+        onOpenSubmissionModal={onOpenSubmissionModal}
       />
     </div>
   );

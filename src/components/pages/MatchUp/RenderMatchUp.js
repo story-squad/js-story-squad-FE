@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import FaceoffContent from './FaceoffContent';
-import { ChildAvatar, InstructionsModal } from '../../common';
+import { ChildAvatar, InstructionsModal, SubmissionModal } from '../../common';
 import {
   modalInstructions,
   getTeamsFromFaceoffs,
@@ -13,6 +13,30 @@ const RenderMatchUp = props => {
   const [faceoffs, setFaceoffs] = useState([]);
   const [modalVisible, setModalVisible] = useState(true);
   const [teams, setTeams] = useState({});
+
+  /**
+   * For the submission modal:
+   * The submission modal must be pulled to the top, otherwise we can't display:none the main content when the modal is visible
+   * This is important because the main content is long-enough that it causes a scroll, even when the modal is visible
+   * As a result, we pull the <SubmissionViewer.SubmissionModal> to the top level,
+   *     and we use context so that SubmissionViewer can set the src for the modal on-click
+   */
+  const [isSubmissionModalVisible, setIsSubmissionModalVisible] = useState(
+    false
+  );
+  const [submissionModalSrc, setSubmissionModalSrc] = useState('');
+
+  const handleOpenSubmissionModal = (isLocked, src) => {
+    if (!isLocked) {
+      setSubmissionModalSrc(src);
+      setIsSubmissionModalVisible(true);
+    }
+  };
+
+  const handleCloseSubmissionModal = () => {
+    setSubmissionModalSrc('');
+    setIsSubmissionModalVisible(false);
+  };
 
   useEffect(() => {
     if (props.child.VotesRemaining <= 9) {
@@ -37,7 +61,16 @@ const RenderMatchUp = props => {
           instructions={modalInstructions.matchUp}
         />
       )}
-      <div className="matchup-container">
+      {!modalVisible && (
+        <SubmissionModal
+          isModalVisible={isSubmissionModalVisible}
+          src={submissionModalSrc}
+          onClose={handleCloseSubmissionModal}
+        />
+      )}
+      <div
+        className={`matchup-container ${isSubmissionModalVisible && 'hidden'}`}
+      >
         <div className="shaped-shadow-container">
           <div className="content-box dark shaped center-content">
             <h2>The Match Up</h2>
@@ -83,6 +116,7 @@ const RenderMatchUp = props => {
               hourNeededToUnlock={18}
               setInfoModalVisible={setModalVisible}
               handleVote={handleVote}
+              onOpenSubmissionModal={handleOpenSubmissionModal}
             />
             <FaceoffContent
               custom_date={props.custom_date}
@@ -92,6 +126,7 @@ const RenderMatchUp = props => {
               votesNeededToUnlock={0}
               setInfoModalVisible={setModalVisible}
               handleVote={handleVote}
+              onOpenSubmissionModal={handleOpenSubmissionModal}
             />
             <FaceoffContent
               custom_date={props.custom_date}
@@ -101,6 +136,7 @@ const RenderMatchUp = props => {
               votesNeededToUnlock={1}
               setInfoModalVisible={setModalVisible}
               handleVote={handleVote}
+              onOpenSubmissionModal={handleOpenSubmissionModal}
             />
             <FaceoffContent
               custom_date={props.custom_date}
@@ -110,6 +146,7 @@ const RenderMatchUp = props => {
               votesNeededToUnlock={2}
               setInfoModalVisible={setModalVisible}
               handleVote={handleVote}
+              onOpenSubmissionModal={handleOpenSubmissionModal}
             />
           </div>
         )}

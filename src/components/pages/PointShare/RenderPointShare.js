@@ -4,7 +4,7 @@ import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
 
-import { InstructionsModal } from '../../common';
+import { InstructionsModal, SubmissionModal } from '../../common';
 import { modalInstructions, modalPush } from '../../../utils/helpers';
 
 import ChildRow from './ChildRow';
@@ -16,11 +16,26 @@ const PointShare = props => {
   const [pointsLeft, portfolioPoints, handleUpdatePoints] = usePointShare();
   const [modalVisible, setModalVisible] = useState(false);
 
+  const [submissionModalSrc, setSubmissionModalSrc] = useState('');
+  const [isSubmissionModalVisible, setIsSubmissionModalVisible] = useState(
+    false
+  );
+
   const { authState } = useOktaAuth();
 
   const closeModal = () => {
     setModalVisible(false);
     modalPush(push, '/child/match-up');
+  };
+
+  const handleOpenSubmissionModal = src => {
+    setSubmissionModalSrc(src);
+    setIsSubmissionModalVisible(true);
+  };
+
+  const handleCloseSubmissionModal = () => {
+    setSubmissionModalSrc('');
+    setIsSubmissionModalVisible(false);
   };
 
   const handleSubmit = e => {
@@ -55,7 +70,14 @@ const PointShare = props => {
         header={modalInstructions.sharePointsSubmission.header}
         instructions={modalInstructions.sharePointsSubmission.text}
       />
-      <div className="point-share">
+      {!modalVisible && (
+        <SubmissionModal
+          isModalVisible={isSubmissionModalVisible}
+          src={submissionModalSrc}
+          onClose={handleCloseSubmissionModal}
+        />
+      )}
+      <div className={`point-share ${isSubmissionModalVisible && 'hidden'}`}>
         <div className="shaped-shadow-container">
           <div className="content-box shaped dark">
             <h2>Points Sharing</h2>
@@ -67,12 +89,14 @@ const PointShare = props => {
           childNum={'childOne'}
           points={portfolioPoints}
           updatePoints={handleUpdatePoints}
+          onOpenSubmissionModal={handleOpenSubmissionModal}
         />
         <ChildRow
           child={props.team.child2}
           childNum={'childTwo'}
           points={portfolioPoints}
           updatePoints={handleUpdatePoints}
+          onOpenSubmissionModal={handleOpenSubmissionModal}
         />
         <div className="center-content">
           <button onClick={handleSubmit}>Submit Points</button>
