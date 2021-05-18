@@ -87,8 +87,8 @@ export const SubmissionModal = ({ isModalVisible, onClose, src }) => {
       </div>
       <div className="submission-modal-wrapper__bottom-bar flex--column center-content-flex">
         <div>
-          <h4>How do you feel about this story?</h4>
-          <h4>Express it with emojis!</h4>
+          <h4 className="atma">How do you feel about this story?</h4>
+          <h4 className="atma">Express it with emojis!</h4>
         </div>
         <div>
           <button className="flex align-center" onClick={onClose}>
