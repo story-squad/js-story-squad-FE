@@ -18,8 +18,8 @@ const RenderMatchUp = props => {
    * For the submission modal:
    * The submission modal must be pulled to the top, otherwise we can't display:none the main content when the modal is visible
    * This is important because the main content is long-enough that it causes a scroll, even when the modal is visible
-   * As a result, we pull the <SubmissionViewer.SubmissionModal> to the top level,
-   *     and we use context so that SubmissionViewer can set the src for the modal on-click
+   * As a result, we pull the <SubmissionModal> to the top level, keep the state at top level,
+   *   and pass an open modal handler down to the <SubmissionViewer> component
    */
   const [isSubmissionModalVisible, setIsSubmissionModalVisible] = useState(
     false

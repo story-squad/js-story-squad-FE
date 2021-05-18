@@ -34,7 +34,7 @@ export const SubmissionViewer = ({
   };
 
   return (
-    <div className={`submission-viewer-button-container`}>
+    <div className="submission-viewer-button-container">
       {/* large lock icon when user can't view or vote (compact view) */}
       {locked && !canVote && (
         <img className="disabled-lock-icon" src={lockIcon} alt="lock icon" />
