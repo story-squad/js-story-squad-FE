@@ -3,6 +3,7 @@ import zoomIcon from '../../assets/icons/zoom-icon.svg';
 import lockIcon from '../../assets/icons/lock.svg';
 import { CloseOutlined } from '@ant-design/icons';
 import { toCapitalized } from '../../utils/helpers';
+import EmojiPicker from '../common/EmojiPicker';
 
 /* The SubmissionViewer component displays a preview of the submission image in a
  ** button that can be clicked to open a modal. The component has two views: normal
@@ -89,9 +90,13 @@ export const SubmissionModal = ({ isModalVisible, onClose, src }) => {
         <div>
           <h4 className="atma">How do you feel about this story?</h4>
           <h4 className="atma">Express it with emojis!</h4>
+          <div className="emoji-picker__wrapper">
+            {/* TODO functionality for emoji picker */}
+            <EmojiPicker />
+          </div>
         </div>
         <div>
-          <button className="flex align-center" onClick={onClose}>
+          <button className="return-button flex align-center" onClick={onClose}>
             Back to voting
           </button>
         </div>
