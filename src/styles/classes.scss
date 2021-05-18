@@ -86,7 +86,7 @@
 }
 
 .bg-dark {
-  background: $black-text;
+  background: $black-brand;
 }
 
 .text-dark {
@@ -128,10 +128,13 @@
   text-align: left;
 }
 
+// use for full-page background color in the main content
 .full-page {
   margin-top: -4rem;
+  margin-bottom: -8rem;
   padding-top: 4rem;
   padding-bottom: 4rem;
+  min-height: 100vh;
 }
 
 .padding-0 {

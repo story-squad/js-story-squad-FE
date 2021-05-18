@@ -30,9 +30,10 @@
   }
   button, .button {
     width: 42rem;
+    padding: 0 3rem;
     height: 5.2rem;
     font-family: $font-display-parent;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.125rem;
@@ -41,5 +42,17 @@
     color: $gray-blue-dark;
     background: $aqua-light;
     cursor: pointer;
+    &.secondary {
+      background: $white;
+      color: $gray-text;
+      border: 0.1rem solid $gray-text;
+    }
+    &.small {
+      height: 3.7rem;
+    }
+  }
+  .content-box {
+    border-radius: 1.6rem;
+    background: $white;
   }
 }
