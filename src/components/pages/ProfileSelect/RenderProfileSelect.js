@@ -3,21 +3,20 @@ import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { useHistory } from 'react-router-dom';
 
-import { ArrowLeftOutlined } from '@ant-design/icons';
+import closeIcon from '../../../assets/icons/close-x.svg';
+import lockIcon from '../../../assets/icons/lock-2.svg';
+import lockIconDark from '../../../assets/icons/lock-2-dark.svg';
 
 import { getProfileData } from '../../../api';
 
-import { Modal, Button, Form, Input } from 'antd';
-
-const titleText = 'Please select your name';
+import { Button, Form, Input } from 'antd';
+import { ChildAvatar } from '../../common';
 
 const RenderProfileSelect = props => {
   const { authState } = useOktaAuth();
-  const [visible, setVisible] = useState(true);
   const [userInfo, setUserInfo] = useState([]);
-
+  const [showPinModal, setShowPinModal] = useState(false);
   const [selected, setSelected] = useState(null);
-  const [title, setTitle] = useState(titleText);
   const formRef = useRef(null);
   const [form] = Form.useForm();
   const history = useHistory();
@@ -25,7 +24,7 @@ const RenderProfileSelect = props => {
   // Redux Action Dispatch
   const { setParent, setChild } = props;
 
-  const onFinish = values => {
+  const onFinish = () => {
     if (selected.type === 'Parent') {
       setParent({
         ...selected,
@@ -36,7 +35,7 @@ const RenderProfileSelect = props => {
       setChild(selected);
       history.push(`child/dashboard`);
     } else {
-      // error case?
+      // error case
     }
   };
 
@@ -46,22 +45,16 @@ const RenderProfileSelect = props => {
     });
   }, [authState]);
 
-  const handleOk = e => {
-    setVisible(true);
-  };
-
-  const handleCancel = e => {
-    setVisible(true);
-  };
-
   const userSelect = user => {
-    setSelected(user);
-    setTitle(null);
+    if (user !== undefined) {
+      setSelected(user);
+      setShowPinModal(true);
+    }
   };
 
-  const backToProfiles = e => {
+  const backToProfiles = () => {
+    setShowPinModal(false);
     setSelected(!selected);
-    setTitle(titleText);
     form.resetFields();
   };
 
@@ -72,36 +65,50 @@ const RenderProfileSelect = props => {
   };
 
   return (
-    <>
-      {
-        <Modal
-          className="profile-modal"
-          title={title}
-          visible={visible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-          closable={false}
-          centered={true}
-          footer={null}
+    <div className="profile-select full-page bg-dark">
+      <h2 className="text-light">Choose User</h2>
+      <div className="profile-list">
+        {userInfo
+          .filter(user => user.type === 'Child')
+          .map((user, i) => {
+            return (
+              <Button
+                type="primary"
+                size="large"
+                key={`${user.type}-${user.ID}-${i}`}
+                onClick={() => userSelect(user)}
+              >
+                <ChildAvatar
+                  src={user.AvatarURL}
+                  name={user.Name}
+                  fontColor={'light'}
+                />
+                <img className="lock-icon" src={lockIcon} alt="lock icon" />
+              </Button>
+            );
+          })}
+      </div>
+      <div className="center-content">
+        <button
+          className="button-parent-dashboard secondary margin-0"
+          onClick={() =>
+            userSelect(userInfo.filter(user => user.type === 'Parent')[0])
+          }
         >
-          {!selected ? (
-            <div className="button-list">
-              {userInfo.map(user => {
-                return (
-                  <Button
-                    type="primary"
-                    size="large"
-                    key={`${user.type}-${user.ID}`}
-                    onClick={e => userSelect(user)}
-                  >
-                    {user.Name}
-                  </Button>
-                );
-              })}
-            </div>
-          ) : (
+          <div>
+            <span>Go to Parent Dashboard</span>
+            <img src={lockIconDark} alt="lock icon" />
+          </div>
+        </button>
+      </div>
+      {showPinModal && (
+        <div className="pin-modal modal-container parent-styles">
+          <div className="pin-modal-content modal-inner content-box">
             <Form form={form} onFinish={onFinish} ref={formRef}>
-              <p>Enter your PIN</p>
+              <button className="button-close" onClick={backToProfiles}>
+                <img src={closeIcon} alt="close" />
+              </button>
+              <h2>Enter PIN</h2>
               <Form.Item
                 name="pin"
                 validateTrigger="onSubmit"
@@ -109,39 +116,43 @@ const RenderProfileSelect = props => {
                 rules={[
                   {
                     required: true,
-                    message: 'Incorrect PIN!',
+                    message: 'Incorrect PIN',
                   },
-                  ({ getFieldValue }) => ({
+                  () => ({
                     validator(rule, value) {
                       const x = bc.compareSync(value, selected.PIN);
                       if (x) {
                         return Promise.resolve();
                       }
-                      return Promise.reject('Incorrect PIN!');
+                      return Promise.reject('Incorrect PIN');
                     },
                   }),
                 ]}
               >
                 <Input
                   autoFocus={true}
+                  type="password"
                   className="pin"
                   maxLength={4}
                   onChange={blurOnFourChars}
                   autoComplete="off"
                   size="large"
+                  placeholder="0000"
                 />
               </Form.Item>
-              <Button
-                className="back"
-                type="text"
-                icon={<ArrowLeftOutlined />}
-                onClick={backToProfiles}
-              />
+              <div className="button-container">
+                <button
+                  className="button-cancel secondary small"
+                  onClick={backToProfiles}
+                >
+                  Cancel
+                </button>
+              </div>
             </Form>
-          )}
-        </Modal>
-      }
-    </>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
