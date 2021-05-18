@@ -1,0 +1,37 @@
+// wraps <main><Footer> to keep footer floored
+.footer-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 74vh;
+}
+
+footer {
+  margin-top: 8rem;
+  width: 100%;
+  height: 8rem;
+  background: $black-brand;
+  * {
+    color: $white;
+    font-size: 1.2rem;
+    font-family: $font-text-parent;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .content {
+    width: 71.6rem;
+    margin: 0 auto;
+    height: 100%;
+  }
+  .content, nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav li {
+    margin-left: 2.4rem;
+  }
+  a {
+    text-decoration: underline;
+  }
+}
