@@ -71,23 +71,29 @@ export const SubmissionViewer = ({
 
 export const SubmissionModal = ({ isModalVisible, onClose, src }) => {
   return (
-    <div className={`submission-modal-wrapper ${isModalVisible && 'showing'}`}>
+    <div
+      className={`submission-modal-wrapper center-content-flex popup-animated ${
+        isModalVisible && 'showing'
+      }`}
+    >
       <div className="submission-modal-wrapper__top-bar">
         <button className="close-btn" onClick={onClose}>
           Close
           <CloseOutlined />
         </button>
       </div>
-      <div className="submission-modal-wrapper__content">
+      <div className="submission-modal-wrapper__content center-content-flex">
         <img src={src} alt="submission" />
       </div>
-      <div className="submission-modal-wrapper__bottom-bar">
+      <div className="submission-modal-wrapper__bottom-bar flex--column center-content-flex">
         <div>
           <h4>How do you feel about this story?</h4>
           <h4>Express it with emojis!</h4>
         </div>
         <div>
-          <button onClick={onClose}>Back to voting</button>
+          <button className="flex align-center" onClick={onClose}>
+            Back to voting
+          </button>
         </div>
       </div>
     </div>
