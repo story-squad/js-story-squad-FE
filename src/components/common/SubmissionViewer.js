@@ -1,6 +1,7 @@
 import React from 'react';
 import zoomIcon from '../../assets/icons/zoom-icon.svg';
 import lockIcon from '../../assets/icons/lock.svg';
+import { CloseOutlined } from '@ant-design/icons';
 import { toCapitalized } from '../../utils/helpers';
 
 /* The SubmissionViewer component displays a preview of the submission image in a
@@ -73,7 +74,8 @@ export const SubmissionModal = ({ isModalVisible, onClose, src }) => {
     <div className={`submission-modal-wrapper ${isModalVisible && 'showing'}`}>
       <div className="submission-modal-wrapper__top-bar">
         <button className="close-btn" onClick={onClose}>
-          Close X
+          Close
+          <CloseOutlined />
         </button>
       </div>
       <div className="submission-modal-wrapper__content">
