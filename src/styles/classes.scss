@@ -172,6 +172,13 @@ button {
     background: $white;
     border-color: $aqua-light;
   }
+  &.small {
+    height: 5rem;
+    font-size: 2rem;
+    span {
+      font-size: 2rem;
+    }
+  }
   &.full-width {
     width: 100%;
   }
