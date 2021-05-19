@@ -7,8 +7,8 @@ const RenderJoinTheSquad = props => {
 
   return (
     <div className="bg-dark full-page">
-      <div className="content-box dark border-light">
-        <h2>Your Squad</h2>
+      <div className="content-box">
+        <h2 className="text-light">Join Your Squad</h2>
         <RenderChild child={props.team.child1} childNum={1} />
         <RenderChild child={props.team.child2} childNum={2} />
       </div>
