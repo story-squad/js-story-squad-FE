@@ -3,9 +3,11 @@
 @import 'mixins.scss';
 @import 'elements.scss';
 @import 'classes.scss';
+@import 'parent.scss';
 
 // components
 @import './components/Header.scss';
+@import './components/Footer.scss';
 @import './components/MissionControl.scss';
 @import './components/StoryViewer.scss';
 @import './components/InstructionsModal.scss';
@@ -15,4 +17,11 @@
 @import './components/ChildAvatar.scss';
 @import './components/Faceoff.scss';
 @import './components/InfoButton.scss';
+<<<<<<< HEAD
 @import './components/FaceoffReveal.scss';
+=======
+@import './components/EmojiPicker.scss';
+@import './components/VotingForm.scss';
+@import './components/OktaSignIn.scss';
+@import './components/ProfileSelect.scss';
+>>>>>>> 0524f2f181656284cff8991220a66d72441544ee

@@ -72,8 +72,13 @@ const RenderMissionControl = props => {
     };
   };
 
+  // close the modal or redirect when user has completed all steps
   const closeModal = () => {
-    modalPush(push, '/child/join');
+    if (currentStep() === 'done') {
+      modalPush(push, '/child/join');
+    } else {
+      setShowModal(false);
+    }
   };
 
   return (

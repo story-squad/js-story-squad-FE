@@ -258,7 +258,7 @@ const mockGetFaceoffsForMatchup = [
 
 const mockGetChild = {
   ID: 1,
-  Name: 'Bettie (Cohort1)',
+  Name: 'Bettie',
   PIN: '$2a$06$5CMkaSM1wvW7Bggy4DXwFurGaCibIWqNaYY6lxGviGWzIvyHFBagO',
   IsDyslexic: false,
   ParentID: 1,
@@ -298,7 +298,7 @@ const mockGetFaceoffsForVoting = [
     VotesCasted: 0,
     Submission1: {
       ID: 5,
-      Name: 'Bryana (Cohort1)',
+      Name: 'Bryana',
       ImgURL: 'https://picsum.photos/id/205/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
       Pages: [
@@ -314,7 +314,7 @@ const mockGetFaceoffsForVoting = [
     },
     Submission2: {
       ID: 7,
-      Name: 'Hailee (Cohort1)',
+      Name: 'Hailee',
       ImgURL: 'https://picsum.photos/id/207/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-6.svg',
       Pages: [
@@ -341,7 +341,7 @@ const mockGetFaceoffsForVoting = [
     VotesCasted: 0,
     Submission1: {
       ID: 5,
-      Name: 'Bryana (Cohort1)',
+      Name: 'Bryana',
       ImgURL: 'https://picsum.photos/id/205/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
       Pages: [
@@ -357,7 +357,7 @@ const mockGetFaceoffsForVoting = [
     },
     Submission2: {
       ID: 7,
-      Name: 'Hailee (Cohort1)',
+      Name: 'Hailee',
       ImgURL: 'https://picsum.photos/id/207/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-6.svg',
       Pages: [
@@ -384,7 +384,7 @@ const mockGetFaceoffsForVoting = [
     VotesCasted: 0,
     Submission1: {
       ID: 6,
-      Name: 'Chance (Cohort1)',
+      Name: 'Chance',
       ImgURL: 'https://picsum.photos/id/206/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-3.svg',
       Pages: [
@@ -400,7 +400,7 @@ const mockGetFaceoffsForVoting = [
     },
     Submission2: {
       ID: 8,
-      Name: 'Catalina (Cohort1)',
+      Name: 'Catalina',
       ImgURL: 'https://picsum.photos/id/208/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-4.svg',
       Pages: [
@@ -427,7 +427,7 @@ const mockGetFaceoffsForVoting = [
     VotesCasted: 0,
     Submission1: {
       ID: 6,
-      Name: 'Chance (Cohort1)',
+      Name: 'Chance',
       ImgURL: 'https://picsum.photos/id/206/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-3.svg',
       Pages: [
@@ -443,7 +443,7 @@ const mockGetFaceoffsForVoting = [
     },
     Submission2: {
       ID: 8,
-      Name: 'Catalina (Cohort1)',
+      Name: 'Catalina',
       ImgURL: 'https://picsum.photos/id/208/400',
       AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-4.svg',
       Pages: [
@@ -469,7 +469,7 @@ const mockUpdateChildData = {
     url: 'http://localhost:8000/child/1',
     method: 'put',
     data:
-      '{"Name":"Bettie (Cohort1)","ParentID":1,"CohortID":1,"GradeLevel":"4","VotesRemaining":9}',
+      '{"Name":"Bettie","ParentID":1,"CohortID":1,"GradeLevel":"4","VotesRemaining":9}',
     headers: {
       Accept: 'application/json, text/plain, */*',
       'Content-Type': 'application/json;charset=utf-8',
@@ -500,7 +500,7 @@ const mockGetProfileData = [
   {
     ID: 1,
     PIN: '$2a$06$tnwi15iC5abTG8pxbUrFsuv2Qn/IxIVZ2iGGRUXl.T6JT9lJjFwLG',
-    Name: 'April (Cohort2)',
+    Name: 'April',
     IsDyslexic: true,
     GradeLevel: '7',
     AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
@@ -511,7 +511,7 @@ const mockGetProfileData = [
   {
     ID: 1,
     PIN: '$2a$06$Sg2T7pxrGMbrOf/aBXrSbOkKCzKmZVChFJtGiN2o1nTTrbxeFB7.2',
-    Name: 'Bettye (Cohort2)',
+    Name: 'Bettye',
     IsDyslexic: false,
     GradeLevel: '3',
     AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-3.svg',
@@ -522,7 +522,7 @@ const mockGetProfileData = [
   {
     ID: 1,
     PIN: '$2a$06$tFm9IcFHJl555K1uIrFjEOWOU3ARpy/ITunjjq20aIZiiGM7OHsEq',
-    Name: 'Ellis (Cohort3)',
+    Name: 'Ellis',
     IsDyslexic: true,
     GradeLevel: '3',
     AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-6.svg',
@@ -533,7 +533,7 @@ const mockGetProfileData = [
   {
     ID: 1,
     PIN: '$2a$06$Zy3X7KfwpNIHMGuC5rfz7.9rYFOZp962X/wZMBh4kvmK8XIhR4hEK',
-    Name: 'Paula (Cohort3)',
+    Name: 'Paula',
     IsDyslexic: false,
     GradeLevel: '3',
     AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-4.svg',
@@ -544,7 +544,7 @@ const mockGetProfileData = [
   {
     ID: 1,
     PIN: '$2a$06$iD9NjMoR9BBA08djfOAapuX8qRrrk.eyeITdoDtFJ7I0pZBiJzb3i',
-    Name: 'Kayleigh (Cohort4 = new kid in week1)',
+    Name: 'Kayleigh',
     IsDyslexic: false,
     GradeLevel: '8',
     AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
@@ -555,7 +555,7 @@ const mockGetProfileData = [
   {
     ID: 1,
     PIN: '$2a$06$700N3jQQGvNbAvejh8ECceyqb/O5caf./w1an1ZlNhm1vRgxyByhu',
-    Name: 'Johnathon (Cohort4 = new kid in week1)',
+    Name: 'Johnathon',
     IsDyslexic: false,
     GradeLevel: '6',
     AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-7.svg',
@@ -566,7 +566,7 @@ const mockGetProfileData = [
   {
     ID: 1,
     PIN: '$2a$06$Qcx5wEWphgH9Xf72uxdPd.npQIJE49DAkBXFhjjXksD2NzKnfM3PO',
-    Name: 'Leopold (Cohort1)',
+    Name: 'Leopold',
     IsDyslexic: true,
     GradeLevel: '7',
     AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-1.svg',
@@ -577,7 +577,7 @@ const mockGetProfileData = [
   {
     ID: 1,
     PIN: '$2a$06$hyLaWMEGQPOEB2HH4ZF16uedlNTmPXstPAL/GQYR/nty5eivg.G6W',
-    Name: 'Reinhold (Cohort1)',
+    Name: 'Reinhold',
     IsDyslexic: true,
     GradeLevel: '4',
     AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-10.svg',

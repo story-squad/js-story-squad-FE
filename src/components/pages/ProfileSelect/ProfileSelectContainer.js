@@ -4,9 +4,9 @@ import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 import { child, parent } from '../../../state/actions';
 
-import ProfileRenderModal from './ProfileRenderModal';
+import RenderProfileSelect from './RenderProfileSelect';
 
-function ProfileModalContainer({ LoadingComponent, ...props }) {
+function ProfileSelectContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -37,7 +37,7 @@ function ProfileModalContainer({ LoadingComponent, ...props }) {
         <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <ProfileRenderModal
+        <RenderProfileSelect
           {...props}
           userInfo={userInfo}
           authService={authService}
@@ -50,4 +50,4 @@ function ProfileModalContainer({ LoadingComponent, ...props }) {
 export default connect(null, {
   setChild: child.setChild,
   setParent: parent.setParent,
-})(ProfileModalContainer);
+})(ProfileSelectContainer);
