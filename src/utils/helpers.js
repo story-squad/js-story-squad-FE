@@ -13,12 +13,12 @@ export const modalInstructions = {
   missionControl1: {
     header: 'Great job!',
     text:
-      'Now it’s time to get creative. When you’re done drawing, please take a picture of all your pages and upload them. After all pages are uploaded, click submit.',
+      'Now that you’re done reading, it’s time to get creative. Your next task is to DRAW a scene from your favorite part of the story. When you’re done drawing, please take a picture of all your pages and upload them.',
   },
   missionControl2: {
     header: 'Your drawing has been submitted, great job!',
     text:
-      'Now it’s time to get creative. When you’re done writing your story, please take a picture of all your pages and upload them. After all pages are uploaded, click submit.',
+      'Now that you’re done drawing, your next task is to WRITE a short story based on the prompt. When you’re done drawing, please take a picture of all your pages and upload them.',
   },
   missionControl3: {
     header: 'Your story has been submitted, great job!',
