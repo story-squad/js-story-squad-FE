@@ -20,7 +20,7 @@ export const modalInstructions = {
   missionControl2: {
     header: 'Your drawing has been submitted, great job!',
     text:
-      'Now that you’re done drawing, your next task is to WRITE a short story based on the prompt. When you’re done drawing, please take a picture of all your pages and upload them.',
+      'Now that you’re done drawing, your next task is to WRITE a short story based on the prompt. When you’re done writing, please take a picture of all your pages and upload them.',
   },
   missionControl3: {
     header: 'Your story has been submitted, great job!',
