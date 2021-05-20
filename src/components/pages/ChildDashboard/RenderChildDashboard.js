@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
 
-const RenderChildDashboard = props => {
+const RenderChildDashboard = () => {
   const { push } = useHistory();
   const [modalVisible, setModalVisible] = useState(true);
 
@@ -18,7 +18,8 @@ const RenderChildDashboard = props => {
         handleOk={() => {
           setModalVisible(false);
         }}
-        instructions={modalInstructions.childDash}
+        header={modalInstructions.childDash.header}
+        instructions={modalInstructions.childDash.text}
       />
       <nav>
         <button
