@@ -8,8 +8,10 @@ export function getBase64(file) {
 }
 
 export const modalInstructions = {
-  childDash:
-    'Welcome to Story Squad. Accept your mission to start an adventure!',
+  childDash: {
+    header: 'Welcome to Story Squad',
+    text: 'Accept the mission to start your adventure!',
+  },
   missionControl1: {
     header: 'Great job!',
     text:
