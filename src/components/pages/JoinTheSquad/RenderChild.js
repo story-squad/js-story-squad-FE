@@ -1,5 +1,5 @@
 import React from 'react';
-import avatarStar from '../../../assets/images/match_up_images/avatar-star.png';
+import avatarStar from '../../../assets/images/match_up_images/avatar-star.svg';
 import talkBubble1 from '../../../assets/images/match_up_images/talk-bubble-1.svg';
 import talkBubble2 from '../../../assets/images/match_up_images/talk-bubble-2.svg';
 

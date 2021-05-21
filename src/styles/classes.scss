@@ -172,6 +172,20 @@ button {
     background: $white;
     border-color: $aqua-light;
   }
+  &.small {
+    height: 5rem;
+    font-size: 2rem;
+    span {
+      font-size: 2rem;
+    }
+  }
+  &.btn-modal {
+    background: $white;
+    color: $black-text;
+    font-family: $font-display;
+    letter-spacing: 0.18rem;
+    font-weight: 400;
+  }
   &.full-width {
     width: 100%;
   }

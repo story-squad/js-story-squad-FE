@@ -34,7 +34,7 @@ const VotingSubmission = ({
           </div>
         ) : (
           <button
-            className="secondary full-width text-dark"
+            className="secondary small text-dark"
             onClick={() => setSelectedValue(submissionId)}
           >
             Select

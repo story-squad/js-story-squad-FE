@@ -90,7 +90,7 @@ const RenderProfileSelect = props => {
       </div>
       <div className="center-content">
         <button
-          className="button-parent-dashboard secondary margin-0"
+          className="button-parent-dashboard secondary small margin-0"
           onClick={() =>
             userSelect(userInfo.filter(user => user.type === 'Parent')[0])
           }
