@@ -8,8 +8,9 @@ import VotingSubmission from './VotingSubmission';
 const VotingForm = props => {
   const { push } = useHistory();
   const { authState } = useOktaAuth();
-  const { subEmojis1, subEmojis2 } = props.subEmojis;
   const [value, setValue] = useState();
+  const [subEmojis1, setSubEmojis1] = useState('');
+  const [subEmojis2, setSubEmojis2] = useState('');
 
   const handleSubmit = () => {
     const body = {
@@ -45,6 +46,7 @@ const VotingForm = props => {
           setSelectedValue={setValue}
           imgSrc={props.faceoffToVote.Submission1.ImgURL}
           submissionType={props.faceoffToVote.Type}
+          setEmojis={setSubEmojis1}
         />
         <VotingSubmission
           number={2}
@@ -53,6 +55,7 @@ const VotingForm = props => {
           setSelectedValue={setValue}
           imgSrc={props.faceoffToVote.Submission2.ImgURL}
           submissionType={props.faceoffToVote.Type}
+          setEmojis={setSubEmojis2}
         />
       </div>
       <div className="center-content margin-bottom-4">
