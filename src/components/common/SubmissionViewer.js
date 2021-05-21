@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import zoomIcon from '../../assets/icons/zoom-icon.svg';
 import lockIcon from '../../assets/icons/lock.svg';
+import { CloseOutlined } from '@ant-design/icons';
 import { toCapitalized } from '../../utils/helpers';
+import EmojiPicker from '../common/EmojiPicker';
 
 /* The SubmissionViewer component displays a preview of the submission image in a
  ** button that can be clicked to open a modal. The component has two views: normal
@@ -18,21 +20,16 @@ import { toCapitalized } from '../../utils/helpers';
  ** handleVote (function) - the callback function used to start the voting process
  */
 
-const SubmissionViewer = ({
+export const SubmissionViewer = ({
   src,
   compact = false,
   submissionType,
   locked = false,
   canVote = false,
   handleVote,
+  modalButtonText = 'Close',
 }) => {
-  const [showModal, setShowModal] = useState(true);
-
-  const handleOnClick = () => {
-    if (!locked) {
-      setShowModal(true);
-    }
-  };
+  const [showModal, setShowModal] = useState(false);
 
   // remove cursor: not-allowed on background button when canVote === true
   const styleCursor = () => {
@@ -56,7 +53,7 @@ const SubmissionViewer = ({
       <button
         className={`submission-viewer-button ${compact ? 'compact' : ''}`}
         style={styleCursor()}
-        onClick={handleOnClick}
+        onClick={() => setShowModal(true)}
         disabled={locked}
       >
         {/* submission preview img (all views) */}
@@ -71,8 +68,46 @@ const SubmissionViewer = ({
           {compact && <p>{toCapitalized(submissionType)}</p>}
         </div>
       </button>
+      {showModal && (
+        <SubmissionModal
+          src={src}
+          onClose={() => setShowModal(false)}
+          modalButtonText={modalButtonText}
+        />
+      )}
     </div>
   );
 };
 
 export default SubmissionViewer;
+
+const SubmissionModal = ({ onClose, src, modalButtonText }) => {
+  return (
+    <div
+      className={`submission-modal-wrapper center-content-flex popup-animated`}
+    >
+      <div className="submission-modal-wrapper__top-bar">
+        <button className="close-btn" onClick={onClose}>
+          Close
+          <CloseOutlined />
+        </button>
+      </div>
+      <div className="submission-modal-wrapper__content center-content-flex">
+        <img src={src} alt="submission" />
+      </div>
+      <div className="submission-modal-wrapper__bottom-bar center-content">
+        <h4 className="atma">How do you feel about this story?</h4>
+        <h4 className="atma">Express it with emojis!</h4>
+        <div className="emoji-picker__wrapper">
+          {/* TODO functionality for emoji picker */}
+          <EmojiPicker />
+        </div>
+        <div>
+          <button className="secondary small" onClick={onClose}>
+            {modalButtonText}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
