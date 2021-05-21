@@ -19,18 +19,16 @@ import { toCapitalized } from '../../utils/helpers';
  ** handleVote (function) - the callback function used to start the voting process
  */
 
-export const SubmissionViewer = (
-  {
-    src,
-    compact = false,
-    submissionType,
-    locked = false,
-    canVote = false,
-    handleVote,
-    modalButtonText = 'Close',
-  },
-  ...children
-) => {
+export const SubmissionViewer = ({
+  src,
+  compact = false,
+  submissionType,
+  locked = false,
+  canVote = false,
+  handleVote,
+  modalButtonText = 'Close',
+  children,
+}) => {
   const [showModal, setShowModal] = useState(false);
 
   // remove cursor: not-allowed on background button when canVote === true
@@ -85,17 +83,6 @@ export const SubmissionViewer = (
 export default SubmissionViewer;
 
 const SubmissionModal = ({ onClose, src, modalButtonText, children }) => {
-  const renderValidChildren = () => {
-    if (
-      children.length >= 1 &&
-      children.some(child => Object.entries(child).length === 0)
-    ) {
-      return null;
-    } else {
-      return children;
-    }
-  };
-
   return (
     <div className="submission-modal-wrapper center-content-flex popup-animated">
       <div className="submission-modal-inner">
@@ -109,7 +96,7 @@ const SubmissionModal = ({ onClose, src, modalButtonText, children }) => {
           <img src={src} alt="submission" />
         </div>
         <div className="submission-modal-wrapper__bottom-bar center-content">
-          {renderValidChildren()}
+          {children}
           <button className="secondary small" onClick={onClose}>
             {modalButtonText}
           </button>
