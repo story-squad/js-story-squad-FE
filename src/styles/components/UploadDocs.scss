@@ -1,0 +1,15 @@
+.ant-upload-list-item {
+    background-color:$white;
+    border:2px dashed $gray-text;
+    border-radius:8px;
+
+    img{
+        max-width:9rem;
+        border: 2px solid white;
+        border-radius:50%;
+        padding:1rem;
+    }
+    .ant-upload-list-item-name{
+        font-size:1.8rem;
+    }
+}
