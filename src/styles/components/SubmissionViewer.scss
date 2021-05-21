@@ -98,6 +98,14 @@
   width: 100%;
   z-index: 100;
   overflow: hidden;
+  background: $white;
+  .submission-modal-inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   &__top-bar {
     width: 100%;
     height: 100px;
@@ -105,44 +113,29 @@
     align-items: center;
     justify-content: flex-end;
     background-color: $gray;
-    position: absolute;
-    top: 0;
-    left: 0;
     padding: 0 72px;
     .close-btn {
       color: $gray-text-light;
       background-color: transparent;
-      border: none;
-      font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-      text-transform: uppercase;
-      font-size: 1.5rem;
-      font-weight: 500;
-      line-height: 21px;
+      width: unset;
       margin: 0;
       display: flex;
       align-items: center;
-      justify-content: space-evenly;
-      span {
-        padding-left: 5px;
-      }
     }
   }
   &__content {
-    position: fixed;
-    top: 100px;
-    left: 0;
-    bottom: 250px;
     width: 100%;
-    background-color: #ffff;
+    min-height: 20rem;
+    background-color: $white;
     overflow-y: auto;
+    img {
+      width: 100%;
+    }
   }
   &__bottom-bar {
-    position: fixed;
-    bottom: 0;
-    right: 0;
     background-color: $gray;
     width: 100%;
-    height: 250px;
+    padding-top: 2rem;
     h4 {
       color: $black-text;
       font-size: 2.6rem;
@@ -153,19 +146,6 @@
     }
     .emoji-picker__wrapper {
       margin: 15px;
-    }
-    .return-button {
-      width: 153px;
-      height: 50px;
-      padding: 13px 17px;
-      background-color: $white;
-      border: 3px solid $aqua-light;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1),
-        inset 0px 1px 2px rgba(0, 0, 0, 0.05);
-      border-radius: 8px;
-      font-size: 1.9rem;
-      line-height: 24px;
-      color: $black-border;
     }
   }
 }
