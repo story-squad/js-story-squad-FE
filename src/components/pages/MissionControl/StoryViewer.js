@@ -96,7 +96,7 @@ const StoryViewer = props => {
             Page {pageNumber} of {numPages}
           </p>
           <button
-            className="prev-button"
+            className="small"
             type="primary"
             disabled={pageNumber <= 1}
             onClick={previousPage}
@@ -105,7 +105,7 @@ const StoryViewer = props => {
             <ArrowLeftOutlined />
           </button>
           <button
-            className="next-button"
+            className="small"
             type="primary"
             disabled={pageNumber >= numPages}
             onClick={nextPage}
@@ -115,7 +115,7 @@ const StoryViewer = props => {
           </button>
           <br />
           <button
-            className="finished-reading"
+            className="small"
             type="button"
             disabled={!hasViewedAllPages}
             onClick={onFinish}

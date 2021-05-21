@@ -89,7 +89,7 @@
 }
 
 .bg-dark {
-  background: $black-text;
+  background: $black-brand;
 }
 
 .text-dark {
@@ -131,10 +131,13 @@
   text-align: left;
 }
 
+// use for full-page background color in the main content
 .full-page {
   margin-top: -4rem;
+  margin-bottom: -8rem;
   padding-top: 4rem;
   padding-bottom: 4rem;
+  min-height: 100vh;
 }
 
 .padding-0 {
@@ -191,6 +194,20 @@ button {
     color: $black-text;
     background: $white;
     border-color: $aqua-light;
+  }
+  &.small {
+    height: 5rem;
+    font-size: 2rem;
+    span {
+      font-size: 2rem;
+    }
+  }
+  &.btn-modal {
+    background: $white;
+    color: $black-text;
+    font-family: $font-display;
+    letter-spacing: 0.18rem;
+    font-weight: 400;
   }
   &.full-width {
     width: 100%;
