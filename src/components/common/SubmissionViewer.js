@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import zoomIcon, { ReactComponent } from '../../assets/icons/zoom-icon.svg';
+import zoomIcon from '../../assets/icons/zoom-icon.svg';
 import lockIcon from '../../assets/icons/lock.svg';
-import { CloseOutlined } from '@ant-design/icons';
+import closeXIcon from '../../assets/icons/close-x.svg';
 import { toCapitalized } from '../../utils/helpers';
-import { Component } from 'react';
 
 /* The SubmissionViewer component displays a preview of the submission image in a
  ** button that can be clicked to open a modal. The component has two views: normal
@@ -99,20 +98,22 @@ const SubmissionModal = ({ onClose, src, modalButtonText, children }) => {
 
   return (
     <div className="submission-modal-wrapper center-content-flex popup-animated">
-      <div className="submission-modal-wrapper__top-bar">
-        <button className="close-btn" onClick={onClose}>
-          Close
-          <CloseOutlined />
-        </button>
-      </div>
-      <div className="submission-modal-wrapper__content center-content-flex">
-        <img src={src} alt="submission" />
-      </div>
-      <div className="submission-modal-wrapper__bottom-bar center-content">
-        {renderValidChildren()}
-        <button className="secondary small" onClick={onClose}>
-          {modalButtonText}
-        </button>
+      <div className="submission-modal-inner">
+        <div className="submission-modal-wrapper__top-bar parent-styles">
+          <button className="close-btn" onClick={onClose}>
+            Close
+            <img src={closeXIcon} alt="close" />
+          </button>
+        </div>
+        <div className="submission-modal-wrapper__content center-content-flex">
+          <img src={src} alt="submission" />
+        </div>
+        <div className="submission-modal-wrapper__bottom-bar center-content">
+          {renderValidChildren()}
+          <button className="secondary small" onClick={onClose}>
+            {modalButtonText}
+          </button>
+        </div>
       </div>
     </div>
   );
