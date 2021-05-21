@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import zoomIcon from '../../assets/icons/zoom-icon.svg';
+import zoomIcon, { ReactComponent } from '../../assets/icons/zoom-icon.svg';
 import lockIcon from '../../assets/icons/lock.svg';
 import { CloseOutlined } from '@ant-design/icons';
 import { toCapitalized } from '../../utils/helpers';
-import EmojiPicker from '../common/EmojiPicker';
+import { Component } from 'react';
 
 /* The SubmissionViewer component displays a preview of the submission image in a
  ** button that can be clicked to open a modal. The component has two views: normal
@@ -20,15 +20,18 @@ import EmojiPicker from '../common/EmojiPicker';
  ** handleVote (function) - the callback function used to start the voting process
  */
 
-export const SubmissionViewer = ({
-  src,
-  compact = false,
-  submissionType,
-  locked = false,
-  canVote = false,
-  handleVote,
-  modalButtonText = 'Close',
-}) => {
+export const SubmissionViewer = (
+  {
+    src,
+    compact = false,
+    submissionType,
+    locked = false,
+    canVote = false,
+    handleVote,
+    modalButtonText = 'Close',
+  },
+  ...children
+) => {
   const [showModal, setShowModal] = useState(false);
 
   // remove cursor: not-allowed on background button when canVote === true
@@ -73,6 +76,7 @@ export const SubmissionViewer = ({
           src={src}
           onClose={() => setShowModal(false)}
           modalButtonText={modalButtonText}
+          children={children}
         />
       )}
     </div>
@@ -81,7 +85,18 @@ export const SubmissionViewer = ({
 
 export default SubmissionViewer;
 
-const SubmissionModal = ({ onClose, src, modalButtonText }) => {
+const SubmissionModal = ({ onClose, src, modalButtonText, children }) => {
+  const renderValidChildren = () => {
+    if (
+      children.length >= 1 &&
+      children.some(child => Object.entries(child).length === 0)
+    ) {
+      return null;
+    } else {
+      return children;
+    }
+  };
+
   return (
     <div
       className={`submission-modal-wrapper center-content-flex popup-animated`}
@@ -96,17 +111,10 @@ const SubmissionModal = ({ onClose, src, modalButtonText }) => {
         <img src={src} alt="submission" />
       </div>
       <div className="submission-modal-wrapper__bottom-bar center-content">
-        <h4 className="atma">How do you feel about this story?</h4>
-        <h4 className="atma">Express it with emojis!</h4>
-        <div className="emoji-picker__wrapper">
-          {/* TODO functionality for emoji picker */}
-          <EmojiPicker />
-        </div>
-        <div>
-          <button className="secondary small" onClick={onClose}>
-            {modalButtonText}
-          </button>
-        </div>
+        {renderValidChildren()}
+        <button className="secondary small" onClick={onClose}>
+          {modalButtonText}
+        </button>
       </div>
     </div>
   );
