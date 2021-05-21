@@ -11,6 +11,7 @@ const VotingSubmission = ({
   imgSrc,
   submissionType,
   setEmojis,
+  selectedEmojis,
 }) => {
   const [isSelected, setIsSelected] = useState(false);
 
@@ -32,7 +33,10 @@ const VotingSubmission = ({
           Choose up to {emojiLimit} different emojis to express how you feel
           about this story.
         </p>
-        <EmojiPicker getChildState={setEmojis} />
+        <EmojiPicker
+          getEmojiString={setEmojis}
+          defaultEmojis={selectedEmojis}
+        />
       </SubmissionViewer>
       <div className="select-container">
         {isSelected ? (
