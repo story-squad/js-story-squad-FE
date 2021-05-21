@@ -98,9 +98,7 @@ const SubmissionModal = ({ onClose, src, modalButtonText, children }) => {
   };
 
   return (
-    <div
-      className={`submission-modal-wrapper center-content-flex popup-animated`}
-    >
+    <div className="submission-modal-wrapper center-content-flex popup-animated">
       <div className="submission-modal-wrapper__top-bar">
         <button className="close-btn" onClick={onClose}>
           Close
