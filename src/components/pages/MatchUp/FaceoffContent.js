@@ -125,6 +125,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, handleVote, ...props }) => {
         locked={locked}
         canVote={canVote}
         handleVote={handleVote}
+        modalButtonText={'Back to Matchup'}
       />
     </div>
   );
