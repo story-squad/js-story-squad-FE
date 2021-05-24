@@ -9,10 +9,10 @@
     }
     .submission.selected {
       padding-top: 3.7rem;
-      p {
+      & > p {
         color: $black-text;
       }
-      button {
+      & > button {
         background: none;
       }
     }
