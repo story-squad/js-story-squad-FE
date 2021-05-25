@@ -15,8 +15,7 @@ h1 {
   }
 }
 
-h2,
-.h2 {
+h2, .h2 {
   margin: 2.4rem 0 1.2rem;
   text-align: center;
   font-size: 4.2rem;
@@ -26,28 +25,17 @@ h2,
   }
 }
 
-h3,
-.h3 {
+h3, .h3 {
   font-size: 3.4rem;
   letter-spacing: 0.18rem;
 }
 
-h1,
-h2,
-.h2,
-h3,
-.h3 {
+h1, h2, .h2, h3, .h3 {
   font-family: $font-display;
   font-weight: 400;
 }
 
-p,
-span,
-li,
-button,
-label,
-input,
-a {
+p, span, li, button, label, input, a {
   font-size: 2.6rem;
   font-family: $font-text;
   margin-top: 0;
@@ -62,20 +50,11 @@ p {
   font-weight: 400;
 }
 
-h2,
-h3,
-p,
-span,
-li,
-button,
-label,
-input,
-a {
+h2, h3, p, span, li, button, label, input, a {
   color: $black-text;
 }
 
-a,
-button {
+a, button {
   cursor: pointer;
 }
 
