@@ -221,6 +221,10 @@ button {
     font-family: $font-display;
     letter-spacing: 0.18rem;
     font-weight: 400;
+    @include tablet-below {
+      height: 4rem;
+      letter-spacing: 0.1125rem;
+    }
   }
   &.full-width {
     width: 100%;
