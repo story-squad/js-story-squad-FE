@@ -58,7 +58,6 @@
     column-gap: 4rem;
     @include tablet-large-below {
       grid-template-columns: 100%;
-      grid-template-rows: 27rem;
       column-gap: none;
       row-gap: 2rem;
     }
