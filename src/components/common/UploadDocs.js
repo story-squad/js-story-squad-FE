@@ -3,6 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { Form, Button, Upload, Modal, notification } from 'antd';
 
 import { getBase64 } from '../../utils/helpers';
+import { trash2 } from '../../assets/icons/trash-2.svg';
 
 export const UploadDocs = ({
   fileName,
@@ -126,6 +127,7 @@ export const UploadDocs = ({
           onChange={handleChange}
           multiple={true}
           className="no-preview-icon"
+          iconRender={trash2}
         >
           <Button className={uploadButtonClassname}>{uploadButtonText}</Button>
         </Upload>

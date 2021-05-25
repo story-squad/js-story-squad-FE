@@ -1,16 +1,27 @@
-.ant-upload-list-item {
+.ant-upload-list-picture-card {
     background-color:$white;
     border:2px dashed $gray-text;
     border-radius:8px;
+    margin-bottom:2rem;
+    padding:1rem;
+    
+    .ant-upload-list-item {
+        display:flex;
+    }
 
     img{
         max-width:9rem;
         border: 2px solid white;
         border-radius:50%;
-        padding:1rem;
+        margin-right:1rem;
     }
+    .ant-upload-list-item-actions, .ant-btn-icon-only, .ant-upload-list-item-thumbnail, .ant-upload-list-item-info span{
+        margin:0;
+    }
+
     .ant-upload-list-item-name{
         font-size:1.8rem;
+        max-width:60%;
     }
 }
 .no-preview-icon{
