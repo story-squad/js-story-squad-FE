@@ -1,6 +1,6 @@
 header {
   background-image: url('../../assets/images/cityscape.svg');
-  min-height: 22vh;
+  height: 16.8rem;
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: bottom;
@@ -8,4 +8,8 @@ header {
   position: relative;
   margin-bottom: 4rem;
   @include border-large-square($black-brand);
+  @include tablet-below {
+    height: 11.2rem;
+    margin-bottom: 3.2rem;
+  }
 }
