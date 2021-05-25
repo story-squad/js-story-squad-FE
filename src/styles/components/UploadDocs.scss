@@ -13,3 +13,9 @@
         font-size:1.8rem;
     }
 }
+.no-preview-icon{
+    border: 3px solid red;
+    .anticon-eye{
+        display:none;
+    }
+}
