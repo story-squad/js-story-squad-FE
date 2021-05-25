@@ -6,6 +6,12 @@
   }
 }
 
+@mixin tablet-large-below {
+  @media (max-width: 840px) {
+    @content;
+  }
+}
+
 // styles
 
 @mixin border-large-square($color) {
