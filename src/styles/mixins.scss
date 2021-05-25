@@ -12,6 +12,12 @@
   }
 }
 
+@mixin tablet-above {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
 // styles
 
 @mixin border-large-square($color) {
