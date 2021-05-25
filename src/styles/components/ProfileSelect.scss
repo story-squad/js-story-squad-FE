@@ -2,6 +2,9 @@
   h2 {
     margin: 4rem 0 6.4rem 0;
     font-size: 6rem;
+    @include tablet-below {
+      font-size: 4.2rem;
+    }
   }
   .profile-list {
     display: grid;
@@ -10,6 +13,11 @@
     justify-items: center;
     gap: 4rem 10rem;
     margin-bottom: 6.4rem;
+    @include tablet-below {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4rem 6rem;
+    }
     button {
       height: 16rem;
       margin-bottom: 0;
