@@ -13,7 +13,7 @@ export const DrawingSub = props => {
     <div className="content-box-mission bg-orange">
       <div className="grid-left">
         <img
-          style={{ marginRight: '6rem' }}
+          className="drawing-img"
           src={drawHero}
           alt="child superhero making a drawing"
         />

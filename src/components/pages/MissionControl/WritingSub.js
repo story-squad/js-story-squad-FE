@@ -14,7 +14,7 @@ export const WritingSub = props => {
     <div className="content-box-mission bg-yellow">
       <div className="grid-left">
         <img
-          style={{ marginRight: '10rem' }}
+          className="writing-img"
           src={writeHero}
           alt="child superhero writing a story"
         />
