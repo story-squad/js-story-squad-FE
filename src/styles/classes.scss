@@ -64,6 +64,9 @@
     &.grid-small {
       grid-template-columns: 34.6rem 34.6rem;
       column-gap: 2rem;
+      @include tablet-large-below {
+        grid-template-columns: 48% 48%;
+      }
     }
   }
   &.grid-3-col {
