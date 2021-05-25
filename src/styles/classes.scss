@@ -8,6 +8,7 @@
   width: 100%;
   @include tablet-below {
     min-height: 15rem;
+    margin-bottom: 2.4rem;
   }
   &.dark {
     background: $black-text;
