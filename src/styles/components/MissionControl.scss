@@ -8,6 +8,10 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
+  @include tablet-below {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
   & * {
     font-size: 3.6rem;
     font-weight: 600;
