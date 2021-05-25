@@ -22,6 +22,7 @@ h2, .h2 {
   letter-spacing: 0.22rem;
   @include tablet-below {
     font-size: 2.8rem;
+		letter-spacing: 0.146rem;
   }
 }
 
