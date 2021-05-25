@@ -172,10 +172,38 @@ button {
     background: $white;
     border-color: $aqua-light;
   }
+  &.small {
+    height: 5rem;
+    font-size: 2rem;
+    span {
+      font-size: 2rem;
+    }
+  }
+  &.btn-modal {
+    background: $white;
+    color: $black-text;
+    font-family: $font-display;
+    letter-spacing: 0.18rem;
+    font-weight: 400;
+  }
   &.full-width {
     width: 100%;
   }
   &.min-width {
     min-width: 20rem;
+  }
+}
+
+.popup-animated {
+  animation: popup-animated 0.3s;
+  @keyframes popup-animated {
+    0% {
+      opacity: 0;
+      transform: scale(0.5, 0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
   }
 }

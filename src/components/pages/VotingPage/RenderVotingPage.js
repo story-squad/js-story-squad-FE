@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import VotingForm from './VotingForm';
 
 const RenderVotingPage = props => {
-  const [subEmojis1, setSubEmojis1] = useState('');
-  const [subEmojis2, setSubEmojis2] = useState('');
-
   return (
     <div className="voting-container">
       {console.log(props)}
@@ -18,11 +15,7 @@ const RenderVotingPage = props => {
           </p>
         </div>
       </div>
-      <VotingForm
-        faceoffToVote={props.votes}
-        child={props.child}
-        subEmojis={{ subEmojis1, subEmojis2 }}
-      />
+      <VotingForm faceoffToVote={props.votes} child={props.child} />
     </div>
   );
 };

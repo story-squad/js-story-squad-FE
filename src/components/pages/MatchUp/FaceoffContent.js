@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.svg';
 
 import {
-  SubmissionViewerModal,
   EmojiFeedback,
   SubmissionViewer,
   ChildAvatar,
@@ -11,14 +10,12 @@ import {
 } from '../../common';
 import FaceoffReveal from '../Animations/FaceoffReveal';
 
-const lock = 'https://labs28-b-storysquad.s3.amazonaws.com/lock.svg';
-
 const FaceoffContent = props => {
   const [toggle, setToggle] = useState(false);
 
   const history = useHistory();
 
-  const revealWinner = event => {
+  const revealWinner = () => {
     setToggle(true);
     history.push('/scoreboard/#big-reveal', {
       dynamicInfo: props.content,
@@ -79,19 +76,12 @@ const FaceoffContent = props => {
 };
 
 const FaceoffSubDisplay = ({ sub, type, feedback, handleVote, ...props }) => {
-  const [modalContent, setModalContent] = useState(null);
-  const [showModal, setShowModal] = useState(false);
   const [locked, setLocked] = useState(true);
   const [canVote, setCanVote] = useState(false);
 
   const currentDate = props.custom_date ? props.custom_date : new Date();
   const currentDayOfTheWeek = currentDate.getDay();
   const currentHour = currentDate.getHours();
-
-  const openModal = content => {
-    setModalContent(content);
-    setShowModal(true);
-  };
 
   useEffect(() => {
     if (props.mySquad) {
@@ -135,6 +125,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, handleVote, ...props }) => {
         locked={locked}
         canVote={canVote}
         handleVote={handleVote}
+        modalButtonText={'Back to Matchup'}
       />
     </div>
   );

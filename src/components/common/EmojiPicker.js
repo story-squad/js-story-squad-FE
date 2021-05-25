@@ -3,17 +3,23 @@ import { emojiList, emojiLimit } from '../../utils/constants';
 import emojiIcon from '../../assets/icons/emoji.svg';
 
 const EmojiPicker = props => {
-  const { getChildState } = props;
+  const { getEmojiString, defaultEmojis } = props;
   const [selectedEmojis, setSelectedEmojis] = useState([]);
   const [keyboardVisible, setKeyboardVisible] = useState(false);
 
   //If parent component wants to get this state, pass cb into props. Converts Array to String of emojis to match backend data type.
   useEffect(() => {
-    const selectedEmojisString = selectedEmojis.join('') + ',';
-    if (getChildState) {
-      getChildState(selectedEmojisString);
+    if (getEmojiString) {
+      getEmojiString(selectedEmojis);
     }
-  }, [selectedEmojis, getChildState]);
+  }, [selectedEmojis, getEmojiString]);
+
+  useEffect(() => {
+    if (defaultEmojis) {
+      setSelectedEmojis(defaultEmojis);
+    }
+    // eslint-disable-next-line
+  }, []);
 
   const handleToggleEmoji = emoji => {
     if (selectedEmojis.length < emojiLimit && !selectedEmojis.includes(emoji)) {

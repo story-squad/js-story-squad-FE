@@ -36,6 +36,7 @@ p, span, li, button, label, input, a {
 
 p {
 	margin-bottom: 3.4rem;
+	font-weight: 400;
 }
 
 h2, h3, p, span, li, button, label, input, a {
@@ -47,14 +48,15 @@ a, button {
 }
 
 button {
-	height: 5rem;
+	height: 7rem;
 	padding: 0 2rem;
 	border: 0.2rem solid $black-border;
 	border-radius: 0.8rem;
 	background: $aqua;
-	font-size: 2rem;
+	font-size: 3.2rem;
+	font-weight: 500;
 	span {
-		font-size: 2rem;
+		font-size: 3.2rem;
 	}
 	&:disabled, &:disabled span {
 		background: $gray;

@@ -3,13 +3,16 @@
     .submission {
       padding-top: 4.4rem;
       padding-bottom: 3.7rem;
+      button.secondary {
+        width: 20rem;
+      }
     }
     .submission.selected {
       padding-top: 3.7rem;
-      p {
+      & > p {
         color: $black-text;
       }
-      button {
+      & > button {
         background: none;
       }
     }

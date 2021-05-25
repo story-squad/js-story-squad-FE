@@ -3,29 +3,27 @@ import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
 
-const RenderChildDashboard = props => {
+const RenderChildDashboard = () => {
   const { push } = useHistory();
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
 
   const handleAcceptMission = () => {
     push('/child/mission-control');
   };
 
   return (
-    <>
-      <InstructionsModal //This is the pop up that happens on the child dashboard stop at one pop up
-        modalVisible={modalVisible}
-        handleCancel={() => {
-          setModalVisible(false);
-        }}
+    <div className="child-dashboard">
+      <InstructionsModal
+        visible={modalVisible}
         handleOk={() => {
           setModalVisible(false);
         }}
-        instructions={modalInstructions.childDash}
+        header={modalInstructions.childDash.header}
+        instructions={modalInstructions.childDash.text}
       />
       <nav>
         <button
-          className="content-box border h2 bg-green"
+          className="accept-mission content-box border h2 bg-green"
           onClick={handleAcceptMission}
         >
           Accept
@@ -39,7 +37,7 @@ const RenderChildDashboard = props => {
           Gallery
         </button>
       </nav>
-    </>
+    </div>
   );
 };
 

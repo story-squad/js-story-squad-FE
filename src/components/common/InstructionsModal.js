@@ -19,7 +19,11 @@ const InstructionsModal = props => {
             <section className="instructions-modal content-box shaped bg-aqua">
               <h2>{header}</h2>
               <p>{instructions}</p>
-              <button className="h3" onClick={handleOk} ref={modalButton}>
+              <button
+                className="btn-modal"
+                onClick={handleOk}
+                ref={modalButton}
+              >
                 Continue
               </button>
             </section>
