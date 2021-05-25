@@ -6,6 +6,9 @@
   max-width: 71.6rem;
   min-height: 30rem;
   width: 100%;
+  @include tablet-below {
+    min-height: 15rem;
+  }
   &.dark {
     background: $black-text;
     & > * {
@@ -14,12 +17,29 @@
   }
   &.shaped {
     clip-path: polygon(0.5% 0%, 95% 2%, 100% 94%, 0% 100%);
+    &.responsive-box {
+      @include tablet-below {
+        clip-path: none;
+      }
+    }
   }
 }
 
 // wrap a .content-box.shaped with this to give it a shadow
 .shaped-shadow-container {
   filter: drop-shadow($size-shadow-large $gray);
+  @include tablet-below {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  &.responsive-box {
+    @include tablet-below {
+      margin-top: -3.6rem;
+      filter: none;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
 }
 
 .grid {
