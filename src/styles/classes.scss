@@ -21,6 +21,8 @@
     &.responsive-box {
       @include tablet-below {
         clip-path: none;
+        max-width: unset;
+        width: 100%;
       }
     }
   }
@@ -54,6 +56,12 @@
   &.grid-2-col {
     grid-template-columns: 40rem 40rem;
     column-gap: 4rem;
+    @include tablet-large-below {
+      grid-template-columns: 100%;
+      grid-template-rows: 27rem;
+      column-gap: none;
+      row-gap: 2rem;
+    }
     &.grid-small {
       grid-template-columns: 34.6rem 34.6rem;
       column-gap: 2rem;
@@ -71,6 +79,11 @@
   }
   &.align-center {
     align-items: center;
+  }
+  &.tablet-large-column {
+    @include tablet-large-below {
+      flex-direction: column;
+    }
   }
 }
 
