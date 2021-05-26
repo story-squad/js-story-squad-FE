@@ -15,7 +15,7 @@ import useNameWinner from './AnimationComponents/useNameWinner';
 import useDivAppear from './AnimationComponents/useDivAppear';
 import useCounter from './AnimationComponents/useCounter';
 import useGoBackButton from './AnimationComponents/useGoBackButton';
-import { ChildAvatar } from '../../common';
+import { ChildAvatar, Button } from '../../common';
 
 const FaceoffReveal = props => {
   // we need to bring in faceoff data from FaceoffContent / FaceoffSubDisplay
@@ -77,7 +77,7 @@ const FaceoffReveal = props => {
     vsHeight = 40;
   } else {
     topAvatarHeight = 60;
-    crashAvatarHeight = 120;
+    crashAvatarHeight = 180;
     crashImageSize = 130;
     winnerImageSize = 180;
     vsHeight = 40;
@@ -197,6 +197,10 @@ const FaceoffReveal = props => {
     history.push('/child/match-up');
   };
 
+  const replayMatchup = event => {
+    window.location.reload();
+  };
+
   return (
     <section
       id="big-reveal"
@@ -250,7 +254,7 @@ const FaceoffReveal = props => {
         <animated.img
           className="vs"
           style={enlargeVSStyle}
-          src="/animation/VS.png"
+          src="/animation/matchup_bolt.svg"
           height={vsHeight}
         />
       </div>
@@ -267,13 +271,21 @@ const FaceoffReveal = props => {
       >
         <ChildAvatar src={opponentAvatar} name={opponentName} />
       </animated.div>
-      <animated.p
+      <animated.div
         style={goBackButtonStyle}
-        onClick={goBacktoMatchup}
         className="go-back-button outlined font-display text-dark"
       >
-        go back
-      </animated.p>
+        <Button
+          handleClick={goBacktoMatchup}
+          buttonText={'go back'}
+          className="animation-buttons"
+        />
+        <Button
+          handleClick={replayMatchup}
+          buttonText={'replay'}
+          className="animation-buttons"
+        />
+      </animated.div>
 
       {/* winner's name and points won: */}
       <div className="bottom-fixed">
