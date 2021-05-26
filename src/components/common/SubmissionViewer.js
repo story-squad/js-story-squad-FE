@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import zoomIcon from '../../assets/icons/zoom-icon.svg';
 import lockIcon from '../../assets/icons/lock.svg';
+import closeXIcon from '../../assets/icons/close-x.svg';
 import { toCapitalized } from '../../utils/helpers';
 
 /* The SubmissionViewer component displays a preview of the submission image in a
@@ -18,21 +19,17 @@ import { toCapitalized } from '../../utils/helpers';
  ** handleVote (function) - the callback function used to start the voting process
  */
 
-const SubmissionViewer = ({
+export const SubmissionViewer = ({
   src,
   compact = false,
   submissionType,
   locked = false,
   canVote = false,
   handleVote,
+  modalButtonText = 'Close',
+  children,
 }) => {
-  const [showModal, setShowModal] = useState(true);
-
-  const handleOnClick = () => {
-    if (!locked) {
-      setShowModal(true);
-    }
-  };
+  const [showModal, setShowModal] = useState(false);
 
   // remove cursor: not-allowed on background button when canVote === true
   const styleCursor = () => {
@@ -56,7 +53,7 @@ const SubmissionViewer = ({
       <button
         className={`submission-viewer-button ${compact ? 'compact' : ''}`}
         style={styleCursor()}
-        onClick={handleOnClick}
+        onClick={() => setShowModal(true)}
         disabled={locked}
       >
         {/* submission preview img (all views) */}
@@ -71,8 +68,40 @@ const SubmissionViewer = ({
           {compact && <p>{toCapitalized(submissionType)}</p>}
         </div>
       </button>
+      {showModal && (
+        <SubmissionModal
+          src={src}
+          onClose={() => setShowModal(false)}
+          modalButtonText={modalButtonText}
+          children={children}
+        />
+      )}
     </div>
   );
 };
 
 export default SubmissionViewer;
+
+const SubmissionModal = ({ onClose, src, modalButtonText, children }) => {
+  return (
+    <div className="submission-modal-wrapper center-content-flex popup-animated">
+      <div className="submission-modal-inner">
+        <div className="submission-modal-wrapper__top-bar parent-styles">
+          <button className="close-btn" onClick={onClose}>
+            Close
+            <img src={closeXIcon} alt="close" />
+          </button>
+        </div>
+        <div className="submission-modal-wrapper__content center-content-flex">
+          <img src={src} alt="submission" />
+        </div>
+        <div className="submission-modal-wrapper__bottom-bar center-content">
+          {children}
+          <button className="secondary small" onClick={onClose}>
+            {modalButtonText}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};

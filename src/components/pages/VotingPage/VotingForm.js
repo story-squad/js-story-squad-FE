@@ -8,17 +8,21 @@ import VotingSubmission from './VotingSubmission';
 const VotingForm = props => {
   const { push } = useHistory();
   const { authState } = useOktaAuth();
-  const { subEmojis1, subEmojis2 } = props.subEmojis;
   const [value, setValue] = useState();
+  const [subEmojis1, setSubEmojis1] = useState([]);
+  const [subEmojis2, setSubEmojis2] = useState([]);
 
   const handleSubmit = () => {
+    const subEmojiString1 = subEmojis1.join('') + ',';
+    const subEmojiString2 = subEmojis2.join('') + ',';
+
     const body = {
       Vote: value,
       MemberID: props.child.memberId,
       FaceoffID: props.faceoffToVote.ID,
       VotesCasted: props.faceoffToVote.VotesCasted + 1,
-      subEmojis1,
-      subEmojis2,
+      subEmojis1: subEmojiString1,
+      subEmojis2: subEmojiString2,
     };
 
     const child = {
@@ -45,6 +49,8 @@ const VotingForm = props => {
           setSelectedValue={setValue}
           imgSrc={props.faceoffToVote.Submission1.ImgURL}
           submissionType={props.faceoffToVote.Type}
+          setEmojis={setSubEmojis1}
+          selectedEmojis={subEmojis1}
         />
         <VotingSubmission
           number={2}
@@ -53,6 +59,8 @@ const VotingForm = props => {
           setSelectedValue={setValue}
           imgSrc={props.faceoffToVote.Submission2.ImgURL}
           submissionType={props.faceoffToVote.Type}
+          setEmojis={setSubEmojis2}
+          selectedEmojis={subEmojis2}
         />
       </div>
       <div className="center-content margin-bottom-4">
