@@ -6,7 +6,7 @@ const RenderJoinTheSquad = props => {
   const { push } = useHistory();
 
   return (
-    <div className="bg-dark full-page">
+    <div className="bg-dark full-page join-squad">
       <div className="content-box">
         <h2 className="text-light">Join Your Squad</h2>
         <RenderChild child={props.team.child1} childNum={1} />
