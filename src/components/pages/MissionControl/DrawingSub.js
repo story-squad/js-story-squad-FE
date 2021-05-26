@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { UploadDocs } from '../../common';
 import { postNewDrawingSub } from '../../../api/index';
 import { tasks } from '../../../state/actions';
-import drawHero from '../../../assets/images/mission_control_images/draw-hero.png';
+import hero4 from '../../../assets/images/mission_control_images/hero-4.svg';
 
 export const DrawingSub = props => {
   // TODO add event to occur after submit if needed, or remove
@@ -14,7 +14,7 @@ export const DrawingSub = props => {
       <div className="grid-left">
         <img
           style={{ marginRight: '6rem' }}
-          src={drawHero}
+          src={hero4}
           alt="child superhero making a drawing"
         />
       </div>
