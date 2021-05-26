@@ -7,7 +7,9 @@ const ChildRow = ({ child, childNum, points, updatePoints }) => {
     <div className="point-share-child-row content-box dark">
       <div className="avatar-container">
         <Avatar avatarUrl={child.AvatarURL} />
-        <p className="text-light font-display">{child.ChildName}</p>
+        <p className="text-light font-display keep-font-size">
+          {child.ChildName}
+        </p>
       </div>
       <PointShareSubmission
         updatePoints={updatePoints}

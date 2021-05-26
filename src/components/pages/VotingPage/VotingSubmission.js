@@ -25,7 +25,7 @@ const VotingSubmission = ({
         isSelected ? 'selected border-dark' : 'dark'
       }`}
     >
-      <p className="margin-bottom-2 font-display">
+      <p className="margin-bottom-2 font-display keep-font-size">
         {submissionType} {number}
       </p>
       <SubmissionViewer src={imgSrc} modalButtonText="Back to Voting">
