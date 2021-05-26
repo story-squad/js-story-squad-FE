@@ -8,7 +8,7 @@
   width: 100%;
   @include tablet-below {
     min-height: 15rem;
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.6rem;
   }
   &.dark {
     background: $black-text;
@@ -199,6 +199,12 @@ p,
 button {
   &.font-display {
     letter-spacing: 0.1rem;
+  }
+}
+
+p, span, li, button, input, label, a {
+  &.keep-font-size {
+    font-size: 2.6rem !important;
   }
 }
 
