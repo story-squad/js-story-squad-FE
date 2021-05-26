@@ -10,11 +10,12 @@
     margin-bottom: 1rem;
   }
   .ant-upload-list-item-name {
-    padding-top: 2.5rem;
+    padding-top: 3.33rem;
     display: inline-block;
     width: 20rem;
     height: 8.4rem;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
   }
   img {
@@ -53,3 +54,4 @@
     display: none;
   }
 }
+
