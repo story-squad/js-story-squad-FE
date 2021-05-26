@@ -102,6 +102,13 @@ h3 {
 
 .go-back-button {
   z-index: 5;
+  display: flex;
+  justify-content: center;
+  width: 23%;
+}
+
+.primary {
+  margin: 2%;
 }
 
 p {
