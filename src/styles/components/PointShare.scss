@@ -1,5 +1,8 @@
 .point-share {
   padding-bottom: 4rem;
+  .ant-input-number-handler-wrap {
+    display: none;
+  }
 }
 
 .point-share-child-row {
@@ -20,10 +23,17 @@
     @include tablet-below {
       width: 100%;
     }
+    img {
+      max-width: 13rem;
+      margin: 0 auto 1rem;
+    }
     p {
       text-align: center;
       margin-bottom: 1rem;
     }
+  }
+  .submission-viewer-button {
+    margin-bottom: 2rem;
   }
   .teammate-avatar {
     width: 100%;
@@ -36,13 +46,17 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin: 0 2rem;
+  p {
+    margin-bottom: 1rem;
+  }
   @include tablet-below {
-    margin: 0 2rem;
     p {
-      margin-bottom: 1rem;
+      margin-top: 2rem;
     }
   }
   .ant-input-number-input {
     margin: 0;
+    font-size: 2.6rem;
   }
 }
