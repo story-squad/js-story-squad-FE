@@ -6,7 +6,7 @@ import talkBubble2 from '../../../assets/images/match_up_images/talk-bubble-2.sv
 const RenderChild = ({ child, childNum }) => {
   return (
     <div className={`join-squad-child`}>
-      <p className={`child-${childNum}`}>
+      <p className={`child-${childNum} keep-font-size`}>
         Hi, I'm {child.ChildName}!
         <br />
         Nice to meet you!
