@@ -204,21 +204,30 @@ const FaceoffReveal = props => {
   return (
     <section
       id="big-reveal"
-      className={`FaceoffReveal bg-${dynamicBackgroundColor}`}
+      className={`FaceoffReveal bg-${dynamicBackgroundColor} full-page`}
     >
       <div className="fixed-box">
-        <animated.h1 className="crash-location" style={useCountdownStyle3}>
+        <animated.p
+          className="crash-location headline"
+          style={useCountdownStyle3}
+        >
           {useCountdownStyle3.number}
-        </animated.h1>
-        <animated.h1 className="crash-location" style={useCountdownStyle2}>
+        </animated.p>
+        <animated.p
+          className="crash-location headline"
+          style={useCountdownStyle2}
+        >
           {useCountdownStyle2.number}
-        </animated.h1>
-        <animated.h1 className="crash-location" style={useCountdownStyle1}>
+        </animated.p>
+        <animated.p
+          className="crash-location headline"
+          style={useCountdownStyle1}
+        >
           {useCountdownStyle1.number}
-        </animated.h1>
+        </animated.p>
         {/* type of matchup (drawing/story) */}
         <animated.div style={shiftUpStyle} className="resultsType">
-          <h1>{matchupType} Results...</h1>
+          <h2 className="headline">{matchupType} Results...</h2>
         </animated.div>
         {/* drawing back avatars to left & right: */}
         <animated.img
@@ -290,25 +299,28 @@ const FaceoffReveal = props => {
       {/* winner's name and points won: */}
       <div className="bottom-fixed">
         <div className="points-container">
-          <animated.h1 className="points" style={divAppearStyle1}>
+          <animated.p className="points headline" style={divAppearStyle1}>
             {divAppearStyle1.text}
-          </animated.h1>
-          <animated.h1 className="points" style={countPointsStyle}>
+          </animated.p>
+          <animated.p className="points headline" style={countPointsStyle}>
             {countPointsStyle.number.interpolate(val => Math.floor(val))}
-          </animated.h1>
-          <animated.h1 className="points padding" style={divAppearStyle2}>
+          </animated.p>
+          <animated.p
+            className="points padding headline"
+            style={divAppearStyle2}
+          >
             {divAppearStyle2.text}
-          </animated.h1>
+          </animated.p>
         </div>
         <div className="winner">
-          <animated.h1
-            className="winner-headline"
+          <animated.p
+            className="winner-headline headline"
             style={nameWinnerStyle}
             onClick={goBacktoMatchup}
           >
             {/* !!! THIS MUST BE CHANGED TO WINNER DYNAMIC INFO !!! (need to find out shape of that object) */}
             {userName}
-          </animated.h1>
+          </animated.p>
         </div>
       </div>
     </section>
