@@ -10,6 +10,7 @@
     justify-content: space-between;
     margin-bottom: 1rem;
   }
+  // uploaded filename
   .ant-upload-list-item-name {
     padding-top: 3.33rem;
     display: inline-block;
@@ -18,7 +19,10 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-size: 1.8rem;
+    font-weight: 500;
   }
+  // uploaded image thumbnail
   img {
     max-width: 9rem;
     border: 2px solid white;
@@ -26,6 +30,7 @@
     margin-right: 2rem;
     float: left;
   }
+  // replace default antDesign trashcan
   .ant-upload-list-item-card-actions-btn {
     border: none;
     background-color: $white;
@@ -46,12 +51,9 @@
   .ant-upload-list-item-info span {
     margin: 0;
   }
-  .ant-upload-list-item-name {
-    font-size: 1.8rem;
-    font-weight: 500;
-  }
 }
 
+// hide default preview icon
 .no-preview-icon {
   .anticon-eye {
     display: none;
@@ -81,6 +83,7 @@ p.small {
 }
 
 // Modal Styles
+// filter overlay
 .ant-modal-wrap {
   width: 100vw;
   height: 100vh;
@@ -89,9 +92,11 @@ p.small {
   z-index: 10;
   background: $black-filter;
 }
+// hide default header component
 .ant-modal-header {
   display: none;
 }
+// content & close button positioning
 .ant-modal-content {
   position: absolute;
   top: 3rem;
