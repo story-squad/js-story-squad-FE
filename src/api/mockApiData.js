@@ -35,7 +35,7 @@ const mockGetChildTeam = {
     SubmissionID: 1,
     ImgURL: 'https://picsum.photos/id/201/400',
     ChildName: 'Bettie',
-    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-9.svg',
+    AvatarURL: 'https://storysquad-main.s3.amazonaws.com/09.svg',
     Pages: [
       {
         PageURL: 'https://picsum.photos/id/1/400',
@@ -53,7 +53,7 @@ const mockGetChildTeam = {
     SubmissionID: 2,
     ImgURL: 'https://picsum.photos/id/202/400',
     ChildName: 'Krystel',
-    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
+    AvatarURL: 'https://storysquad-main.s3.amazonaws.com/05.svg',
     Pages: [
       {
         PageURL: 'https://picsum.photos/id/2/400',
@@ -93,7 +93,7 @@ const mockGetFaceoffsForMatchup = [
       ID: 1,
       Name: 'Bettie',
       ImgURL: 'https://picsum.photos/id/201/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-9.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/09.svg',
       Pages: [
         {
           PageNum: 1,
@@ -109,7 +109,7 @@ const mockGetFaceoffsForMatchup = [
       ID: 3,
       Name: 'Tavares',
       ImgURL: 'https://picsum.photos/id/203/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-1.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/01.svg',
       Pages: [
         {
           PageNum: 1,
@@ -139,7 +139,7 @@ const mockGetFaceoffsForMatchup = [
       ID: 1,
       Name: 'Bettie',
       ImgURL: 'https://picsum.photos/id/201/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-9.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/09.svg',
       Pages: [
         {
           PageNum: 1,
@@ -155,7 +155,7 @@ const mockGetFaceoffsForMatchup = [
       ID: 3,
       Name: 'Tavares',
       ImgURL: 'https://picsum.photos/id/203/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-1.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/01.svg',
       Pages: [
         {
           PageNum: 1,
@@ -182,7 +182,7 @@ const mockGetFaceoffsForMatchup = [
       ID: 2,
       Name: 'Krystel',
       ImgURL: 'https://picsum.photos/id/202/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/05.svg',
       Pages: [
         {
           PageNum: 1,
@@ -198,7 +198,7 @@ const mockGetFaceoffsForMatchup = [
       ID: 4,
       Name: 'Myrna',
       ImgURL: 'https://picsum.photos/id/204/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-8.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/08.svg',
       Pages: [
         {
           PageNum: 1,
@@ -225,7 +225,7 @@ const mockGetFaceoffsForMatchup = [
       ID: 2,
       Name: 'Krystel',
       ImgURL: 'https://picsum.photos/id/202/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/05.svg',
       Pages: [
         {
           PageNum: 1,
@@ -241,7 +241,7 @@ const mockGetFaceoffsForMatchup = [
       ID: 4,
       Name: 'Myrna',
       ImgURL: 'https://picsum.photos/id/204/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-8.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/08.svg',
       Pages: [
         {
           PageNum: 1,
@@ -282,7 +282,7 @@ const mockGetChild = {
   VotesRemaining: 3,
   Achievements: [],
   GradeLevel: '4',
-  AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-9.svg',
+  AvatarURL: 'https://storysquad-main.s3.amazonaws.com/09.svg',
 };
 
 const mockGetFaceoffsForVoting = [
@@ -300,7 +300,7 @@ const mockGetFaceoffsForVoting = [
       ID: 5,
       Name: 'Bryana',
       ImgURL: 'https://picsum.photos/id/205/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/05.svg',
       Pages: [
         {
           PageNum: 1,
@@ -316,7 +316,7 @@ const mockGetFaceoffsForVoting = [
       ID: 7,
       Name: 'Hailee',
       ImgURL: 'https://picsum.photos/id/207/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-6.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/06.svg',
       Pages: [
         {
           PageNum: 1,
@@ -343,7 +343,7 @@ const mockGetFaceoffsForVoting = [
       ID: 5,
       Name: 'Bryana',
       ImgURL: 'https://picsum.photos/id/205/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/05.svg',
       Pages: [
         {
           PageNum: 1,
@@ -359,7 +359,7 @@ const mockGetFaceoffsForVoting = [
       ID: 7,
       Name: 'Hailee',
       ImgURL: 'https://picsum.photos/id/207/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-6.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/06.svg',
       Pages: [
         {
           PageNum: 1,
@@ -386,7 +386,7 @@ const mockGetFaceoffsForVoting = [
       ID: 6,
       Name: 'Chance',
       ImgURL: 'https://picsum.photos/id/206/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-3.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/03.svg',
       Pages: [
         {
           PageNum: 1,
@@ -402,7 +402,7 @@ const mockGetFaceoffsForVoting = [
       ID: 8,
       Name: 'Catalina',
       ImgURL: 'https://picsum.photos/id/208/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-4.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/04.svg',
       Pages: [
         {
           PageNum: 1,
@@ -429,7 +429,7 @@ const mockGetFaceoffsForVoting = [
       ID: 6,
       Name: 'Chance',
       ImgURL: 'https://picsum.photos/id/206/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-3.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/03.svg',
       Pages: [
         {
           PageNum: 1,
@@ -445,7 +445,7 @@ const mockGetFaceoffsForVoting = [
       ID: 8,
       Name: 'Catalina',
       ImgURL: 'https://picsum.photos/id/208/400',
-      AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-4.svg',
+      AvatarURL: 'https://storysquad-main.s3.amazonaws.com/04.svg',
       Pages: [
         {
           PageNum: 1,
@@ -503,7 +503,7 @@ const mockGetProfileData = [
     Name: 'April',
     IsDyslexic: true,
     GradeLevel: '7',
-    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
+    AvatarURL: 'https://storysquad-main.s3.amazonaws.com/05.svg',
     CohortID: 2,
     ParentID: 1,
     type: 'Child',
@@ -514,7 +514,7 @@ const mockGetProfileData = [
     Name: 'Bettye',
     IsDyslexic: false,
     GradeLevel: '3',
-    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-3.svg',
+    AvatarURL: 'https://storysquad-main.s3.amazonaws.com/03.svg',
     CohortID: 2,
     ParentID: 1,
     type: 'Child',
@@ -525,7 +525,7 @@ const mockGetProfileData = [
     Name: 'Ellis',
     IsDyslexic: true,
     GradeLevel: '3',
-    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-6.svg',
+    AvatarURL: 'https://storysquad-main.s3.amazonaws.com/06.svg',
     CohortID: 3,
     ParentID: 1,
     type: 'Child',
@@ -536,7 +536,7 @@ const mockGetProfileData = [
     Name: 'Paula',
     IsDyslexic: false,
     GradeLevel: '3',
-    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-4.svg',
+    AvatarURL: 'https://storysquad-main.s3.amazonaws.com/04.svg',
     CohortID: 3,
     ParentID: 1,
     type: 'Child',
@@ -547,7 +547,7 @@ const mockGetProfileData = [
     Name: 'Kayleigh',
     IsDyslexic: false,
     GradeLevel: '8',
-    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-5.svg',
+    AvatarURL: 'https://storysquad-main.s3.amazonaws.com/05.svg',
     CohortID: 4,
     ParentID: 1,
     type: 'Child',
@@ -558,7 +558,7 @@ const mockGetProfileData = [
     Name: 'Johnathon',
     IsDyslexic: false,
     GradeLevel: '6',
-    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-7.svg',
+    AvatarURL: 'https://storysquad-main.s3.amazonaws.com/07.svg',
     CohortID: 4,
     ParentID: 1,
     type: 'Child',
@@ -569,7 +569,7 @@ const mockGetProfileData = [
     Name: 'Leopold',
     IsDyslexic: true,
     GradeLevel: '7',
-    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-1.svg',
+    AvatarURL: 'https://storysquad-main.s3.amazonaws.com/01.svg',
     CohortID: 1,
     ParentID: 1,
     type: 'Child',
@@ -580,7 +580,7 @@ const mockGetProfileData = [
     Name: 'Reinhold',
     IsDyslexic: true,
     GradeLevel: '4',
-    AvatarURL: 'https://labs28-b-storysquad.s3.amazonaws.com/hero-10.svg',
+    AvatarURL: 'https://storysquad-main.s3.amazonaws.com/10.svg',
     CohortID: 1,
     ParentID: 1,
     type: 'Child',

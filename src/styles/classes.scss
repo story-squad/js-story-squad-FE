@@ -6,6 +6,10 @@
   max-width: 71.6rem;
   min-height: 30rem;
   width: 100%;
+  @include tablet-below {
+    min-height: 15rem;
+    margin-bottom: 1.6rem;
+  }
   &.dark {
     background: $black-text;
     & > * {
@@ -14,12 +18,31 @@
   }
   &.shaped {
     clip-path: polygon(0.5% 0%, 95% 2%, 100% 94%, 0% 100%);
+    &.responsive-box {
+      @include tablet-below {
+        clip-path: none;
+        max-width: unset;
+        width: 100%;
+      }
+    }
   }
 }
 
 // wrap a .content-box.shaped with this to give it a shadow
 .shaped-shadow-container {
   filter: drop-shadow($size-shadow-large $gray);
+  @include tablet-below {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  &.responsive-box {
+    @include tablet-below {
+      margin-top: -3.6rem;
+      filter: none;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
 }
 
 .grid {
@@ -33,9 +56,17 @@
   &.grid-2-col {
     grid-template-columns: 40rem 40rem;
     column-gap: 4rem;
+    @include tablet-large-below {
+      grid-template-columns: 100%;
+      column-gap: none;
+      row-gap: 2rem;
+    }
     &.grid-small {
       grid-template-columns: 34.6rem 34.6rem;
       column-gap: 2rem;
+      @include tablet-large-below {
+        grid-template-columns: 48% 48%;
+      }
     }
   }
   &.grid-3-col {
@@ -50,6 +81,11 @@
   }
   &.align-center {
     align-items: center;
+  }
+  &.tablet-large-column {
+    @include tablet-large-below {
+      flex-direction: column;
+    }
   }
 }
 
@@ -166,6 +202,12 @@ button {
   }
 }
 
+p, span, li, button, input, label, a {
+  &.keep-font-size {
+    font-size: 2.6rem !important;
+  }
+}
+
 button {
   &.secondary {
     color: $black-text;
@@ -185,6 +227,10 @@ button {
     font-family: $font-display;
     letter-spacing: 0.18rem;
     font-weight: 400;
+    @include tablet-below {
+      height: 4rem;
+      letter-spacing: 0.1125rem;
+    }
   }
   &.full-width {
     width: 100%;

@@ -8,9 +8,16 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
+  @include tablet-below {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
   & * {
     font-size: 3.6rem;
     font-weight: 600;
+    @include tablet-below {
+      font-size: 2.2rem;
+    }
   }
   .off {
     filter: opacity(0.5);
@@ -26,6 +33,9 @@
     p {
       color: $black-text;
       margin: 0 0 -0.2rem;
+      @include tablet-below {
+        font-size: 2.8rem;
+      }
     }
   }
   .step-text {
@@ -42,14 +52,31 @@
   margin-bottom: 10rem;
   display: grid;
   grid-template-columns: 50% 50%;
+  @include tablet-below {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -2.4rem;
+    padding-top: 2.4rem;
+    margin-bottom: 0;
+  }
   div {
     max-width: 40rem;
   }
   .grid-left {
     justify-self: end;
     align-self: end;
+    @include tablet-below {
+      align-self: center;
+    }
   }
   .grid-right {
     padding-bottom: 2rem;
+  }
+  img.drawing-img {
+    margin-right: 6rem;
+    @include tablet-below {
+      margin-right: 0;
+    }
   }
 }
