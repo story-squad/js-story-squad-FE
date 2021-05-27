@@ -1,3 +1,25 @@
+// breakpoints
+
+@mixin tablet-below {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet-large-below {
+  @media (max-width: 840px) {
+    @content;
+  }
+}
+
+@mixin tablet-above {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+// styles
+
 @mixin border-large-square($color) {
   border: 7px solid $color;
   border-radius: 0;
@@ -9,6 +31,9 @@
 
 @mixin text-shadow($color: $black-brand) {
   text-shadow: $size-shadow $color;
+  @include tablet-below {
+    text-shadow: $size-shadow-small $color;
+  }
 }
 
 @mixin text-stroke($color: $black-brand) {

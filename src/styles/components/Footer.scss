@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 74vh;
+  min-height: 100vh;
 }
 
 footer {
@@ -19,17 +19,41 @@ footer {
     margin-top: 0;
   }
   .content {
-    width: 71.6rem;
+    max-width: 73.6rem;
+    padding: 0 2rem;
     margin: 0 auto;
     height: 100%;
   }
-  .content, nav ul {
+  .content,
+  nav ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  nav li {
-    margin-left: 2.4rem;
+  .content {
+    @include tablet-below {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  nav ul {
+    li {
+      margin-left: 2.4rem;
+    }
+    @include tablet-below {
+      padding: 0;
+      li {
+        margin: 0;
+      }
+      li:not(:last-of-type) {
+        margin: 0 2rem 0 0;
+      }
+    }
+  }
+  p {
+    @include tablet-below {
+      margin-bottom: 1.6rem;
+    }
   }
   a {
     text-decoration: underline;

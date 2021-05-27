@@ -16,7 +16,7 @@ const PointShareSubmission = ({
 }) => {
   return (
     <div className="point-share-submission">
-      <p className="font-display text-light">
+      <p className="font-display text-light keep-font-size">
         {submissionTypeText(submissionType)}
       </p>
       <SubmissionViewer src={imgUrl} />
