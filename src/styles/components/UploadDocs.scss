@@ -47,6 +47,7 @@
   }
   .ant-upload-list-item-name {
     font-size: 1.8rem;
+    font-weight:500;
   }
 }
 
@@ -64,6 +65,6 @@ p.small{
     font-size:2.6rem;
 }
 
-button{
+.uploadButton, .ant-btn-primary, .ant-btn-primary:disabled{
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), inset 0px 1px 2px rgba(0, 0, 0, 0.05);
 }
