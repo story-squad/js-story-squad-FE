@@ -111,30 +111,14 @@ h3 {
   margin: 2%;
 }
 
-p {
-  margin-top: -1.3rem;
-  margin-bottom: 0;
-  font-size: 3rem;
+.headline {
+  margin: 2rem 0 0;
   text-align: center;
-  &.text-light {
-    @include text-stroke($black-text);
-  }
-  &.text-dark {
-    @include text-stroke($white);
-  }
+  font-size: 7.2rem;
+  color: $white;
+  -webkit-text-stroke: 0.2rem $black-brand;
+  letter-spacing: 0.5rem;
+  font-family: $font-display;
+  font-weight: 400;
+  @include text-shadow;
 }
-
-@media only screen and(max-width: 400px) {
-  .bottom-fixed {
-    margin-top: 77vh;
-  }
-}
-
-// @media only screen and (max-width: 601px) {
-//   h1 {
-//     font-size: 3rem;
-//   }
-//   .winner-headline {
-//     font-size: 3rem;
-//   }
-// }
