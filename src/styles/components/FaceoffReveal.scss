@@ -36,6 +36,9 @@ h3 {
   justify-content: center;
   position: relative;
   height: 60vh;
+  @include tablet-large-below {
+    height: 60vh;
+  }
 }
 
 .move-left-move-right {
@@ -105,6 +108,9 @@ h3 {
   display: flex;
   justify-content: center;
   width: 23%;
+  @include tablet-large-below {
+    width: 50%;
+  }
 }
 
 .primary {

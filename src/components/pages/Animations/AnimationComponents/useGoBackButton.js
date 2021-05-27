@@ -11,7 +11,7 @@ const useGoBackButton = ref => {
       transform: desktopScreen
         ? 'translate3d(0%, 460%, 0px) scale(1)'
         : tabletScreen
-        ? 'translate3d(-300%, 2%, 0px) scale(1)'
+        ? 'translate3d(0%, 450%, 0px) scale(1)'
         : 'translate3d(-620%, 2%, 0px) scale(1)',
       position: 'absolute',
     },

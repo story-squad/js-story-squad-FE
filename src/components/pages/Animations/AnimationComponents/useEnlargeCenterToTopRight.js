@@ -19,7 +19,7 @@ const useEnlargeCenterToTopRight = ref => {
         transform: desktopScreen
           ? 'translate3d(150%, 0%, 0px) scale(4)'
           : tabletScreen
-          ? 'translate3d(0%, 400%, 0px) scale(3)'
+          ? 'translate3d(75%, 0%, 0px) scale(2)'
           : 'translate3d(0%, 0%, 0px) scale(4)',
       },
       {
@@ -27,7 +27,7 @@ const useEnlargeCenterToTopRight = ref => {
         transform: desktopScreen
           ? 'translate3d(150%, 0%, 0px) scale(4)'
           : tabletScreen
-          ? 'translate3d(0%, 400%, 0px) scale(3)'
+          ? 'translate3d(75%, 0%, 0px) scale(2)'
           : 'translate3d(0%, 0%, 0px) scale(4)',
       },
       {
@@ -35,7 +35,7 @@ const useEnlargeCenterToTopRight = ref => {
         transform: desktopScreen
           ? 'translate3d(300%, 0%, 0px) scale(4)'
           : tabletScreen
-          ? 'translate3d(0%, 400%, 0px) scale(3)'
+          ? 'translate3d(200%, 0%, 0px) scale(2)'
           : 'translate3d(0%, 0%, 0px) scale(4)',
       },
       {
@@ -43,7 +43,7 @@ const useEnlargeCenterToTopRight = ref => {
         transform: desktopScreen
           ? 'translate3d(500%, -250%, 0px) scale(1.5)'
           : tabletScreen
-          ? 'translate3d(-475%, 200%, 0px) scale(1.5)'
+          ? 'translate3d(300%, -200%, 0px) scale(1)'
           : 'translate3d(-550%, -250%, 0px) scale(1.5)',
       },
     ],

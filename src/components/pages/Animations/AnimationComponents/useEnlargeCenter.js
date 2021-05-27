@@ -4,7 +4,7 @@ import useMedia from '../AnimationMediaHelper/useMedia.js';
 // This is the crash image component
 const useEnlargeCenter = ref => {
   const desktopScreen = useMedia('(min-width:1440px)');
-  const tabletScreen = useMedia('(min-width:1024px)');
+  const tabletScreen = useMedia('(max-width:1024px)');
 
   const spring = useSpring({
     delay: 13900,
