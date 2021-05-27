@@ -9,7 +9,7 @@ const useGoBackButton = ref => {
     from: {
       opacity: 0,
       transform: desktopScreen
-        ? 'translate3d(0%, 475%, 0px) scale(1)'
+        ? 'translate3d(0%, 460%, 0px) scale(1)'
         : tabletScreen
         ? 'translate3d(-300%, 2%, 0px) scale(1)'
         : 'translate3d(-620%, 2%, 0px) scale(1)',
