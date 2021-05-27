@@ -10,7 +10,7 @@ const useRightDrawbackCrash = ref => {
     from: {
       opacity: 0,
       transform: desktopScreen
-        ? 'translate3d(4000%, 0%, 0px) scale(2.25)'
+        ? 'translate3d(600%, 0%, 0px) scale(2.25)'
         : tabletScreen
         ? 'translate3d(-5%, 18%, 0px) scale(1.5)'
         : 'translate3d(-5%, 23%, 0px) scale(1.5)',
@@ -19,7 +19,7 @@ const useRightDrawbackCrash = ref => {
       {
         opacity: 1,
         transform: desktopScreen
-          ? 'translate3d(4000%, 0%, 0px) scale(2.25)'
+          ? 'translate3d(600%, 0%, 0px) scale(2.25)'
           : tabletScreen
           ? 'translate3d(-300%, 18%, 0px) scale(1.5)'
           : 'translate3d(-300%, 23%, 0px) scale(1.5)',
