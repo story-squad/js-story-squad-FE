@@ -57,9 +57,10 @@ const PointShare = props => {
       />
       <div className="point-share">
         <div className="shaped-shadow-container">
-          <div className="content-box shaped dark">
+          <div className="content-box shaped dark center-content">
             <h2>Points Sharing</h2>
-            <p>This part should explain how it works</p>
+            <p>{modalInstructions.pointsSharingInstructions[0]}</p>
+            <p>{modalInstructions.pointsSharingInstructions[1]}</p>
           </div>
         </div>
         <ChildRow

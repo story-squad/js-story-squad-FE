@@ -7,11 +7,9 @@ const RenderVotingPage = props => {
       {console.log(props)}
       <div className="shaped-shadow-container">
         <div className="content-box dark shaped center-content">
-          <h2>Vote for Your Favorite Story</h2>
+          <h2>Other players’ fates are in your hands!</h2>
           <p>
-            Click the thumbnail to read each story and
-            <br />
-            react with emojis.
+            Read through each story and vote for your favorite as the winner.
           </p>
         </div>
       </div>
