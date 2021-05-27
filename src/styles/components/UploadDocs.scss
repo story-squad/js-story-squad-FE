@@ -36,7 +36,7 @@
     width: 5rem;
     height: 5rem;
     margin: 2rem 1rem 0 0;
-    box-shadow:none;
+    box-shadow: none;
     span {
       display: none;
     }
@@ -48,7 +48,7 @@
   }
   .ant-upload-list-item-name {
     font-size: 1.8rem;
-    font-weight:500;
+    font-weight: 500;
   }
 }
 
@@ -59,20 +59,52 @@
 }
 
 // Text and Button styles
-p.small, h2, button.span{
-    color:$black-border;
+p.small,
+h2,
+button.span {
+  color: $black-border;
 }
 
-p.small{
-    font-size:2.6rem;
+p.small {
+  font-size: 2.6rem;
 }
 
-.uploadButton, .ant-btn-primary, .ant-btn-primary:disabled{
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), inset 0px 1px 2px rgba(0, 0, 0, 0.05);
-    > * {
-        font-size:2rem;
-        background:none;
-    }
+.uploadButton,
+.ant-btn-primary,
+.ant-btn-primary:disabled {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0px 1px 2px rgba(0, 0, 0, 0.05);
+  > * {
+    font-size: 2rem;
+    background: none;
+  }
 }
 
 // Modal Styles
+.ant-modal-wrap {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background: $black-filter;
+}
+.ant-modal-header {
+  display: none;
+}
+.ant-modal-content {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  img {
+    max-width: 80vh;
+    margin: 0.3rem 0 0 0;
+  }
+  button {
+    margin: 0 0 0 1rem;
+  }
+}
