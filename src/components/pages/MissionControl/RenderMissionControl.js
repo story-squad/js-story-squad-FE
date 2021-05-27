@@ -89,8 +89,8 @@ const RenderMissionControl = props => {
         visible={showModal && instructionText?.header && instructionText?.text}
         handleOk={closeModal}
       />
-      <div className="shaped-shadow-container">
-        <div className="content-box shaped dark">
+      <div className="shaped-shadow-container responsive-box">
+        <div className="content-box responsive-box shaped dark">
           <h2 className="mission-header">Your Mission</h2>
           <ol className="mission-steps">
             <li className={stepLiClassName().read}>

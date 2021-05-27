@@ -38,34 +38,40 @@ const RenderMatchUp = props => {
         />
       )}
       <div className="matchup-container">
-        <div className="shaped-shadow-container">
-          <div className="content-box dark shaped center-content">
+        <div className="shaped-shadow-container responsive-box">
+          <div className="matchup-info content-box dark shaped center-content responsive-box">
             <h2>The Match Up</h2>
             <p>201 points to win</p>
-            <div className="flex space-between align-center margin-bottom-2">
+            <div className="flex space-between tablet-large-column align-center margin-bottom-2">
               {faceoffs.length === 4 && (
                 <>
-                  <ChildAvatar
-                    src={teams[1][0].AvatarURL}
-                    name={teams[1][0].Name}
-                    fontColor={'light'}
-                  />
-                  <ChildAvatar
-                    src={teams[1][1].AvatarURL}
-                    name={teams[1][1].Name}
-                    fontColor={'light'}
-                  />
-                  <p className="h2 text-light">VS</p>
-                  <ChildAvatar
-                    src={teams[2][0].AvatarURL}
-                    name={teams[2][0].Name}
-                    fontColor={'light'}
-                  />
-                  <ChildAvatar
-                    src={teams[2][1].AvatarURL}
-                    name={teams[2][1].Name}
-                    fontColor={'light'}
-                  />
+                  <div className="flex space-between align-center">
+                    <ChildAvatar
+                      src={teams[1][0].AvatarURL}
+                      name={teams[1][0].Name}
+                      fontColor={'light'}
+                    />
+                    <ChildAvatar
+                      src={teams[1][1].AvatarURL}
+                      name={teams[1][1].Name}
+                      fontColor={'light'}
+                    />
+                  </div>
+                  <div className="flex space-between align-center">
+                    <p className="h2 text-light">VS</p>
+                  </div>
+                  <div className="flex space-between align-center">
+                    <ChildAvatar
+                      src={teams[2][0].AvatarURL}
+                      name={teams[2][0].Name}
+                      fontColor={'light'}
+                    />
+                    <ChildAvatar
+                      src={teams[2][1].AvatarURL}
+                      name={teams[2][1].Name}
+                      fontColor={'light'}
+                    />
+                  </div>
                 </>
               )}
             </div>
