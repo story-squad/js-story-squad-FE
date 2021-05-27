@@ -1,3 +1,4 @@
+// Upload Preview Styles
 .ant-upload-list-picture-card {
   .ant-upload-list-item {
     background-color: $white;
@@ -57,6 +58,7 @@
   }
 }
 
+// Text and Button styles
 p.small, h2, button.span{
     color:$black-border;
 }
@@ -72,3 +74,5 @@ p.small{
         background:none;
     }
 }
+
+// Modal Styles
