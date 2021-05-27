@@ -8,11 +8,10 @@
       background-color: $white;
       border: 2px dashed $gray-text;
       border-radius: 8px;
-      margin-bottom: 2rem;
       padding: 1rem;
       display: flex;
       justify-content: space-between;
-      margin-bottom: 1rem;
+      margin-top:1rem;
     }
     // uploaded filename
     .ant-upload-list-item-name {
@@ -48,47 +47,52 @@
         display: none;
       }
     }
-    .ant-upload-list-item-actions,
-    .ant-upload-list-item-thumbnail,
-    .ant-upload-list-item-info span {
-      margin: 0;
-    }
   }
-  
   // hide default preview icon
   .no-preview-icon {
     .anticon-eye {
       display: none;
     }
   }
-  
   // Text and Button styles
+  p.small,
+  h2,
+  button.span {
+    color: $black-border;
+  }
+  p.small {
+    font-size: 2.6rem;
+  }
   button{
     height: 5rem;
     span {
       font-size: 2rem;
     }
   }
-  
-  p.small,
-  h2,
-  button.span {
-    color: $black-border;
-  }
-  
-  p.small {
-    font-size: 2.6rem;
-  }
-  
+  // Button shadows
+  // Fix background overflow
   .uploadButton,
   .ant-btn-primary,
   .ant-btn-primary:disabled {
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1),
       inset 0px 1px 2px rgba(0, 0, 0, 0.05);
     > * {
-      font-size: 2rem;
-      background: none;
+      background-color:transparent;
     }
+  }
+  // add more uploads button
+  .add-more-uploads{
+    background-color:transparent;
+    font-size:2rem;
+    padding-left:2.5rem;
+    box-shadow:none;
+    border:none;
+    margin-bottom:3rem;
+    background-image:url('../../assets/icons/plus.svg');
+    background-repeat:no-repeat;
+    background-size: 2.4rem;
+    background-position-y: 1.2rem;
+    background-position-x: 0rem;
   }
 }
 // The upload component is using the antDesign modal

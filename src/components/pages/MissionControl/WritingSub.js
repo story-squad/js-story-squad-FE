@@ -20,8 +20,8 @@ export const WritingSub = props => {
         <p className="small">{props.tasks.story.writingPrompt}</p>
         <div className="upload-docs">
           <UploadDocs
-            uploadButtonText="Upload Story"
-            uploadButtonClassname="uploadButton"
+            uploadButtonText="Add more images"
+            uploadButtonClassname="uploadButton add-more-uploads"
             fileName="pages"
             apiAxios={postNewWritingSub}
             submissionId={props.tasks.id}

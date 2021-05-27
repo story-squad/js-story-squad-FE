@@ -19,8 +19,8 @@ export const DrawingSub = props => {
         <p className="small">Draw your favorite part of the story.</p>
         <div className="upload-docs">
           <UploadDocs
-            uploadButtonText="Upload Drawing"
-            uploadButtonClassname="uploadButton"
+            uploadButtonText="Add more images"
+            uploadButtonClassname="uploadButton add-more-uploads"
             fileName="drawing"
             apiAxios={postNewDrawingSub}
             submissionId={props.tasks.id}
