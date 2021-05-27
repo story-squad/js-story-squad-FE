@@ -1,115 +1,127 @@
-// Upload Preview Styles
-.ant-upload-list-picture-card {
-  .ant-upload-list-item {
-    background-color: $white;
-    border: 2px dashed $gray-text;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+.upload-docs{
+  // Upload Preview Styles
+  .ant-upload-list-picture-card {
+    
+    .ant-upload-list-item {
+      height:8rem;
+      background-color: $white;
+      border: 2px dashed $gray-text;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    // uploaded filename
+    .ant-upload-list-item-name {
+      padding-top: 1.7rem;
+      display: inline-block;
+      width: 20rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+    // uploaded image thumbnail
+    img {
+      max-width: 5.7rem;
+      border: 2px solid white;
+      border-radius: 50%;
+      margin: 0 2rem 0 0;
+      float: left;
+    }
+    // replace default antDesign trashcan
+    .ant-upload-list-item-card-actions-btn {
+      border: none;
+      background-color: $white;
+      background-image: url('../../assets/icons/trash-2.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 3rem;
+      height: 3rem;
+      margin: 1rem 0 0 1rem;
+      box-shadow: none;
+      span {
+        display: none;
+      }
+    }
+    .ant-upload-list-item-actions,
+    .ant-upload-list-item-thumbnail,
+    .ant-upload-list-item-info span {
+      margin: 0;
+    }
   }
-  // uploaded filename
-  .ant-upload-list-item-name {
-    padding-top: 3.33rem;
-    display: inline-block;
-    width: 20rem;
-    height: 8.4rem;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: 1.8rem;
-    font-weight: 500;
-  }
-  // uploaded image thumbnail
-  img {
-    max-width: 9rem;
-    border: 2px solid white;
-    border-radius: 50%;
-    margin-right: 2rem;
-    float: left;
-  }
-  // replace default antDesign trashcan
-  .ant-upload-list-item-card-actions-btn {
-    border: none;
-    background-color: $white;
-    margin: 0 0 0 1rem;
-    background-image: url('../../assets/icons/trash-2.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 5rem;
-    height: 5rem;
-    margin: 2rem 1rem 0 0;
-    box-shadow: none;
-    span {
+  
+  // hide default preview icon
+  .no-preview-icon {
+    .anticon-eye {
       display: none;
     }
   }
-  .ant-upload-list-item-actions,
-  .ant-upload-list-item-thumbnail,
-  .ant-upload-list-item-info span {
-    margin: 0;
+  
+  // Text and Button styles
+  button{
+    height: 5rem;
+    span {
+      font-size: 2rem;
+    }
+  }
+  
+  p.small,
+  h2,
+  button.span {
+    color: $black-border;
+  }
+  
+  p.small {
+    font-size: 2.6rem;
+  }
+  
+  .uploadButton,
+  .ant-btn-primary,
+  .ant-btn-primary:disabled {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1),
+      inset 0px 1px 2px rgba(0, 0, 0, 0.05);
+    > * {
+      font-size: 2rem;
+      background: none;
+    }
   }
 }
-
-// hide default preview icon
-.no-preview-icon {
-  .anticon-eye {
+// The upload component is using the antDesign modal
+// The styles are copied from SubmissionViewer modal
+.ant-modal-root{
+  // Modal Styles
+  // filter overlay
+  .ant-modal-wrap {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background: $black-filter;
+  }
+  // hide default header component
+  .ant-modal-header {
     display: none;
   }
-}
-
-// Text and Button styles
-p.small,
-h2,
-button.span {
-  color: $black-border;
-}
-
-p.small {
-  font-size: 2.6rem;
-}
-
-.uploadButton,
-.ant-btn-primary,
-.ant-btn-primary:disabled {
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1),
-    inset 0px 1px 2px rgba(0, 0, 0, 0.05);
-  > * {
-    font-size: 2rem;
-    background: none;
-  }
-}
-
-// Modal Styles
-// filter overlay
-.ant-modal-wrap {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  z-index: 10;
-  background: $black-filter;
-}
-// hide default header component
-.ant-modal-header {
-  display: none;
-}
-// content & close button positioning
-.ant-modal-content {
-  position: absolute;
-  top: 3rem;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  img {
-    max-width: 80vh;
-    margin: 0.3rem 0 0 0;
-  }
-  button {
-    margin: 0 0 0 1rem;
+  // content & close button positioning
+  .ant-modal-content {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    img {
+      max-width: 80vh;
+      margin: 0.3rem 0 0 0;
+    }
+    button {
+      margin: 0 0 0 1rem;
+    }
   }
 }
