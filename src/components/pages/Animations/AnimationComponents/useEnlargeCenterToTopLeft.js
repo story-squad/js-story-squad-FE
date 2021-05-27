@@ -30,26 +30,7 @@ const useEnlargeCenterToTopLeft = ref => {
           ? 'translate3d(0%, 400%, 0px) scale(3)'
           : 'translate3d(0%, 0%, 0px) scale(4)',
       },
-      // {
-      //   // config: { duration: 1500 },
-      //   opacity: 1,
-      //   transform: desktopScreen
-      //     ? 'translate3d(-100%, 0%, 0px) scale(4)'
-      //     : tabletScreen
-      //     ? 'translate3d(0%, 400%, 0px) scale(3)'
-      //     : 'translate3d(0%, 0%, 0px) scale(4)',
-      // },
-      // {
-      //   config: { duration: 500 },
-      //   opacity: 1,
-      //   transform: desktopScreen
-      //     ? 'translate3d(-100%, 0%, 0px) scale(4)'
-      //     : tabletScreen
-      //     ? 'translate3d(0%, 400%, 0px) scale(3)'
-      //     : 'translate3d(0%, 0%, 0px) scale(4)',
-      // },
       {
-        // config: { duration: 1500 },
         opacity: 1,
         transform: desktopScreen
           ? 'translate3d(-300%, 0%, 0px) scale(4)'
@@ -57,15 +38,6 @@ const useEnlargeCenterToTopLeft = ref => {
           ? 'translate3d(0%, 400%, 0px) scale(3)'
           : 'translate3d(0%, 0%, 0px) scale(4)',
       },
-      // {
-      //   // config: { duration: 1500 },
-      //   opacity: 1,
-      //   transform: desktopScreen
-      //     ? 'translate3d(-500%, 0%, 0px) scale(4)'
-      //     : tabletScreen
-      //     ? 'translate3d(0%, 400%, 0px) scale(3)'
-      //     : 'translate3d(0%, 0%, 0px) scale(4)',
-      // },
       {
         opacity: 1,
         transform: desktopScreen
@@ -74,10 +46,6 @@ const useEnlargeCenterToTopLeft = ref => {
           ? 'translate3d(-475%, 200%, 0px) scale(1.5)'
           : 'translate3d(-550%, -250%, 0px) scale(1.5)',
       },
-      // {
-      //   config: { duration: 2800 },
-      //   opacity: 1,
-      // },
     ],
     ref: ref,
   });
