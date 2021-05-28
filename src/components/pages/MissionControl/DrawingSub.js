@@ -15,8 +15,13 @@ export const DrawingSub = props => {
         <img className="drawing-img" alt="child superhero making a drawing" />
       </div>
       <div className="grid-right">
-        <h2 className="text-align-left">Pencils Ready!</h2>
-        <p className="small">Draw your favorite part of the story.</p>
+        <h2 className="text-align-left small">Instructions</h2>
+        <p className="small">
+          With your paper and pencil, draw your favorite scene from the story
+          you just read. Make sure you write a caption describing which part of
+          the story you chose to draw. When you're finished, snap a photo and
+          upload your masterpiece!
+        </p>
         <div className="upload-docs">
           <UploadDocs
             uploadButtonText="Add more images"

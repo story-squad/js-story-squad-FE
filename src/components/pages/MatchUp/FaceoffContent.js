@@ -17,7 +17,7 @@ const FaceoffContent = props => {
 
   const revealWinner = () => {
     setToggle(true);
-    history.push('/scoreboard', {
+    history.push('/scoreboard/#big-reveal', {
       dynamicInfo: props.content,
       backgroundColor: props.backgroundColor,
     });

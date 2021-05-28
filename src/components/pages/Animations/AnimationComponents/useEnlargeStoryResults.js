@@ -9,7 +9,7 @@ const useEnlargeStoryResults = ref => {
     },
     to: {
       opacity: 1,
-      transform: 'translate3d(0%, 5%, 0px) scale(1)',
+      transform: 'translate3d(0%, -100%, 0px) scale(1)',
     },
     ref: ref,
   });
