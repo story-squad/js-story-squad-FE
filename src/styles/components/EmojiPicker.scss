@@ -1,5 +1,8 @@
 .emoji-picker {
   position: relative;
+  @include tablet-below-wh {
+    position: unset;
+  }
   .selected-emojis {
     margin: 0 auto 2rem;
     background: $white;
@@ -46,38 +49,72 @@
     justify-content: center;
     z-index: 2;
     bottom: 6rem;
+    @include tablet-below-wh {
+      bottom: 0;
+      left: 0;
+    }
   }
   .emoji-keyboard-container {
-    padding: 6.4rem;
+    padding: 6.4rem 0;
     width: 71.6rem;
     height: 77.3rem;
     background: $black-text;
     border-radius: 1.6rem;
-    @include tablet-below {
-      overflow-y: scroll;
+    @include tablet-below-wh {
+      padding: 3.2rem 0;
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
     }
   }
   .emoji-keyboard {
     margin-bottom: 6.4rem;
+    padding: 0 6.4rem;
+    max-height: 100vh;
     display: grid;
     gap: 1.5rem 2.7rem;
     grid-template-columns: repeat(8, 5rem);
     grid-template-rows: repeat(8, 5rem);
-    @include tablet-below {
+    @include tablet-below-wh {
+      padding: 0 3.2rem;
       display: flex;
       flex-wrap: wrap;
+      justify-content: flex-start;
       gap: 1rem 1rem;
-      margin: 0 auto 2rem;
+      margin: 0;
+      padding-bottom: 16rem;
+      overflow-y: scroll;
     }
   }
   .done-button-container {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    height: 8rem;
+    background: $black-text;
+    @include tablet-below-wh {
+      position: fixed;
+    }
+    @include mobile-below {
+      flex-direction: column;
+      height: 12rem;
+      padding: 1rem 2rem;
+    }
+    .selected-emojis {
+      max-width: 40rem;
+      margin: 0 2rem;
+      @include tablet-above-wh {
+        display: none;
+      }
+      @include mobile-below {
+        margin-bottom: 1rem;
+      }
+    }
   }
   .done-button {
-    width: 26rem;
-    height: 7rem;
+    margin: 0 2rem 0 0;
   }
 }
 
@@ -88,8 +125,8 @@
   padding: 0;
   font-size: 2.8rem;
   border: 0.3rem solid $aqua-light;
-  @include tablet-below {
-    margin: 1rem auto 0;
+  @include tablet-below-wh {
+    margin: 1rem 0 0;
   }
   &.selected {
     background: $white;
