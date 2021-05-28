@@ -55,8 +55,17 @@ const EmojiPicker = props => {
               ))}
             </div>
             <div className="done-button-container">
+              <div className="selected-emojis">
+                {selectedEmojis.map((emoji, i) => (
+                  <Emoji
+                    key={i}
+                    emoji={emoji}
+                    handleClick={handleRemoveEmoji}
+                  />
+                ))}
+              </div>
               <button
-                className="done-button font-size-32"
+                className="done-button small"
                 onClick={handleKeyboardVisible}
               >
                 Done
