@@ -125,6 +125,7 @@ export const UploadDocs = ({
           onPreview={handlePreview}
           onChange={handleChange}
           multiple={true}
+          className="no-preview-icon"
         >
           <Button className={uploadButtonClassname}>{uploadButtonText}</Button>
         </Upload>

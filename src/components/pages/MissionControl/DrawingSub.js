@@ -22,17 +22,19 @@ export const DrawingSub = props => {
           the story you chose to draw. When you're finished, snap a photo and
           upload your masterpiece!
         </p>
-        <UploadDocs
-          uploadButtonText="Upload Drawing"
-          uploadButtonClassname="uploadButton"
-          fileName="drawing"
-          apiAxios={postNewDrawingSub}
-          submissionId={props.tasks.id}
-          storyId={props.tasks.story_id}
-          setSubmitted={props.setHasDrawn}
-          maxLength={1}
-          handleSubmit={handleSubmit}
-        />
+        <div className="upload-docs">
+          <UploadDocs
+            uploadButtonText="Add more images"
+            uploadButtonClassname="uploadButton add-more-uploads"
+            fileName="drawing"
+            apiAxios={postNewDrawingSub}
+            submissionId={props.tasks.id}
+            storyId={props.tasks.story_id}
+            setSubmitted={props.setHasDrawn}
+            maxLength={1}
+            handleSubmit={handleSubmit}
+          />
+        </div>
       </div>
     </div>
   );

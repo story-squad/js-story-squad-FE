@@ -23,17 +23,19 @@ export const WritingSub = props => {
         </p>
         <h2 className="text-align-left small">Prompt</h2>
         <p className="small">{props.tasks.story.writingPrompt}</p>
-        <UploadDocs
-          uploadButtonText="Upload Story"
-          uploadButtonClassname="uploadButton"
-          fileName="pages"
-          apiAxios={postNewWritingSub}
-          submissionId={props.tasks.id}
-          storyId={props.tasks.story_id}
-          setSubmitted={props.setHasWritten}
-          maxLength={5}
-          handleSubmit={handleSubmit}
-        />
+        <div className="upload-docs">
+          <UploadDocs
+            uploadButtonText="Add more images"
+            uploadButtonClassname="uploadButton add-more-uploads"
+            fileName="pages"
+            apiAxios={postNewWritingSub}
+            submissionId={props.tasks.id}
+            storyId={props.tasks.story_id}
+            setSubmitted={props.setHasWritten}
+            maxLength={5}
+            handleSubmit={handleSubmit}
+          />
+        </div>
       </div>
     </div>
   );
