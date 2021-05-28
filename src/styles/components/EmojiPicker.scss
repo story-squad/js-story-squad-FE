@@ -128,7 +128,7 @@
   @include tablet-below-wh {
     margin: 1rem 0 0;
   }
-  &.selected {
+  &:active {
     background: $white;
   }
 }
