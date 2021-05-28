@@ -80,6 +80,14 @@
       background-color: transparent;
     }
   }
+  // vertical align antd button text
+  .ant-btn-primary {
+    display: flex;
+    align-items: center;
+    span {
+      margin: 0;
+    }
+  }
   // add more uploads button
   .add-more-uploads {
     background-color: transparent;
