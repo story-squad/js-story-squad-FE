@@ -280,21 +280,6 @@ const FaceoffReveal = props => {
       >
         <ChildAvatar src={opponentAvatar} name={opponentName} />
       </animated.div>
-      <animated.div
-        style={goBackButtonStyle}
-        className="go-back-button outlined font-display text-dark"
-      >
-        <Button
-          handleClick={goBacktoMatchup}
-          buttonText={'go back'}
-          className="animation-buttons"
-        />
-        <Button
-          handleClick={replayMatchup}
-          buttonText={'replay'}
-          className="animation-buttons"
-        />
-      </animated.div>
 
       {/* winner's name and points won: */}
       <div className="bottom-fixed">
@@ -321,6 +306,20 @@ const FaceoffReveal = props => {
             {/* !!! THIS MUST BE CHANGED TO WINNER DYNAMIC INFO !!! (need to find out shape of that object) */}
             {userName}
           </animated.p>
+        </div>
+        <div className="go-back-button outlined font-display text-dark">
+          <animated.div style={goBackButtonStyle} className="flex-center">
+            <Button
+              handleClick={goBacktoMatchup}
+              buttonText={'go back'}
+              className="animation-buttons"
+            />
+            <Button
+              handleClick={replayMatchup}
+              buttonText={'replay'}
+              className="animation-buttons"
+            />
+          </animated.div>
         </div>
       </div>
     </section>
