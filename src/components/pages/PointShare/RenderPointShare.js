@@ -67,7 +67,7 @@ const PointShare = props => {
               submissions. The squad's submission with the highest points will
               battle against your opponents' highest point submission.<br></br>
               <br></br>Whichever one wins the popular vote wins the points for
-              the battle!
+              each battle!
             </p>
           </div>
         </div>
