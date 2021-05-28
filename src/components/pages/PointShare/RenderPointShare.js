@@ -59,7 +59,16 @@ const PointShare = props => {
         <div className="shaped-shadow-container">
           <div className="content-box shaped dark">
             <h2>Points Sharing</h2>
-            <p>This part should explain how it works</p>
+            <p>
+              You have 100 points to share between your squad's submissions.
+              Assign up to 70 points on any single submission (but every
+              submission must have at least 10 points assigned to it).<br></br>
+              <br></br>Your squad mate will also assign points to their favorite
+              submissions. The squad's submission with the highest points will
+              battle against your opponents' highest point submission.<br></br>
+              <br></br>Whichever one wins the popular vote wins the points for
+              the battle!
+            </p>
           </div>
         </div>
         <ChildRow
