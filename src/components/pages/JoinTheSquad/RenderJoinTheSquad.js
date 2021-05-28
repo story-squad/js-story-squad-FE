@@ -1,104 +1,22 @@
-import React, { useEffect } from 'react';
-import { Header } from '../../common';
-import { Col, Button } from 'antd';
-import { useHistory } from 'react-router-dom';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
-import Squadup from '../../../assets/images/Squadup.svg';
-import wordBubble from '../../../assets/images/match_up_images/wordbubble.svg';
-import wordBubbleright from '../../../assets/images/match_up_images/wordBubbleright.svg';
-import { getChildTeam } from '../../../api';
-import { connect } from 'react-redux';
-import { child } from '../../../state/actions';
+import React from 'react';
+import { useHistory } from 'react-router';
+import RenderChild from './RenderChild';
 
 const RenderJoinTheSquad = props => {
   const { push } = useHistory();
-  const { authState } = useOktaAuth();
-
-  useEffect(() => {
-    getChildTeam(authState, props.child.id).then(res => {
-      props.setMemberId(res[props.child.id]);
-      props.setTeamSubmissions(res);
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authState]);
-
-  const teamVote = e => {
-    push('/child/point-share');
-  };
-  const home = e => {
-    push('/child/dashboard');
-  };
 
   return (
-    <>
-      <Header title="JOIN THE SQUAD" displayMenu={true} />
-      <div className="JoinSquadContainer">
-        <Col className="joinSquad1" xs={24} sm={12}>
-          <div className="imgContain1">
-            <p className="text">
-              Hi! <br></br>My name is {props.team.child1.ChildName}!
-            </p>
-            <img
-              className="wordBubble"
-              src={wordBubbleright}
-              alt="word bubble"
-            />
-            <img
-              className="star"
-              src={Squadup}
-              alt="Blast Character Background"
-            />
-
-            <img
-              className="child1-avatar"
-              src={props.team.child1.AvatarURL}
-              alt="Child 1 Avatar"
-            />
-          </div>
-          <Button className="back-button" onClick={home}>
-            Back
-          </Button>
-        </Col>
-        <Col className="joinSquad2" xs={24} sm={12}>
-          <div className="imgContain2">
-            <p className="text2">
-              Hi! <br></br>My name is {props.team.child2.ChildName}!
-            </p>
-            <img className="wordBubble2" src={wordBubble} alt="word bubble" />
-            <img
-              className="star"
-              src={Squadup}
-              alt="Blast Character Background"
-            />
-            <img
-              className="child2-avatar"
-              src={props.team.child2.AvatarURL}
-              alt="User's Avatar"
-            />
-          </div>
-          <div className="button">
-            <Button
-              selection="#eb7d5bbb"
-              className="sharePoints"
-              type="primary"
-              size="large"
-              onClick={teamVote}
-            >
-              Share Points
-            </Button>
-          </div>
-        </Col>
+    <div className="bg-dark full-page join-squad">
+      <div className="content-box">
+        <h2 className="text-light">Join Your Squad</h2>
+        <RenderChild child={props.team.child1} childNum={1} />
+        <RenderChild child={props.team.child2} childNum={2} />
       </div>
-    </>
+      <div className="center-content">
+        <button onClick={() => push('/child/point-share')}>Let's play!</button>
+      </div>
+    </div>
   );
 };
 
-export default connect(
-  state => ({
-    team: state.team,
-    child: state.child,
-  }),
-  {
-    setMemberId: child.setMemberId,
-  }
-)(RenderJoinTheSquad);
+export default RenderJoinTheSquad;

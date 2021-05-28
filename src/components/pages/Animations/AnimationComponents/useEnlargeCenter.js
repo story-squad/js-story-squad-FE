@@ -3,15 +3,16 @@ import useMedia from '../AnimationMediaHelper/useMedia.js';
 
 // This is the crash image component
 const useEnlargeCenter = ref => {
-  const phoneScreen = useMedia('(max-width:600px)');
-  const tabletScreen = useMedia('(min-width:601px)');
+  const desktopScreen = useMedia('(min-width:1440px)');
+  const tabletScreen = useMedia('(max-width:1024px)');
 
   const spring = useSpring({
     delay: 13900,
+    config: { mass: 100, tension: 10000, friction: 200 },
     from: {
       opacity: 0,
-      transform: phoneScreen
-        ? 'translate3d(0%, -35%, 0px) scale(1)'
+      transform: desktopScreen
+        ? 'translate3d(0%, 50%, 0px) scale(1)'
         : tabletScreen
         ? 'translate3d(0%, -35%, 0px) scale(1)'
         : 'translate3d(0%, -35%, 0px) scale(1)',
@@ -19,19 +20,19 @@ const useEnlargeCenter = ref => {
     to: [
       {
         opacity: 1,
-        transform: phoneScreen
-          ? 'translate3d(0%, -35%, 0px) scale(5)'
+        transform: desktopScreen
+          ? 'translate3d(0%, 30%, 0px) scale(7)'
           : tabletScreen
           ? 'translate3d(0%, -35%, 0px) scale(6)'
-          : 'translate3d(0%, -35%, 0px) scale(6)',
+          : 'translate3d(0%, 0%, 0px) scale(6)',
       },
       {
         opacity: 1,
-        transform: phoneScreen
-          ? 'translate3d(0%, -35%, 0px) scale(3)'
+        transform: desktopScreen
+          ? 'translate3d(0%, 30%, 0px) scale(5)'
           : tabletScreen
           ? 'translate3d(0%, -35%, 0px) scale(5)'
-          : 'translate3d(0%, -35%, 0px) scale(5)',
+          : 'translate3d(0%, 10000%, 0px) scale(8)',
       },
     ],
     ref: ref,

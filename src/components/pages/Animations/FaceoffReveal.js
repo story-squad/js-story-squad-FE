@@ -15,15 +15,17 @@ import useNameWinner from './AnimationComponents/useNameWinner';
 import useDivAppear from './AnimationComponents/useDivAppear';
 import useCounter from './AnimationComponents/useCounter';
 import useGoBackButton from './AnimationComponents/useGoBackButton';
+import { ChildAvatar, Button } from '../../common';
 
 const FaceoffReveal = props => {
-  const setToggle = props.setToggle;
   // we need to bring in faceoff data from FaceoffContent / FaceoffSubDisplay
   console.log(
     'animation background color:',
     props.history.location.state.backgroundColor
   );
   const dynamicInfo = props.history.location.state.dynamicInfo;
+
+  console.log('dynamicInfo:', dynamicInfo);
 
   const history = useHistory();
   // determine screen size to adjust image height
@@ -39,6 +41,9 @@ const FaceoffReveal = props => {
   let userAvatar = dynamicInfo.Submission1.AvatarURL;
   let opponentAvatar = dynamicInfo.Submission2.AvatarURL;
   // winnerUserName will be determined by "dynamicInfo.Winner"
+  let userName = dynamicInfo.Submission1.Name;
+  let opponentName = dynamicInfo.Submission2.Name;
+  console.log('userName', userName, opponentName);
   let winnerUserName = 'CAT-LADY';
   let pointsAwarded = dynamicInfo.Points;
   // dynamicBackgroundColor will be determined by which matchup is being animated--
@@ -72,7 +77,7 @@ const FaceoffReveal = props => {
     vsHeight = 40;
   } else {
     topAvatarHeight = 60;
-    crashAvatarHeight = 120;
+    crashAvatarHeight = 180;
     crashImageSize = 130;
     winnerImageSize = 180;
     vsHeight = 40;
@@ -141,7 +146,7 @@ const FaceoffReveal = props => {
   const countPointsStyle = useCounter(countPointsRef, pointsAwarded);
   // POINT DIV APPEAR HOOKS
   const divAppearStyle1 = useDivAppear(plusAppearRef, '+');
-  const divAppearStyle2 = useDivAppear(textAppearRef, 'points!');
+  const divAppearStyle2 = useDivAppear(textAppearRef, ` points!`);
   // NAME WINNER HOOK
   const nameWinnerStyle = useNameWinner(nameWinnerRef);
   // GO BACK BUTTON HOOK
@@ -192,107 +197,134 @@ const FaceoffReveal = props => {
     history.push('/child/match-up');
   };
 
+  const replayMatchup = event => {
+    window.location.reload();
+  };
+
   return (
-    <div
-      className="FaceoffReveal"
-      style={{ backgroundColor: dynamicBackgroundColor }}
-    >
-      <div className="fixed-box">
-        <animated.h1 className="crash-location" style={useCountdownStyle3}>
-          {useCountdownStyle3.number}
-        </animated.h1>
-        <animated.h1 className="crash-location" style={useCountdownStyle2}>
-          {useCountdownStyle2.number}
-        </animated.h1>
-        <animated.h1 className="crash-location" style={useCountdownStyle1}>
-          {useCountdownStyle1.number}
-        </animated.h1>
-        {/* type of matchup (drawing/story) */}
-        <animated.h1 style={shiftUpStyle} className="resultsType">
-          {matchupType} Results...
-        </animated.h1>
-        {/* drawing back avatars to left & right: */}
-        <animated.img
-          className="crash-location"
-          style={useLeftDrawbackCrashStyle}
-          src={userAvatar}
-          height={crashAvatarHeight}
-        />
-
-        <animated.img
-          className="crash-location"
-          style={useRightDrawbackCrashStyle}
-          src={opponentAvatar}
-          height={crashAvatarHeight}
-        />
-        {/* crash image: */}
-        <animated.img
-          className="crash-location"
-          style={enlargeCenterStyle}
-          src="/animation/crashSmallCrash.svg"
-          height={crashImageSize}
-        />
-        {/* winner's image: */}
-        <animated.img
-          className="crash-location"
-          src="/animation/Hero8.png"
-          alt="me"
-          height={winnerImageSize}
-          style={upFromBottomStyle}
-        />
-        {/* lightning bolt VS */}
-        <animated.img
-          className="vs"
-          style={enlargeVSStyle}
-          src="/animation/VS.png"
-          height={vsHeight}
-        />
-      </div>
-      {/* intial avatar images to display at top: */}
-      <animated.img
-        className="move-left-move-right"
-        style={enlargeMoveLeftStyle}
-        src={userAvatar}
-        height={topAvatarHeight}
-      />
-      <animated.img
-        className="move-left-move-right"
-        style={enlargeMoveRightStyle}
-        src={opponentAvatar}
-        height={topAvatarHeight}
-      />
-      <animated.h2
-        style={goBackButtonStyle}
-        onClick={goBacktoMatchup}
-        className="go-back-button"
+    <section className="reveal-parent">
+      <div
+        id="big-reveal"
+        className={`FaceoffReveal bg-${dynamicBackgroundColor} full-page`}
       >
-        go back
-      </animated.h2>
-
-      {/* winner's name and points won: */}
-      <div className="bottom-fixed">
-        <div className="points-container">
-          <animated.h1 className="points" style={divAppearStyle1}>
-            {divAppearStyle1.text}
-          </animated.h1>
-          <animated.h1 className="points" style={countPointsStyle}>
-            {countPointsStyle.number.interpolate(val => Math.floor(val))}
-          </animated.h1>
-          <animated.h1 className="points" style={divAppearStyle2}>
-            {divAppearStyle2.text}
-          </animated.h1>
-        </div>
-        <div className="winner">
-          <animated.h1
-            className="winner-headline"
-            style={nameWinnerStyle}
-            onClick={goBacktoMatchup}
+        <div className="fixed-box">
+          <animated.p
+            className="crash-location headline"
+            style={useCountdownStyle3}
           >
-            {winnerUserName}
-          </animated.h1>
+            {useCountdownStyle3.number}
+          </animated.p>
+          <animated.p
+            className="crash-location headline"
+            style={useCountdownStyle2}
+          >
+            {useCountdownStyle2.number}
+          </animated.p>
+          <animated.p
+            className="crash-location headline"
+            style={useCountdownStyle1}
+          >
+            {useCountdownStyle1.number}
+          </animated.p>
+          {/* type of matchup (drawing/story) */}
+          <animated.div style={shiftUpStyle} className="resultsType">
+            <h2 className="headline">{matchupType} Results...</h2>
+          </animated.div>
+          {/* drawing back avatars to left & right: */}
+          <animated.img
+            className="crash-location"
+            style={useLeftDrawbackCrashStyle}
+            src={userAvatar}
+            height={crashAvatarHeight}
+          />
+
+          <animated.img
+            className="crash-location"
+            style={useRightDrawbackCrashStyle}
+            src={opponentAvatar}
+            height={crashAvatarHeight}
+          />
+          {/* crash image: */}
+          <animated.img
+            className="crash-location"
+            style={enlargeCenterStyle}
+            src="/animation/crashSmallCrash.svg"
+            height={crashImageSize}
+          />
+          {/* winner's image: */}
+          <animated.img
+            className="crash-location"
+            // !!! THIS MUST BE CHANGED TO WINNER DYNAMIC INFO !!! (need to find out shape of that object)
+            src={userAvatar}
+            alt="me"
+            height={winnerImageSize}
+            style={upFromBottomStyle}
+          />
+          {/* lightning bolt VS */}
+          <animated.img
+            className="vs"
+            style={enlargeVSStyle}
+            src="/animation/matchup_bolt.svg"
+            height={vsHeight}
+          />
+        </div>
+        {/* intial avatar images to display at top: */}
+        <animated.div
+          className="move-left-move-right"
+          style={enlargeMoveLeftStyle}
+        >
+          <ChildAvatar src={userAvatar} name={userName} />
+        </animated.div>
+        <animated.div
+          className="move-left-move-right"
+          style={enlargeMoveRightStyle}
+        >
+          <ChildAvatar src={opponentAvatar} name={opponentName} />
+        </animated.div>
+
+        {/* winner's name and points won: */}
+        <div className="bottom-fixed">
+          <div className="points-container">
+            <animated.p className="points headline" style={divAppearStyle1}>
+              {divAppearStyle1.text}
+            </animated.p>
+            <animated.p className="points headline" style={countPointsStyle}>
+              {countPointsStyle.number.interpolate(val => Math.floor(val))}
+            </animated.p>
+            <animated.p
+              className="points padding headline"
+              style={divAppearStyle2}
+            >
+              {divAppearStyle2.text}
+            </animated.p>
+          </div>
+          <div className="winner">
+            <animated.p
+              className="winner-headline headline"
+              style={nameWinnerStyle}
+              onClick={goBacktoMatchup}
+            >
+              {/* !!! THIS MUST BE CHANGED TO WINNER DYNAMIC INFO !!! (need to find out shape of that object) */}
+              {userName}
+            </animated.p>
+          </div>
+          <div className="go-back-button outlined font-display text-dark">
+            <animated.div style={goBackButtonStyle} className="flex-center">
+              <Button
+                handleClick={goBacktoMatchup}
+                buttonText={'go back'}
+                className="animation-buttons"
+              />
+              <Button
+                handleClick={replayMatchup}
+                buttonText={'replay'}
+                className="animation-buttons"
+              />
+            </animated.div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

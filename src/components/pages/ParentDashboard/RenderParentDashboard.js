@@ -13,7 +13,6 @@ const ParentDashboard = props => {
     <>
       <Layout className="parent-dashboard">
         <ParentNavSider selected="dashboard" />
-
         <Layout>
           <Title className="title" style={{ color: '#0267C1' }} level={1}>
             STORY SQUAD

@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { userHistory } from 'react-router-dom';
 
 import { date } from '../../.././state/actions/index';
-import { Form, Select, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Form, Select } from 'antd';
 import styled from 'styled-components';
 
 const FormZ = styled.div`

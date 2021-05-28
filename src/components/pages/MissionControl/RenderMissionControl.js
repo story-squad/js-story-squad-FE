@@ -1,28 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import { Header } from '../../common';
-import { Row, Col } from 'antd';
-import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { InstructionsModal } from '../../common';
-import { getMissionControlText } from '../../../utils/helpers';
-import draw_icon from '../../../assets/icons/draw_icon.svg';
-import read_icon from '../../../assets/icons/read_icon.svg';
-import write_icon from '../../../assets/icons/write_icon.svg';
-import Checkbox from './Checkbox';
-
+import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+
+import { getMissionControlText, modalPush } from '../../../utils/helpers';
 import { getChildTasks, getStory } from '../../../api';
 import { tasks } from '../../../state/actions';
+
+import InstructionsModal from '../../common/InstructionsModal';
+import StoryViewer from './StoryViewer';
+import DrawingSub from './DrawingSub';
+import WritingSub from './WritingSub';
 
 const RenderMissionControl = props => {
   //modal state
   const [instructionText, setInstructionText] = useState('');
-  const [modalVisible, setModalVisible] = useState(true);
-  const [showButton, setShowButton] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const { hasRead, hasWritten, hasDrawn } = props;
-
-  const { push } = useHistory();
   const { authState } = useOktaAuth();
+  const { push } = useHistory();
+
+  // calculate current step
+  const currentStep = () => {
+    if (!hasRead) {
+      return 'read';
+    }
+    if (hasRead && !hasDrawn) {
+      return 'draw';
+    }
+    if (hasRead && hasDrawn && !hasWritten) {
+      return 'write';
+    }
+    if (hasRead && hasDrawn && hasWritten) {
+      return 'done';
+    }
+  };
 
   /**
    * On initial render, checks to see if tasks in state (id, hasRead, hasWritten, etc)
@@ -45,105 +57,76 @@ const RenderMissionControl = props => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // show instructions and modal for each phase
   useEffect(() => {
-    setInstructionText(getMissionControlText(hasRead, hasDrawn, hasWritten));
-    setShowButton(!hasRead || (hasWritten && hasDrawn));
+    setInstructionText(getMissionControlText(currentStep()));
+    setShowModal(true);
   }, [hasRead, hasWritten, hasDrawn]);
 
-  // Will be for when we are checking whether or not the child has completed a task
-  function handleChecked(e) {
-    return `checked=${e.target.checked}`;
-  }
+  // dim/highlight each step number using className
+  const stepLiClassName = () => {
+    return {
+      read: currentStep() === 'read' ? '' : 'off',
+      draw: currentStep() === 'draw' ? '' : 'off',
+      write: currentStep() === 'write' ? '' : 'off',
+    };
+  };
 
-  // directs user to go in order; Read/Draw/Write
-  const handleReadStory = e => {
-    e.stopPropagation();
-    push('/child/story');
-  };
-  const handleDraw = e => {
-    e.stopPropagation();
-    if (!hasDrawn && hasRead) {
-      push('/child/drawing-sub');
-    }
-  };
-  const handleWrite = e => {
-    e.stopPropagation();
-    if (!hasWritten && hasRead && hasDrawn) {
-      push('/child/writing-sub');
+  // close the modal or redirect when user has completed all steps
+  const closeModal = () => {
+    if (currentStep() === 'done') {
+      modalPush(push, '/child/join');
+    } else {
+      setShowModal(false);
     }
   };
 
   return (
-    <>
-      <Header title="MISSION" displayMenu={true} />
+    <div className="mission-container">
       <InstructionsModal
-        modalVisible={modalVisible}
-        handleCancel={() => {
-          setModalVisible(false);
-        }}
-        handleOk={() => {
-          setModalVisible(false);
-        }}
-        instructions={instructionText}
-        style={{ fontSize: '2rem' }}
-        showOkButton={showButton}
+        header={instructionText?.header}
+        instructions={instructionText?.text}
+        visible={showModal && instructionText?.header && instructionText?.text}
+        handleOk={closeModal}
       />
-      <div className="mission-container">
-        <Row className="main-row">
-          <Col className="read" xs={24} sm={12} onClick={handleReadStory}>
-            <Checkbox
-              className="checking-box"
-              defaultChecked={false}
-              onChange={handleChecked}
-              isCompleted={hasRead}
-            />
-
-            <Col className="image-and-text-container">
-              <img src={read_icon} alt="reading icon" />
-              <p className="mission-control-text">Read</p>
-            </Col>
-          </Col>
-          <Col className="write-and-draw" xs={24} sm={12}>
-            <Row className={hasRead ? 'draw' : 'draw-not'} onClick={handleDraw}>
-              <Checkbox
-                className="checking-box"
-                defaultChecked={false}
-                onChange={handleChecked}
-                isCompleted={hasDrawn}
-              />
-              <Col className="image-and-text-container">
-                <img
-                  className="WritingandDrawingIcon"
-                  src={draw_icon}
-                  alt="drawing icon"
-                />
-                <p className="mission-control-text">Draw</p>
-              </Col>
-            </Row>
-            <Row
-              className={hasDrawn ? 'write' : 'write-not'}
-              onClick={handleWrite}
-            >
-              <Checkbox
-                className="checking-box"
-                defaultChecked={false}
-                onChange={handleChecked}
-                isCompleted={hasWritten}
-              />
-
-              <Col className="image-and-text-container">
-                <img
-                  className="WritingandDrawingIcon"
-                  src={write_icon}
-                  alt="writing icon"
-                />
-                <p className="mission-control-text">Write</p>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+      <div className="shaped-shadow-container responsive-box">
+        <div className="content-box responsive-box shaped dark">
+          <h2 className="mission-header">Your Mission</h2>
+          <ol className="mission-steps">
+            <li className={stepLiClassName().read}>
+              <div className="step-number bg-green">
+                <p>1</p>
+              </div>
+              <p className="step-text text-light">Read</p>
+            </li>
+            <li className={stepLiClassName().draw}>
+              <div className="step-number bg-orange">
+                <p>2</p>
+              </div>
+              <p className="step-text text-light">Draw</p>
+            </li>
+            <li className={stepLiClassName().write}>
+              <div className="step-number bg-yellow">
+                <p>3</p>
+              </div>
+              <p className="step-text text-light">Write</p>
+            </li>
+          </ol>
+        </div>
       </div>
-    </>
+      {currentStep() === 'read' && (
+        <StoryViewer
+          userInfo={props.userInfo}
+          authService={props.authService}
+        />
+      )}
+      {currentStep() === 'draw' && (
+        <DrawingSub userInfo={props.userInfo} authService={props.authService} />
+      )}
+      {currentStep() === 'write' && (
+        <WritingSub userInfo={props.userInfo} authService={props.authService} />
+      )}
+    </div>
   );
 };
 

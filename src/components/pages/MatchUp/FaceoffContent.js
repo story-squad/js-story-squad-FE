@@ -2,56 +2,69 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.svg';
 
-import { SubmissionViewerModal, EmojiFeedback } from '../../common';
+import {
+  EmojiFeedback,
+  SubmissionViewer,
+  ChildAvatar,
+  InfoButton,
+} from '../../common';
 import FaceoffReveal from '../Animations/FaceoffReveal';
-
-const lock = 'https://labs28-b-storysquad.s3.amazonaws.com/lock.svg';
 
 const FaceoffContent = props => {
   const [toggle, setToggle] = useState(false);
 
   const history = useHistory();
 
-  const revealWinner = event => {
+  const revealWinner = () => {
     setToggle(true);
-    history.push('/scoreboard', {
+    history.push('/scoreboard/#big-reveal', {
       dynamicInfo: props.content,
       backgroundColor: props.backgroundColor,
     });
   };
 
-  console.log(
-    'colors in faceoffcontent',
-    props.backgroundColor,
-    props.backTest
-  );
-
   return (
-    <div className="faceoff">
-      {props.content && (
-        <FaceoffSubDisplay
-          custom_date={props.custom_date}
-          sub={props.content.Submission1}
-          type={props.content.Type}
-          feedback={props.content.Emojis1}
-          votesNeededToUnlock={props.votesNeededToUnlock}
-          mySquad="mySquad"
+    <div className="faceoff content-box dark border-dark padding-0">
+      <div className={`grid grid-3-col bg-${props.backgroundColor}`}>
+        {props.content && (
+          <FaceoffSubDisplay
+            custom_date={props.custom_date}
+            sub={props.content.Submission1}
+            type={props.content.Type}
+            feedback={props.content.Emojis1}
+            votesNeededToUnlock={props.votesNeededToUnlock}
+            mySquad="mySquad"
+            handleVote={props.handleVote}
+          />
+        )}
+        <img
+          className="bolt-img"
+          src={matchup_bolt}
+          alt="lightning bolt"
+          onClick={revealWinner}
         />
-      )}
-      <img src={matchup_bolt} alt="lightning bolt" onClick={revealWinner} />
-      {props.content && (
-        <FaceoffSubDisplay
-          custom_date={props.custom_date}
-          sub={props.content.Submission2}
-          type={props.content.Type}
-          feedback={props.content.Emojis2}
-          votesNeededToUnlock={props.votesNeededToUnlock}
-          votesRemaining={props.votesRemaining}
-          dayNeededToUnlock={props.dayNeededToUnlock}
-          hourNeededToUnlock={props.hourNeededToUnlock}
-        />
-      )}
-      {props.content && <div className="points">{props.content.Points}</div>}
+        {props.content && (
+          <FaceoffSubDisplay
+            custom_date={props.custom_date}
+            sub={props.content.Submission2}
+            type={props.content.Type}
+            feedback={props.content.Emojis2}
+            votesNeededToUnlock={props.votesNeededToUnlock}
+            votesRemaining={props.votesRemaining}
+            dayNeededToUnlock={props.dayNeededToUnlock}
+            hourNeededToUnlock={props.hourNeededToUnlock}
+            handleVote={props.handleVote}
+          />
+        )}
+      </div>
+      <div className="center-content center-content-flex points">
+        {props.content && (
+          <p className="text-light">
+            {props.content.Points} points at stake
+            <InfoButton setInfoModalVisible={props.setInfoModalVisible} />
+          </p>
+        )}
+      </div>
       {toggle ? (
         <FaceoffReveal
           animationDynamicContent={props.content}
@@ -62,31 +75,18 @@ const FaceoffContent = props => {
   );
 };
 
-//ERRLOG CURRENT Labs31:
-//             - emojis1 only exist for the 4 users you have seeded in cohort 1
-//                     - This makes sense. You want to see your own feedback
-//             - emojis2 doesn't exist as keys on content object
-//                     - This also makes sense. You don't need to see other people's feedback - check with stakeholders                     - emojis1 / emojis2 doesn't exist as keys on content object
-
-const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
-  const [modalContent, setModalContent] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+const FaceoffSubDisplay = ({ sub, type, feedback, handleVote, ...props }) => {
   const [locked, setLocked] = useState(true);
+  const [canVote, setCanVote] = useState(false);
 
   const currentDate = props.custom_date ? props.custom_date : new Date();
   const currentDayOfTheWeek = currentDate.getDay();
   const currentHour = currentDate.getHours();
 
-  const openModal = content => {
-    setModalContent(content);
-    setShowModal(true);
-  };
-
   useEffect(() => {
     if (props.mySquad) {
       setLocked(false);
     }
-
     if (
       props.votesNeededToUnlock &&
       props.votesNeededToUnlock >= props.votesRemaining &&
@@ -94,7 +94,6 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
     ) {
       setLocked(false);
     }
-
     if (
       props.votesNeededToUnlock &&
       props.votesNeededToUnlock >= props.votesRemaining &&
@@ -103,44 +102,32 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
     ) {
       setLocked(false);
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // determine if the current opponent submission should be clicked to start vote
+  useEffect(() => {
+    if (props.votesNeededToUnlock + 1 === props.votesRemaining) {
+      setCanVote(true);
+    } else {
+      setCanVote(false);
+    }
+  }, [props.votesRemaining, props.votesNeededToUnlock]);
+
   return (
-    <>
-      {showModal && (
-        <SubmissionViewerModal
-          content={modalContent}
-          showModal={showModal}
-          closeModal={() => setShowModal(false)}
-        />
-      )}
-      <div className="sub">
-        <div className="child-info">
-          {feedback && feedback.Emoji && (
-            <EmojiFeedback emojis={feedback.Emoji} />
-          )}
-          <img src={sub.AvatarURL} alt="text" />
-          <span className="name">{sub.Name}</span>
-        </div>
-        <div className="submission-preview">
-          {!locked ? (
-            <img
-              src={type === 'DRAWING' ? sub.ImgURL : sub.Pages[0].PageURL}
-              alt="text"
-              onClick={() =>
-                openModal(
-                  type === 'DRAWING' ? [{ ImgURL: sub.ImgURL }] : sub.Pages
-                )
-              }
-            />
-          ) : (
-            <img src={lock} alt="locked" />
-          )}
-        </div>
-      </div>
-    </>
+    <div className="faceoff-sub">
+      {feedback && feedback.Emoji && <EmojiFeedback emojis={feedback.Emoji} />}
+      <ChildAvatar src={sub.AvatarURL} name={sub.Name} />
+      <SubmissionViewer
+        src={type === 'DRAWING' ? sub.ImgURL : sub.Pages[0].PageURL}
+        submissionType={type}
+        compact={true}
+        locked={locked}
+        canVote={canVote}
+        handleVote={handleVote}
+        modalButtonText={'Back to Matchup'}
+      />
+    </div>
   );
 };
 
