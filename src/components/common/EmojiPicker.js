@@ -21,18 +21,23 @@ const EmojiPicker = props => {
     // eslint-disable-next-line
   }, []);
 
-  const handleToggleEmoji = emoji => {
-    if (selectedEmojis.length < emojiLimit && !selectedEmojis.includes(emoji)) {
+  const handleAddEmoji = emoji => {
+    if (selectedEmojis.length < emojiLimit) {
       setSelectedEmojis([...selectedEmojis, emoji]);
-    } else if (selectedEmojis.includes(emoji)) {
-      handleRemoveEmoji(emoji);
     }
   };
 
   const handleRemoveEmoji = emoji => {
-    setSelectedEmojis(
-      selectedEmojis.filter(selectedEmoji => selectedEmoji !== emoji)
-    );
+    let found = false;
+    let newEmojis = [];
+    selectedEmojis.forEach(selected => {
+      if (selected !== emoji || found) {
+        newEmojis.push(selected);
+      } else {
+        found = true;
+      }
+    });
+    setSelectedEmojis(newEmojis);
   };
 
   const handleKeyboardVisible = () => {
@@ -46,12 +51,7 @@ const EmojiPicker = props => {
           <div className="emoji-keyboard-container">
             <div className="emoji-keyboard">
               {emojiList.map((emoji, i) => (
-                <Emoji
-                  key={i}
-                  emoji={emoji}
-                  selectedEmojis={selectedEmojis}
-                  handleClick={handleToggleEmoji}
-                />
+                <Emoji key={i} emoji={emoji} handleClick={handleAddEmoji} />
               ))}
             </div>
             <div className="done-button-container">
@@ -91,20 +91,10 @@ const EmojiPicker = props => {
 };
 
 const Emoji = props => {
-  const { emoji, handleClick, selectedEmojis } = props;
-  const [isSelected, setIsSelected] = useState(false);
-
-  useEffect(() => {
-    if (selectedEmojis !== undefined) {
-      setIsSelected(selectedEmojis.includes(emoji));
-    }
-  }, [selectedEmojis, emoji]);
+  const { emoji, handleClick } = props;
 
   return (
-    <button
-      className={`emoji ${isSelected ? 'selected' : ''}`}
-      onClick={() => handleClick(emoji)}
-    >
+    <button className="emoji" onClick={() => handleClick(emoji)}>
       {emoji}
     </button>
   );
