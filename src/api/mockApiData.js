@@ -590,7 +590,8 @@ const mockGetProfileData = [
 const mockGetStory = {
   ID: 4,
   Title: 'Zoom & Boom (Week4, Chapters 7 & 8)',
-  URL: 'https://test-image-bucket-14579.s3.amazonaws.com/pdf.pdf',
+  URL:
+    'https://storysquad-main.s3.amazonaws.com/pdfs/Story+Squad+Week+1+Content+%2B+CCS.pdf',
   WritingPrompt:
     'Finn and Gilberts mom was a secret spy. What was her last adventure?',
   DrawingPrompt:
