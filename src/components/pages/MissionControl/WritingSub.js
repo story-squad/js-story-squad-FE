@@ -16,7 +16,12 @@ export const WritingSub = props => {
         <img className="writing-img" alt="child superhero writing a story" />
       </div>
       <div className="grid-right">
-        <h2 className="text-align-left">Pencils Ready!</h2>
+        <h2 className="text-align-left small">Instructions</h2>
+        <p className="small">
+          Based on the prompt, write down a side quest by hand. When your story
+          is complete, snap a photo of your pages and upload them.
+        </p>
+        <h2 className="text-align-left small">Prompt</h2>
         <p className="small">{props.tasks.story.writingPrompt}</p>
         <UploadDocs
           uploadButtonText="Upload Story"

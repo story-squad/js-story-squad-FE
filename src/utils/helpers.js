@@ -13,18 +13,19 @@ export const modalInstructions = {
     text: 'Accept the mission to start your adventure!',
   },
   missionControl1: {
-    header: 'Great job!',
+    header: 'Your time to shine!',
     text:
-      'Now that you’re done reading, it’s time to get creative. Your next task is to DRAW a scene from your favorite part of the story. When you’re done drawing, please take a picture of all your pages and upload them.',
+      'Grab a sheet of paper and your drawing supplies. It’s time to get creative!',
   },
   missionControl2: {
-    header: 'Your drawing has been submitted, great job!',
+    header: 'Write a side quest',
     text:
-      'Now that you’re done drawing, your next task is to WRITE a short story based on the prompt. When you’re done writing, please take a picture of all your pages and upload them.',
+      'Grab your favorite pencil and some loose leaf sheets of paper.  Put on your storyteller hat and let your pencil fly!',
   },
   missionControl3: {
     header: 'Your story has been submitted, great job!',
-    text: 'It’s time to join your Squad!',
+    text:
+      'Check back on Wednesday to join your squad, meet your partner, & share points.',
   },
   writingSub:
     'Once you finish writing your story, please take a picture of all your pages and upload them.\nTips: Take one photo per page. Find good Lighting and check your photo turns out clear. Make sure each page is straight and not cropped. After all pages are uploaded, click submit.',
@@ -37,6 +38,10 @@ export const modalInstructions = {
   },
   matchUp:
     "Welcome to this week's matchup. Please vote 3 times to unlock matchup scores. You may continue voting up to 10 times.",
+  pointsSharingInstructions: [
+    "Now it's time to split up 100 points across your squad's portfolio of stories and drawings.  You must put a minimum of 10 points on each and the total among all 4 must add up to 100 points.",
+    'As you read both stories and look at both drawings, think about which ones best reflect the characters, plot, and setting from the chapters you read. Share the most points with the ones you think are the best.',
+  ],
 };
 
 export const getMissionControlText = step => {
