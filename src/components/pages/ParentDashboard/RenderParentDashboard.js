@@ -10,12 +10,17 @@ const { Title } = Typography;
 const ParentDashboard = props => {
   return (
     <>
-      <Layout>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
         <ParentDashPlaceholder />
-        <div>
-          <ChildCard />
-        </div>
-      </Layout>
+
+        <ChildCard />
+      </div>
     </>
   );
 };
