@@ -1,6 +1,10 @@
 
 .childCardButtons{
   display:flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  width: 37.5vw;
   @include mobile-below{
     margin-bottom:3%;
     justify-content: space-evenly;
@@ -9,38 +13,42 @@
 }
 .Players {
   display: flex;
-  width: 68vw;
+  align-items: center;
+
+  width: 75vw;
   margin: -2% auto;
   @include mobile-below{
     width:85vw;
     flex-direction:column;
-
   }
   
-
-  button {
-    background-color: #8CE2E0;
-    height: 40px;
-    width: 160px;
-    left: 0px;
-    top: 0px;
-    border-radius: 16px;
-    border: white;
-    color: #4B5151;
-    font-family: 'Open Sans';
-    font-style: normal;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 150%;
-    @include mobile-below{
-      height:55px;
-    }
-    &:hover {
-      cursor:pointer;
-      filter: brightness(0.8);
-    }
-  }
+// UNCOMMENT THIS IF YOU WANT THE BUTTONS TO GO BACK TO THE FIGMA
+.button {
+    margin: 0;
+}
+//   button {
+//     background-color: #8CE2E0;
+//     height: 40px;
+//     width: 160px;
+//     left: 0px;
+//     top: 0px;
+//     border-radius: 16px;
+//     border: white;
+//     color: #4B5151;
+//     font-family: 'Open Sans';
+//     font-style: normal;
+//     text-transform: uppercase;
+//     font-weight: 600;
+//     font-size: 16px;
+//     line-height: 150%;
+//     @include mobile-below{
+//       height:55px;
+//     }
+//     &:hover {
+//       cursor:pointer;
+//       filter: brightness(0.8);
+//     }
+//   }
 }
 
 .playheading {
@@ -51,10 +59,12 @@
   }
 
    h2 {
+    text-align: left;
      font-weight: 700;
      text-transform: uppercase;
      font-family: 'Open Sans';
-     font-size:1.7rem;
+     margin: 0;
+    //  font-size:1.7rem;
 
      @include mobile-below {
        margin-top: 2%;
@@ -104,19 +114,6 @@
     font-family:'Open Sans';
     color:$gray-dark;
     }
-    // h2 {
-    //   font-family: 'Bangers';
-    //   color:@header-nero;
-    //   font-weight: 700;
-    //   margin-top:-3%;
-    //   font-size: 1.5rem;
-    //   text-align:center;
-    //   -webkit-text-stroke: 0.1px white;
-    //   @include mobile-below {
-    //     font-size: 1.1rem;
-        
-    //   }
-    // }
   }
 }
 
@@ -170,19 +167,6 @@
   @include mobile-below {
     padding:0%;
   }
-
-//   p{
-//     padding:4%;
-//     font-weight:700;
-//     font-size:1.5rem;
-//     text-align: center;
-//   }
-//   h4{
-//     margin:-3%;
-//     font-weight:500;
-//     font-size:0.8rem;
-//     text-align:center;
-//   }
 }
 .statContainer{
   display: flex;

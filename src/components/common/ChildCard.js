@@ -29,14 +29,14 @@ function NewChildCard({ parent }) {
           <h2 className="h2">Players</h2>
         </div>
         <div className="childCardButtons">
-          <button className="addPlayerButton" onClick={addPlayerPush}>
-            <PlusCircleOutlined /> Add Player
-          </button>
           {parent.children ? (
-            <button className="editPlayerButton" onClick={editPlayerPush}>
+            <button className="button span" onClick={editPlayerPush}>
               <EditOutlined /> Edit Players
             </button>
           ) : null}
+          <button className="button span" onClick={addPlayerPush}>
+            <PlusCircleOutlined /> Add Player
+          </button>
         </div>
       </div>
       <div className="newChild">
@@ -60,7 +60,7 @@ function NewChildCard({ parent }) {
                       alt="avatar"
                       className="avBackground"
                     />
-                    <h2 className="h2">{child.Name}</h2>
+                    <h2 className="h3">{child.Name}</h2>
                   </div>
 
                   <div className="statContainer">
