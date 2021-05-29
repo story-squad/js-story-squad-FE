@@ -23,75 +23,66 @@ function NewChildCard({ parent }) {
   };
 
   return (
-    <div className="newChildCardContainer">
-      <div className="Players">
-        <div className="playheading">
-          <h2 className="h2">Players</h2>
-        </div>
-        <div className="childCardButtons">
+    <div className="newChildCardContainer parent-styles">
+      <div className="PlayersContainer ">
+        <h2>Players</h2>
+        <div className="buttonContainer">
+          <button className="button span" onClick={addPlayerPush}>
+            <PlusCircleOutlined /> Add Player
+          </button>
+
           {parent.children ? (
             <button className="button span" onClick={editPlayerPush}>
               <EditOutlined /> Edit Players
             </button>
           ) : null}
-          <button className="button span" onClick={addPlayerPush}>
-            <PlusCircleOutlined /> Add Player
-          </button>
         </div>
       </div>
+
       <div className="newChild">
         {noChildren === true ? (
           <div className="noPlayers">
-            <p className="p">No Players Added Yet.</p>
+            <p>No Players Added Yet.</p>
             {/* <img src={cat} alt="No Players Added Yet!" /> */}
           </div>
         ) : (
-          parent.children.map((child, i) => (
-            <Card key={i}>
-              <div className="inner">
-                {/* This is hard coded right now, once data is ready, can replace it */}
-                <div className="statusContainer">
-                  <h4 className="h4">Status: Matchup</h4>
-                </div>
-                <div className="innerChildContainer">
-                  <div className="avContainer">
-                    <img
-                      src={child.AvatarURL}
-                      alt="avatar"
-                      className="avBackground"
-                    />
-                    <h2 className="h3">{child.Name}</h2>
-                  </div>
+          parent.children.slice(0, 2).map((child, i) => (
+            <div className="content-box child-card">
+              {/* This is hard coded right now, once data is ready, can replace it */}
+              <div className="statusContainer">
+                <h4>Status: Matchup</h4>
+              </div>
 
-                  <div className="statContainer">
-                    <div className="statBox">
-                      <div className="statBoxBackground">
-                        <p className="p">{child.CohortID}</p>
-                      </div>
-                      <h4 className="h4">Week #</h4>
-                    </div>
-                    <div className="statBox">
-                      <div className="statBoxBackground">
-                        <p className="p">{MockDataTotalPoints}</p>
-                      </div>
-                      <h4 className="h4">Total Pts.</h4>
-                    </div>
-                    <div className="statBox">
-                      <div className="statBoxBackground">
-                        <p className="p">{MockDataWins}</p>
-                      </div>
-                      <h4 className="h4">Wins</h4>
-                    </div>
-                    <div className="statBox">
-                      <div className="statBoxBackground">
-                        <p className="p">{MockDataLosses}</p>
-                      </div>
-                      <h4 className="h4">Losses</h4>
-                    </div>
+              <div className="innerChildContainer">
+                <div className="avContainer">
+                  <img
+                    src={child.AvatarURL}
+                    alt="avatar"
+                    className="avBackground"
+                  />
+                  <h3>{child.Name}</h3>
+                </div>
+
+                <div className="statContainer">
+                  <div className="statBox">
+                    <p>{child.CohortID}</p>
+                    <h4>Week #</h4>
+                  </div>
+                  <div className="statBox">
+                    <p>{MockDataTotalPoints}</p>
+                    <h4>Total Pts.</h4>
+                  </div>
+                  <div className="statBox">
+                    <p>{MockDataWins}</p>
+                    <h4>Wins</h4>
+                  </div>
+                  <div className="statBox">
+                    <p>{MockDataLosses}</p>
+                    <h4>Losses</h4>
                   </div>
                 </div>
               </div>
-            </Card>
+            </div>
           ))
         )}
       </div>
