@@ -11,52 +11,40 @@
     background-color: transparent;
   }
 }
-// @include tablet-above-wh {
-
-// }
-// @include tablet-below {
-
-// }
-// @include mobile-below {
-
-// }
-
-
 .unlockButton,
 .lockButton {
-  
   width: 63vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   @include tablet-above-wh {
-    width:78vw;
+    width: 78vw;
     .button {
       width: 30vw;
     }
     h3 {
       font-size: 3rem;
     }
-}
-@include tablet-below {
-  width: 83vw;
-  .button {
-    width: 30vw;
-  }    
-  h3 {
-    font-size: 2rem;
   }
-}
-@include mobile-below {
-  margin-top: 300px;
-flex-wrap: wrap;
-.button {
-  width: 60vw;
-}
-.span {
-  font-size: 1rem;
-}
-}
+  @include tablet-below {
+    width: 83vw;
+    .button {
+      width: 30vw;
+    }
+    h3 {
+      font-size: 2rem;
+    }
+  }
+  @include mobile-below {
+    margin-top: 300px;
+    flex-wrap: wrap;
+    .button {
+      width: 60vw;
+    }
+    .span {
+      font-size: 1rem;
+    }
+  }
 }
 
 .editFormsAndButtonsContainer {
@@ -65,21 +53,20 @@ flex-wrap: wrap;
   width: 100vw;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .settings-buttons-container {
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 68vw;
+  width: 78vw;
   @include mobile-below {
     width: 88vw;
     margin-top: 30%;
     padding-bottom: 25%;
   }
 }
-
 
 //Modal Styles
 .ant-modal-root {
@@ -98,7 +85,7 @@ flex-wrap: wrap;
     .ant-modal-content {
       max-width: 24vw;
       max-height: 35vh;
-      
+
       h4 {
         font-size: 2rem;
         font-family: $font-text-parent;
@@ -119,7 +106,7 @@ flex-wrap: wrap;
       .ant-modal-footer {
         text-align: center;
         button {
-          background-color: #FBFBFB;
+          background-color: #fbfbfb;
           width: 12rem;
           height: 100%;
           margin-top: -35px;
