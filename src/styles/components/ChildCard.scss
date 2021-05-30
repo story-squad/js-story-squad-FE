@@ -10,26 +10,37 @@
   width: 80vw;
 }
 
-
 .PlayersContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 62vw;
+  @include tablet-above-wh {
+    width: 78vw;
+  }
   @include tablet-below {
-      width: 86vw;
+    width: 86vw;
   }
   @include mobile-below {
-   flex-direction: column;
-   align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
   .buttonContainer {
-      width: 30vw;
+    width: 30vw;
     display: flex;
     gap: 20px;
     .button {
       width: 15vw;
       font-size: 0.8rem;
+    }
+    @include tablet-above-wh {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 32vw;
+      .button {
+        width: 20vw;
+      }
     }
     @include tablet-below {
       display: flex;
@@ -41,10 +52,10 @@
       }
     }
     @include mobile-below {
-        width: 85vw;
-        .button {
-            width: 40vw;
-        }
+      width: 85vw;
+      .button {
+        width: 40vw;
+      }
     }
   }
 }
@@ -53,16 +64,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 64vw;
+  width: 74vw;
   min-height: 30rem;
   width: 100%;
+  @include tablet-above-wh {
+    max-width: 80vw;
+    width: 110%;
+  }
   @include tablet-below {
     max-width: 88vw;
     width: 110%;
-}
-@include mobile-below {
+  }
+  @include mobile-below {
     flex-direction: column;
-}
+  }
   .child-card {
     display: flex;
     flex-direction: column;
@@ -81,7 +96,7 @@
       width: 41vw;
     }
     @include mobile-below {
-     width: 85vw;
+      width: 85vw;
     }
     width: 100vw;
   }
@@ -95,7 +110,7 @@
     justify-content: center;
     align-items: center;
     @include mobile-below {
-        width: 75vw;
+      width: 75vw;
     }
   }
 
@@ -122,13 +137,18 @@
     gap: 20px;
     height: inherit;
     justify-content: space-evenly;
-    width: inherit;
+    max-width: inherit;
     @include tablet-below {
       height: 16vh;
     }
   }
 
   .statBox {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
     margin: 2%;
     text-align: center;
     background-color: $gray-light;
@@ -136,7 +156,14 @@
     width: 80px;
     height: 40px;
     h4 {
+        font-size: 1.5rem;
       margin: 0;
+      margin-top: -20px;
+    }
+    p{
+        font-size: 2rem;
+        font-style: normal;
+font-weight: bold;
     }
   }
 
@@ -145,6 +172,7 @@
     width: 195px;
     margin-left: 15px;
     h3 {
+      font-family: $font-display;
       font-size: 2rem;
       margin: 0;
       width: 80%;
@@ -161,5 +189,10 @@
   }
 }
 .noPlayers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
   margin: 2% 15%;
 }

@@ -1,0 +1,129 @@
+.accountSettingsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f6;
+  height: 70vh;
+  margin: 0 auto;
+  @include mobile-below {
+    width: 100vw;
+    background-color: transparent;
+  }
+}
+.unlockButton,
+.lockButton {
+  width: 63vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include tablet-above-wh {
+    width: 78vw;
+    .button {
+      width: 30vw;
+    }
+    h3 {
+      font-size: 3rem;
+    }
+  }
+  @include tablet-below {
+    width: 83vw;
+    .button {
+      width: 30vw;
+    }
+    h3 {
+      font-size: 2rem;
+    }
+  }
+  @include mobile-below {
+    margin-top: 300px;
+    flex-wrap: wrap;
+    .button {
+      width: 60vw;
+    }
+    .span {
+      font-size: 1rem;
+    }
+  }
+}
+
+.editFormsAndButtonsContainer {
+  height: 30vh;
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.settings-buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 78vw;
+  @include mobile-below {
+    width: 88vw;
+    margin-top: 30%;
+    padding-bottom: 25%;
+  }
+}
+
+//Modal Styles
+.ant-modal-root {
+  .ant-modal-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 0vw;
+    height: 0vh;
+    margin-right: 50%;
+    margin-top: 30%;
+  }
+  .pinFormModal {
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    .ant-modal-content {
+      max-width: 24vw;
+      max-height: 35vh;
+
+      h4 {
+        font-size: 2rem;
+        font-family: $font-text-parent;
+      }
+      p {
+        text-align: center;
+        font-family: $font-text-parent;
+        font-size: 2rem;
+      }
+      .ant-modal-close {
+        display: flex;
+        align-items: flex-end;
+      }
+      .ant-modal-body {
+        margin-top: -50px;
+        max-width: 35vw;
+      }
+      .ant-modal-footer {
+        text-align: center;
+        button {
+          background-color: #fbfbfb;
+          width: 12rem;
+          height: 100%;
+          margin-top: -35px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid black;
+        }
+        span {
+          font-size: 2rem;
+          font-family: $font-text-parent;
+        }
+        .ant-btn-primary {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ParentDashPlaceholder from '../../common/ParentDashPlaceholder';
 import { PlusCircleFilled } from '@ant-design/icons';
 import ChildCard from '../../common/ChildCard';
+import { AccountSettings } from '../ParentAccountSettings';
 
 const { Title } = Typography;
 
@@ -20,6 +21,8 @@ const ParentDashboard = props => {
         <ParentDashPlaceholder />
 
         <ChildCard />
+        <br />
+        <AccountSettings />
       </div>
     </>
   );
