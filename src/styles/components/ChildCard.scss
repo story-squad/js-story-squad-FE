@@ -15,6 +15,9 @@
   justify-content: space-between;
   align-items: center;
   width: 62vw;
+  @include tablet-above-wh {
+    width: 78vw;
+  }
   @include tablet-below {
     width: 86vw;
   }
@@ -29,6 +32,15 @@
     .button {
       width: 15vw;
       font-size: 0.8rem;
+    }
+    @include tablet-above-wh {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 32vw;
+      .button {
+        width: 20vw;
+      }
     }
     @include tablet-below {
       display: flex;
@@ -52,9 +64,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 64vw;
+  width: 74vw;
   min-height: 30rem;
   width: 100%;
+  @include tablet-above-wh {
+    max-width: 80vw;
+    width: 110%;
+  }
   @include tablet-below {
     max-width: 88vw;
     width: 110%;
@@ -121,7 +137,7 @@
     gap: 20px;
     height: inherit;
     justify-content: space-evenly;
-    width: inherit;
+    max-width: inherit;
     @include tablet-below {
       height: 16vh;
     }
