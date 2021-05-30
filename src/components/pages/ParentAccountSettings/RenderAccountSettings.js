@@ -8,11 +8,10 @@ import PinInput from 'react-pin-input';
 
 function RenderAccountSettings() {
   const { authState } = useOktaAuth();
-
   const [unlock, setUnlock] = useState(true);
   const [error, setError] = useState(false);
   const [userInfo, setUserInfo] = useState();
-  const [isModalVisible, setIsModalVisible] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   //Grab the parents userInfo so we can validate their information (pin)
   useEffect(() => {
@@ -26,11 +25,10 @@ function RenderAccountSettings() {
   }, [authState]);
 
   //These functions handle's exiting the modal once it is activated
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
+
   const handleCancel = () => {
     setIsModalVisible(false);
+    setError(false);
   };
 
   // this function runs once the user has inputted the correct pin.
@@ -40,6 +38,7 @@ function RenderAccountSettings() {
   const onFinish = value => {
     setUnlock(!unlock);
     setIsModalVisible(!isModalVisible);
+    setError(false);
   };
   let pin;
 
@@ -47,8 +46,8 @@ function RenderAccountSettings() {
     <div className="accountSettingsContainer parent-styles">
       <Modal
         visible={isModalVisible}
-        onCancel={handleCancel}
         afterClose={() => pin.clear()}
+        onCancel={handleCancel}
         centered="true"
         width="25vw"
         bodyStyle={{
