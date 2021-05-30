@@ -1,0 +1,133 @@
+import React, { useState, useEffect } from 'react';
+import { Modal, Button, Form } from 'antd';
+import { useOktaAuth } from '@okta/okta-react';
+import bc from 'bcryptjs';
+import { getProfileData } from '../../../api';
+import PinInput from 'react-pin-input';
+// import AccountSettingsForm from '../AccountSettingsForm/AccountSettingsForm';
+
+function RenderAccountSettings() {
+  const { authState } = useOktaAuth();
+
+  const [unlock, setUnlock] = useState(true);
+  const [error, setError] = useState(false);
+  const [userInfo, setUserInfo] = useState();
+  const [isModalVisible, setIsModalVisible] = useState(true);
+
+  //Grab the parents userInfo so we can validate their information (pin)
+  useEffect(() => {
+    getProfileData(authState).then(res => {
+      res.map(user => {
+        if (user.type == 'Parent') {
+          setUserInfo(user);
+        }
+      });
+    });
+  }, [authState]);
+
+  //These functions handle's exiting the modal once it is activated
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  // this function runs once the user has inputted the correct pin.
+  //It toggles the opacity and disabled prop of the editFormsAndButtonsContainer
+  // allowing the user to see that they can now access the elements to update their account
+
+  const onFinish = value => {
+    setUnlock(!unlock);
+    setIsModalVisible(!isModalVisible);
+  };
+  let pin;
+
+  return (
+    <div className="accountSettingsContainer parent-styles">
+      <Modal
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        afterClose={() => pin.clear()}
+        centered="true"
+        width="25vw"
+        bodyStyle={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          backgroundColor: '#F5F5F5',
+        }}
+        className="pinFormModal"
+      >
+        <h4>Enter Pin</h4>
+        <Form name="verify" onFinish={onFinish} initialValues="">
+          <PinInput
+            length={4}
+            ref={p => (pin = p)}
+            initialValue=""
+            secret={true}
+            type="numeric"
+            inputMode="number"
+            focus={true}
+            style={{ padding: '10px', borderRadius: '20px' }}
+            inputStyle={{ borderRadius: '15px' }}
+            inputFocusStyle={{ borderColor: 'blue' }}
+            onComplete={(value, index) => {
+              const x = bc.compareSync(value, userInfo.PIN);
+              if (x == true) {
+                onFinish();
+              } else {
+                setError(true);
+              }
+            }}
+            autoSelect={true}
+          />
+          <p style={error ? null : { display: 'none' }}>Incorrect PIN!</p>
+        </Form>
+      </Modal>
+
+      <div className="unlockButton" style={unlock ? null : { display: 'none' }}>
+        <h3>Edit Account Settings</h3>
+        <button
+          className="button span"
+          onClick={() => setIsModalVisible(true)}
+          value="UNLOCK"
+        >
+          UNLOCK WITH PIN
+        </button>
+      </div>
+
+      <div className="lockButton" style={unlock ? { display: 'none' } : null}>
+        <h3>Edit Account Settings</h3>
+        <button className="button span" onClick={() => setUnlock(!unlock)}>
+          LOCK
+        </button>
+      </div>
+      <div
+        className="editFormsAndButtonsContainer"
+        style={unlock ? { opacity: '.3' } : null}
+      >
+        {/* <AccountSettingsForm disabled={unlock} /> */}
+      </div>
+      <div className="settings-buttons-container">
+        <button
+          className="plainButton"
+          style={unlock ? { opacity: '.3' } : null}
+          disabled={unlock}
+        >
+          Edit Credit Card Info
+        </button>
+        <br />
+        <button
+          className="plainButton"
+          style={unlock ? { opacity: '.3' } : null}
+          disabled={unlock}
+        >
+          Edit Subscription Plan
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default RenderAccountSettings;

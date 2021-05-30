@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { PlusCircleOutlined, EditOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
 import { connect } from 'react-redux';
-// import cat from '../../assets/images/cat.svg';
+import cat from '../../assets/images/parent_dashboard_images/cat.svg';
 
 function NewChildCard({ parent }) {
   const { push } = useHistory();
@@ -43,7 +43,7 @@ function NewChildCard({ parent }) {
         {noChildren === true ? (
           <div className="noPlayers">
             <p>No Players Added Yet.</p>
-            {/* <img src={cat} alt="No Players Added Yet!" /> */}
+            <img src={cat} alt="No Players Added Yet!" />
           </div>
         ) : (
           parent.children.slice(0, 2).map((child, i) => (
