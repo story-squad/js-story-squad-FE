@@ -4,7 +4,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
 import PinInput from 'react-pin-input';
-// import AccountSettingsForm from '../AccountSettingsForm/AccountSettingsForm';
+import AccountSettingsForm from './AccountSettingsForm';
 
 function RenderAccountSettings() {
   const { authState } = useOktaAuth();
@@ -106,7 +106,7 @@ function RenderAccountSettings() {
         className="editFormsAndButtonsContainer"
         style={unlock ? { opacity: '.3' } : null}
       >
-        {/* <AccountSettingsForm disabled={unlock} /> */}
+        <AccountSettingsForm />
       </div>
       <div className="settings-buttons-container">
         <button
