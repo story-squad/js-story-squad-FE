@@ -1,0 +1,55 @@
+.AccountSettingsFormContainer {
+  height: 20vh;
+  width: 80vw;
+}
+
+.inputsContainerEmailPass {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  @include mobile-below {
+    height: 20vh;
+    
+  }
+  button {
+    width: 31vw;
+    margin-left: -25px;
+    background: #f5f5f5;
+    border: 0.5px solid #4b5151;
+    box-sizing: border-box;
+    border-radius: 16px;
+    @include mobile-below {
+      width: 40vw;
+      font-size: 1rem;
+    }
+  }
+  input {
+    width: 50vw;
+    border-radius: 20px;
+  }
+}
+.inputContainerEmailPass {
+    display: flex;
+  @include mobile-below {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    input {
+      width: 80vw;
+      height: 4vh;
+    }
+    button {
+      margin-left: 0px;
+    }
+    .emailPassIcon {
+      margin-top: 10px;
+    }
+  }
+  .emailPassIcon {
+    position: absolute;
+    padding: 10px;
+    min-width: 40px;
+  }
+}
+
+
