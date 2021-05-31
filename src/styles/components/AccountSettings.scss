@@ -9,6 +9,8 @@
   @include mobile-below {
     width: 100vw;
     background-color: transparent;
+    height: 45vh;
+    margin-bottom: 70px;
   }
 }
 .unlockButton,
@@ -38,17 +40,21 @@
   @include mobile-below {
     margin-top: 300px;
     flex-wrap: wrap;
+    h3 {
+      font-weight: 700;
+    }
     .button {
       width: 60vw;
     }
     .span {
       font-size: 1rem;
     }
+    margin-bottom: 40px;
   }
 }
 
 .editFormsAndButtonsContainer {
-  height: 30vh;
+  height: 20vh;
   display: flex;
   width: 100vw;
   flex-direction: column;
@@ -61,9 +67,19 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 78vw;
+  button {
+    background: #f5f5f5;
+    border: 0.5px solid #4b5151;
+    box-sizing: border-box;
+    border-radius: 16px;
+    @include mobile-below {
+      width: 65vw;
+      font-size: 1.4rem;
+    }
+  }
   @include mobile-below {
-    width: 88vw;
-    margin-top: 30%;
+    padding: 20px;
+    width: 90vw;
     padding-bottom: 25%;
   }
 }
@@ -75,17 +91,18 @@
     flex-direction: column;
     align-items: center;
     width: 0vw;
-    height: 0vh;
+    
     margin-right: 50%;
     margin-top: 30%;
   }
+
   .pinFormModal {
     background-color: #f5f5f5;
     border-radius: 20px;
     .ant-modal-content {
       max-width: 24vw;
       max-height: 35vh;
-
+      
       h4 {
         font-size: 2rem;
         font-family: $font-text-parent;
@@ -108,8 +125,7 @@
         button {
           background-color: #fbfbfb;
           width: 12rem;
-          height: 100%;
-          margin-top: -35px;
+          max-height: 50%;
           display: flex;
           flex-direction: column;
           align-items: center;
