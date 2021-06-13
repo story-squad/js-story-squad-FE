@@ -5,11 +5,11 @@ import { Button, Dropdown } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useOktaAuth } from '@okta/okta-react';
 
 const ChildMenu = props => {
   const { push } = useHistory();
-  const { authService } = useOktaAuth();
+  const { authService } = useOktaAuth(); // https://github.com/okta/okta-react/blob/okta-react-4.0.0/README.md#migrating-from-3x-to-4x
 
   const switchUsers = () => {
     props.clearUsers();
