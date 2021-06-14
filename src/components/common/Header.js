@@ -9,7 +9,14 @@ import { useOktaAuth } from '@okta/okta-react';
 
 const ChildMenu = props => {
   const { push } = useHistory();
-  const { authService } = useOktaAuth(); // https://github.com/okta/okta-react/blob/okta-react-4.0.0/README.md#migrating-from-3x-to-4x
+  // const { authService } = useOktaAuth(); // https://github.com/okta/okta-react/blob/okta-react-4.0.0/README.md#migrating-from-3x-to-4x
+  // augment "oktaAuth" to behave like "authService"
+  const { authState, oktaAuth } = useOktaAuth();
+  oktaAuth.getUser = oktaAuth.token.getUserInfo;
+  oktaAuth.logout = oktaAuth.signOut;
+  oktaAuth.isAuthenticated = authState.isAuthenticated;
+  const authService = oktaAuth;
+  // end augmentation
 
   const switchUsers = () => {
     props.clearUsers();
