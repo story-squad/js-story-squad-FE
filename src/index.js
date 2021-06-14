@@ -20,7 +20,7 @@ import { Security } from '@okta/okta-react';
 import './styles/index.scss';
 
 // Helpers
-import { oktaAuth, config, genRestore } from './utils/oktaConfig';
+import { config, genRestore, oktaAuth } from './utils/oktaConfig';
 import SecureRoute from './components/common/SecureRoute';
 
 //Components
