@@ -9,7 +9,16 @@ const { Sider } = Layout;
 const { Title } = Typography;
 
 const ParentNavSider = props => {
-  const { authService } = useOktaAuth();
+  // const { authService } = useOktaAuth();
+
+  // augment "oktaAuth" to behave like "authService"
+  const { authState, oktaAuth } = useOktaAuth();
+  oktaAuth.getUser = oktaAuth.token.getUserInfo;
+  oktaAuth.logout = oktaAuth.signOut;
+  oktaAuth.isAuthenticated = authState.isAuthenticated;
+  const authService = oktaAuth;
+  // end augmentation
+
   const { push } = useHistory();
   const switchUsers = e => {
     props.clearUsers();

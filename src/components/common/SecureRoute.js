@@ -4,6 +4,7 @@ import { SecureRoute } from '@okta/okta-react';
 import { Redirect, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+
 /**
  * This is a higher-order component wrapper around the standard Okta
  * SecureRoute component that allows us to check the redux store for
@@ -12,6 +13,7 @@ import { connect } from 'react-redux';
  */
 const ReduxSecureRoute = props => {
   const { pathname } = useLocation();
+  console.log('[SECURE ROUTE]');
   // If parent OR child isn't logged in, redirect to profile modal
   return pathname === '/' || props.parentId || props.childId ? (
     <SecureRoute {...props} />

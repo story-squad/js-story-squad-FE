@@ -20,7 +20,7 @@ import { Security } from '@okta/okta-react';
 import './styles/index.scss';
 
 // Helpers
-import { config } from './utils/oktaConfig';
+import { config, genRestore, oktaAuth } from './utils/oktaConfig';
 import SecureRoute from './components/common/SecureRoute';
 
 //Components
@@ -28,12 +28,12 @@ import {
   ChildLoadingComponent,
   ParentLoadingComponent,
   Header,
-  Footer,
+  // Footer,
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { Help } from './components/pages/Help';
-import { LandingPage } from './components/pages/LandingPage';
+// import { LandingPage } from './components/pages/LandingPage';
 import { MissionControl } from './components/pages/MissionControl';
 import { ProfileSelect } from './components/pages/ProfileSelect';
 import { NotFoundPage } from './components/pages/NotFound';
@@ -52,6 +52,7 @@ import { VotingPage } from './components/pages/VotingPage';
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
 import AdminDashboard from './components/pages/AdminDashboard';
+import LoginContainer from './components/pages/Login/LoginContainer';
 
 ReactDOM.render(
   <Router>
@@ -70,20 +71,25 @@ function App() {
   // Declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
   // useHistory at this level to ensure we have security around our routes.
   const history = useHistory();
-
+  const restoreOriginalUri = genRestore(history);
   const authHandler = () => {
     // We pass this to our <Security /> component that wraps our routes.
     // It'll automatically check if userToken is available and push back to login if not :)
     history.push('/login');
   };
+  const [corsErrorModalOpen, setCorsErrorModalOpen] = React.useState(false);
 
   return (
-    <Security {...config} onAuthRequired={authHandler}>
+    <Security {...config} oktaAuth={oktaAuth} onAuthRequired={authHandler} restoreOriginalUri={restoreOriginalUri}>
+
+    {/* // <Security oktaAuth={oktaAuth} onAuthRequired={authHandler} restoreOriginalUri={restoreOriginalUri}> */}
       <Header />
       <div className="footer-flex">
         <main role="main">
           <Switch>
-            <Route path="/login" component={LandingPage} />
+            {/* <Route path="/login" component={LoginContainer} /> */}
+            <Route path="/login" render={() => <LoginContainer {...{ setCorsErrorModalOpen }} />} />
+
             <Route path="/implicit/callback" component={LoginCallbackLoader} />
             {/* any of the routes you need secured should be registered as SecureRoutes */}
             <SecureRoute
@@ -173,7 +179,7 @@ function App() {
             <Route component={NotFoundPage} />
           </Switch>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Security>
   );

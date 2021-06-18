@@ -7,14 +7,25 @@ import { child, parent } from '../../../state/actions';
 import RenderProfileSelect from './RenderProfileSelect';
 
 function ProfileSelectContainer({ LoadingComponent, ...props }) {
-  const { authState, authService } = useOktaAuth();
+  // const { authState, authService } = useOktaAuth();
+  // augment "oktaAuth" to behave like "authService"
+  const { authState, oktaAuth } = useOktaAuth();
+  oktaAuth.getUser = oktaAuth.token.getUserInfo;
+  oktaAuth.logout = oktaAuth.signOut;
+  oktaAuth.isAuthenticated = authState.isAuthenticated;
+  const authService = oktaAuth;
+  // end augmentation
+
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
-
   useEffect(() => {
-    let isSubscribed = true;
+    let isSubscribed = memoAuthService.isAuthenticated;
 
+    if (memoAuthService?.isAuthenticated) {
+      // if the user is authentic, get their profile info
+      return setUserInfo(memoAuthService);
+    }
     memoAuthService
       .getUser()
       .then(info => {
@@ -28,7 +39,7 @@ function ProfileSelectContainer({ LoadingComponent, ...props }) {
         isSubscribed = false;
         return setUserInfo(null);
       });
-    return () => (isSubscribed = false);
+    return () => false;
   }, [memoAuthService]);
 
   return (

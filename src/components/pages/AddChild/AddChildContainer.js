@@ -6,7 +6,15 @@ import RenderAddChild from './RenderAddChild';
 import { parent } from '../../../state/actions';
 
 function AddChildContainer({ LoadingComponent, ...props }) {
-  const { authState, authService } = useOktaAuth();
+  // const { authState, authService } = useOktaAuth();
+  // augment "oktaAuth" to behave like "authService"
+  const { authState, oktaAuth } = useOktaAuth();
+  oktaAuth.getUser = oktaAuth.token.getUserInfo;
+  oktaAuth.logout = oktaAuth.signOut;
+  oktaAuth.isAuthenticated = authState.isAuthenticated;
+  const authService = oktaAuth;
+  // end augmentation
+
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
