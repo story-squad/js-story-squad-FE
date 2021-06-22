@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useOktaAuth } from '@okta/okta-react';
 
 import { getMissionControlText, modalPush } from '../../../utils/helpers';
 import { getChildTasks, getStory } from '../../../api';

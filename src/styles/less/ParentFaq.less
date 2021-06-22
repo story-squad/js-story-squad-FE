@@ -1,0 +1,82 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+@import 'variables.less';
+
+.title {
+  .titleStyle();
+}
+
+.parent-back-button {
+  .parent-back-button();
+}
+
+.card {
+  width: 66%;
+  background-color: #fbfbfb;
+  position: relative;
+  margin: 25px auto;
+  padding: 20px;
+  border-radius: 16px;
+  font-size: 24px;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: #2d2a2b;
+}
+.ant-card-head-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #4b5151;
+  font-family: sans-serif;
+}
+
+.ant-card-body {
+  letter-spacing: inherit;
+  font-size: 18px;
+  line-height: 28px;
+  background-color: #fbfbfb;
+  font-weight: 400;
+  font-family: sans-serif;
+  color: #2d2a2b;
+  padding: 5px;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  justify-items: left;
+  max-width: 500px;
+  min-width: 460px;
+  height: 110px;
+  .ant-row {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 0 0;
+  }
+  a {
+    border: 1px solid gainsboro;
+    border-radius: 16px;
+    text-transform: initial;
+    width: fit-content;
+    padding: 2px 4%;
+    background-color: #F5F5F5;
+    text-decoration: none;
+    color: #4B5151;
+    font-family: 'Open Sans';
+    font-weight: normal;
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 500px) {
+    height: 210px;
+    .ant-row {
+      flex-flow: column;
+      height: 90px;
+    }
+  }
+}
