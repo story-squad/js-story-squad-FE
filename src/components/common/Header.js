@@ -5,7 +5,7 @@ import { Button, Dropdown } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useOktaAuth } from '@okta/okta-react';
 
 const ChildMenu = props => {
   const { push } = useHistory();
