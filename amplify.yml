@@ -4,12 +4,11 @@ frontend:
     preBuild:
       commands:
         - nvm use $VERSION_NODE_12
-        - npm ci
+        - yarn install
     build:
       commands:
         - nvm use $VERSION_NODE_12
-        - node -v
-        - npm run-script build
+        - yarn build
   artifacts:
     baseDirectory: build
     files:
