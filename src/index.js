@@ -18,6 +18,8 @@ import {
 import { Security } from '@okta/okta-react';
 
 import './styles/index.scss';
+import 'antd/dist/antd.less';
+import './styles/less/index.less';
 
 // Helpers
 import { config, genRestore, oktaAuth } from './utils/oktaConfig';
