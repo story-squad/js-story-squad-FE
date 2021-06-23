@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
+import bc from 'bcryptjs';
 
 import closeIcon from '../../../assets/icons/close-x.svg';
 import lockIcon from '../../../assets/icons/lock-2.svg';
@@ -119,7 +120,7 @@ const RenderProfileSelect = props => {
                   },
                   () => ({
                     validator(rule, value) {
-                      const x = (value === selected.PIN);
+                      const x = bc.compareSync(value, selected.PIN);
                       if (x) {
                         return Promise.resolve();
                       }
