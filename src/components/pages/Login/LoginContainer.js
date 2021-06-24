@@ -1,44 +1,50 @@
 import React, { useEffect } from 'react';
-import OktaSignIn from '@okta/okta-signin-widget';
-
+import * as OktaSignIn from '@okta/okta-signin-widget';
+import { useOktaAuth } from '@okta/okta-react';
+import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import { config } from '../../../utils/oktaConfig';
 
-const LoginContainer = () => {
+const LoginContainer = ({ setCorsErrorModalOpen }) => {
+  const { oktaAuth } = useOktaAuth();
+
   useEffect(() => {
-    const { pkce, issuer, clientId, redirectUri, scopes } = config;
+    const { pkce, issuer, clientId, redirectUri, scopes, useInteractionCode } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
+
     const widget = new OktaSignIn({
       baseUrl: issuer ? issuer.split('/oauth2')[0] : '',
       clientId,
       redirectUri,
       registration: {
-        click: function () {
-          window.location.href = 'https://acme.com/sign-up'; //This just redirects to a random page for now, will have actual page when signup feature is complete
-        },
+        // click: function () {
+        //   window.location.href = '/login'; //This just redirects to a random page for now, will have actual page when signup feature is complete
+        // },
       },
-      features: { registration: false },
+      features: { registration: true },
       // turning this feature on allows your widget to use Okta for user registration
-      logo: 'path-to-your-logo',
+      logo: 'https://placekitten.com/200/200',
       // add your custom logo to your signing/register widget here.
       i18n: {
         en: {
           'primaryauth.title': `Sign-in to your account`,
           'primaryauth.username.placeholder': 'Email Address',
-          needhelp: 'Don’t have an account yet? SIGN-UP HERE',
+          needhelp: "🐾∞🐾"
+          // needhelp: 'Don’t have an account yet? SIGN-UP HERE',
           // change title for your app
         },
       },
       authParams: {
-        pkce,
+        // To avoid redirect do not set "pkce" or "display" here. OKTA-335945
         issuer,
-        display: 'page',
         scopes,
       },
+      useInteractionCodeFlow: useInteractionCode, // Set to true, if your org is OIE enabled
     });
 
     widget.renderEl(
       { el: '#sign-in-widget' },
-      () => {
+      (res) => {
+        oktaAuth.handleLoginRedirect(res.tokens);
         /**
          * In this flow, the success handler will not be called because we redirect
          * to the Okta org for the authentication workflow.
@@ -48,9 +54,21 @@ const LoginContainer = () => {
         throw err;
       }
     );
-  }, []);
+    // Note: Can't distinguish CORS error from other network errors
+    const isCorsError = (err) => (err.name === 'AuthApiError' && !err.statusCode);
 
-  return <div id="sign-in-widget" />;
+    widget.on('afterError', (_context, error) => {
+      if (isCorsError(error)) {
+        setCorsErrorModalOpen(true);
+      }
+    });
+
+    return () => widget.remove();
+  }, [oktaAuth]);
+
+  return (
+    <div id="sign-in-widget" />
+  );
 };
 
 export default LoginContainer;

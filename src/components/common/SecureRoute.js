@@ -4,6 +4,7 @@ import { SecureRoute } from '@okta/okta-react';
 import { Redirect, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+
 /**
  * This is a higher-order component wrapper around the standard Okta
  * SecureRoute component that allows us to check the redux store for
