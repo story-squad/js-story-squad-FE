@@ -1,19 +1,25 @@
+@import 'global.less';
+@import 'variables.less';
+@import 'mixins.less';
+
 .profile-select {
+
   h2 {
     margin: 4rem 0 6.4rem 0;
     font-size: 6rem;
-    @include tablet-below {
+    @media tablet-below {
       font-size: 4.2rem;
     }
   }
   .profile-list {
+    
     display: grid;
     grid-template-columns: 12rem 12rem 12rem;
     justify-content: center;
     justify-items: center;
     gap: 4rem 10rem;
     margin-bottom: 6.4rem;
-    @include tablet-below {
+    @media tablet-below {
       display: flex;
       flex-wrap: wrap;
       gap: 4rem 6rem;
@@ -81,8 +87,8 @@
     top: 14.6rem;
     margin-left: 0.4rem;
     font-size: 1.4rem;
-    font-family: $font-text-parent;
-    color: $red-warning;
+    font-family: @font-text-parent;
+    color: @red-warning;
   }
   .ant-form-item-children-icon {
     display: none;

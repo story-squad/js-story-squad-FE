@@ -1,5 +1,8 @@
-@import '~antd/dist/antd.less';
-@import '~antd/lib/style/themes/default.less';
+// @import '~antd/dist/antd.less';
+// @import '~antd/lib/style/themes/default.less';
+@import 'global';
+@import 'mixins';
+@import 'variables';
 
 .hero {
   background-image: url('../../assets/images/cityscape.svg');
@@ -10,7 +13,6 @@
   border: 5px solid @header-nero;
   background-color: @turquoise;
   position: relative;
-
   @media @mobile {
     min-height: 20vh;
   }
