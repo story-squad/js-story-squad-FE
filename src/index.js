@@ -40,6 +40,7 @@ import { MissionControl } from './components/pages/MissionControl';
 import { ProfileSelect } from './components/pages/ProfileSelect';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
+import { ParentFaq } from './components/pages/ParentFaq';
 import { ParentSettings } from './components/pages/FamilySettings';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { TrophyRoom } from './components/pages/TrophyRoom';
@@ -133,6 +134,13 @@ function App() {
               exact
               component={() => (
                 <ParentDashboard LoadingComponent={ParentLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/parent/faq"
+              exact
+              component={() => (
+                <ParentFaq LoadingComponent={ParentLoadingComponent} />
               )}
             />
             <SecureRoute

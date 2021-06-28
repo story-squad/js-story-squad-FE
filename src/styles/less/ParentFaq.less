@@ -13,17 +13,18 @@
 }
 
 .card {
-  width: 66%;
-  background-color: #fbfbfb;
-  position: relative;
-  margin: 25px auto;
-  padding: 20px;
-  border-radius: 16px;
-  font-size: 24px;
-  font-family: sans-serif;
-  font-weight: 600;
-  color: #2d2a2b;
+  @media @mobile {
+    .ant-col img {
+      margin-top: 25px;
+      width: 80px;
+    }
+    .ant-col a {
+      width: 210px;
+      font-size: 1rem;
+    }
+  }
 }
+
 .ant-card-head-title {
   font-size: 24px;
   font-weight: 600;
@@ -50,8 +51,8 @@
   align-items: center;
   padding: 10px;
   justify-items: left;
-  max-width: 500px;
-  min-width: 460px;
+  max-width: 100%;
+  // min-width: 460px;
   height: 110px;
   .ant-row {
     width: 100%;
@@ -66,9 +67,9 @@
     text-transform: initial;
     width: fit-content;
     padding: 2px 4%;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     text-decoration: none;
-    color: #4B5151;
+    color: #4b5151;
     font-family: 'Open Sans';
     font-weight: normal;
     font-size: 1.3rem;
@@ -79,6 +80,87 @@
     .ant-row {
       flex-flow: column;
       height: 90px;
+    }
+  }
+}
+#game-play {
+  @media @mobile {
+    .ant-collapse-header {
+      font-size: 0.8rem;
+    }
+    .ant-collapse-content-box {
+      p {
+        font-size: 0.8rem;
+      }
+    }
+    .ant-card-head {
+      width: 256px;
+      margin-left: -25px;
+      .ant-card-head-title {
+        padding: 0px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+#tech-support {
+  @media @mobile {
+    .ant-collapse-header {
+      font-size: 0.8rem;
+    }
+    .ant-collapse-content-box {
+      p {
+        font-size: 0.8rem;
+      }
+    }
+    .ant-card-head {
+      width: 256px;
+      margin-left: -25px;
+      .ant-card-head-title {
+        padding: 0px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+#account-settings {
+  @media @mobile {
+    .ant-collapse-header {
+      font-size: 0.8rem;
+    }
+    .ant-collapse-content-box {
+      p {
+        font-size: 0.8rem;
+      }
+    }
+    .ant-card-head {
+      width: 256px;
+      margin-left: -25px;
+      .ant-card-head-title {
+        padding: 0px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+#child-profile-management {
+  @media @mobile {
+    .ant-collapse-header {
+      font-size: 0.8rem;
+    }
+    .ant-collapse-content-box {
+      p {
+        font-size: 0.8rem;
+      }
+    }
+    .ant-card-head {
+      width: 256px;
+      margin-left: -25px;
+      .ant-card-head-title {
+        padding: 0px;
+        font-size: 1rem;
+      }
     }
   }
 }
