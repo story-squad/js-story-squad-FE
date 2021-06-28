@@ -45,7 +45,7 @@ import { ParentSettings } from './components/pages/FamilySettings';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { TrophyRoom } from './components/pages/TrophyRoom';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
-
+import { ParentContact } from './components/pages/ParentContact';
 // Gameification Components
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
@@ -143,6 +143,14 @@ function App() {
                 <ParentFaq LoadingComponent={ParentLoadingComponent} />
               )}
             />
+            <SecureRoute
+              path="/parent/contact"
+              exact
+              component={() => (
+                <ParentContact LoadingComponent={ParentLoadingComponent} />
+              )}
+            />
+            {/* I DONT THINK THIS IS NECCESSARY ANY MORE AS WE HAVE AN FAQ PAGE NOW - ROB */}
             <SecureRoute
               path="/parent/help"
               exact

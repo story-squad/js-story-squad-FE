@@ -1,1 +1,1 @@
-export { default as ParentContact } from './ParentContactContainer';
+export { default as ParentContact } from './ContactUsContainer';
