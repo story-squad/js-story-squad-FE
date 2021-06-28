@@ -29,8 +29,8 @@ import SecureRoute from './components/common/SecureRoute';
 import {
   ChildLoadingComponent,
   ParentLoadingComponent,
-  Header,
-  // Footer,
+  // Header,
+  Footer,
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
@@ -82,15 +82,23 @@ function App() {
   const [corsErrorModalOpen, setCorsErrorModalOpen] = React.useState(false);
 
   return (
-    <Security {...config} oktaAuth={oktaAuth} onAuthRequired={authHandler} restoreOriginalUri={restoreOriginalUri}>
-
-    {/* // <Security oktaAuth={oktaAuth} onAuthRequired={authHandler} restoreOriginalUri={restoreOriginalUri}> */}
-      <Header />
+    <Security
+      {...config}
+      oktaAuth={oktaAuth}
+      onAuthRequired={authHandler}
+      restoreOriginalUri={restoreOriginalUri}
+    >
+      {/* // <Security oktaAuth={oktaAuth} onAuthRequired={authHandler} restoreOriginalUri={restoreOriginalUri}> */}
+      {/* TODO - figure out a way to get the header to render only on certain pages  */}
+      {/* <Header /> */}
       <div className="footer-flex">
         <main role="main">
           <Switch>
             {/* <Route path="/login" component={LoginContainer} /> */}
-            <Route path="/login" render={() => <LoginContainer {...{ setCorsErrorModalOpen }} />} />
+            <Route
+              path="/login"
+              render={() => <LoginContainer {...{ setCorsErrorModalOpen }} />}
+            />
 
             <Route path="/implicit/callback" component={LoginCallbackLoader} />
             {/* any of the routes you need secured should be registered as SecureRoutes */}
