@@ -1,3 +1,7 @@
+@import 'global.less';
+@import 'variables.less';
+@import 'mixins.less';
+
 .react-pdf__Page__textContent,
 .react-pdf__Page__annotations {
   display: none;
@@ -36,8 +40,12 @@
   flex-direction: column;
   max-height: 70vh;
   overflow-y: scroll;
-  border: 5px solid @header-nero;
+  // border: 5px solid @header-nero;
   border-top-width: 0;
+    // removes duplicate pdf text
+    .page-component span {
+      display: none;
+    }
 }
 
 .finished-container {
@@ -52,9 +60,9 @@
     background-color: #eb7d5b;
     box-sizing: border-box;
     font-size: 1rem;
-    border: 3px solid @header-nero;
+    // border: 3px solid @header-nero;
   }
-  .finished-reading:disabled {
-    background-color: @suva-grey;
-  }
+  // .finished-reading:disabled {
+  //   // background-color: @suva-grey;
+  // }
 }

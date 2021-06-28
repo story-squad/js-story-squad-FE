@@ -1,17 +1,20 @@
 // element-level styles
+@import 'global.less';
+@import 'variables.less';
+@import 'mixins.less';
 
 h1 {
   margin: 2rem 0 0;
   text-align: center;
   font-size: 7.2rem;
-  color: $white;
-  -webkit-text-stroke: 0.2rem $black-brand;
+  color: @white;
+  -webkit-text-stroke: 0.2rem @black-brand;
   letter-spacing: 0.5rem;
-  @include text-shadow;
-  @include tablet-below {
+  // @include text-shadow;
+  @media @tablet {
     font-size: 3.6rem;
     letter-spacing: 0.25rem;
-    -webkit-text-stroke: 0.1rem $black-brand;
+    -webkit-text-stroke: 0.1rem @black-brand;
   }
 }
 
@@ -20,7 +23,7 @@ h2, .h2 {
   text-align: center;
   font-size: 4.2rem;
   letter-spacing: 0.22rem;
-  @include tablet-below {
+  @media @tablet {
     font-size: 2.8rem;
 		letter-spacing: 0.146rem;
   }
@@ -32,16 +35,16 @@ h3, .h3 {
 }
 
 h1, h2, .h2, h3, .h3 {
-  font-family: $font-display;
+  font-family: @font-display;
   font-weight: 400;
 }
 
 p, span, li, button, label, input, a {
   font-size: 2.6rem;
-  font-family: $font-text;
+  font-family: @font-text;
   margin-top: 0;
   margin-bottom: 2rem;
-  @include tablet-below {
+  @media @tablet {
     font-size: 1.8rem;
   }
 }
@@ -52,7 +55,7 @@ p {
 }
 
 h2, h3, p, span, li, button, label, input, a {
-  color: $black-text;
+  color: @black-text;
 }
 
 a, button {
@@ -62,16 +65,16 @@ a, button {
 button {
   height: 7rem;
   padding: 0 2rem;
-  border: 0.2rem solid $black-border;
+  border: 0.2rem solid @black-border;
   border-radius: 0.8rem;
-  background: $aqua;
+  background: @aqua;
   font-size: 3.2rem;
   font-weight: 500;
-  // used for antd Buttons, which include a span
+  // used for antd Buttons, which media a span
   span {
     font-size: 3.2rem;
   }
-  @include tablet-below {
+  @media @tablet {
     height: 5rem;
     font-size: 2rem;
     span {
@@ -80,9 +83,9 @@ button {
   }
   &:disabled,
   &:disabled span {
-    background: $gray;
-    color: $gray-dark;
-    border-color: $gray-dark;
+    background: @gray;
+    color: @gray-dark;
+    border-color: @gray-dark;
     cursor: not-allowed;
   }
   * {
