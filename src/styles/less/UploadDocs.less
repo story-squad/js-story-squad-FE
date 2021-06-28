@@ -1,3 +1,7 @@
+@import 'global.less';
+@import 'variables.less';
+@import 'mixins.less';
+
 .upload-docs {
   // Upload Preview Styles
   .ant-upload-list-picture-card {
@@ -5,8 +9,8 @@
     .ant-upload-list-item {
       height: 8rem;
       width: 32rem;
-      background-color: $white;
-      border: 2px dashed $gray-text;
+      background-color: @white;
+      border: 2px dashed @gray-text;
       border-radius: 8px;
       padding: 1rem;
       display: flex;
@@ -35,7 +39,7 @@
     // replace default antDesign trashcan
     .ant-upload-list-item-card-actions-btn {
       border: none;
-      background-color: $white;
+      background-color: @white;
       background-image: url('../../assets/icons/trash-2.svg');
       background-repeat: no-repeat;
       background-size: contain;
@@ -58,7 +62,7 @@
   p.small,
   h2,
   button.span {
-    color: $black-border;
+    color: @black-border;
   }
   p.small {
     font-size: 2.6rem;
@@ -105,7 +109,7 @@
 }
 // The upload component is using the antDesign modal
 // The styles are copied from SubmissionViewer modal
-
+.bottom{
 .ant-modal-root {
   .ant-modal-wrap {
     position: fixed;
@@ -114,7 +118,7 @@
     height: 100vh;
     width: 100vw;
     z-index: 100;
-    background: $gray;
+    background: @gray;
     .ant-modal-content {
       background-color: transparent;
       height: 100vh;
@@ -135,7 +139,7 @@
         flex-direction: column;
         justify-content: center;
         span.ant-modal-close-x {
-          color: $gray-text-light;
+          color: @gray-text-light;
           background-color: transparent;
           svg {
             height: 2rem;
@@ -147,8 +151,8 @@
         font-size: 2rem;
         padding: 0 1rem 0 0;
         font-family: 'Atma', sans-serif;
-        color: $gray-text-light;
-        background-color: $gray;
+        color: @gray-text-light;
+        background-color: @gray;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -158,4 +162,5 @@
       }
     }
   }
+}
 }

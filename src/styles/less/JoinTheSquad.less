@@ -1,169 +1,245 @@
-@import '~antd/dist/antd.less';
-@import '~antd/lib/style/themes/default.less';
+// @import '~antd/dist/antd.less';
+// @import '~antd/lib/style/themes/default.less';
+@import 'global';
+@import 'mixins';
+@import 'variables';
 
-.JoinSquadContainer {
-  height: 70vh;
-  display: flex;
-  @media @tablet {
-    flex-direction: column;
-  }
-}
 
-.joinSquad1 {
-  background: #b5d33d;
-  display: flex;
-  justify-content: center;
-}
-.joinSquad2 {
-  background-color: #fed23f;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.joinSquad1,
-.joinSquad2 {
-  border: 5px solid #292929;
-  position: relative;
-}
-
-.imgContain1 {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  @media @tablet {
-    padding-left: 5%;
-    padding-bottom: 0%;
-  }
-}
-
-.imgContain2 {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-.button {
-  display: flex;
-  justify-content: flex-end;
-}
-.sharePoints {
-  background: #eb7d5b;
-  border-color: #eb7d5b;
-  position: absolute;
-  bottom: 2vh;
-  right: 2vh;
-  font-weight: 700;
-  width: 19%;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-  border: 3px solid black;
-  &:hover {
-    background-color: #eb7d5bbb;
-    border-color: #eb7d5bbb;
-  }
-  @media @mobile {
+.join-squad {
+  .join-squad-child {
+    margin-top: 4rem;
+    width: 50%;
+    display: inline-block;
     position: relative;
-    right: 56px;
-    bottom: 57.5vh;
-    height: 5vh;
-    width: 218px;
+    height: 50rem;
+    & > * {
+      position: absolute;
+    }
+    p {
+      z-index: 1;
+      width: 100%;
+      text-align: center;
+      top: 2rem;
+      &.child-2 {
+        top: 6.5rem;
+        left: 1.4rem;
+      }
+    }
+    .flex-container {
+      width: 100%;
+      top: 20rem;
+      display: flex;
+      justify-content: center;
+    }
+    .child-avatar-container {
+      top: 20rem;
+    }
+    .child-avatar {
+      width: 50%;
+    }
+    .star-bg-container {
+      &.child-1 {
+        top: 18rem;
+      }
+      &.child-2 {
+        top: 21rem;
+      }
+    }
+    .talk-bubble {
+      &.child-1 {
+        left: 2rem;
+      }
+      &.child-2 {
+        left: 3rem;
+        top: 4rem;
+      }
+    }
+    .user-indicator {
+      height: 4rem;
+      top: 43rem;
+    }
   }
-}
-img {
-  max-width: 100%;
-}
-
-.star {
-  z-index: 2;
-  // margin-top: 20%;
-  position: inherit;
-  bottom: 95px;
-  @media @mobile {
-    height: 32vh;
-  }
-}
-
-.wordBubble {
-  z-index: 3;
-  // position: fixed;
-  margin-left: 12%;
-  margin-top: 0%;
-  @media @mobile {
-    margin-top: 33%;
-  }
-}
-
-.wordBubble2 {
-  z-index: 3;
-  margin-left: -2%;
-  margin-top: 0%;
-}
-
-.text {
-  z-index: 4;
-  position: absolute;
-  margin-top: 17%;
-  margin-left: 43%;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1rem;
-  font-weight: 900;
-  @media @mobile {
-    top: 19%;
-    left: 0%;
-  }
-}
-.text2 {
-  z-index: 4;
-  position: absolute;
-  margin-top: 8%;
-  margin-left: 41%;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1rem;
-  font-weight: 900;
-
-  @media @mobile {
-    top: 9%;
-    left: -9%;
-  }
-}
-
-.child1-avatar {
-  z-index: 2;
-  height: 29vh;
-  position: absolute;
-  left: 28%;
-  top: 24%;
-  @media @mobile {
-    height: 16vh;
-    left: 38%;
-    top: 44%;
+  @media @tablet {
+    .content-box {
+      display: flex;
+      flex-direction: column;
+    }
+    .join-squad-child {
+      margin: 2rem auto -4rem;
+      width: 30rem;
+    }
+    p.user-indicator {
+      margin-bottom: 0;
+    }
   }
 }
 
-.child2-avatar {
-  z-index: 2;
-  height: 29vh;
-  position: absolute;
-  left: 43%;
-  top: 32%;
+//The styles above are from drew the styles below are from the Lambda Repo
 
-  @media @mobile {
-    left: 38%;
-    top: 39%;
-    height: 15vh;
-  }
-}
-.back-button {
-  .orangeButtonStyle();
-  position: absolute;
-  width: 19%;
-  height: 6.5%;
-  font-weight: 700;
-  left: 2vh;
-  bottom: 2vh;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-  &:hover {
-    background-color: #eb7d5bbb;
-    border-color: #eb7d5bbb;
-    color: white;
-  }
-}
+
+// .JoinSquadContainer {
+//   height: 70vh;
+//   display: flex;
+//   @media @tablet {
+//     flex-direction: column;
+//   }
+// }
+
+// .joinSquad1 {
+//   background: #b5d33d;
+//   display: flex;
+//   justify-content: center;
+// }
+// .joinSquad2 {
+//   background-color: #fed23f;
+//   height: 100%;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .joinSquad1,
+// .joinSquad2 {
+//   border: 5px solid #292929;
+//   position: relative;
+// }
+
+// .imgContain1 {
+//   display: flex;
+//   position: relative;
+//   flex-direction: column;
+//   @media @tablet {
+//     padding-left: 5%;
+//     padding-bottom: 0%;
+//   }
+// }
+
+// .imgContain2 {
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+// }
+// .button {
+//   display: flex;
+//   justify-content: flex-end;
+// }
+// .sharePoints {
+//   background: #eb7d5b;
+//   border-color: #eb7d5b;
+//   position: absolute;
+//   bottom: 2vh;
+//   right: 2vh;
+//   font-weight: 700;
+//   width: 19%;
+//   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+//   border: 3px solid black;
+//   &:hover {
+//     background-color: #eb7d5bbb;
+//     border-color: #eb7d5bbb;
+//   }
+//   @media @mobile {
+//     position: relative;
+//     right: 56px;
+//     bottom: 57.5vh;
+//     height: 5vh;
+//     width: 218px;
+//   }
+// }
+// img {
+//   max-width: 100%;
+// }
+
+// .star {
+//   z-index: 2;
+//   // margin-top: 20%;
+//   position: inherit;
+//   bottom: 95px;
+//   @media @mobile {
+//     height: 32vh;
+//   }
+// }
+
+// .wordBubble {
+//   z-index: 3;
+//   // position: fixed;
+//   margin-left: 12%;
+//   margin-top: 0%;
+//   @media @mobile {
+//     margin-top: 33%;
+//   }
+// }
+
+// .wordBubble2 {
+//   z-index: 3;
+//   margin-left: -2%;
+//   margin-top: 0%;
+// }
+
+// .text {
+//   z-index: 4;
+//   position: absolute;
+//   margin-top: 17%;
+//   margin-left: 43%;
+//   font-family: 'Nunito', sans-serif;
+//   font-size: 1rem;
+//   font-weight: 900;
+//   @media @mobile {
+//     top: 19%;
+//     left: 0%;
+//   }
+// }
+// .text2 {
+//   z-index: 4;
+//   position: absolute;
+//   margin-top: 8%;
+//   margin-left: 41%;
+//   font-family: 'Nunito', sans-serif;
+//   font-size: 1rem;
+//   font-weight: 900;
+
+//   @media @mobile {
+//     top: 9%;
+//     left: -9%;
+//   }
+// }
+
+// .child1-avatar {
+//   z-index: 2;
+//   height: 29vh;
+//   position: absolute;
+//   left: 28%;
+//   top: 24%;
+//   @media @mobile {
+//     height: 16vh;
+//     left: 38%;
+//     top: 44%;
+//   }
+// }
+
+// .child2-avatar {
+//   z-index: 2;
+//   height: 29vh;
+//   position: absolute;
+//   left: 43%;
+//   top: 32%;
+
+//   @media @mobile {
+//     left: 38%;
+//     top: 39%;
+//     height: 15vh;
+//   }
+// }
+// .back-button {
+//   .orangeButtonStyle();
+//   position: absolute;
+//   width: 19%;
+//   height: 6.5%;
+//   font-weight: 700;
+//   left: 2vh;
+//   bottom: 2vh;
+//   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+//   &:hover {
+//     background-color: #eb7d5bbb;
+//     border-color: #eb7d5bbb;
+//     color: white;
+//   }
+// }

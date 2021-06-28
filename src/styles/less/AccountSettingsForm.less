@@ -1,7 +1,8 @@
 // @import '~antd/dist/antd.less';
 // @import '~antd/lib/style/themes/default.less';
-@import 'global.less';
-@import 'variables.less';
+@import 'global';
+@import 'mixins';
+@import 'variables';
 
 .acct-settings-form {
     box-sizing: border-box;
@@ -9,7 +10,6 @@
     width:68vw;
     margin:0 auto;
     @media @mobileLarge{
-        height:80vh;
         margin-top:15px;
         width:87vw;
         margin:0 auto;
@@ -124,7 +124,7 @@
         cursor: pointer;
     }
     @media @mobileLarge{
-        font-size:1rem;
+        font-size:.7rem;
         height:25px;
     }
 }

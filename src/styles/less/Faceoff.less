@@ -1,7 +1,11 @@
+@import 'global';
+@import 'mixins';
+@import 'variables';
+
 .faceoff {
   margin-bottom: 5.2rem;
   min-height: unset;
-  @include tablet-large-below {
+  @media @tablet {
     margin-bottom: 0;
   }
   .points {

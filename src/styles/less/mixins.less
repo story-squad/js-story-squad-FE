@@ -1,3 +1,7 @@
+@import 'global.less';
+@import 'variables.less';
+
+
 .welcomeStyle() {
   padding: 12%;
   margin-top: 15%;
@@ -120,3 +124,331 @@
 
   }
 }
+
+//The following mixins were taken from Drews scss styling library
+
+.content-box {
+  display: block;
+  margin: 0 auto 4rem;
+  padding: 2rem;
+  max-width: 71.6rem;
+  min-height: 30rem;
+  width: 100%;
+  @media @tablet-width {
+    min-height: 15rem;
+    margin-bottom: 1.6rem;
+  }
+  &.dark {
+    background: @black-text;
+    & > * {
+      color: @white;
+    }
+  }
+  &.shaped {
+    clip-path: polygon(0.5% 0%, 95% 2%, 100% 94%, 0% 100%);
+    &.responsive-box {
+      @media @tablet-width {
+        clip-path: none;
+        max-width: unset;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// wrap a .content-box.shaped with this to give it a shadow
+.shaped-shadow-container {
+  filter: drop-shadow(@size-shadow-large @gray);
+  @media @tablet-width {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  &.responsive-box {
+    @media @tablet-width {
+      margin-top: -3.6rem;
+      filter: none;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  & > * {
+    max-width: 100%;
+  }
+  &.grid-2-col {
+    grid-template-columns: 40rem 40rem;
+    column-gap: 4rem;
+    @media @tablet-large-width {
+      grid-template-columns: 100%;
+      column-gap: none;
+      row-gap: 2rem;
+    }
+    &.grid-small {
+      grid-template-columns: 34.6rem 34.6rem;
+      column-gap: 2rem;
+      @media @tablet-large-width {
+        grid-template-columns: 48% 48%;
+      }
+    }
+  }
+  &.grid-3-col {
+    grid-template-columns: 33% auto 33%;
+  }
+}
+
+.flex {
+  display: flex;
+  &.space-between {
+    justify-content: space-between;
+  }
+  &.align-center {
+    align-items: center;
+  }
+  &.tablet-large-column {
+    @media @tablet-large-width {
+      flex-direction: column;
+    }
+  }
+}
+
+.border {
+  .border-large-square(@black-border);
+}
+
+.border-light {
+  .border-large-square(@gray);
+}
+
+.border-dark {
+  .border-large-square(@black-text);
+}
+
+.bg-green {
+  background: @green;
+}
+
+.bg-blue {
+  background: @blue;
+}
+
+.bg-orange {
+  background: @orange;
+}
+
+.bg-yellow {
+  background: @yellow;
+}
+
+.bg-aqua {
+  background: @aqua;
+}
+
+.bg-dark {
+  background: @black-brand;
+}
+
+.text-dark {
+  color: @black-text !important;
+}
+
+.text-light {
+  color: @white !important;
+}
+
+.font-display {
+  font-family: @font-display;
+}
+
+.font-size-32 {
+  font-size: 3.2rem;
+}
+
+.center-content {
+  text-align: center;
+  * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.center-content-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-self {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+// use for full-page background color in the main content
+.full-page {
+  margin-top: -4rem;
+  margin-bottom: -8rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  min-height: 100vh;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.margin-bottom-2 {
+  margin-bottom: 2rem;
+}
+
+.margin-bottom-4 {
+  margin-bottom: 4rem;
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+p {
+  &.small {
+    font-size: 1.8rem;
+  }
+}
+
+h2, .h2 {
+  &.small {
+    font-size: 2.6rem;
+    letter-spacing: 0.1125rem;
+  }
+}
+
+p,
+button {
+  &.font-display {
+    letter-spacing: 0.1rem;
+  }
+}
+
+p, span, li, button, input, label, a {
+  &.keep-font-size {
+    font-size: 2.6rem !important;
+  }
+}
+
+button {
+  &.secondary {
+    color: @black-text;
+    background: @white;
+    border-color: @aqua-light;
+  }
+  &.small {
+    height: 5rem;
+    font-size: 2rem;
+    span {
+      font-size: 2rem;
+    }
+  }
+  &.btn-modal {
+    background: @white;
+    color: @black-text;
+    font-family: @font-display;
+    letter-spacing: 0.18rem;
+    font-weight: 400;
+    @media @tablet-width {
+      height: 4rem;
+      letter-spacing: 0.1125rem;
+    }
+  }
+  &.full-width {
+    width: 100%;
+  }
+  &.min-width {
+    min-width: 20rem;
+  }
+}
+
+.popup-animated {
+  animation: popup-animated 0.3s;
+  @keyframes popup-animated {
+    0% {
+      opacity: 0;
+      transform: scale(0.5, 0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+}
+
+// styles
+
+.border-large-square(@color) {
+  border: 7px solid @color;
+  border-radius: 0;
+}
+
+.shadow(@color: @black-brand) {
+  box-shadow: @size-shadow @color;
+}
+
+.text-shadow(@color: @black-brand) {
+  text-shadow: @size-shadow @color;
+  .tablet-below {
+    text-shadow: @size-shadow-small @color;
+  }
+}
+
+.text-stroke(@color: @black-brand) {
+  text-shadow: -0.1rem -0.1rem @color, 0 -0.1rem @color, 0.1rem -0.1rem @color,
+    0.1rem 0 @color, 0.1rem 0.1rem @color, 0 0.1rem @color,
+    -0.1rem 0.1rem @color, -0.1rem 0 @color;
+}
+
+//THE FOLLOWING IS FROM DREWS MIXINS>SCSS FILE AND HAS YET TO BE REFACTORED / MAY NOT BE NEEDED
+
+// breakpoints
+
+// @mixin tablet-below {
+//   @media (max-width: $tablet-width) {
+//     @content;
+//   }
+// }
+
+// @mixin tablet-below-wh {
+//   @media (max-width: $tablet-width), (max-height: $tablet-height) {
+//     @content;
+//   }
+// }
+
+// @mixin tablet-large-below {
+//   @media (max-width: $tablet-large-width) {
+//     @content;
+//   }
+// }
+
+// @mixin tablet-above {
+//   @media (min-width: $tablet-width) {
+//     @content;
+//   }
+// }
+
+// @mixin tablet-above-wh {
+//   @media (min-width: $tablet-width) and (min-height: $tablet-height) {
+//     @content;
+//   }
+// }
+
+// @mixin mobile-below {
+//   @media (max-width: $mobile-width) {
+//     @content;
+//   }
+// }

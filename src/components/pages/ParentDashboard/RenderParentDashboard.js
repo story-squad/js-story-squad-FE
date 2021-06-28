@@ -27,7 +27,7 @@ const RenderNewParentDashboard = props => {
         <ParentNavTopBar />
         <Layout>
           <div className="ProgressContainer">
-            <div className="ProgressHeader">
+            <div className="ProgressHeader center-content">
               <h2>Progress Charts</h2>
             </div>
             <div className="ProgressBoxContainer">

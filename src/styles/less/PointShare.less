@@ -1,5 +1,75 @@
-@import '~antd/dist/antd.less';
-@import '~antd/lib/style/themes/default.less';
+// @import '~antd/dist/antd.less';
+// @import '~antd/lib/style/themes/default.less';
+@import 'global.less';
+@import 'variables.less';
+@import 'mixins.less';
+
+.point-share {
+  padding-bottom: 4rem;
+  .ant-input-number-handler-wrap {
+    display: none;
+  }
+}
+
+.point-share-child-row {
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 40% 30% 30%;
+  justify-items: center;
+  @media @tablet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .avatar-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media @tablet {
+      width: 100%;
+    }
+    img {
+      max-width: 13rem;
+      margin: 0 auto 1rem;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  }
+  .submission-viewer-button {
+    margin-bottom: 2rem;
+  }
+  .teammate-avatar {
+    width: 100%;
+  }
+}
+
+.point-share-submission {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2rem;
+  p {
+    margin-bottom: 1rem;
+  }
+  @media @tablet {
+    p {
+      margin-top: 2rem;
+    }
+  }
+  .ant-input-number-input {
+    margin: 0;
+    font-size: 2.6rem;
+  }
+}
+
+
+
+//The styles above are from drew the styles below are from the Lambda Repo
 
 .point-share-container {
   height: 70vh;
