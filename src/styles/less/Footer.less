@@ -28,6 +28,11 @@ footer {
     padding: 0 2rem;
     margin: 0 auto;
     height: 100%;
+    @media @mobileLarge {
+      p {
+        font-size: 1rem;
+      }
+    }
   }
   .content,
   nav ul {
@@ -37,17 +42,27 @@ footer {
     justify-content: space-between;
   }
   .content {
-    @media tablet-below {
-
+    @media @tablet {
+      
       flex-direction: column;
       justify-content: center;
     }
   }
   nav ul {
+    
     li {
+      
       margin-left: 2.4rem;
+      @media @mobileLarge {
+        a {
+          font-size: .5rem;
+        }
+        font-size: .5rem;
+        margin-right: -25px;
+            }
     }
-    @media tablet-below {
+    @media @tablet {
+      
       padding: 0;
       li {
         margin: 0;
@@ -58,7 +73,7 @@ footer {
     }
   }
   p {
-    @media tablet-below {
+    @media @tablet {
       margin-bottom: 1.6rem;
     }
   }
