@@ -1,3 +1,8 @@
+@import 'global';
+@import 'mixins';
+@import 'variables';
+
+
 // wraps <main><Footer> to keep footer floored
 .footer-flex {
   display: flex;
@@ -10,11 +15,11 @@ footer {
   margin-top: 8rem;
   width: 100%;
   height: 8rem;
-  background: $black-brand;
+  background: @black-brand;
   * {
-    color: $white;
+    color: @white;
     font-size: 1.2rem;
-    font-family: $font-text-parent;
+    font-family: @font-text-parent;
     margin-bottom: 0;
     margin-top: 0;
   }
@@ -31,7 +36,7 @@ footer {
     justify-content: space-between;
   }
   .content {
-    @include tablet-below {
+    @media tablet-below {
       flex-direction: column;
       justify-content: center;
     }
@@ -40,7 +45,7 @@ footer {
     li {
       margin-left: 2.4rem;
     }
-    @include tablet-below {
+    @media tablet-below {
       padding: 0;
       li {
         margin: 0;
@@ -51,7 +56,7 @@ footer {
     }
   }
   p {
-    @include tablet-below {
+    @media tablet-below {
       margin-bottom: 1.6rem;
     }
   }
