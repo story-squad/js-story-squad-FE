@@ -1,10 +1,8 @@
 
-.viewer-container {
-  // removes duplicate pdf text
-  .page-component span {
-    display: none;
-  }
-}
+@import 'global.less';
+@import 'variables.less';
+@import 'mixins.less';
+
 
 .react-pdf__Page__textContent,
 .react-pdf__Page__annotations {
@@ -66,7 +64,7 @@
     font-size: 1rem;
     // border: 3px solid @header-nero;
   }
-  .finished-reading:disabled {
-    background-color: @suva-grey;
-  }
+  // .finished-reading:disabled {
+  //   // background-color: @suva-grey;
+  // }
 }
