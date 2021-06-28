@@ -66,6 +66,11 @@ const apiAuthPut = (endpoint, body, authHeader) => {
     headers: authHeader,
   });
 };
+const apiAuthDelete = (endpoint, authHeader) => {
+  return axios.delete(`${process.env.REACT_APP_API_URI}${endpoint}`, {
+    headers: authHeader,
+  });
+};
 
 const getProfileData = authState => {
   if (process.env.REACT_APP_ENV === 'development') {
@@ -155,6 +160,25 @@ const updateChildData = (authState, body, childId) => {
         console.log(error);
       });
     }
+  }
+};
+
+/**
+ * @param {Object} authState necessary for API functionality
+ * @param {Object} child object containing fields for Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
+ * @returns {number} child id for child that was just created
+ */
+const deleteChild = (authState, childId) => {
+  try {
+    return apiAuthDelete(`/child/${childId}`, getAuthHeader(authState)).then(
+      response => {
+        return response;
+      }
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+    });
   }
 };
 
@@ -612,5 +636,6 @@ export {
   postVotes,
   getGameVotes,
   getChildGraph,
+  deleteChild,
   reset,
 };
