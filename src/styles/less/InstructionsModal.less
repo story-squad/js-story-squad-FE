@@ -1,68 +1,99 @@
-.instructions-modal {
-  display: flex;
-  padding-top: 5%;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
+@import 'global.less';
+@import 'variables.less';
+@import 'mixins.less';
 
-  .ant-modal-content {
-    border: 2px solid #000000;
-    height: 55vh;
-    padding: 5%;
-    min-width: 100%;
+.modal-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background: @black-filter;
+}
 
-    .accept-button {
-      .orangeButtonStyle();
-      position: absolute;
-      right: 8%;
-      top: 82.33%;
-    }
-    .ant-modal-body {
-      p {
-        font-size: 3rem;
-      }
-    }
+.instructions-modal, .modal-inner {
+  position: absolute;
+  top: 12rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  h2 {
+    margin-bottom: 1.6rem;
+  }
+  button {
+    margin: 0 0 4rem;
   }
 }
 
-@media @tablet {
-  .instructions-modal {
-    .ant-modal-content {
-        .accept-button {
-          width: 120px;
-        }
-        .ant-modal-body {
-          p {
-            font-size: 2.2rem;
-          }
-        }
-    }
-  }
-}
+//The styles above are from drew the styles below are from the Lambda Repo
 
-@media @mobile {
-  .instructions-modal {
-    .ant-modal-content {
-        .accept-button {
-          width: 100px;
-        }
-        .ant-modal-body {
-          p {
-            font-size: 1.8rem;
-          }
-        }
-    }
-  }
-}
+// .instructions-modal {
+//   display: flex;
+//   padding-top: 5%;
+//   justify-content: center;
+//   align-items: center;
+//   box-sizing: border-box;
 
-@media @xs {
-  .instructions-modal {
-    .ant-modal-content {
-        .ant-modal-body {
-          p {
-            font-size: 1.4rem;
-          }
-        }
-    }
-  }
-}
+//   .ant-modal-content {
+//     border: 2px solid #000000;
+//     height: 55vh;
+//     padding: 5%;
+//     min-width: 100%;
+
+//     .accept-button {
+//       .orangeButtonStyle();
+//       position: absolute;
+//       right: 8%;
+//       top: 82.33%;
+//     }
+//     .ant-modal-body {
+//       p {
+//         font-size: 3rem;
+//       }
+//     }
+//   }
+// }
+
+// @media @tablet {
+//   .instructions-modal {
+//     .ant-modal-content {
+//         .accept-button {
+//           width: 120px;
+//         }
+//         .ant-modal-body {
+//           p {
+//             font-size: 2.2rem;
+//           }
+//         }
+//     }
+//   }
+// }
+
+// @media @mobile {
+//   .instructions-modal {
+//     .ant-modal-content {
+//         .accept-button {
+//           width: 100px;
+//         }
+//         .ant-modal-body {
+//           p {
+//             font-size: 1.8rem;
+//           }
+//         }
+//     }
+//   }
+// }
+
+// @media @xs {
+//   .instructions-modal {
+//     .ant-modal-content {
+//         .ant-modal-body {
+//           p {
+//             font-size: 1.4rem;
+//           }
+//         }
+//     }
+//   }
+// }

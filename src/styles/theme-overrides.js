@@ -6,12 +6,12 @@ module.exports = {
   // '@warning-color': '#ff313a', // from 'remove child' button
   // '@error-color': '#f5222d', // Un-changed
   // '@font-size-base': '18px', // Base font size
-  // '@heading-color': '#292929', // Header-Nero
+  '@heading-color': '#292929', // Header-Nero
   // '@text-color': '#5F5F5F', // Body Text-Dim Grey
   // '@text-color-secondary': '#949494', // Secondary Text-Suva Grey
   // '@disabled-color': 'rgba(0, 0, 0, 0.25)',
   '@border-radius-base': '10px', // Most used border-radius
-  // '@border-color-base': '#292929', // Header-Nero
+  '@border-color-base': '#292929', // Header-Nero
   // '@box-shadow-base':
   //   '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)',
   // '@body-background': '##444444', // main 'background' for desktop
