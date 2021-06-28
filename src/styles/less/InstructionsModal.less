@@ -3,6 +3,16 @@
 @import 'mixins.less';
 
 
+
+.modal-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background: @black-filter;
+}
+
 .instructions-modal, .modal-inner {
   position: absolute;
   top: 12rem;
@@ -18,6 +28,8 @@
     margin: 0 0 4rem;
   }
 }
+
+
 
 //The styles above are from drew the styles below are from the Lambda Repo
 
