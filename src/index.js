@@ -46,6 +46,7 @@ import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { TrophyRoom } from './components/pages/TrophyRoom';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 import { ParentContact } from './components/pages/ParentContact';
+import { EditPlayers } from './components/pages/EditPlayers';
 // Gameification Components
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
@@ -114,6 +115,12 @@ function App() {
               path="/parent/add-child"
               component={() => (
                 <AddChild LoadingComponent={ParentLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/parent/edit-players"
+              component={() => (
+                <EditPlayers LoadingComponent={ParentLoadingComponent} />
               )}
             />
             <SecureRoute
