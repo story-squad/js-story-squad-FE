@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Row, Col } from 'antd';
 import img2 from './img2.png';
-// import ParentNavTopBar from '../../common/ParentNavTopBar';
 
-const ParentContactContainer = () => {
+function RenderContactUs() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -28,7 +27,7 @@ const ParentContactContainer = () => {
     localStorage.setItem('data', JSON.stringify(item));
   });
   return (
-    <>
+    <div>
       <Layout className="parent-dashboard">
         {/* <ParentNavTopBar /> */}
         <div className='"site-card-border-less-wrapper"'>
@@ -115,8 +114,8 @@ const ParentContactContainer = () => {
           </Row>
         </div>
       </Layout>
-    </>
+    </div>
   );
-};
+}
 
-export default ParentContactContainer;
+export default RenderContactUs;
