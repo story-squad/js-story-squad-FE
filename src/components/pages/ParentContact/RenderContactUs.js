@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Row, Col } from 'antd';
 import img2 from './img2.png';
+import ParentDashboardBack from '../../common/ParentDashboardBack';
 
 function RenderContactUs() {
   const [name, setName] = useState('');
@@ -29,7 +30,9 @@ function RenderContactUs() {
   return (
     <div>
       <Layout className="parent-dashboard">
-        {/* <ParentNavTopBar /> */}
+        <div style={{ width: '66%', margin: '0 auto' }}>
+          <ParentDashboardBack />
+        </div>
         <div className='"site-card-border-less-wrapper"'>
           <Row className="card">
             <Col span={16}>
