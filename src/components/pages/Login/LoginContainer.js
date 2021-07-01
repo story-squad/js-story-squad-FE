@@ -44,7 +44,6 @@ const LoginContainer = ({ setCorsErrorModalOpen }) => {
     widget.renderEl(
       { el: '#sign-in-widget' },
       (res) => {
-        console.log(res);
         oktaAuth.handleLoginRedirect(res.tokens);
         /**
          * In this flow, the success handler will not be called because we redirect

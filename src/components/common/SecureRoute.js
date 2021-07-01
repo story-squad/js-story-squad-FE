@@ -13,7 +13,6 @@ import { connect } from 'react-redux';
  */
 const ReduxSecureRoute = props => {
   const { pathname } = useLocation();
-  console.log('[SECURE ROUTE]');
   // If parent OR child isn't logged in, redirect to profile modal
   return pathname === '/' || props.parentId || props.childId ? (
     <SecureRoute {...props} />

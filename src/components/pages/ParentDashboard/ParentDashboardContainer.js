@@ -26,7 +26,6 @@ function ParentDashboardContainer({ LoadingComponent, ...props }) {
       .then(info => {
         if (isSubscribed) {
           setUserInfo(info);
-          console.log('USER INFO', info);
         }
       })
       .catch(err => {
