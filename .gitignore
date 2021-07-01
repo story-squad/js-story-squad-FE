@@ -11,6 +11,13 @@
 # env
 .env
 
+# CSS
+/src/styles/less/*.css
+
+#package-lock.json
+
+/package-lock.json
+
 # logs
 *.log
 
