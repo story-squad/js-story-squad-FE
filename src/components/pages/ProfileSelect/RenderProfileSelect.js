@@ -71,17 +71,22 @@ const RenderProfileSelect = props => {
           .filter(user => user.type === 'Child')
           .map((user, i) => {
             return (
-              <div onClick={() => userSelect(user)}>
-                <Card
-                  type="primary"
-                  key={`${user.type}-${user.ID}-${i}`}
-                >
+              <div
+                onClick={() => userSelect(user)}
+                key={`${user.type}-${user.ID}-${i}`}
+              >
+                <Card type="primary" key={`${user.type}-${user.ID}-${i}`}>
                   <ChildAvatar
                     src={user.AvatarURL}
                     name={user.Name}
                     fontColor={'light'}
                   />
-                  <img className="lock-icon" src={lockIcon} alt="lock icon" style={{display: "block", margin: "0 auto"}}/>
+                  <img
+                    className="lock-icon"
+                    src={lockIcon}
+                    alt="lock icon"
+                    style={{ display: 'block', margin: '0 auto' }}
+                  />
                 </Card>
               </div>
             );
@@ -119,7 +124,7 @@ const RenderProfileSelect = props => {
                   },
                   () => ({
                     validator(rule, value) {
-                      const x = (value === selected.PIN);
+                      const x = value === selected.PIN;
                       if (x) {
                         return Promise.resolve();
                       }

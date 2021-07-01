@@ -22,7 +22,7 @@ const ChildCard = props => {
       </Layout>
       <Button
         type="primary"
-        size="large"
+        size="small"
         htmlType="submit"
         onClick={() => setVisible(true)}
       >
