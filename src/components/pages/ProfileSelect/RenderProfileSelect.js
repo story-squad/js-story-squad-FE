@@ -8,7 +8,7 @@ import lockIconDark from '../../../assets/icons/lock-2-dark.svg';
 
 import { getProfileData } from '../../../api';
 
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Card } from 'antd';
 import { ChildAvatar } from '../../common';
 
 const RenderProfileSelect = props => {
@@ -71,19 +71,19 @@ const RenderProfileSelect = props => {
           .filter(user => user.type === 'Child')
           .map((user, i) => {
             return (
-              <Button
-                type="primary"
-                size="large"
-                key={`${user.type}-${user.ID}-${i}`}
-                onClick={() => userSelect(user)}
-              >
-                <ChildAvatar
-                  src={user.AvatarURL}
-                  name={user.Name}
-                  fontColor={'light'}
-                />
-                <img className="lock-icon" src={lockIcon} alt="lock icon" />
-              </Button>
+              <div onClick={() => userSelect(user)}>
+                <Card
+                  type="primary"
+                  key={`${user.type}-${user.ID}-${i}`}
+                >
+                  <ChildAvatar
+                    src={user.AvatarURL}
+                    name={user.Name}
+                    fontColor={'light'}
+                  />
+                  <img className="lock-icon" src={lockIcon} alt="lock icon" style={{display: "block", margin: "0 auto"}}/>
+                </Card>
+              </div>
             );
           })}
       </div>

@@ -24,7 +24,7 @@ export const DrawingSub = props => {
         </p>
         <div className="upload-docs">
           <UploadDocs
-            uploadButtonText="Add more images"
+            uploadButtonText="Add image"
             uploadButtonClassname="uploadButton add-more-uploads"
             fileName="drawing"
             apiAxios={postNewDrawingSub}

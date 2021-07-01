@@ -69,14 +69,14 @@ const Header = ({ clearUsers }) => {
   return (
     <header>
       <h1>STORY SQUAD</h1>
-      {showNav() && (
+      {/* {showNav() && (
         <Dropdown
           overlay={<ChildMenu clearUsers={clearUsers} />}
           trigger={['click']}
         >
           <Button className="menu" icon={<MenuOutlined />} type="default" />
         </Dropdown>
-      )}
+      )} */}
     </header>
   );
 };
