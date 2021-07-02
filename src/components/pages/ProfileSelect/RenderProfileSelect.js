@@ -63,13 +63,60 @@ const RenderProfileSelect = props => {
     }
   };
 
+  const checkForChild = userInfo.filter(user => user.type === 'Child');
+
   return (
     <div className="profile-select full-page bg-dark">
       <h2 className="text-light">Choose User</h2>
       <div className="profile-list">
-        {userInfo
-          .filter(user => user.type === 'Child')
-          .map((user, i) => {
+        {checkForChild.length < 6 &&
+          checkForChild.map((user, i) => {
+            return (
+              <div
+                onClick={() => userSelect(user)}
+                key={`${user.type}-${user.ID}-${i}`}
+              >
+                <Card type="primary" key={`${user.type}-${user.ID}-${i}`}>
+                  <ChildAvatar
+                    src={user.AvatarURL}
+                    name={user.Name}
+                    fontColor={'light'}
+                  />
+                  <img
+                    className="lock-icon"
+                    src={lockIcon}
+                    alt="lock icon"
+                    style={{ display: 'block', margin: '0 auto' }}
+                  />
+                </Card>
+              </div>
+            );
+          })}
+        {checkForChild.length > 6 &&
+          checkForChild.map((user, i) => {
+            return (
+              <div
+                onClick={() => userSelect(user)}
+                key={`${user.type}-${user.ID}-${i}`}
+              >
+                <Card type="primary" key={`${user.type}-${user.ID}-${i}`}>
+                  <ChildAvatar
+                    src={user.AvatarURL}
+                    name={user.Name}
+                    fontColor={'light'}
+                  />
+                  <img
+                    className="lock-icon"
+                    src={lockIcon}
+                    alt="lock icon"
+                    style={{ display: 'block', margin: '0 auto' }}
+                  />
+                </Card>
+              </div>
+            );
+          })}
+        {checkForChild.length < 20 &&
+          checkForChild.map((user, i) => {
             return (
               <div
                 onClick={() => userSelect(user)}
