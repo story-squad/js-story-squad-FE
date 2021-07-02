@@ -1,0 +1,60 @@
+// @import '~antd/dist/antd.less';
+// @import '~antd/lib/style/themes/default.less';
+@import 'global.less';
+@import 'variables.less';
+
+.ProgressBox{
+    background-color:lightgray;
+    border-radius:14px;
+    height:45vh;
+    width:68vw;
+    margin:0 auto;
+    color:white;
+    font-size:15pt;
+    @media @xs {
+        height: 5vh;
+        width: 100vw;
+    }
+    @media @mobile {
+        height: 10vh;
+        width: 90vw;
+    }
+    @media @mobileLarge {
+        height: 30vh;
+        padding: 1%;
+        width: 87vw;
+        max-width: 85vw;
+    }
+
+    h4{
+        font-size:1.2rem;
+        margin:0 auto;
+        text-align: center;
+       
+    }
+
+}
+.ProgressContainer{
+    margin:3% auto;
+    font-family:'Open Sans';
+    @media @mobileLarge {
+        width:95vw;
+        margin:0 auto;
+    }
+    
+}
+.ProgressHeader{
+    @media @mobileLarge{
+        margin-left:5%;
+    }
+    h2{ 
+        font-weight:700;
+        text-transform: uppercase;
+        font-size:1.7rem;
+        @media @mobileLarge {
+            margin-top:2%;
+            padding:1%;
+            font-size: 1.3rem;
+        }
+    }
+}

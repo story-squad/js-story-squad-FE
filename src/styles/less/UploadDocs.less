@@ -1,0 +1,166 @@
+@import 'global.less';
+@import 'variables.less';
+@import 'mixins.less';
+
+.upload-docs {
+  // Upload Preview Styles
+  .ant-upload-list-picture-card {
+    // preview card
+    .ant-upload-list-item {
+      height: 8rem;
+      width: 32rem;
+      background-color: @white;
+      border: 2px dashed @gray-text;
+      border-radius: 8px;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+    // uploaded filename
+    .ant-upload-list-item-name {
+      padding-top: 1.7rem;
+      display: inline-block;
+      max-width: 16rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+    // uploaded image thumbnail
+    img {
+      max-width: 5.7rem;
+      border: 2px solid white;
+      border-radius: 50%;
+      margin: 0 2rem 0 0;
+      float: left;
+    }
+    // replace default antDesign trashcan
+    .ant-upload-list-item-card-actions-btn {
+      border: none;
+      background-color: @white;
+      background-image: url('../../assets/icons/trash-2.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 3rem;
+      height: 3rem;
+      margin: 1rem 0 0 1rem;
+      box-shadow: none;
+      span {
+        display: none;
+      }
+    }
+  }
+  // hide default preview icon
+  .no-preview-icon {
+    .anticon-eye {
+      display: none;
+    }
+  }
+  // Text and Button styles
+  p.small,
+  h2,
+  button.span {
+    color: @black-border;
+  }
+  p.small {
+    font-size: 2.6rem;
+  }
+  button {
+    height: 5rem;
+    span {
+      font-size: 2rem;
+    }
+  }
+  // Button shadows
+  // Fix background overflow
+  .uploadButton,
+  .ant-btn-primary,
+  .ant-btn-primary:disabled {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1),
+      inset 0px 1px 2px rgba(0, 0, 0, 0.05);
+    > * {
+      background-color: transparent;
+    }
+  }
+  // vertical align antd button text
+  .ant-btn-primary {
+    display: flex;
+    align-items: center;
+    span {
+      margin: 0;
+    }
+  }
+  // add more uploads button
+  .add-more-uploads {
+    background-color: transparent;
+    font-size: 2rem;
+    padding-left: 2.5rem;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 3rem;
+    background-image: url('../../assets/icons/plus.svg');
+    background-repeat: no-repeat;
+    background-size: 2.4rem;
+    background-position-y: 1.2rem;
+    background-position-x: 0rem;
+  }
+}
+// The upload component is using the antDesign modal
+// The styles are copied from SubmissionViewer modal
+.bottom{
+.ant-modal-root {
+  .ant-modal-wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    background: @gray;
+    .ant-modal-content {
+      background-color: transparent;
+      height: 100vh;
+      width: 100vw;
+      overflow-y: scroll;
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      img {
+        width: 100%;
+      }
+      button {
+        border: none;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        span.ant-modal-close-x {
+          color: @gray-text-light;
+          background-color: transparent;
+          svg {
+            height: 2rem;
+            width: 2rem;
+          }
+        }
+      }
+      .ant-modal-header {
+        font-size: 2rem;
+        padding: 0 1rem 0 0;
+        font-family: 'Atma', sans-serif;
+        color: @gray-text-light;
+        background-color: @gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .ant-modal-body {
+        width: 100%;
+      }
+    }
+  }
+}
+}

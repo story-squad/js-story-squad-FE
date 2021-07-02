@@ -259,7 +259,7 @@ const mockGetFaceoffsForMatchup = [
 const mockGetChild = {
   ID: 1,
   Name: 'Bettie',
-  PIN: '$2a$06$5CMkaSM1wvW7Bggy4DXwFurGaCibIWqNaYY6lxGviGWzIvyHFBagO',
+  PIN: '0000',
   IsDyslexic: false,
   ParentID: 1,
   CohortID: 1,
@@ -494,12 +494,12 @@ const mockGetProfileData = [
     ID: 1,
     Name: 'Gustave Hickle',
     Email: 'llama001@maildrop.cc',
-    PIN: '$2a$06$R38Pn.ck0j9gMhu3BAGO2eEB.VgRlnRcbNZO1MlgbasT2mJxORH1G',
+    PIN: '0000',
     type: 'Parent',
   },
   {
     ID: 1,
-    PIN: '$2a$06$tnwi15iC5abTG8pxbUrFsuv2Qn/IxIVZ2iGGRUXl.T6JT9lJjFwLG',
+    PIN: '0000',
     Name: 'April',
     IsDyslexic: true,
     GradeLevel: '7',
@@ -510,7 +510,7 @@ const mockGetProfileData = [
   },
   {
     ID: 1,
-    PIN: '$2a$06$Sg2T7pxrGMbrOf/aBXrSbOkKCzKmZVChFJtGiN2o1nTTrbxeFB7.2',
+    PIN: '0000',
     Name: 'Bettye',
     IsDyslexic: false,
     GradeLevel: '3',
@@ -521,7 +521,7 @@ const mockGetProfileData = [
   },
   {
     ID: 1,
-    PIN: '$2a$06$tFm9IcFHJl555K1uIrFjEOWOU3ARpy/ITunjjq20aIZiiGM7OHsEq',
+    PIN: '0000',
     Name: 'Ellis',
     IsDyslexic: true,
     GradeLevel: '3',
@@ -532,7 +532,7 @@ const mockGetProfileData = [
   },
   {
     ID: 1,
-    PIN: '$2a$06$Zy3X7KfwpNIHMGuC5rfz7.9rYFOZp962X/wZMBh4kvmK8XIhR4hEK',
+    PIN: '0000',
     Name: 'Paula',
     IsDyslexic: false,
     GradeLevel: '3',
@@ -543,7 +543,7 @@ const mockGetProfileData = [
   },
   {
     ID: 1,
-    PIN: '$2a$06$iD9NjMoR9BBA08djfOAapuX8qRrrk.eyeITdoDtFJ7I0pZBiJzb3i',
+    PIN: '0000',
     Name: 'Kayleigh',
     IsDyslexic: false,
     GradeLevel: '8',
@@ -554,7 +554,7 @@ const mockGetProfileData = [
   },
   {
     ID: 1,
-    PIN: '$2a$06$700N3jQQGvNbAvejh8ECceyqb/O5caf./w1an1ZlNhm1vRgxyByhu',
+    PIN: '0000',
     Name: 'Johnathon',
     IsDyslexic: false,
     GradeLevel: '6',
@@ -565,7 +565,7 @@ const mockGetProfileData = [
   },
   {
     ID: 1,
-    PIN: '$2a$06$Qcx5wEWphgH9Xf72uxdPd.npQIJE49DAkBXFhjjXksD2NzKnfM3PO',
+    PIN: '0000',
     Name: 'Leopold',
     IsDyslexic: true,
     GradeLevel: '7',
@@ -576,7 +576,7 @@ const mockGetProfileData = [
   },
   {
     ID: 1,
-    PIN: '$2a$06$hyLaWMEGQPOEB2HH4ZF16uedlNTmPXstPAL/GQYR/nty5eivg.G6W',
+    PIN: '0000',
     Name: 'Reinhold',
     IsDyslexic: true,
     GradeLevel: '4',

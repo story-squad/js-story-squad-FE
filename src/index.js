@@ -17,7 +17,9 @@ import {
 
 import { Security } from '@okta/okta-react';
 
-import './styles/index.scss';
+// import './styles/index.scss';
+import 'antd/dist/antd.less';
+import './styles/less/index.less';
 
 // Helpers
 import { config, genRestore, oktaAuth } from './utils/oktaConfig';
@@ -27,8 +29,8 @@ import SecureRoute from './components/common/SecureRoute';
 import {
   ChildLoadingComponent,
   ParentLoadingComponent,
-  Header,
-  // Footer,
+  // Header,
+  Footer,
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
@@ -38,11 +40,13 @@ import { MissionControl } from './components/pages/MissionControl';
 import { ProfileSelect } from './components/pages/ProfileSelect';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
+import { ParentFaq } from './components/pages/ParentFaq';
 import { ParentSettings } from './components/pages/FamilySettings';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { TrophyRoom } from './components/pages/TrophyRoom';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
-
+import { ParentContact } from './components/pages/ParentContact';
+import { EditPlayers } from './components/pages/EditPlayers';
 // Gameification Components
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
@@ -80,15 +84,24 @@ function App() {
   const [corsErrorModalOpen, setCorsErrorModalOpen] = React.useState(false);
 
   return (
-    <Security {...config} oktaAuth={oktaAuth} onAuthRequired={authHandler} restoreOriginalUri={restoreOriginalUri}>
-
-    {/* // <Security oktaAuth={oktaAuth} onAuthRequired={authHandler} restoreOriginalUri={restoreOriginalUri}> */}
-      <Header />
+    <Security
+      {...config}
+      oktaAuth={oktaAuth}
+      onAuthRequired={authHandler}
+      restoreOriginalUri={restoreOriginalUri}
+    >
+      {/* // <Security oktaAuth={oktaAuth} onAuthRequired={authHandler} restoreOriginalUri={restoreOriginalUri}> */}
+      
+      {/* TODO - figure out a way to get the header to render only on certain pages  */}
+      {/* <Header /> */}
       <div className="footer-flex">
         <main role="main">
           <Switch>
             {/* <Route path="/login" component={LoginContainer} /> */}
-            <Route path="/login" render={() => <LoginContainer {...{ setCorsErrorModalOpen }} />} />
+            <Route
+              path="/login"
+              render={() => <LoginContainer {...{ setCorsErrorModalOpen }} />}
+            />
 
             <Route path="/implicit/callback" component={LoginCallbackLoader} />
             {/* any of the routes you need secured should be registered as SecureRoutes */}
@@ -119,12 +132,33 @@ function App() {
               )}
             />
             <SecureRoute
+              path="/parent/edit-players"
+              component={() => (
+                <EditPlayers LoadingComponent={ParentLoadingComponent} />
+              )}
+            />
+            <SecureRoute
               path="/parent/dashboard"
               exact
               component={() => (
                 <ParentDashboard LoadingComponent={ParentLoadingComponent} />
               )}
             />
+            <SecureRoute
+              path="/parent/faq"
+              exact
+              component={() => (
+                <ParentFaq LoadingComponent={ParentLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/parent/contact"
+              exact
+              component={() => (
+                <ParentContact LoadingComponent={ParentLoadingComponent} />
+              )}
+            />
+            {/* I DONT THINK THIS IS NECCESSARY ANY MORE AS WE HAVE AN FAQ PAGE NOW - ROB */}
             <SecureRoute
               path="/parent/help"
               exact

@@ -41,7 +41,6 @@ function ProfileSelectContainer({ LoadingComponent, ...props }) {
       });
     return () => false;
   }, [memoAuthService]);
-
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
