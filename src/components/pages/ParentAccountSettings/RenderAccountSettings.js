@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Modal, Button, Form } from 'antd';
+import React, { useState, useEffect, useRef  } from 'react';
+import { Modal, Button, Form, Input  } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
@@ -8,9 +8,10 @@ import AccountSettingsForm from './AccountSettingsForm';
 
 function RenderAccountSettings() {
   const { authState } = useOktaAuth();
-
+  const formRef = useRef(null);
   const [unlock, setUnlock] = useState(true);
   const [error, setError] = useState(false);
+  const [selected, setSelected] = useState(null);
   const [userInfo, setUserInfo] = useState();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -26,8 +27,17 @@ function RenderAccountSettings() {
   }, [authState]);
 
   //These functions handle exiting the modal once it is activated
-  const handleOk = () => {
-    setIsModalVisible(false);
+  
+  const onFinish = () => {
+    setUnlock(!unlock);
+    setIsModalVisible(!isModalVisible);
+  };
+
+
+  const blurOnFourChars = e => {
+    if (e.target.value.length === 4) {
+      formRef.current.submit();
+    }
   };
   const handleCancel = () => {
     setIsModalVisible(false);
@@ -37,10 +47,7 @@ function RenderAccountSettings() {
   //It toggles the opacity and disabled prop of the editFormsAndButtonsContainer
   // allowing the user to see that they can now access the elements to update their account
 
-  const onFinish = value => {
-    setUnlock(!unlock);
-    setIsModalVisible(!isModalVisible);
-  };
+
   let pin;
 
   return (
@@ -59,26 +66,38 @@ function RenderAccountSettings() {
       >
         <h4>Enter Pin</h4>
         <Form name="verify" onFinish={onFinish} initialValues="">
-          <PinInput
-            length={4}
-            ref={p => (pin = p)}
-            initialValue=""
-            secret={true}
-            type="numeric"
-            inputMode="number"
-            focus={true}
-            style={{ padding: '10px', borderRadius: '20px' }}
-            inputStyle={{ borderRadius: '15px' }}
-            onComplete={(value, index) => {
-              const x = bc.compareSync(value, userInfo.PIN);
-              if (x == true) {
-                onFinish();
-              } else {
-                setError(true);
-              }
-            }}
-            autoSelect={true}
-          />
+        <Form.Item
+                name="pin"
+                validateTrigger="onSubmit"
+                hasFeedback
+                rules={[
+                  {
+                    required: true,
+                    message: 'Incorrect PIN',
+                  },
+                  () => ({
+                    validator(rule, value) {
+                      console.log(value, selected.PIN);
+                      const x = (value === selected.PIN);
+                      if (x) {
+                        return Promise.resolve();
+                      }
+                      return Promise.reject('Incorrect PIN');
+                    },
+                  }),
+                ]}
+              >
+                      <Input
+                  autoFocus={true}
+                  type="password"
+                  className="pin"
+                  maxLength={4}
+                  onChange={blurOnFourChars}
+                  autoComplete="off"
+                  size="large"
+                  placeholder="0000"
+                />
+              </Form.Item>
           <p style={error ? null : { display: 'none' }}>Incorrect PIN!</p>
         </Form>
       </Modal>
