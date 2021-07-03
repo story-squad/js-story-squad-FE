@@ -119,7 +119,6 @@ const RenderProfileSelect = props => {
                   },
                   () => ({
                     validator(rule, value) {
-                      console.log(value, selected.PIN);
                       const x = (value === selected.PIN);
                       if (x) {
                         return Promise.resolve();

@@ -135,7 +135,6 @@ export const UploadDocs = ({
             title={preview.title}
             footer={null}
             onCancel={handleCancel}
-            className="uploadModal"
           >
             <img
               alt="Preview of upload"

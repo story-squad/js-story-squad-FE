@@ -1,0 +1,42 @@
+.voting-container {
+  .submissions {
+    .submission {
+      padding-top: 4.4rem;
+      padding-bottom: 3.7rem;
+      button.secondary {
+        max-width: 20rem;
+        width: 100%;
+      }
+    }
+    .submission.selected {
+      padding-top: 3.7rem;
+      & > p {
+        color: $black-text;
+      }
+      & > button {
+        background: none;
+      }
+    }
+    .thumb-up {
+      width: 7rem;
+      margin: -2rem 1rem 0 0;
+    }
+  }
+  // voting page-specific styles for SubmissionViewer
+  .submission-viewer-button-container {
+    margin-bottom: 3rem;
+    @include tablet-above {
+      .submission-viewer-button {
+        width: 20rem;
+        height: 20rem;
+      }
+      .magnify-icon {
+        width: 6.6rem;
+        height: 6.6rem;
+        img {
+          width: 4rem;
+        }
+      }
+    }
+  }
+}

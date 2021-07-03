@@ -11,13 +11,6 @@
 # env
 .env
 
-# CSS
-/src/styles/less/*.css
-
-#package-lock.json
-
-/package-lock.json
-
 # logs
 *.log
 
@@ -34,5 +27,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-*.css
