@@ -1,17 +1,15 @@
 import React, { useState, useEffect, useRef  } from 'react';
-import { Modal, Button, Form, Input  } from 'antd';
+import { Modal, Form, Input  } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
-import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
-import PinInput from 'react-pin-input';
 import AccountSettingsForm from './AccountSettingsForm';
 
 function RenderAccountSettings() {
   const { authState } = useOktaAuth();
+  const [form] = Form.useForm();
   const formRef = useRef(null);
   const [unlock, setUnlock] = useState(true);
   const [error, setError] = useState(false);
-  const [selected, setSelected] = useState(null);
   const [userInfo, setUserInfo] = useState();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -41,6 +39,7 @@ function RenderAccountSettings() {
   };
   const handleCancel = () => {
     setIsModalVisible(false);
+    form.resetFields();
   };
 
   // this function runs once the user has inputted the correct pin.
@@ -65,7 +64,7 @@ function RenderAccountSettings() {
         }}
       >
         <h4>Enter Pin</h4>
-        <Form name="verify" onFinish={onFinish} initialValues="">
+        <Form name="verify" initialValues="" form={form} onFinish={onFinish} ref={formRef}>
         <Form.Item
                 name="pin"
                 validateTrigger="onSubmit"
@@ -77,8 +76,7 @@ function RenderAccountSettings() {
                   },
                   () => ({
                     validator(rule, value) {
-                      console.log(value, selected.PIN);
-                      const x = (value === selected.PIN);
+                      const x = (value === userInfo.PIN);
                       if (x) {
                         return Promise.resolve();
                       }

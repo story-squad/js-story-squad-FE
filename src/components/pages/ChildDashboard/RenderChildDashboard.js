@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
+import { Modal } from 'antd';
 import { modalInstructions } from '../../../utils/helpers';
 
 const RenderChildDashboard = () => {
@@ -13,7 +14,19 @@ const RenderChildDashboard = () => {
 
   return (
     <div className="child-dashboard">
-      <InstructionsModal
+         <Modal
+        visible={true}
+        //onCancel={handleCancel}
+        // afterClose={() => pin.clear()}
+        centered="true"
+        width="25vw"
+        bodyStyle={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+       <InstructionsModal
         visible={modalVisible}
         handleOk={() => {
           setModalVisible(false);
@@ -21,6 +34,8 @@ const RenderChildDashboard = () => {
         header={modalInstructions.childDash.header}
         instructions={modalInstructions.childDash.text}
       />
+      </Modal>
+      
       <nav>
         <button
           className="accept-mission content-box border h2 bg-green"

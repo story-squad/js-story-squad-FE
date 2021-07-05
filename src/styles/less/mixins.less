@@ -138,15 +138,15 @@
     min-height: 15rem;
     margin-bottom: 1.6rem;
   }
-  &.dark {
+  & .dark {
     background: @black-text;
     & > * {
       color: @white;
     }
   }
-  &.shaped {
+  & .shaped {
     clip-path: polygon(0.5% 0%, 95% 2%, 100% 94%, 0% 100%);
-    &.responsive-box {
+    & .responsive-box {
       @media @tablet-width {
         clip-path: none;
         max-width: unset;
@@ -163,7 +163,7 @@
     margin-left: 2rem;
     margin-right: 2rem;
   }
-  &.responsive-box {
+  & .responsive-box {
     @media @tablet-width {
       margin-top: -3.6rem;
       filter: none;
@@ -181,7 +181,7 @@
   & > * {
     max-width: 100%;
   }
-  &.grid-2-col {
+  & .grid-2-col {
     grid-template-columns: 40rem 40rem;
     column-gap: 4rem;
     @media @tablet-large-width {
@@ -189,7 +189,7 @@
       column-gap: none;
       row-gap: 2rem;
     }
-    &.grid-small {
+    & .grid-small {
       grid-template-columns: 34.6rem 34.6rem;
       column-gap: 2rem;
       @media @tablet-large-width {
@@ -197,20 +197,20 @@
       }
     }
   }
-  &.grid-3-col {
+  & .grid-3-col {
     grid-template-columns: 33% auto 33%;
   }
 }
 
 .flex {
   display: flex;
-  &.space-between {
+  & .space-between {
     justify-content: space-between;
   }
-  &.align-center {
+  & .align-center {
     align-items: center;
   }
-  &.tablet-large-column {
+  & .tablet-large-column {
     @media @tablet-large-width {
       flex-direction: column;
     }
@@ -315,17 +315,16 @@
 
 .margin-0 {
   margin: 0;
-  border: 4px solid red;
 }
 
 p {
-  &.small {
+  & .small {
     font-size: 1.8rem;
   }
 }
 
 h2, .h2 {
-  &.small {
+  & .small {
     font-size: 2.6rem;
     letter-spacing: 0.1125rem;
   }
@@ -333,31 +332,31 @@ h2, .h2 {
 
 p,
 button {
-  &.font-display {
+  & .font-display {
     letter-spacing: 0.1rem;
   }
 }
 
 p, span, li, button, input, label, a {
-  &.keep-font-size {
+  & .keep-font-size {
     font-size: 2.6rem !important;
   }
 }
 
 button {
-  &.secondary {
+  & .secondary {
     color: @black-text;
     background: @white;
     border-color: @aqua-light;
   }
-  &.small {
+  & .small {
     height: 5rem;
     font-size: 2rem;
     span {
       font-size: 2rem;
     }
   }
-  &.btn-modal {
+  & .btn-modal {
     background: @white;
     color: @black-text;
     font-family: @font-display;
@@ -368,10 +367,10 @@ button {
       letter-spacing: 0.1125rem;
     }
   }
-  &.full-width {
+  & .full-width {
     width: 100%;
   }
-  &.min-width {
+  & .min-width {
     min-width: 20rem;
   }
 }
@@ -454,42 +453,3 @@ button {
     -0.1rem 0.1rem @color, -0.1rem 0 @color;
 }
 
-//THE FOLLOWING IS FROM DREWS MIXINS>SCSS FILE AND HAS YET TO BE REFACTORED / MAY NOT BE NEEDED
-
-// breakpoints
-
-// @mixin tablet-below {
-//   @media (max-width: $tablet-width) {
-//     @content;
-//   }
-// }
-
-// @mixin tablet-below-wh {
-//   @media (max-width: $tablet-width), (max-height: $tablet-height) {
-//     @content;
-//   }
-// }
-
-// @mixin tablet-large-below {
-//   @media (max-width: $tablet-large-width) {
-//     @content;
-//   }
-// }
-
-// @mixin tablet-above {
-//   @media (min-width: $tablet-width) {
-//     @content;
-//   }
-// }
-
-// @mixin tablet-above-wh {
-//   @media (min-width: $tablet-width) and (min-height: $tablet-height) {
-//     @content;
-//   }
-// }
-
-// @mixin mobile-below {
-//   @media (max-width: $mobile-width) {
-//     @content;
-//   }
-// }
