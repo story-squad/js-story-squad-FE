@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
+  "engines": {
+    "node": "14.17.2",
+    "npm": "6.14.10"
+  },
   "repository": "github:Lambda-School-Labs/labs-spa-starter",
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
