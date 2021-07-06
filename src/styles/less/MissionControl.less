@@ -1,0 +1,310 @@
+// @import '~antd/dist/antd.less';
+// @import '~antd/lib/style/themes/default.less';
+@import 'global.less';
+@import 'variables.less';
+@import 'mixins.less';
+
+.mission-container {
+  .mission-header {
+    margin: 4.4rem 0;
+  }
+}
+
+.mission-steps {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  @media @tablet {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+  & * {
+    font-size: 3.6rem;
+    font-weight: 600;
+    @media @tablet {
+      font-size: 2.2rem;
+    }
+  }
+  .off {
+    filter: opacity(0.5);
+  }
+  .step-number {
+    margin: 0 auto;
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      color: @black-text;
+      margin: 0 0 -0.2rem;
+      @media @tablet {
+        font-size: 2.8rem;
+      }
+    }
+  }
+  .step-text {
+    margin-bottom: 2rem;
+  }
+}
+
+.content-box-mission {
+  width: 100%;
+  min-height: 53rem;
+  margin-top: -20rem;
+  padding-top: 20rem;
+  padding: 20rem 2rem 0;
+  margin-bottom: 10rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  @media @tablet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -2.4rem;
+    padding-top: 2.4rem;
+    margin-bottom: 0;
+  }
+  div {
+    max-width: 40rem;
+  }
+  .grid-left {
+    justify-self: end;
+    align-self: end;
+    @media @tablet {
+      align-self: center;
+    }
+  }
+  .grid-right {
+    padding-bottom: 2rem;
+  }
+  img.drawing-img {
+    margin-right: 6rem;
+    @media @tablet {
+      margin-right: 0;
+    }
+  }
+}
+
+
+//The styles above are from drew the styles below are from the Lambda Repo
+
+
+// .mission-container {
+//   height: 70vh;
+// }
+
+// .hero h1 {
+//   @media (orientation: landscape) {
+//   font-size: 4rem;
+//   }
+// }
+// .main-row {
+//   height: 100%;
+//   @media @mobile {
+//     height: 80%;
+//   }
+// }
+
+// .read .image-and-text-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   @media (orientation: landscape) {
+//     margin-top: 2%;
+//   }
+//   @media @tablet {
+//     margin-top: 5%;
+//   }
+//   @media @mobile {
+//     margin-top: 3%;
+//     width: 10%;
+//   }
+// }
+
+// .write .image-and-text-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-end;
+//   @media @mobile {
+//     width: 20%;
+//   }
+//   @media (orientation: landscape) {
+//     margin-top: 1%;
+//   }
+// }
+
+// .draw .image-and-text-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   @media @mobile {
+//     width: 20%;
+//   }
+// }
+
+// .read {
+//   background: #b5d33d;
+//   opacity: 75%;
+//   cursor: pointer;
+//   position: relative;
+//   @media @mobile {
+//     height: 44%;
+//   }
+// }
+
+// .read:hover {
+//   opacity: 100%;
+
+//   .mission-control-text {
+//     font-size: 4.5rem;
+//   }
+// }
+
+// .checking-box {
+//   position: absolute;
+//   top: 20px;
+//   right: 20px;
+//   cursor: not-allowed;
+//   @media @tablet, @mobile {
+//     height: 20px;
+//     width: 20px;
+//     top: 10px;
+//     right: 10px;
+//   }
+// }
+
+// .ant-checkbox-inner,
+// .ant-checkbox-inner:after {
+//   @check-width: 50px;
+//   @check-height: 50px;
+// }
+
+// .read,
+// .mission-control-text {
+//   font-family: 'bangers';
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+//   font-size: 4rem;
+//   color: #292929;
+// }
+
+// .draw {
+//   background: #fed23f;
+//   opacity: 75%;
+//   height: 50%;
+//   position: relative;
+//   cursor: pointer;
+//   @media @mobile {
+//     height: 69%;
+//   }
+// }
+
+// .draw-not {
+//   background: @suva-grey;
+//   height: 50%;
+//   position: relative;
+//   cursor: pointer;
+// }
+
+// .draw,
+// .draw-not,
+// .mission-control-text {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+// }
+
+// .draw:hover {
+//   opacity: 100%;
+
+//   .mission-control-text {
+//     font-size: 4.5rem;
+//   }
+// }
+
+// .write {
+//   background: #eb7d5b;
+//   opacity: 75%;
+//   height: 50%;
+//   position: relative;
+//   cursor: pointer;
+//   @media @mobile {
+//     height: 68%;
+//   }
+//   @media (orientation: landscape) {
+//     height: 54%;
+//   }
+// }
+
+// .write-not {
+//   background: @suva-grey;
+//   height: 50%;
+//   position: relative;
+//   cursor: pointer;
+// }
+
+// .write,
+// .write-not,
+// .mission-control-text {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+// }
+
+// .write:hover {
+//   opacity: 100%;
+
+//   .mission-control-text {
+//     font-size: 4.5rem;
+//   }
+// }
+
+// .WritingandDrawingIcon {
+//   @media @tablet, @mobile {
+//     max-width: 60%;
+//     max-height: 60%;
+//     margin-right: 7%;
+//     margin-top: 5%;
+//   }
+// }
+
+// p.mission-control-text {
+//   margin-bottom: 0;
+//   width: 100%;
+// }
+
+// .mission-control-text a {
+//   color: #292929;
+// }
+
+// .checking-box {
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: flex-start;
+// }
+
+// .ant-col.read,
+// .ant-row.write,
+// .ant-row.draw {
+//   border: 5px solid #292929;
+// }
+
+// .squad-up {
+//   font-family: Nunito;
+//   font-style: 2rem;
+//   z-index: 1;
+//   padding: 0 3%;
+//   position: fixed;
+//   bottom: 15px;
+//   right: 15px;
+//   background-color: #eb7d5b;
+//   color: #fff;
+//   border: 3px solid #000000;
+//   border-radius: 10px;
+// }
