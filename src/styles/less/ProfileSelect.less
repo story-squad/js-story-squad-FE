@@ -5,6 +5,8 @@
 
 .profile-select {
   h2 {
+    font-family: @font-display;
+    text-align: center;
     margin: 4rem 0 6.4rem 0;
     font-size: 6rem;
     @media @tablet {
@@ -16,7 +18,7 @@
     grid-template-columns: 12rem 12rem 12rem;
     justify-content: center;
     justify-items: center;
-    gap: 4rem 10rem;
+    gap: 4rem 4rem;
     margin-bottom: 6.4rem;
     @media @tablet {
       display: flex;
@@ -41,15 +43,19 @@
       margin-right: 1rem;
     }
   }
-  .child-img {
-    width: 80%;
+  .ant-card {
+    background: none;
   }
 }
 
 .pin-modal {
+  .content-box {
+    filter: none;
+  }
   .pin-modal-content {
     min-height: unset;
-    position: relative;
+    background: #F5F5F5;
+    border-radius: 16px;
     h2 {
       font-size: 1.8rem;
       font-weight: 700;
@@ -76,7 +82,7 @@
       margin: 0;
       padding: 0;
       top: 1.6rem;
-      right: 1.6rem;
+      left: 85%;
     }
     .button-cancel {
       width: unset;

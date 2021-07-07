@@ -72,70 +72,47 @@ const RenderProfileSelect = props => {
         {checkForChild.length < 6 &&
           checkForChild.map((user, i) => {
             return (
-              <div
-                onClick={() => userSelect(user)}
+              <Card
+                type="primary"
                 key={`${user.type}-${user.ID}-${i}`}
+                onClick={() => userSelect(user)}
               >
-                <Card type="primary" key={`${user.type}-${user.ID}-${i}`}>
-                  <ChildAvatar
-                    src={user.AvatarURL}
-                    name={user.Name}
-                    fontColor={'light'}
-                  />
-                  <img
-                    className="lock-icon"
-                    src={lockIcon}
-                    alt="lock icon"
-                    style={{ display: 'block', margin: '0 auto' }}
-                  />
-                </Card>
-              </div>
+                <ChildAvatar
+                  src={user.AvatarURL}
+                  name={user.Name}
+                  fontColor={'light'}
+                />
+                <img
+                  className="lock-icon"
+                  src={lockIcon}
+                  alt="lock icon"
+                  style={{ display: 'block', margin: '0 auto' }}
+                />
+              </Card>
             );
           })}
         {checkForChild.length > 6 &&
           checkForChild.map((user, i) => {
             return (
-              <div
-                onClick={() => userSelect(user)}
+              <Card
+                bordered={false}
+                style={{ backgroundColor: 'none' }}
+                type="primary"
                 key={`${user.type}-${user.ID}-${i}`}
-              >
-                <Card type="primary" key={`${user.type}-${user.ID}-${i}`}>
-                  <ChildAvatar
-                    src={user.AvatarURL}
-                    name={user.Name}
-                    fontColor={'light'}
-                  />
-                  <img
-                    className="lock-icon"
-                    src={lockIcon}
-                    alt="lock icon"
-                    style={{ display: 'block', margin: '0 auto' }}
-                  />
-                </Card>
-              </div>
-            );
-          })}
-        {checkForChild.length < 20 &&
-          checkForChild.map((user, i) => {
-            return (
-              <div
                 onClick={() => userSelect(user)}
-                key={`${user.type}-${user.ID}-${i}`}
               >
-                <Card type="primary" key={`${user.type}-${user.ID}-${i}`}>
-                  <ChildAvatar
-                    src={user.AvatarURL}
-                    name={user.Name}
-                    fontColor={'light'}
-                  />
-                  <img
-                    className="lock-icon"
-                    src={lockIcon}
-                    alt="lock icon"
-                    style={{ display: 'block', margin: '0 auto' }}
-                  />
-                </Card>
-              </div>
+                <ChildAvatar
+                  src={user.AvatarURL}
+                  name={user.Name}
+                  fontColor={'dark'}
+                />
+                <img
+                  className="lock-icon"
+                  src={lockIcon}
+                  alt="lock icon"
+                  style={{ display: 'block', margin: '0 auto' }}
+                />
+              </Card>
             );
           })}
       </div>
@@ -156,10 +133,10 @@ const RenderProfileSelect = props => {
         <div className="pin-modal modal-container parent-styles">
           <div className="pin-modal-content modal-inner content-box">
             <Form form={form} onFinish={onFinish} ref={formRef}>
+              <h2>Enter PIN</h2>
               <button className="button-close" onClick={backToProfiles}>
                 <img src={closeIcon} alt="close" />
               </button>
-              <h2>Enter PIN</h2>
               <Form.Item
                 name="pin"
                 validateTrigger="onSubmit"
