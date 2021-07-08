@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { Layout } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import { getProfileData } from '../../../api';
-import ParentNavTopBar from '../../common/ParentNavTop';
-// import NewProgressCharts from '../../common/ProgressChart';
 import NewChildCard from '../../common/ChildCard';
 import AccountSettings from '../ParentAccountSettings/AccountSettingsContainer';
 import { connect } from 'react-redux';
@@ -24,7 +22,6 @@ const RenderNewParentDashboard = props => {
   return (
     <div>
       <Layout className="newparent-dashboard">
-        <ParentNavTopBar />
         <Layout>
           <div className="ProgressContainer">
             <div className="ProgressHeader center-content">
@@ -32,7 +29,6 @@ const RenderNewParentDashboard = props => {
             </div>
             <div className="ProgressBoxContainer">
               <div className="ProgressBox">
-                {/* <NewProgressCharts /> */}
                 <br />
                 <h4>Progress Chart will be displayed here!</h4>
                 <br />

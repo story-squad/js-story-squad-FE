@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
-import ParentNavTopBar from '../../common/ParentNavTop';
 import RenderEditPlayers from './RenderEditPlayers';
 import { parent } from '../../../state/actions';
 
@@ -40,7 +39,6 @@ function EditPlayersContainer({ LoadingComponent, ...props }) {
 
   return (
     <>
-      <ParentNavTopBar />
       {authState.isAuthenticated && !userInfo && (
         <LoadingComponent message="Loading..." />
       )}
