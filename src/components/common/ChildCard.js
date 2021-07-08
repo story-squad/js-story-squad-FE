@@ -22,7 +22,7 @@ function NewChildCard(props) {
   };
 
   return (
-    <div clanssName="newChildCardContainer">
+    <div classsName="newChildCardContainer">
       <div className="Players">
         <div className="playheading">
           <h2>Players</h2>
