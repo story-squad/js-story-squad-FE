@@ -29,7 +29,7 @@ import SecureRoute from './components/common/SecureRoute';
 import {
   ChildLoadingComponent,
   ParentLoadingComponent,
-  // Header,
+  Header,
   Footer,
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
@@ -93,7 +93,7 @@ function App() {
       {/* // <Security oktaAuth={oktaAuth} onAuthRequired={authHandler} restoreOriginalUri={restoreOriginalUri}> */}
       
       {/* TODO - figure out a way to get the header to render only on certain pages  */}
-      {/* <Header /> */}
+      <Header/>
       <div className="footer-flex">
         <main role="main">
           <Switch>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef  } from 'react';
 import { Modal, Button, Form, Input  } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
-import bc from 'bcryptjs';
+
 import { getProfileData } from '../../../api';
-import PinInput from 'react-pin-input';
+
 import AccountSettingsForm from './AccountSettingsForm';
 
 function RenderAccountSettings() {
