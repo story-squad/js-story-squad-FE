@@ -3,9 +3,18 @@
 @import 'global.less';
 @import 'variables.less';
 
-
 .child-dashboard {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    button {
+      margin: 2rem auto;
+    }
+  }
   .accept-mission {
     background-image: url('../../assets/images/child_dashboard_images/acceptmission-back.svg');
     background-size: 120%;
@@ -13,4 +22,3 @@
     background-position-y: 45%;
   }
 }
-

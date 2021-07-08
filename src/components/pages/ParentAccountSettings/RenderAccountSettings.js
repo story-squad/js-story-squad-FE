@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef  } from 'react';
-import { Modal, Form, Input  } from 'antd';
+
+import React, { useState, useEffect, useRef } from 'react';
+import { Modal, Button, Form, Input } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import { getProfileData } from '../../../api';
 import AccountSettingsForm from './AccountSettingsForm';
@@ -24,12 +25,11 @@ function RenderAccountSettings() {
     });
   }, [authState]);
   //These functions handle exiting the modal once it is activated
-  
+
   const onFinish = () => {
     setUnlock(!unlock);
     setIsModalVisible(!isModalVisible);
   };
-
 
   const blurOnFourChars = e => {
     if (e.target.value.length === 4) {
@@ -40,7 +40,7 @@ function RenderAccountSettings() {
     setIsModalVisible(false);
     form.resetFields();
   };
-  
+
 
   return (
     <div className="accountSettingsContainer">

@@ -7,7 +7,9 @@ import { tasks } from '../../../state/actions';
 
 export const WritingSub = props => {
   // TODO add event to occur after submit if needed, or remove
-  const handleSubmit = () => null;
+  const handleSubmit = () => {
+    console.log('writing submit');
+  };
 
   return (
     <div className="content-box-mission bg-yellow">

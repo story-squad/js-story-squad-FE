@@ -6,7 +6,9 @@ import { tasks } from '../../../state/actions';
 
 export const DrawingSub = props => {
   // TODO add event to occur after submit if needed, or remove
-  const handleSubmit = () => null;
+  const handleSubmit = () => {
+    console.log('drawing submit');
+  };
 
   return (
     <div className="content-box-mission bg-orange">
@@ -24,7 +26,7 @@ export const DrawingSub = props => {
         </p>
         <div className="upload-docs">
           <UploadDocs
-            uploadButtonText="Add more images"
+            uploadButtonText="Add image"
             uploadButtonClassname="uploadButton add-more-uploads"
             fileName="drawing"
             apiAxios={postNewDrawingSub}

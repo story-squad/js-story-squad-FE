@@ -468,8 +468,7 @@ const mockUpdateChildData = {
   config: {
     url: 'http://localhost:8000/child/1',
     method: 'put',
-    data:
-      '{"Name":"Bettie","ParentID":1,"CohortID":1,"GradeLevel":"4","VotesRemaining":9}',
+    data: '{"Name":"Bettie","ParentID":1,"CohortID":1,"GradeLevel":"4","VotesRemaining":9}',
     headers: {
       Accept: 'application/json, text/plain, */*',
       'Content-Type': 'application/json;charset=utf-8',
@@ -590,8 +589,7 @@ const mockGetProfileData = [
 const mockGetStory = {
   ID: 4,
   Title: 'Zoom & Boom (Week4, Chapters 7 & 8)',
-  URL:
-    'https://storysquad-main.s3.amazonaws.com/pdfs/Story+Squad+Week+1+Content+%2B+CCS.pdf',
+  URL: 'https://storysquad-main.s3.amazonaws.com/pdfs/Story+Squad+Week+1+Content+%2B+CCS.pdf',
   WritingPrompt:
     'Finn and Gilberts mom was a secret spy. What was her last adventure?',
   DrawingPrompt:
