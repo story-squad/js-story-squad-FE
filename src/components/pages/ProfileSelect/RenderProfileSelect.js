@@ -8,7 +8,7 @@ import lockIconDark from '../../../assets/icons/lock-2-dark.svg';
 
 import { getProfileData } from '../../../api';
 
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Card } from 'antd';
 import { ChildAvatar } from '../../common';
 
 const RenderProfileSelect = props => {
@@ -63,17 +63,17 @@ const RenderProfileSelect = props => {
     }
   };
 
+  const checkForChild = userInfo.filter(user => user.type === 'Child');
+
   return (
     <div className="profile-select full-page bg-dark">
       <h2 className="text-light">Choose User</h2>
       <div className="profile-list">
-        {userInfo
-          .filter(user => user.type === 'Child')
-          .map((user, i) => {
+        {checkForChild.length < 6 &&
+          checkForChild.map((user, i) => {
             return (
-              <Button
+              <Card
                 type="primary"
-                size="large"
                 key={`${user.type}-${user.ID}-${i}`}
                 onClick={() => userSelect(user)}
               >
@@ -82,8 +82,37 @@ const RenderProfileSelect = props => {
                   name={user.Name}
                   fontColor={'light'}
                 />
-                <img className="lock-icon" src={lockIcon} alt="lock icon" />
-              </Button>
+                <img
+                  className="lock-icon"
+                  src={lockIcon}
+                  alt="lock icon"
+                  style={{ display: 'block', margin: '0 auto' }}
+                />
+              </Card>
+            );
+          })}
+        {checkForChild.length > 6 &&
+          checkForChild.map((user, i) => {
+            return (
+              <Card
+                bordered={false}
+                style={{ backgroundColor: 'none' }}
+                type="primary"
+                key={`${user.type}-${user.ID}-${i}`}
+                onClick={() => userSelect(user)}
+              >
+                <ChildAvatar
+                  src={user.AvatarURL}
+                  name={user.Name}
+                  fontColor={'dark'}
+                />
+                <img
+                  className="lock-icon"
+                  src={lockIcon}
+                  alt="lock icon"
+                  style={{ display: 'block', margin: '0 auto' }}
+                />
+              </Card>
             );
           })}
       </div>
@@ -104,10 +133,10 @@ const RenderProfileSelect = props => {
         <div className="pin-modal modal-container parent-styles">
           <div className="pin-modal-content modal-inner content-box">
             <Form form={form} onFinish={onFinish} ref={formRef}>
+              <h2>Enter PIN</h2>
               <button className="button-close" onClick={backToProfiles}>
                 <img src={closeIcon} alt="close" />
               </button>
-              <h2>Enter PIN</h2>
               <Form.Item
                 name="pin"
                 validateTrigger="onSubmit"
@@ -120,7 +149,7 @@ const RenderProfileSelect = props => {
                   () => ({
                     validator(rule, value) {
                       console.log(value, selected.PIN);
-                      const x = (value === selected.PIN);
+                      const x = value === selected.PIN;
                       if (x) {
                         return Promise.resolve();
                       }

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef  } from 'react';
-import { Modal, Button, Form, Input  } from 'antd';
+import React, { useState, useEffect, useRef } from 'react';
+import { Modal, Button, Form, Input } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
@@ -27,12 +27,11 @@ function RenderAccountSettings() {
   }, [authState]);
 
   //These functions handle exiting the modal once it is activated
-  
+
   const onFinish = () => {
     setUnlock(!unlock);
     setIsModalVisible(!isModalVisible);
   };
-
 
   const blurOnFourChars = e => {
     if (e.target.value.length === 4) {
@@ -46,7 +45,6 @@ function RenderAccountSettings() {
   // this function runs once the user has inputted the correct pin.
   //It toggles the opacity and disabled prop of the editFormsAndButtonsContainer
   // allowing the user to see that they can now access the elements to update their account
-
 
   let pin;
 
@@ -66,38 +64,38 @@ function RenderAccountSettings() {
       >
         <h4>Enter Pin</h4>
         <Form name="verify" onFinish={onFinish} initialValues="">
-        <Form.Item
-                name="pin"
-                validateTrigger="onSubmit"
-                hasFeedback
-                rules={[
-                  {
-                    required: true,
-                    message: 'Incorrect PIN',
-                  },
-                  () => ({
-                    validator(rule, value) {
-                      console.log(value, selected.PIN);
-                      const x = (value === selected.PIN);
-                      if (x) {
-                        return Promise.resolve();
-                      }
-                      return Promise.reject('Incorrect PIN');
-                    },
-                  }),
-                ]}
-              >
-                      <Input
-                  autoFocus={true}
-                  type="password"
-                  className="pin"
-                  maxLength={4}
-                  onChange={blurOnFourChars}
-                  autoComplete="off"
-                  size="large"
-                  placeholder="0000"
-                />
-              </Form.Item>
+          <Form.Item
+            name="pin"
+            validateTrigger="onSubmit"
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: 'Incorrect PIN',
+              },
+              () => ({
+                validator(rule, value) {
+                  console.log(value, selected.PIN);
+                  const x = value === selected.PIN;
+                  if (x) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject('Incorrect PIN');
+                },
+              }),
+            ]}
+          >
+            <Input
+              autoFocus={true}
+              type="password"
+              className="pin"
+              maxLength={4}
+              onChange={blurOnFourChars}
+              autoComplete="off"
+              size="large"
+              placeholder="0000"
+            />
+          </Form.Item>
           <p style={error ? null : { display: 'none' }}>Incorrect PIN!</p>
         </Form>
       </Modal>
