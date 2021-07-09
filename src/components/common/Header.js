@@ -21,7 +21,7 @@ function HeaderRenderer(props) {
   }, [location]);
   return (
     <div>
-      <Header></Header>
+      <Header/>
     </div>
   );
 }

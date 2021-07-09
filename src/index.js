@@ -92,7 +92,7 @@ function App() {
     >
       {/* // <Security oktaAuth={oktaAuth} onAuthRequired={authHandler} restoreOriginalUri={restoreOriginalUri}> */}
 
-      {/* TODO - figure out a way to get the header to render only on certain pages  */}
+      
       <Header />
       <div className="footer-flex">
         <main role="main">
