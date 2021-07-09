@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 import { Link, useHistory } from 'react-router-dom';
@@ -53,10 +52,10 @@ const ChildMenu = props => {
   );
 };
 
-const Header = ({ clearUsers }) => {
+const Hamburger = ({ clearUsers }) => {
   const history = useHistory();
 
-  // hide navigation (hamburger) menu on certain pages
+  // hide navigation menu on certain pages
   const showNav = () => {
     switch (history.location.pathname) {
       case '':
@@ -84,4 +83,4 @@ const Header = ({ clearUsers }) => {
 
 export default connect(state => ({ team: state.team }), {
   clearUsers: global.clearUsers,
-})(Header);
+})(Hamburger);

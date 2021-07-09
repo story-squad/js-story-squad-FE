@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import ChildHeader from './Childnav';
+import ChildHeader from './ChildNav';
 import ParentNavTop from './ParentNavTop';
 
 function HeaderRenderer(props) {
@@ -12,7 +12,7 @@ function HeaderRenderer(props) {
     }
     //if a login specific header is desired it can be implemented here
     //  else if (location.pathname === '/login') {
-    //   setHeader('div');
+    //   setHeader();
     // }
     //if more sections of the app need distinct headers add them here:
     else {
