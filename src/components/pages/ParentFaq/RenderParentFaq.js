@@ -1,5 +1,4 @@
 import React from 'react';
-import ParentNavTopBar from '../../common/ParentNavTop';
 import ParentDashboardBack from '../../common/ParentDashboardBack';
 import { Collapse, Layout, Card, Row, Col } from 'antd';
 import { CaretRightOutlined } from '@ant-design/icons';
@@ -9,7 +8,6 @@ const { Panel } = Collapse;
 function RenderParentFaq(props) {
   return (
     <div>
-      <ParentNavTopBar />
       <Layout className="parent-dashboard">
         <div className='"site-card-border-less-wrapper"'>
           <div style={{ width: '66%', margin: '0 auto' }}>
