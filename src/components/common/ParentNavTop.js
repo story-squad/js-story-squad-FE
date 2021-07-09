@@ -4,8 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
-
 import parent_avatar from '../../assets/icons/parent_avatar.svg';
+
 
 const { Title } = Typography;
 

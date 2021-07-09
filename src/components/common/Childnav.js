@@ -6,6 +6,7 @@ import { MenuOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
 import { useOktaAuth } from '@okta/okta-react';
+import ChildAvatar from './ChildAvatar';
 
 const ChildMenu = props => {
   const { push } = useHistory();
@@ -54,7 +55,6 @@ const ChildMenu = props => {
 
 const Hamburger = ({ clearUsers }) => {
   const history = useHistory();
-
   // hide navigation menu on certain pages
   const showNav = () => {
     switch (history.location.pathname) {
@@ -65,17 +65,31 @@ const Hamburger = ({ clearUsers }) => {
         return true;
     }
   };
-
+console.log(ChildAvatar);
   return (
     <header>
       <h1>STORY SQUAD</h1>
       {showNav() && (
         <Dropdown
           overlay={<ChildMenu clearUsers={clearUsers} />}
-          trigger={['click']}
+          trigger={['hover']}
+          placement="bottomCenter"
         >
-          <Button className="menu" icon={<MenuOutlined />} type="default" />
+          <a
+            className="parent-avatar"
+            data-testid="parent-avatar"
+            onClick={e => e.preventDefault()}
+          >
+            <img src={ChildAvatar} alt="Dropdown Menu" />
+          </a>
         </Dropdown>
+
+        // <Dropdown
+        //   overlay={<ChildMenu clearUsers={clearUsers} />}
+        //   trigger={['click']}
+        // >
+        //   <Button className="menu" icon={<MenuOutlined />} type="default" />
+        // </Dropdown>
       )}
     </header>
   );
