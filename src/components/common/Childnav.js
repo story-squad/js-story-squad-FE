@@ -26,19 +26,19 @@ const ChildHeader = props => {
 
   return (
     <Menu >
-      <Menu.Item key="1" onClick={push('/child/dashboard')}>
+      <Menu.Item key="1" onClick={() => push('/parent/dashboard')}>
         Home
       </Menu.Item>
-      <Menu.Item key="2" onClick={push('/child/dashboard')}>
+      <Menu.Item key="2" onClick={() => push('/child/dashboard')}>
         Help
       </Menu.Item>
       <Menu.Item key="3" onClick={switchUsers}>
         Change User
       </Menu.Item>
-      <Menu.Item key="4" onClick={push('/child/join')}>
+      <Menu.Item key="4" onClick={() => push('/child/join')}>
         Squad
       </Menu.Item>
-      <Menu.Item key="5" onClick={push('/child/match-up')}>
+      <Menu.Item key="5" onClick={() => push('/child/match-up')}>
         Match Up
       </Menu.Item>
       <Menu.Item key="6" onClick={() => authService.logout()}>
