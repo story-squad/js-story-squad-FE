@@ -31,7 +31,7 @@ const ChildHeader = props => {
       <Menu.Item key="2" onClick={() => push('/child/help')}>
         Help
       </Menu.Item>
-      <Menu.Item key="3" onClick={() => push('/profile-select')}>
+      <Menu.Item key="3" onClick={switchUsers}>
         Change User
       </Menu.Item>
       <Menu.Item key="4" onClick={() => push('/child/join')}>
