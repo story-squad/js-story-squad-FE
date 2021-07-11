@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Modal, Button, Form, Input } from 'antd';
+import { Modal, Form, Input } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import { getProfileData } from '../../../api';
 import AccountSettingsForm from './AccountSettingsForm';
@@ -10,22 +10,20 @@ function RenderAccountSettings() {
   const formRef = useRef(null);
   const [form] = Form.useForm();
   const [unlock, setUnlock] = useState(true);
-  const [error, setError] = useState(false);
   const [userInfo, setUserInfo] = useState();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   //Grab the parents userInfo so we can validate their information (pin)
   useEffect(() => {
     getProfileData(authState).then(res => {
-      res.map(user => {
-        if (user.type == 'Parent') {
+      res.forEach(user => {
+        if (user.type === 'Parent') {
           setUserInfo(user);
         }
       });
     });
   }, [authState]);
   //These functions handle exiting the modal once it is activated
-
   const onFinish = () => {
     setUnlock(!unlock);
     setIsModalVisible(!isModalVisible);
@@ -88,7 +86,6 @@ function RenderAccountSettings() {
                   placeholder="0000"
                 />
               </Form.Item>
-          <p style={error ? null : { display: 'none' }}>Incorrect PIN!</p>
         </Form>
       </Modal>
 

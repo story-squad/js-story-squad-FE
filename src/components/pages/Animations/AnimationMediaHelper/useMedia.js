@@ -14,6 +14,7 @@ const useMedia = query => {
     media.addEventListener(Animation, listener);
 
     return () => media.removeEventListener(Animation, listener);
+    // eslint-disable-next-line
   }, [query]);
 
   // publish value for render

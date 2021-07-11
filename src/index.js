@@ -81,6 +81,7 @@ function App() {
     // It'll automatically check if userToken is available and push back to login if not :)
     history.push('/login');
   };
+  // eslint-disable-next-line
   const [corsErrorModalOpen, setCorsErrorModalOpen] = React.useState(false);
 
   return (
@@ -212,7 +213,7 @@ function App() {
             <Route component={NotFoundPage} />
           </Switch>
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </Security>
   );

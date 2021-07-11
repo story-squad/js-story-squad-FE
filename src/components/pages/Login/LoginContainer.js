@@ -8,6 +8,7 @@ const LoginContainer = ({ setCorsErrorModalOpen }) => {
   const { oktaAuth } = useOktaAuth();
 
   useEffect(() => {
+    // eslint-disable-next-line
     const { pkce, issuer, clientId, redirectUri, scopes, useInteractionCode } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
 
@@ -64,6 +65,7 @@ const LoginContainer = ({ setCorsErrorModalOpen }) => {
     });
 
     return () => widget.remove();
+    // eslint-disable-next-line
   }, [oktaAuth]);
 
   return (

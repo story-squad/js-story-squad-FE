@@ -61,6 +61,7 @@ const RenderMissionControl = props => {
   useEffect(() => {
     setInstructionText(getMissionControlText(currentStep()));
     setShowModal(true);
+    // eslint-disable-next-line
   }, [hasRead, hasWritten, hasDrawn]);
 
   // dim/highlight each step number using className
