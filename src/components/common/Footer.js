@@ -8,16 +8,16 @@ const Footer = () => {
         <nav>
           <ul>
             <li>
-              <a href="">Contact</a>
+              <a href="http://localhost:3000/">Contact</a>
             </li>
             <li>
-              <a href="">FAQs</a>
+              <a href="http://localhost:3000/">FAQs</a>
             </li>
             <li>
-              <a href="">Privacy</a>
+              <a href="http://localhost:3000/">Privacy</a>
             </li>
             <li>
-              <a href="">Terms</a>
+              <a href="http://localhost:3000/">Terms</a>
             </li>
           </ul>
         </nav>

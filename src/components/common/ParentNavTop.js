@@ -64,6 +64,7 @@ const ParentNavTopBar = props => {
             className="parent-avatar"
             data-testid="parent-avatar"
             onClick={e => e.preventDefault()}
+            href="http://localhost:3000/"
           >
             <img src={parent_avatar} alt="Dropdown Menu" />
           </a>
