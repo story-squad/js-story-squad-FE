@@ -47,13 +47,6 @@ const ChildHeader = props => {
   );
 };
 
-let lucky = 23;
-
-lucky = '23';
-
-console.log(typeof lucky);
-
-
 const ChildNav = props => {
   
   const history = useHistory();
