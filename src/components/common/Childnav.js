@@ -25,10 +25,10 @@ const ChildHeader = props => {
 
   return (
     <Menu >
-      <Menu.Item key="1" onClick={() => push('/parent/dashboard')}>
+      <Menu.Item key="1" onClick={() => push('/')}>
         Home
       </Menu.Item>
-      <Menu.Item key="2" onClick={() => push('/child/dashboard')}>
+      <Menu.Item key="2" onClick={() => push('/child/help')}>
         Help
       </Menu.Item>
       <Menu.Item key="3" onClick={switchUsers}>
@@ -46,6 +46,13 @@ const ChildHeader = props => {
     </Menu>
   );
 };
+
+let lucky = 23;
+
+lucky = '23';
+
+console.log(typeof lucky);
+
 
 const ChildNav = props => {
   

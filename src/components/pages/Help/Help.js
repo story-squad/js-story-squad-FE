@@ -1,15 +1,12 @@
 import React from 'react';
 import { Layout, Typography } from 'antd';
 
-import ParentNavSider from '../../common/ParentNavSider';
-
 const { Title } = Typography;
 
 const Help = props => {
   return (
     <>
       <Layout className="parent-dashboard">
-        <ParentNavSider selected="help" />
         <Layout>
           <div className="Contact">
             <Title
