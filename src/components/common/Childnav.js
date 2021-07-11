@@ -31,7 +31,7 @@ const ChildHeader = props => {
       <Menu.Item key="2" onClick={() => push('/child/help')}>
         Help
       </Menu.Item>
-      <Menu.Item key="3" onClick={switchUsers}>
+      <Menu.Item key="3" onClick={() => push('/profile-select')}>
         Change User
       </Menu.Item>
       <Menu.Item key="4" onClick={() => push('/child/join')}>
@@ -74,6 +74,7 @@ const ChildNav = props => {
               className="parent-avatar"
               data-testid="parent-avatar"
               onClick={e => e.preventDefault()}
+              href={'/'}
             >
               <img src={parent_avatar} alt="Dropdown Menu" />
             </a>
