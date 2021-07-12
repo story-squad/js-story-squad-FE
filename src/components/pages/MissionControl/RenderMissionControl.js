@@ -61,6 +61,11 @@ const RenderMissionControl = props => {
   useEffect(() => {
     setInstructionText(getMissionControlText(currentStep()));
     setShowModal(true);
+    // TODO: adding this line to disable linting for this dep array,
+    // where it is suggesting we include 'currentStep'.
+    // We might want to revisit at a later date
+    // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [hasRead, hasWritten, hasDrawn]);
 
   // dim/highlight each step number using className

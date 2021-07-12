@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import {
   getCohorts,
@@ -60,6 +60,7 @@ const ModerationTools = () => {
   };
 
   //ERRLOG: no data in response
+  // eslint-disable-next-line
   const voteSeq = () => {
     setVoteSeq().then(res => {
       console.log(res);
@@ -67,6 +68,7 @@ const ModerationTools = () => {
   };
 
   // Moderator can begin the results stage
+  // eslint-disable-next-line
   const results = () => {
     setResults().then(res => {
       console.log(res);

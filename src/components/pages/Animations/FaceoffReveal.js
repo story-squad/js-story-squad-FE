@@ -32,7 +32,8 @@ const FaceoffReveal = props => {
   let screenWidth = window.screen.width;
 
   // instantiating dynamic variables for display
-  let topAvatarHeight = 0;
+  
+  // let topAvatarHeight = 0;
   let crashAvatarHeight = 0;
   let crashImageSize = 0;
   let winnerImageSize = 0;
@@ -44,7 +45,7 @@ const FaceoffReveal = props => {
   let userName = dynamicInfo.Submission1.Name;
   let opponentName = dynamicInfo.Submission2.Name;
   console.log('userName', userName, opponentName);
-  let winnerUserName = 'CAT-LADY';
+  // let winnerUserName = 'CAT-LADY';
   let pointsAwarded = dynamicInfo.Points;
   // dynamicBackgroundColor will be determined by which matchup is being animated--
   // we may need to create a variable / key-value pair to track which faceoff is occurring
@@ -64,19 +65,20 @@ const FaceoffReveal = props => {
 
   //  determine dynamic sizing
   if (screenWidth < 601) {
-    topAvatarHeight = 60;
+    // topAvatarHeight = 60;
     crashAvatarHeight = 80;
     crashImageSize = 210;
     winnerImageSize = 110;
     vsHeight = 30;
   } else if (screenWidth < 992) {
-    topAvatarHeight = 80;
+    // topAvatarHeight = 80;
     crashAvatarHeight = 117;
     crashImageSize = 180;
     winnerImageSize = 150;
     vsHeight = 40;
   } else {
-    topAvatarHeight = 60;
+    
+    // topAvatarHeight = 60;
     crashAvatarHeight = 180;
     crashImageSize = 130;
     winnerImageSize = 180;

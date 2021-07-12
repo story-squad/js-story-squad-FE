@@ -8,6 +8,10 @@ const LoginContainer = ({ setCorsErrorModalOpen }) => {
   const { oktaAuth } = useOktaAuth();
 
   useEffect(() => {
+    // Proof Key for Code Exchange as known as PKCE, is a key for preventing 
+    // malicious attacks and securely performing code authorization flow.
+    // It is destructured below but not used. 
+    // eslint-disable-next-line
     const { pkce, issuer, clientId, redirectUri, scopes, useInteractionCode } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
 
@@ -64,6 +68,10 @@ const LoginContainer = ({ setCorsErrorModalOpen }) => {
     });
 
     return () => widget.remove();
+    // TODO: adding this line to disable linting for this dep array, 
+    // where it is suggesting we include 'setCorsErrorModalOpen'. 
+    // We might want to revisit at a later date
+    // eslint-disable-next-line
   }, [oktaAuth]);
 
   return (
