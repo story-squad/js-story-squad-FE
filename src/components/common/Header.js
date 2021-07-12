@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import ChildHeader from './ChildNav';
+import ChildHeader from './Childnav';
 import ParentNavTop from './ParentNavTop';
 
 function HeaderRenderer(props) {

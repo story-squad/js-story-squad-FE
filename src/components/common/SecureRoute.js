@@ -1,6 +1,6 @@
 // istanbul ignore file 
 import React from 'react';
-import { SecureRoute } from '@okta/okta-react';
+import { SecureRoute, useOktaAuth } from '@okta/okta-react';
 import { Redirect, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -12,9 +12,12 @@ import { connect } from 'react-redux';
  * we reroute the user back to the profile selection page.
  */
 const ReduxSecureRoute = props => {
+    const { oktaAuth } = useOktaAuth();
+
+  const authService = oktaAuth;
   const { pathname } = useLocation();
   // If parent OR child isn't logged in, redirect to profile modal
-  return pathname === '/' || props.parentId || props.childId ? (
+  return pathname === '/' || authService.isAuthenticated === true ? (
     <SecureRoute {...props} />
   ) : (
     <Redirect to="/" />
@@ -28,3 +31,5 @@ export default connect(
   }),
   {}
 )(ReduxSecureRoute);
+
+

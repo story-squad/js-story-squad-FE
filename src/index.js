@@ -158,19 +158,18 @@ function App() {
                 <ParentContact LoadingComponent={ParentLoadingComponent} />
               )}
             />
-            {/* I DONT THINK THIS IS NECCESSARY ANY MORE AS WE HAVE AN FAQ PAGE NOW - ROB */}
-            <SecureRoute
-              path="/parent/help"
-              exact
-              component={() => (
-                <Help LoadingComponent={ParentLoadingComponent} />
-              )}
-            />
             <SecureRoute
               path="/parent/settings"
               exact
               component={() => (
                 <ParentSettings LoadingComponent={ParentLoadingComponent} />
+              )}
+            />
+            <SecureRoute
+              path="/child/help"
+              exact
+              component={() => (
+                <Help LoadingComponent={ChildLoadingComponent} />
               )}
             />
             <SecureRoute
