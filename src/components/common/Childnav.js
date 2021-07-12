@@ -3,12 +3,11 @@ import { Menu, Dropdown } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
-import { global } from '../../state/actions';
+import { child, global } from '../../state/actions';
 import parent_avatar from '../../assets/icons/parent_avatar.svg';
 
-
 const ChildHeader = props => {
-    const { push } = useHistory();
+  const { push } = useHistory();
   // const { authService } = useOktaAuth(); // https://github.com/okta/okta-react/blob/okta-react-4.0.0/README.md#migrating-from-3x-to-4x
   // augment "oktaAuth" to behave like "authService"
   const { authState, oktaAuth } = useOktaAuth();
@@ -24,7 +23,7 @@ const ChildHeader = props => {
   };
 
   return (
-    <Menu >
+    <Menu>
       <Menu.Item key="1" onClick={() => push('/')}>
         Home
       </Menu.Item>
@@ -34,12 +33,16 @@ const ChildHeader = props => {
       <Menu.Item key="3" onClick={switchUsers}>
         Change User
       </Menu.Item>
-      <Menu.Item key="4" onClick={() => push('/child/join')}>
-        Squad
-      </Menu.Item>
-      <Menu.Item key="5" onClick={() => push('/child/match-up')}>
-        Match Up
-      </Menu.Item>
+      {props.child.id !== null && (
+        <>
+          <Menu.Item key="4" onClick={() => push('/child/join')}>
+            Squad
+          </Menu.Item>
+          <Menu.Item key="5" onClick={() => push('/child/match-up')}>
+            Match Up
+          </Menu.Item>
+        </>
+      )};
       <Menu.Item key="6" onClick={() => authService.logout()}>
         Logout
       </Menu.Item>
@@ -48,7 +51,6 @@ const ChildHeader = props => {
 };
 
 const ChildNav = props => {
-  
   const history = useHistory();
   // hide navigation menu on certain pages
   const showNav = () => {
@@ -66,7 +68,9 @@ const ChildNav = props => {
       {showNav() && (
         <nav>
           <Dropdown
-            overlay={<ChildHeader clearUsers={props.clearUsers} />}
+            overlay={
+              <ChildHeader clearUsers={props.clearUsers} child={props.child} />
+            }
             trigger={['hover']}
             placement="bottomCenter"
           >
@@ -85,6 +89,6 @@ const ChildNav = props => {
   );
 };
 
-export default connect(state => ({ team: state.team }), {
+export default connect(state => ({ child: state.child }), {
   clearUsers: global.clearUsers,
 })(ChildNav);
