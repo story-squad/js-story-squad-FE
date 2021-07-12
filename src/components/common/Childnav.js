@@ -33,6 +33,7 @@ const ChildHeader = props => {
       <Menu.Item key="3" onClick={switchUsers}>
         Change User
       </Menu.Item>
+{/* we dont want these menu items to be available unless the child has selected their profile */}
       {props.child.id !== null && (
         <>
           <Menu.Item key="4" onClick={() => push('/child/join')}>
