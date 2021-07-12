@@ -81,6 +81,10 @@ function App() {
     // It'll automatically check if userToken is available and push back to login if not :)
     history.push('/login');
   };
+  // corsErrorModalOpen is instantiated here but is then passed down to the login 
+  // component and is called there. Right now this is causing a warning in the terminal
+  // it may be the case that this state object may want to be instantiated
+  // in the login component to avoid this error.
   // eslint-disable-next-line
   const [corsErrorModalOpen, setCorsErrorModalOpen] = React.useState(false);
 

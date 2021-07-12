@@ -36,7 +36,10 @@ const usePointShare = () => {
   const calculatePointsLeft = () => {
     return totalPoints - pointsUsed();
   };
-// eslint-disable-next-line
+// TODO: adding this line to disable linting for this dep array, 
+// where it is suggesting we include 'calculatePointsLeft'. 
+// We might want to revisit at a later date
+// eslint-disable-next-line 
   const pointsLeft = useMemo(() => calculatePointsLeft(), [points]);
 
   return [pointsLeft, points, handleUpdatePoints];
